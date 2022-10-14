@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/botao-de-menu.png</file>
+    <file>icons/casa.png</file>
+    <file>icons/configuracoes.png</file>
+    <file>icons/help.png</file>
+    <file>icons/livro.png</file>
+    <file>icons/LOGO.png</file>
+    <file>icons/logout.png</file>
+    <file>icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png</file>
+    <file>icons/simbolo-de-setas-duplas-para-a-esquerda.png</file>
+  </qresource>
+</RCC>
