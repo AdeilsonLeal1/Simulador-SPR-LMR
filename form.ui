@@ -172,7 +172,7 @@ background-color: rgb(53, 132, 228);</string>
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>188</width>
+              <width>187</width>
               <height>640</height>
              </rect>
             </property>
@@ -343,7 +343,7 @@ background-color: rgb(53, 132, 228);</string>
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>188</width>
+              <width>187</width>
               <height>640</height>
              </rect>
             </property>
@@ -771,13 +771,13 @@ QPushButton:hover{
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -785,6 +785,7 @@ QPushButton:hover{
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1138,13 +1139,13 @@ QPushButton:hover{
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -1152,6 +1153,7 @@ QPushButton:hover{
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -1208,13 +1210,13 @@ QPushButton:hover{
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>140</width>
+                    <width>170</width>
                     <height>20</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>140</width>
+                    <width>170</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -1222,6 +1224,7 @@ QPushButton:hover{
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
