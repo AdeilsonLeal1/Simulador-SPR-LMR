@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/prism.png</file>
+    <file>icons/Plano_de_fundo/Plano_de_Fundo1.png</file>
+    <file>icons/Plano_de_fundo/Plano_de_Fundo2.png</file>
     <file>icons/botao-de-menu.png</file>
     <file>icons/casa.png</file>
     <file>icons/configuracoes.png</file>
