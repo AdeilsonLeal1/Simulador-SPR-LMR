@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1020</width>
-    <height>780</height>
+    <height>774</height>
    </rect>
   </property>
   <property name="font">
@@ -43,14 +43,14 @@ background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo2.png);</string
     <widget class="QFrame" name="left_container">
      <property name="maximumSize">
       <size>
-       <width>250</width>
+       <width>0</width>
        <height>16777215</height>
       </size>
      </property>
      <property name="styleSheet">
       <string notr="true">border: none;
-    color: rgb(255, 255, 255);
-background-color: rgb(185, 185, 185,80);
+color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);
 
 
 </string>
@@ -80,8 +80,7 @@ background-color: rgb(185, 185, 185,80);
       <item>
        <widget class="QFrame" name="frame">
         <property name="styleSheet">
-         <string notr="true">    color: rgb(255, 255, 255);
-background-color: rgb(185, 185, 185,80);</string>
+         <string notr="true">background-color: rgb(0, 85, 127);</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -136,7 +135,6 @@ background-color: rgb(185, 185, 185,80);</string>
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>16</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -154,8 +152,8 @@ background-color: rgb(185, 185, 185,80);</string>
       <item>
        <widget class="QFrame" name="frame_2">
         <property name="styleSheet">
-         <string notr="true">    color: rgb(255, 255, 255);
-background-color: rgb(185, 185, 185,100);</string>
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(160, 160, 160,50);</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -187,6 +185,9 @@ background-color: rgb(185, 185, 185,100);</string>
              <pointsize>14</pointsize>
             </font>
            </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="styleSheet">
             <string notr="true">QPushButton{
 
@@ -197,8 +198,6 @@ background: transparent;
 QPushButton:hover{
 
 	background-color: rgb(153, 193, 241);
-
-
 }</string>
            </property>
            <property name="currentIndex">
@@ -209,8 +208,8 @@ QPushButton:hover{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>218</width>
-              <height>638</height>
+              <width>122</width>
+              <height>615</height>
              </rect>
             </property>
             <property name="font">
@@ -392,8 +391,8 @@ QPushButton:hover{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>188</width>
-              <height>640</height>
+              <width>100</width>
+              <height>30</height>
              </rect>
             </property>
             <attribute name="label">
@@ -460,7 +459,7 @@ QPushButton:hover{
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(59, 209, 225,25);
+         <string notr="true">background:transparent;
 
 </string>
         </property>
@@ -544,7 +543,6 @@ QPushButton:hover{
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>22</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -604,7 +602,7 @@ QPushButton:hover{
            <widget class="QWidget" name="home_pg">
             <property name="styleSheet">
              <string notr="true">QFrame{
-border-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);
+	background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);
 }
 </string>
             </property>
@@ -625,209 +623,227 @@ border-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);
               <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="label_4">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
+              <widget class="QFrame" name="frame_5">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
                </property>
-               <property name="styleSheet">
-                <string notr="true"/>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
                </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/icons/icons/LOGO.png&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-style:italic;&quot;&gt;Welcome to&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:72pt;&quot;&gt;Sim-LMR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_5">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item>
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>13</width>
-                   <height>24</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="start_btn">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>200</width>
-                   <height>70</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>300</width>
-                   <height>70</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>15</pointsize>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-
-background-color: rgb(26, 95, 180);
-border-color: rgb(31, 78, 121);
-border-style: outset;
-border-width: 5px;
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <widget class="QLabel" name="label_4">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
+                  </property>
+                  <property name="text">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;:/icons/icons/LOGO.png&quot;/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:22pt; font-style:italic;&quot;&gt;Welcome to&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:72pt;&quot;&gt;Sim-LMR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <spacer name="horizontalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>13</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="start_btn">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>70</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>300</width>
+                      <height>70</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semibold</family>
+                      <pointsize>15</pointsize>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 95, 180);
+	border-color: rgb(31, 78, 121);
+	border-style: outset;
+	border-width: 5px;
+	border-radius:10px;
 }
 
 QPushButton:hover{
-	
+	color: rgb(255, 255, 255);
 	background-color: rgb(0, 210, 0);
 	border-color: rgb(0, 170, 0);
 
 }
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Start Simulation</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="icons_.qrc">
-                   <normaloff>:/icons/icons/configuracoes.png</normaloff>:/icons/icons/configuracoes.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>30</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>13</width>
-                   <height>24</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="exit_btn">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>200</width>
-                   <height>70</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>300</width>
-                   <height>70</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>15</pointsize>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-
-background-color: rgb(26, 95, 180);
-border-color: rgb(31, 78, 121);
-border-style: outset;
-border-width: 5px;
+                    </property>
+                    <property name="text">
+                     <string>Start Simulation</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="icons_.qrc">
+                      <normaloff>:/icons/icons/configuracoes.png</normaloff>:/icons/icons/configuracoes.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>13</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="exit_btn">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>70</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>300</width>
+                      <height>70</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semibold</family>
+                      <pointsize>15</pointsize>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+	color: rgb(255, 255, 255);
+	background-color: rgb(26, 95, 180);
+	border-color: rgb(31, 78, 121);
+	border-style: outset;
+	border-width: 5px;
+	border-radius:10px;
 }
 
 QPushButton:hover{
-	
+	color: rgb(255, 255, 255);
 	background-color: rgb(255, 55, 55);
 	
 	border-color: rgb(255, 25, 25);
 
 }
 </string>
-                 </property>
-                 <property name="text">
-                  <string>Exit</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="icons_.qrc">
-                   <normaloff>:/icons/icons/logout.png</normaloff>:/icons/icons/logout.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>30</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="autoRepeatDelay">
-                  <number>1000</number>
-                 </property>
-                 <property name="autoRepeatInterval">
-                  <number>200</number>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>13</width>
-                   <height>24</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Maximum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>80</height>
-                </size>
-               </property>
-              </spacer>
+                    </property>
+                    <property name="text">
+                     <string>Exit</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="icons_.qrc">
+                      <normaloff>:/icons/icons/logout.png</normaloff>:/icons/icons/logout.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="autoRepeatDelay">
+                     <number>1000</number>
+                    </property>
+                    <property name="autoRepeatInterval">
+                     <number>200</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>13</width>
+                      <height>24</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Maximum</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>80</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -868,7 +884,7 @@ QPushButton:hover{
                  <number>8</number>
                 </property>
                 <property name="leftMargin">
-                 <number>8</number>
+                 <number>20</number>
                 </property>
                 <property name="topMargin">
                  <number>8</number>
@@ -963,7 +979,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1362,13 +1377,13 @@ QPushButton:pressed{
                  <number>5</number>
                 </property>
                 <property name="leftMargin">
-                 <number>10</number>
+                 <number>20</number>
                 </property>
                 <property name="topMargin">
                  <number>6</number>
                 </property>
                 <property name="rightMargin">
-                 <number>10</number>
+                 <number>20</number>
                 </property>
                 <property name="bottomMargin">
                  <number>6</number>
@@ -1503,7 +1518,7 @@ background: transparent;</string>
                  <number>8</number>
                 </property>
                 <property name="leftMargin">
-                 <number>8</number>
+                 <number>20</number>
                 </property>
                 <property name="topMargin">
                  <number>8</number>
@@ -1589,7 +1604,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -1663,7 +1677,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1972,13 +1985,13 @@ QPushButton:pressed{
                  <number>5</number>
                 </property>
                 <property name="leftMargin">
-                 <number>10</number>
+                 <number>20</number>
                 </property>
                 <property name="topMargin">
                  <number>6</number>
                 </property>
                 <property name="rightMargin">
-                 <number>10</number>
+                 <number>20</number>
                 </property>
                 <property name="bottomMargin">
                  <number>6</number>
@@ -2088,7 +2101,8 @@ QPushButton:pressed{
        <widget class="QFrame" name="footer_frame">
         <property name="styleSheet">
          <string notr="true">
-background-color: rgb(59, 209, 225,25);
+background-color: rgba(59, 209, 225,25);
+color: rgb(255, 255, 255);
 </string>
         </property>
         <property name="frameShape">
@@ -2123,7 +2137,9 @@ background-color: rgb(59, 209, 225,25);
            </property>
            <property name="font">
             <font>
-             <pointsize>14</pointsize>
+             <family>Segoe UI Semibold</family>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -2141,23 +2157,7 @@ background-color: rgb(59, 209, 225,25);
  </widget>
  <resources>
   <include location="icons_.qrc"/>
+  <include location="../../../../../.designer/backup/icons_.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>exit_btn</sender>
-   <signal>clicked()</signal>
-   <receiver>Widget</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>793</x>
-     <y>613</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>509</x>
-     <y>389</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
