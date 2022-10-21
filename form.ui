@@ -41,6 +41,12 @@ background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo2.png);</string
    </property>
    <item>
     <widget class="QFrame" name="left_container">
+     <property name="minimumSize">
+      <size>
+       <width>250</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
        <width>0</width>
@@ -135,6 +141,7 @@ background-color: rgb(255, 255, 255);
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>16</pointsize>
+             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -208,8 +215,8 @@ QPushButton:hover{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>122</width>
-              <height>615</height>
+              <width>250</width>
+              <height>632</height>
              </rect>
             </property>
             <property name="font">
@@ -391,8 +398,8 @@ QPushButton:hover{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>100</width>
-              <height>30</height>
+              <width>250</width>
+              <height>632</height>
              </rect>
             </property>
             <attribute name="label">
@@ -543,6 +550,7 @@ QPushButton:hover{
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>22</pointsize>
+             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -689,6 +697,7 @@ QPushButton:hover{
                      <font>
                       <family>Segoe UI Semibold</family>
                       <pointsize>15</pointsize>
+                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -765,6 +774,7 @@ QPushButton:hover{
                      <font>
                       <family>Segoe UI Semibold</family>
                       <pointsize>15</pointsize>
+                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -979,6 +989,7 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1168,7 +1179,7 @@ background: transparent;</string>
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
 
-background-color: rgb(226, 240, 217);
+	background-color: rgb(255, 255, 255);
 border-color: rgb(31, 78, 121);
 border-radius: 30px;
 border-style: outset;
@@ -1244,7 +1255,7 @@ QPushButton:pressed{
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
 
-background-color: rgb(226, 240, 217);
+	background-color: rgb(255, 255, 255);
 border-color: rgb(31, 78, 121);
 border-radius: 30px;
 border-style: outset;
@@ -1265,7 +1276,17 @@ QPushButton:pressed{
 }</string>
                   </property>
                   <property name="text">
-                   <string>PushButton</string>
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="icons_.qrc">
+                    <normaloff>:/icons/icons/fiber.png</normaloff>:/icons/icons/fiber.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>280</width>
+                    <height>280</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
@@ -1604,6 +1625,7 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -1677,6 +1699,7 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1826,7 +1849,7 @@ background: transparent;</string>
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
 
-background-color: rgb(226, 240, 217);
+	background-color: rgb(255, 255, 255);
 border-color: rgb(31, 78, 121);
 border-radius: 30px;
 border-style: outset;
@@ -1892,7 +1915,7 @@ QPushButton:pressed{
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
 
-background-color: rgb(226, 240, 217);
+	background-color: rgb(255, 255, 255);
 border-color: rgb(31, 78, 121);
 border-radius: 30px;
 border-style: outset;
@@ -2139,6 +2162,7 @@ color: rgb(255, 255, 255);
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>12</pointsize>
+             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -2157,7 +2181,23 @@ color: rgb(255, 255, 255);
  </widget>
  <resources>
   <include location="icons_.qrc"/>
-  <include location="../../../../../.designer/backup/icons_.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>exit_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>792</x>
+     <y>621</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>386</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
