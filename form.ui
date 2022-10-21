@@ -392,8 +392,8 @@ QPushButton:hover{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>218</width>
-              <height>638</height>
+              <width>188</width>
+              <height>640</height>
              </rect>
             </property>
             <attribute name="label">
@@ -949,13 +949,13 @@ background: transparent;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -1575,13 +1575,13 @@ background: transparent;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>110</width>
+                    <width>130</width>
                     <height>20</height>
                    </size>
                   </property>
@@ -1649,13 +1649,13 @@ background: transparent;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>140</width>
+                    <width>170</width>
                     <height>20</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>140</width>
+                    <width>170</width>
                     <height>20</height>
                    </size>
                   </property>
