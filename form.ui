@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1020</width>
-    <height>774</height>
+    <width>879</width>
+    <height>616</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>750</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -43,7 +49,7 @@ background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo2.png);</string
     <widget class="QFrame" name="left_container">
      <property name="minimumSize">
       <size>
-       <width>250</width>
+       <width>0</width>
        <height>0</height>
       </size>
      </property>
@@ -141,7 +147,6 @@ background-color: rgb(255, 255, 255);
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>16</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -215,8 +220,8 @@ QPushButton:hover{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>250</width>
-              <height>632</height>
+              <width>122</width>
+              <height>457</height>
              </rect>
             </property>
             <property name="font">
@@ -398,8 +403,8 @@ QPushButton:hover{
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>250</width>
-              <height>632</height>
+              <width>16</width>
+              <height>457</height>
              </rect>
             </property>
             <attribute name="label">
@@ -552,7 +557,6 @@ QPushButton:hover{
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>22</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
@@ -607,7 +611,7 @@ QPushButton:hover{
             </font>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>2</number>
            </property>
            <widget class="QWidget" name="home_pg">
             <property name="styleSheet">
@@ -699,7 +703,6 @@ QPushButton:hover{
                      <font>
                       <family>Segoe UI Semibold</family>
                       <pointsize>15</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -717,7 +720,6 @@ QPushButton:hover{
 }
 
 QPushButton:hover{
-	color: rgb(255, 255, 255);
 	background-color: rgb(00, 200, 70);
 	border-color: rgb(0, 170, 0);
 
@@ -776,7 +778,6 @@ QPushButton:hover{
                      <font>
                       <family>Segoe UI Semibold</family>
                       <pointsize>15</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -794,9 +795,7 @@ QPushButton:hover{
 }
 
 QPushButton:hover{
-	color: rgb(255, 255, 255);
 	background-color: rgb(255, 55, 55);
-	
 	border-color: rgb(255, 25, 25);
 
 }
@@ -991,7 +990,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1147,6 +1145,9 @@ background: transparent;</string>
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Expanding</enum>
+                  </property>
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
@@ -1165,14 +1166,14 @@ background: transparent;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>330</width>
-                    <height>200</height>
+                    <width>350</width>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>350</width>
-                    <height>300</height>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="cursor">
@@ -1209,8 +1210,8 @@ QPushButton:pressed{
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>250</width>
-                    <height>250</height>
+                    <width>330</width>
+                    <height>330</height>
                    </size>
                   </property>
                  </widget>
@@ -1241,14 +1242,14 @@ QPushButton:pressed{
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>330</width>
-                    <height>200</height>
+                    <width>350</width>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>350</width>
-                    <height>300</height>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="cursor">
@@ -1286,8 +1287,8 @@ QPushButton:pressed{
                   </property>
                   <property name="iconSize">
                    <size>
-                    <width>280</width>
-                    <height>280</height>
+                    <width>330</width>
+                    <height>330</height>
                    </size>
                   </property>
                  </widget>
@@ -1296,6 +1297,9 @@ QPushButton:pressed{
                  <spacer name="horizontalSpacer_10">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Expanding</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
@@ -1627,7 +1631,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -1701,7 +1704,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1835,14 +1837,14 @@ background: transparent;</string>
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>330</width>
-                    <height>200</height>
+                    <width>350</width>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>350</width>
-                    <height>300</height>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="cursor">
@@ -1851,7 +1853,7 @@ background: transparent;</string>
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
 
-	background-color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);
 border-color: rgb(31, 78, 121);
 border-radius: 30px;
 border-style: outset;
@@ -1871,7 +1873,17 @@ QPushButton:pressed{
 }</string>
                   </property>
                   <property name="text">
-                   <string>PushButton</string>
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="icons_.qrc">
+                    <normaloff>:/icons/icons/aim.png</normaloff>:/icons/icons/aim.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>330</width>
+                    <height>330</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
@@ -1901,14 +1913,14 @@ QPushButton:pressed{
                   </property>
                   <property name="minimumSize">
                    <size>
-                    <width>330</width>
-                    <height>200</height>
+                    <width>350</width>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>350</width>
-                    <height>300</height>
+                    <height>350</height>
                    </size>
                   </property>
                   <property name="cursor">
@@ -1937,7 +1949,17 @@ QPushButton:pressed{
 }</string>
                   </property>
                   <property name="text">
-                   <string>PushButton</string>
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="icons_.qrc">
+                    <normaloff>:/icons/icons/wim.png</normaloff>:/icons/icons/wim.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>330</width>
+                    <height>330</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
@@ -2164,7 +2186,6 @@ color: rgb(255, 255, 255);
             <font>
              <family>Segoe UI Semibold</family>
              <pointsize>12</pointsize>
-             <weight>75</weight>
              <bold>true</bold>
             </font>
            </property>
