@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1053</width>
-    <height>819</height>
+    <width>1042</width>
+    <height>762</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -59,8 +59,11 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 80, 130);
-border:none;
+      <string notr="true">QFrame{
+	background-color: rgb(0, 70, 120);
+    border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
 
 </string>
      </property>
@@ -70,12 +73,12 @@ border:none;
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
-       <number>7</number>
+       <number>10</number>
       </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>10</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -111,24 +114,21 @@ border:none;
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
-background:transparent;
+	background:transparent;
 }
-
-QPushButton:hover{
-	background-color: rgb(52, 123, 180);
-}</string>
+</string>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="icon">
          <iconset resource="icons_.qrc">
-          <normaloff>:/icons/icons/botao-de-menu.png</normaloff>:/icons/icons/botao-de-menu.png</iconset>
+          <normaloff>:/icons/icons/LOGO.png</normaloff>:/icons/icons/LOGO.png</iconset>
         </property>
         <property name="iconSize">
          <size>
-          <width>20</width>
-          <height>20</height>
+          <width>40</width>
+          <height>40</height>
          </size>
         </property>
        </widget>
@@ -145,14 +145,14 @@ QPushButton:hover{
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>88</weight>
+          <weight>63</weight>
           <italic>false</italic>
           <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">background:transparent;
-font: 700 10pt &quot;Ubuntu&quot;;</string>
+font: 500 10pt &quot;Ubuntu&quot;;</string>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Sim -LMR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -160,11 +160,69 @@ font: 700 10pt &quot;Ubuntu&quot;;</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btn_minimizar">
+       <widget class="QPushButton" name="btn_help">
         <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>65</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Ubuntu</family>
+          <pointsize>11</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
+	color: rgb(255, 255,255);
+	background-color: rgb(0, 70, 120);
+	border-radius:6px;
+}
+
+QPushButton:hover{
+	background: rgb(0, 0, 255);
+	width: 40;
+	height: 35;
+}</string>
+        </property>
+        <property name="text">
+         <string>Help  </string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons_.qrc">
+          <normaloff>:/icons/icons/help.png</normaloff>:/icons/icons/help.png</iconset>
+        </property>
+        <property name="iconSize">
          <size>
           <width>15</width>
           <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_minimizar">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -175,11 +233,19 @@ font: 700 10pt &quot;Ubuntu&quot;;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <family>Ubuntu</family>
+          <pointsize>10</pointsize>
+          <weight>99</weight>
+          <italic>false</italic>
+          <bold>true</bold>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
+	font: 900 10pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
 	background:rgba(0, 190, 0, 120);
 	border-radius:6px;
@@ -200,8 +266,8 @@ QPushButton:hover{
        <widget class="QPushButton" name="btn_close">
         <property name="minimumSize">
          <size>
-          <width>15</width>
-          <height>15</height>
+          <width>20</width>
+          <height>20</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -212,11 +278,19 @@ QPushButton:hover{
         </property>
         <property name="font">
          <font>
-          <pointsize>9</pointsize>
+          <family>Ubuntu</family>
+          <pointsize>10</pointsize>
+          <weight>63</weight>
+          <italic>false</italic>
+          <bold>true</bold>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
+	font: 500 10pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
 	background:rgba(255, 0, 0, 130);
 	border-radius:6px;
@@ -229,44 +303,11 @@ QPushButton:hover{
 }</string>
         </property>
         <property name="text">
-         <string>x</string>
+         <string>X</string>
         </property>
        </widget>
       </item>
      </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QFrame" name="menubar">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>35</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 80, 130);
-border:none;
-</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
     </widget>
    </item>
    <item>
@@ -1219,7 +1260,7 @@ QPushButton:pressed{
 background: transparent;</string>
                   </property>
                   <property name="text">
-                   <string>Previous</string>
+                   <string> Previous</string>
                   </property>
                   <property name="icon">
                    <iconset resource="icons_.qrc">
@@ -1273,7 +1314,7 @@ background: transparent;</string>
                    <set>Qt::ImhDialableCharactersOnly</set>
                   </property>
                   <property name="text">
-                   <string>Next</string>
+                   <string>Next </string>
                   </property>
                   <property name="icon">
                    <iconset resource="icons_.qrc">
@@ -1909,7 +1950,7 @@ QPushButton:pressed{
                    <string notr="true">color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Previous</string>
+                   <string> Previous</string>
                   </property>
                   <property name="icon">
                    <iconset resource="icons_.qrc">
@@ -1959,7 +2000,7 @@ QPushButton:pressed{
                    <string notr="true">color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Next</string>
+                   <string>Next </string>
                   </property>
                   <property name="icon">
                    <iconset resource="icons_.qrc">
@@ -1984,7 +2025,7 @@ QPushButton:pressed{
              </item>
             </layout>
            </widget>
-           <widget class="QWidget" name="angular_range_pg">
+           <widget class="QWidget" name="AIM_config_pg">
             <layout class="QVBoxLayout" name="verticalLayout_13">
              <property name="spacing">
               <number>0</number>
@@ -2024,22 +2065,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_15">
-                <property name="spacing">
-                 <number>8</number>
-                </property>
-                <property name="leftMargin">
-                 <number>20</number>
-                </property>
-                <property name="topMargin">
-                 <number>8</number>
-                </property>
-                <property name="rightMargin">
-                 <number>8</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>8</number>
-                </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
                 <item>
                  <widget class="QPushButton" name="btn_home_3">
                   <property name="minimumSize">
@@ -2222,6 +2248,80 @@ QPushButton:pressed{
                 </item>
                 <item>
                  <widget class="QLabel" name="label_14">
+                  <property name="maximumSize">
+                   <size>
+                    <width>10</width>
+                    <height>10</height>
+                   </size>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="icons_.qrc">:/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_interrogarion_4">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>130</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>170</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Segoe UI Semibold</family>
+                    <pointsize>11</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                    <underline>true</underline>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="autoFillBackground">
+                   <bool>false</bool>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(255, 255, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>Setting Layers</string>
+                  </property>
+                  <property name="checkable">
+                   <bool>false</bool>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                  <property name="autoDefault">
+                   <bool>false</bool>
+                  </property>
+                  <property name="default">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_17">
                   <property name="maximumSize">
                    <size>
                     <width>10</width>
@@ -3318,6 +3418,12 @@ border-radius:15px;</string>
                     <property name="leftMargin">
                      <number>9</number>
                     </property>
+                    <property name="rightMargin">
+                     <number>9</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>10</number>
+                    </property>
                     <item>
                      <widget class="QLabel" name="title_graphs">
                       <property name="font">
@@ -3425,6 +3531,7 @@ QPushButton:hover{
                         </property>
                         <property name="styleSheet">
                          <string notr="true">QPushButton{
+font: 400 11pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
 	background-color: rgba(0, 130, 180, 80);
 	border-color: rgba(0, 100, 130,80);
@@ -3448,10 +3555,13 @@ QPushButton:hover{
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::Fixed</enum>
+                        </property>
                         <property name="sizeHint" stdset="0">
                          <size>
-                          <width>14</width>
-                          <height>17</height>
+                          <width>40</width>
+                          <height>0</height>
                          </size>
                         </property>
                        </spacer>
@@ -3472,6 +3582,7 @@ QPushButton:hover{
                         </property>
                         <property name="styleSheet">
                          <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
 	background-color: rgba(0, 130, 180, 80);
 	border-color: rgba(0, 100, 130,80);
@@ -3549,6 +3660,200 @@ QPushButton:hover{
                           <normaloff>:/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png</normaloff>:/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png</iconset>
                         </property>
                        </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                     <widget class="QTableWidget" name="tableWidget">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>400</width>
+                        <height>150</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>400</width>
+                        <height>150</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">font: 500 10pt &quot;Ubuntu&quot;;</string>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustToContents</enum>
+                      </property>
+                      <property name="editTriggers">
+                       <set>QAbstractItemView::NoEditTriggers</set>
+                      </property>
+                      <property name="verticalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerPixel</enum>
+                      </property>
+                      <property name="horizontalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerPixel</enum>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
+                      </property>
+                      <attribute name="horizontalHeaderStretchLastSection">
+                       <bool>false</bool>
+                      </attribute>
+                      <row>
+                       <property name="text">
+                        <string>Analyte</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>Layer 2</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>Layer 1</string>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string>Substrate</string>
+                       </property>
+                      </row>
+                      <column>
+                       <property name="text">
+                        <string>Material</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Thickness</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Refract. Index</string>
+                       </property>
+                      </column>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_2">
+                      <item>
+                       <spacer name="horizontalSpacer_31">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="pushButton_4">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>60</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
+	color: rgb(255, 255,255);
+	background-color: rgba(0, 130, 180, 80);
+	border-color: rgba(0, 100, 130,80);
+	border-width: 2px;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(0, 130, 180);
+	width: 40;
+	height: 35;
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Edit</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_33">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeType">
+                         <enum>QSizePolicy::Fixed</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="pushButton_5">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>100</width>
+                          <height>30</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
+	color: rgb(255, 255,255);
+	background-color: rgba(0, 130, 180, 80);
+	border-color: rgba(0, 100, 130,80);
+	border-width: 2px;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(0, 130, 180);
+	width: 40;
+	height: 35;
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Save Data</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_32">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
                       </item>
                      </layout>
                     </item>
@@ -3698,7 +4003,7 @@ QPushButton:hover{
                    <string notr="true">color: rgb(255, 255, 255);</string>
                   </property>
                   <property name="text">
-                   <string>Previous</string>
+                   <string> Previous</string>
                   </property>
                   <property name="icon">
                    <iconset resource="icons_.qrc">
@@ -3750,7 +4055,7 @@ QPushButton:hover{
    <item>
     <widget class="QFrame" name="footer_frame">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 80, 130);
+      <string notr="true">background-color: rgb(0, 70, 120);
 color: rgb(255, 255, 255);
 </string>
      </property>
@@ -3784,18 +4089,24 @@ color: rgb(255, 255, 255);
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>22</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Ubuntu</family>
-          <pointsize>12</pointsize>
-          <weight>50</weight>
+          <pointsize>10</pointsize>
+          <weight>63</weight>
           <italic>false</italic>
-          <bold>false</bold>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">background:transparent;
-font: 400 12pt &quot;Ubuntu&quot;;</string>
+font: 500 10pt &quot;Ubuntu&quot;;</string>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Sim-LMR v01.0_a&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -3840,6 +4151,22 @@ font: 400 12pt &quot;Ubuntu&quot;;</string>
     <hint type="destinationlabel">
      <x>526</x>
      <y>362</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exit_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>526</x>
+     <y>409</y>
     </hint>
    </hints>
   </connection>
