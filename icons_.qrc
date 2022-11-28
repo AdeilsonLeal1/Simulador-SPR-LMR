@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/close.png</file>
     <file>icons/play.png</file>
     <file>icons/wim.png</file>
     <file>icons/prism.png</file>

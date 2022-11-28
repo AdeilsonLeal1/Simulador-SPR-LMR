@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1042</width>
-    <height>762</height>
+    <width>1047</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -78,13 +78,13 @@
        <number>10</number>
       </property>
       <property name="leftMargin">
-       <number>10</number>
+       <number>8</number>
       </property>
       <property name="topMargin">
        <number>0</number>
       </property>
       <property name="rightMargin">
-       <number>10</number>
+       <number>8</number>
       </property>
       <property name="bottomMargin">
        <number>0</number>
@@ -99,13 +99,13 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>35</width>
+          <width>40</width>
           <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>60</width>
+          <width>40</width>
           <height>60</height>
          </size>
         </property>
@@ -145,13 +145,13 @@
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>63</weight>
           <italic>false</italic>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">background:transparent;
+color: rgb(0, 170, 255);
 font: 500 10pt &quot;Ubuntu&quot;;</string>
         </property>
         <property name="text">
@@ -177,7 +177,6 @@ font: 500 10pt &quot;Ubuntu&quot;;</string>
          <font>
           <family>Ubuntu</family>
           <pointsize>11</pointsize>
-          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
@@ -235,7 +234,6 @@ QPushButton:hover{
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>99</weight>
           <italic>false</italic>
           <bold>true</bold>
          </font>
@@ -280,9 +278,8 @@ QPushButton:hover{
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>63</weight>
           <italic>false</italic>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="cursor">
@@ -303,7 +300,17 @@ QPushButton:hover{
 }</string>
         </property>
         <property name="text">
-         <string>X</string>
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="icons_.qrc">
+          <normaloff>:/icons/icons/close.png</normaloff>:/icons/icons/close.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>12</width>
+          <height>12</height>
+         </size>
         </property>
        </widget>
       </item>
@@ -540,7 +547,6 @@ font: 700 9pt &quot;Noto Serif Hebrew&quot;;
                      <font>
                       <family>Segoe UI Semibold</family>
                       <pointsize>15</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -617,7 +623,6 @@ QPushButton:hover{
                      <font>
                       <family>Segoe UI Semibold</family>
                       <pointsize>15</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -830,7 +835,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -1497,7 +1501,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -1571,7 +1574,6 @@ background: transparent;</string>
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -2066,6 +2068,21 @@ QPushButton:pressed{
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <property name="spacing">
+                 <number>8</number>
+                </property>
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <property name="topMargin">
+                 <number>8</number>
+                </property>
+                <property name="rightMargin">
+                 <number>8</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>8</number>
+                </property>
                 <item>
                  <widget class="QPushButton" name="btn_home_3">
                   <property name="minimumSize">
@@ -2141,7 +2158,6 @@ QPushButton:pressed{
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -2215,7 +2231,6 @@ QPushButton:pressed{
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -2289,7 +2304,6 @@ QPushButton:pressed{
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>true</underline>
                    </font>
@@ -2363,7 +2377,6 @@ QPushButton:pressed{
                    <font>
                     <family>Segoe UI Semibold</family>
                     <pointsize>11</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                     <underline>false</underline>
                    </font>
@@ -2483,9 +2496,8 @@ QPushButton:pressed{
                     <font>
                      <family>Ubuntu</family>
                      <pointsize>18</pointsize>
-                     <weight>63</weight>
                      <italic>false</italic>
-                     <bold>true</bold>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -2555,38 +2567,29 @@ QPushButton:pressed{
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QLabel" name="label_8">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
+                     <widget class="QPushButton" name="pushButton_6">
                       <property name="maximumSize">
                        <size>
                         <width>350</width>
                         <height>250</height>
                        </size>
                       </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>18</pointsize>
-                       </font>
-                      </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(255, 255, 255);</string>
+                       <string notr="true">border-radius:25px;
+background-color: rgb(255, 255, 255);</string>
                       </property>
                       <property name="text">
                        <string/>
                       </property>
-                      <property name="pixmap">
-                       <pixmap resource="icons_.qrc">:/icons/icons/aim.png</pixmap>
+                      <property name="icon">
+                       <iconset resource="icons_.qrc">
+                        <normaloff>:/icons/icons/aim.png</normaloff>:/icons/icons/aim.png</iconset>
                       </property>
-                      <property name="scaledContents">
-                       <bool>true</bool>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
+                      <property name="iconSize">
+                       <size>
+                        <width>300</width>
+                        <height>300</height>
+                       </size>
                       </property>
                      </widget>
                     </item>
@@ -2691,7 +2694,6 @@ QPushButton:pressed{
                        <font>
                         <family>Ubuntu</family>
                         <pointsize>14</pointsize>
-                        <weight>50</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -2779,7 +2781,6 @@ QGroupBox::title  {
                             <font>
                              <family>Ubuntu</family>
                              <pointsize>14</pointsize>
-                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -2817,7 +2818,6 @@ QGroupBox::title  {
                             <font>
                              <family>Ubuntu</family>
                              <pointsize>12</pointsize>
-                             <weight>88</weight>
                              <italic>false</italic>
                              <bold>true</bold>
                             </font>
@@ -2904,7 +2904,6 @@ width: 25;
                             <font>
                              <family>Ubuntu</family>
                              <pointsize>14</pointsize>
-                             <weight>50</weight>
                              <italic>false</italic>
                              <bold>false</bold>
                             </font>
@@ -2941,7 +2940,6 @@ width: 25;
                             <font>
                              <family>Ubuntu</family>
                              <pointsize>12</pointsize>
-                             <weight>88</weight>
                              <italic>false</italic>
                              <bold>true</bold>
                             </font>
@@ -3124,7 +3122,6 @@ QSlider::handle:horizontal {
                        <font>
                         <family>Ubuntu</family>
                         <pointsize>14</pointsize>
-                        <weight>50</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -3279,7 +3276,6 @@ QGroupBox::title  {
                           <font>
                            <family>Ubuntu</family>
                            <pointsize>12</pointsize>
-                           <weight>88</weight>
                            <italic>false</italic>
                            <bold>true</bold>
                           </font>
@@ -3385,7 +3381,7 @@ width: 25;
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_15">
                  <property name="spacing">
-                  <number>10</number>
+                  <number>5</number>
                  </property>
                  <property name="leftMargin">
                   <number>20</number>
@@ -3397,7 +3393,7 @@ width: 25;
                   <number>30</number>
                  </property>
                  <property name="bottomMargin">
-                  <number>10</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <widget class="QFrame" name="grafico1">
@@ -3428,11 +3424,15 @@ border-radius:15px;</string>
                      <widget class="QLabel" name="title_graphs">
                       <property name="font">
                        <font>
+                        <family>Ubuntu</family>
                         <pointsize>14</pointsize>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background: transparent;</string>
+                       <string notr="true">background: transparent;
+font: 500 14pt &quot;Ubuntu&quot;;</string>
                       </property>
                       <property name="text">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#000000;&quot;&gt;Reflectance vs Angle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -3444,6 +3444,12 @@ border-radius:15px;</string>
                     </item>
                     <item>
                      <widget class="QGraphicsView" name="graphicsView">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">
 	border-style: outset;
@@ -3533,8 +3539,8 @@ QPushButton:hover{
                          <string notr="true">QPushButton{
 font: 400 11pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
-	background-color: rgba(0, 130, 180, 80);
-	border-color: rgba(0, 100, 130,80);
+	background-color: rgba(0, 130, 180,160);
+	border-color: rgba(0, 100, 130,160);
 	border-width: 2px;
 	border-radius:10px;
 }
@@ -3584,8 +3590,8 @@ QPushButton:hover{
                          <string notr="true">QPushButton{
 	font: 400 11pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
-	background-color: rgba(0, 130, 180, 80);
-	border-color: rgba(0, 100, 130,80);
+		background-color: rgba(0, 130, 180,160);
+	border-color: rgba(0, 100, 130,160);
 	border-width: 2px;
 	border-radius:10px;
 }
@@ -3679,12 +3685,12 @@ QPushButton:hover{
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>400</width>
+                        <width>550</width>
                         <height>150</height>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">font: 500 10pt &quot;Ubuntu&quot;;</string>
+                       <string notr="true">font: 700 10pt &quot;Ubuntu&quot;;</string>
                       </property>
                       <property name="sizeAdjustPolicy">
                        <enum>QAbstractScrollArea::AdjustToContents</enum>
@@ -3774,14 +3780,15 @@ QPushButton:hover{
                          <string notr="true">QPushButton{
 	font: 400 11pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
-	background-color: rgba(0, 130, 180, 80);
-	border-color: rgba(0, 100, 130,80);
+	background-color: rgb(0, 130, 180);
+	border-color: rgb(0, 100, 130);
 	border-width: 2px;
 	border-radius:10px;
 }
 
 QPushButton:hover{
-	background-color: rgb(0, 130, 180);
+	background-color: rgb(200, 200, 70);
+	border-color: rgb(0, 120, 40);
 	width: 40;
 	height: 35;
 }</string>
@@ -3825,14 +3832,15 @@ QPushButton:hover{
                          <string notr="true">QPushButton{
 	font: 400 11pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
-	background-color: rgba(0, 130, 180, 80);
-	border-color: rgba(0, 100, 130,80);
+	background-color: rgb(0, 130, 180);
+	border-color: rgb(0, 100, 130);
 	border-width: 2px;
 	border-radius:10px;
 }
 
 QPushButton:hover{
-	background-color: rgb(0, 130, 180);
+	background-color: rgb(00, 140, 70);
+	border-color: rgb(0, 120, 40);
 	width: 40;
 	height: 35;
 }</string>
@@ -3889,13 +3897,13 @@ QPushButton:hover{
                      <property name="minimumSize">
                       <size>
                        <width>200</width>
-                       <height>50</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="maximumSize">
                       <size>
                        <width>250</width>
-                       <height>60</height>
+                       <height>40</height>
                       </size>
                      </property>
                      <property name="styleSheet">
@@ -3911,7 +3919,7 @@ QPushButton:hover{
 }
 
 QPushButton:hover{
-	background-color: rgb(00, 130, 70);
+	background-color: rgb(00, 140, 70);
 	border-color: rgb(0, 120, 40);
 
 }</string>
@@ -4099,9 +4107,8 @@ color: rgb(255, 255, 255);
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>63</weight>
           <italic>false</italic>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
