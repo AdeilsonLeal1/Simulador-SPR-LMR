@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/arrow-up.png</file>
+    <file>icons/arrow-down.png</file>
     <file>icons/fiber_CRMF.png</file>
     <file>icons/close.png</file>
     <file>icons/play.png</file>
