@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1035</width>
+    <width>1021</width>
     <height>755</height>
    </rect>
   </property>
@@ -145,8 +145,9 @@
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
+          <weight>63</weight>
           <italic>false</italic>
-          <bold>false</bold>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
@@ -177,6 +178,7 @@ font: 500 10pt &quot;Ubuntu&quot;;</string>
          <font>
           <family>Ubuntu</family>
           <pointsize>11</pointsize>
+          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
@@ -234,6 +236,7 @@ QPushButton:hover{
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
+          <weight>99</weight>
           <italic>false</italic>
           <bold>true</bold>
          </font>
@@ -278,8 +281,9 @@ QPushButton:hover{
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
+          <weight>63</weight>
           <italic>false</italic>
-          <bold>false</bold>
+          <bold>true</bold>
          </font>
         </property>
         <property name="cursor">
@@ -507,6 +511,7 @@ font: 700 9pt &quot;Noto Serif Hebrew&quot;;
                   <font>
                    <family>Segoe UI Semibold</family>
                    <pointsize>15</pointsize>
+                   <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
@@ -583,6 +588,7 @@ QPushButton:hover{
                   <font>
                    <family>Segoe UI Semibold</family>
                    <pointsize>15</pointsize>
+                   <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
@@ -712,7 +718,7 @@ QPushButton:hover{
               <number>8</number>
              </property>
              <item>
-              <widget class="QPushButton" name="btn_home_4">
+              <widget class="QPushButton" name="btn_home">
                <property name="minimumSize">
                 <size>
                  <width>20</width>
@@ -772,7 +778,7 @@ background: transparent;</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_7">
+              <widget class="QPushButton" name="btn_coupling">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -795,6 +801,7 @@ background: transparent;</string>
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -923,7 +930,7 @@ background: transparent;</string>
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="prism_btn_2">
+              <widget class="QPushButton" name="prism_btn">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -961,11 +968,8 @@ QPushButton:hover{
 
 }
 
-QPushButton:pressed{
-	
-	border-color: rgb(0, 170, 0);
-
-}</string>
+QPushButton:checked{ border-color: rgb(0, 170, 0);}
+</string>
                </property>
                <property name="text">
                 <string/>
@@ -979,6 +983,15 @@ QPushButton:pressed{
                  <width>330</width>
                  <height>330</height>
                 </size>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -1037,12 +1050,7 @@ QPushButton:hover{
 
 }
 
-QPushButton:pressed{
-
-	
-	border-color: rgb(0, 170, 0);
-
-}</string>
+QPushButton:checked{ border-color: rgb(0, 170, 0);}</string>
                </property>
                <property name="text">
                 <string/>
@@ -1056,6 +1064,12 @@ QPushButton:pressed{
                  <width>330</width>
                  <height>330</height>
                 </size>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -1207,7 +1221,7 @@ QPushButton:pressed{
               <number>6</number>
              </property>
              <item>
-              <widget class="QPushButton" name="prev_btn_coup_2">
+              <widget class="QPushButton" name="prev_btn_coup">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -1255,10 +1269,7 @@ background: transparent;</string>
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="next_btn_coup_2">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
+              <widget class="QPushButton" name="next_btn_coup">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -1274,9 +1285,6 @@ background: transparent;</string>
                 <string notr="true">color: rgb(255, 255, 255);
 background: transparent;</string>
                </property>
-               <property name="inputMethodHints">
-                <set>Qt::ImhDialableCharactersOnly</set>
-               </property>
                <property name="text">
                 <string>Next </string>
                </property>
@@ -1289,9 +1297,6 @@ background: transparent;</string>
                  <width>25</width>
                  <height>25</height>
                 </size>
-               </property>
-               <property name="checkable">
-                <bool>false</bool>
                </property>
                <property name="checked">
                 <bool>false</bool>
@@ -1387,7 +1392,7 @@ background: transparent;</string>
               <number>8</number>
              </property>
              <item>
-              <widget class="QPushButton" name="btn_home_5">
+              <widget class="QPushButton" name="btn_home_2">
                <property name="minimumSize">
                 <size>
                  <width>20</width>
@@ -1438,7 +1443,7 @@ background: transparent;</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_8">
+              <widget class="QPushButton" name="btn_coupling_2">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -1461,6 +1466,7 @@ background: transparent;</string>
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -1468,25 +1474,13 @@ background: transparent;</string>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
                <property name="styleSheet">
                 <string notr="true">color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>Optical Cupling</string>
                </property>
-               <property name="checkable">
-                <bool>false</bool>
-               </property>
                <property name="checked">
-                <bool>false</bool>
-               </property>
-               <property name="autoDefault">
-                <bool>false</bool>
-               </property>
-               <property name="default">
                 <bool>false</bool>
                </property>
               </widget>
@@ -1511,7 +1505,7 @@ background: transparent;</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_9">
+              <widget class="QPushButton" name="btn_interrogation">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -1534,6 +1528,7 @@ background: transparent;</string>
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -1658,7 +1653,7 @@ background: transparent;</string>
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="aim_btn_2">
+              <widget class="QPushButton" name="aim_btn">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1682,25 +1677,16 @@ background: transparent;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
-
 background-color: rgb(255, 255, 255);
 border-color: rgb(31, 78, 121);
 border-radius: 30px;
 border-style: outset;
-border-width: 5px;
-}
+border-width: 5px;}
 
-QPushButton:hover{
-	
-	border-color: rgb(255, 170, 0);
+QPushButton:hover{ border-color: rgb(255, 170, 0);}
 
-}
-
-QPushButton:pressed{
-	
-	border-color: rgb(0, 170, 0);
-
-}</string>
+QPushButton:checked{ border-color: rgb(0, 170, 0);}
+</string>
                </property>
                <property name="text">
                 <string/>
@@ -1714,6 +1700,12 @@ QPushButton:pressed{
                  <width>330</width>
                  <height>330</height>
                 </size>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -1734,7 +1726,7 @@ QPushButton:pressed{
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="wim_btn_2">
+              <widget class="QPushButton" name="wim_btn">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1758,25 +1750,16 @@ QPushButton:pressed{
                </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton{
-
-	background-color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);
 border-color: rgb(31, 78, 121);
 border-radius: 30px;
 border-style: outset;
-border-width: 5px;
-}
+border-width: 5px;}
 
-QPushButton:hover{
-	
-	border-color: rgb(255, 170, 0);
+QPushButton:hover{ border-color: rgb(255, 170, 0);}
 
-}
-
-QPushButton:pressed{
-	
-	border-color: rgb(0, 170, 0);
-
-}</string>
+QPushButton:checked{ border-color: rgb(0, 170, 0);}
+</string>
                </property>
                <property name="text">
                 <string/>
@@ -1790,6 +1773,12 @@ QPushButton:pressed{
                  <width>330</width>
                  <height>330</height>
                 </size>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
+               </property>
+               <property name="autoExclusive">
+                <bool>true</bool>
                </property>
               </widget>
              </item>
@@ -1823,7 +1812,7 @@ QPushButton:pressed{
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="warning_inter_2">
+           <widget class="QLabel" name="warning_inter">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -1899,7 +1888,7 @@ QPushButton:pressed{
               <number>6</number>
              </property>
              <item>
-              <widget class="QPushButton" name="prev_btn_inter_2">
+              <widget class="QPushButton" name="prev_btn_inter">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -1943,7 +1932,7 @@ QPushButton:pressed{
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="next_btn_inter_2">
+              <widget class="QPushButton" name="next_btn_inter">
                <property name="enabled">
                 <bool>true</bool>
                </property>
@@ -2044,7 +2033,7 @@ QPushButton:pressed{
               <number>8</number>
              </property>
              <item>
-              <widget class="QPushButton" name="btn_home_11">
+              <widget class="QPushButton" name="btn_home_3">
                <property name="minimumSize">
                 <size>
                  <width>20</width>
@@ -2095,7 +2084,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_couplin_9">
+              <widget class="QPushButton" name="btn_coupling_3">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -2118,6 +2107,7 @@ QPushButton:pressed{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -2168,7 +2158,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_interrogarion_15">
+              <widget class="QPushButton" name="btn_interrogation_2">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -2191,6 +2181,7 @@ QPushButton:pressed{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -2241,7 +2232,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_interrogarion_16">
+              <widget class="QPushButton" name="btn_setting_layers">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -2264,6 +2255,7 @@ QPushButton:pressed{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -2362,7 +2354,7 @@ QPushButton:pressed{
               <item>
                <widget class="QStackedWidget" name="stackedWidget">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="page_layers_aim">
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -2385,7 +2377,7 @@ QPushButton:pressed{
                    <widget class="QGroupBox" name="gb_incident_wav">
                     <property name="minimumSize">
                      <size>
-                      <width>510</width>
+                      <width>400</width>
                       <height>80</height>
                      </size>
                     </property>
@@ -2399,6 +2391,7 @@ QPushButton:pressed{
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>14</pointsize>
+                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2480,7 +2473,7 @@ QGroupBox::title  {
                        </property>
                        <property name="minimumSize">
                         <size>
-                         <width>300</width>
+                         <width>250</width>
                          <height>25</height>
                         </size>
                        </property>
@@ -2553,6 +2546,7 @@ QGroupBox::title  {
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>12</pointsize>
+                         <weight>88</weight>
                          <italic>false</italic>
                          <bold>true</bold>
                         </font>
@@ -2672,6 +2666,15 @@ QGroupBox::title  {
                      <string>Analyte refractive index range</string>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_4">
+                     <property name="topMargin">
+                      <number>25</number>
+                     </property>
+                     <property name="horizontalSpacing">
+                      <number>10</number>
+                     </property>
+                     <property name="verticalSpacing">
+                      <number>25</number>
+                     </property>
                      <item row="1" column="2">
                       <widget class="QPushButton" name="btn_add_analyte">
                        <property name="minimumSize">
@@ -2716,7 +2719,7 @@ QPushButton:hover{
 </string>
                        </property>
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Invalid -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                        <property name="alignment">
                         <set>Qt::AlignCenter</set>
@@ -2926,7 +2929,7 @@ QGroupBox::title  {
                       <number>9</number>
                      </property>
                      <property name="topMargin">
-                      <number>9</number>
+                      <number>25</number>
                      </property>
                      <property name="rightMargin">
                       <number>0</number>
@@ -2934,53 +2937,13 @@ QGroupBox::title  {
                      <property name="bottomMargin">
                       <number>0</number>
                      </property>
-                     <property name="spacing">
-                      <number>8</number>
+                     <property name="horizontalSpacing">
+                      <number>10</number>
                      </property>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="label_12">
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Thickness:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="4" column="0">
-                      <widget class="QPushButton" name="btn_new_substrate">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-		font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 70, 120);
-	border-radius:6px;
-}
-
-QPushButton:hover{
-	background: rgb(0, 0, 255);
-	width: 40;
-	height: 35;
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>New Substrate</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
+                     <property name="verticalSpacing">
+                      <number>25</number>
+                     </property>
+                     <item row="3" column="0">
                       <widget class="QPushButton" name="btn_new_layer">
                        <property name="minimumSize">
                         <size>
@@ -3014,189 +2977,6 @@ QPushButton:hover{
                       </widget>
                      </item>
                      <item row="3" column="1">
-                      <spacer name="verticalSpacer_2">
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Fixed</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>20</width>
-                         <height>15</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="label_11">
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Material:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="5" column="0" colspan="2">
-                      <widget class="QFrame" name="frame_refractive_index">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QGridLayout" name="gridLayout_3">
-                        <item row="1" column="1">
-                         <widget class="QLineEdit" name="real_part_index">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>30</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"> padding: 1px 18px 1px 3px;
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
- border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignCenter</set>
-                          </property>
-                          <property name="placeholderText">
-                           <string>Real</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="1" column="0">
-                         <widget class="QLabel" name="label_7">
-                          <property name="styleSheet">
-                           <string notr="true">font: 700 12pt &quot;Ubuntu&quot;;</string>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Real part:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="0">
-                         <widget class="QLabel" name="label_10">
-                          <property name="styleSheet">
-                           <string notr="true">font: 500 14pt &quot;Ubuntu&quot;;</string>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;- Refractive index -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="1">
-                         <widget class="QLineEdit" name="imaginary_part_index">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>30</height>
-                           </size>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true"> padding: 1px 18px 1px 3px;
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
- border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignCenter</set>
-                          </property>
-                          <property name="placeholderText">
-                           <string>Imaginary</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="0">
-                         <widget class="QLabel" name="label_9">
-                          <property name="styleSheet">
-                           <string notr="true">font: 700 12pt &quot;Ubuntu&quot;;</string>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Imaginary part:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="1" column="2">
-                         <widget class="QLabel" name="warning">
-                          <property name="styleSheet">
-                           <string notr="true">font: 14pt &quot;Ubuntu&quot;;
-
-</string>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Invalid -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignCenter</set>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="2">
-                         <widget class="QLabel" name="warning_3">
-                          <property name="styleSheet">
-                           <string notr="true">font: 14pt &quot;Ubuntu&quot;;
-</string>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Invalid -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                          <property name="alignment">
-                           <set>Qt::AlignCenter</set>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item row="4" column="1">
-                      <widget class="QPushButton" name="btn_add_substrate">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-	font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 130, 180);
-	border-color: rgb(0, 100, 130);
-	border-width: 2px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(00, 140, 70);
-	border-color: rgb(0, 120, 40);
-	width: 40;
-	height: 35;
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>Add Substrate</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
                       <widget class="QPushButton" name="btn_add_layer">
                        <property name="minimumSize">
                         <size>
@@ -3232,38 +3012,17 @@ QPushButton:hover{
                        </property>
                       </widget>
                      </item>
-                     <item row="1" column="1">
-                      <widget class="QLineEdit" name="thickness">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_11">
                        <property name="styleSheet">
-                        <string notr="true"> padding: 1px 18px 1px 3px;
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
- border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;</string>
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
                        </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                       <property name="placeholderText">
-                        <string>Thickness (nm)</string>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Material:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="0" column="1">
+                     <item row="1" column="1">
                       <widget class="QComboBox" name="cbox_material">
                        <property name="minimumSize">
                         <size>
@@ -3323,12 +3082,177 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
                        </item>
                       </widget>
                      </item>
+                     <item row="2" column="1">
+                      <widget class="QLineEdit" name="thickness">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"> padding: 1px 18px 1px 3px;
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+ border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Thickness (nm)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_12">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Thickness:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0" colspan="2">
+                      <widget class="QFrame" name="frame_refractive_index">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_3">
+                        <item row="3" column="1">
+                         <widget class="QLineEdit" name="imaginary_part_index">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>30</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"> padding: 1px 18px 1px 3px;
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+ border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Imaginary</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
+                         <widget class="QLabel" name="label_9">
+                          <property name="styleSheet">
+                           <string notr="true">font: 700 12pt &quot;Ubuntu&quot;;</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Imaginary part:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QLineEdit" name="real_part_index">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>30</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"> padding: 1px 18px 1px 3px;
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+ border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Real</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="2">
+                         <widget class="QLabel" name="warning_3">
+                          <property name="styleSheet">
+                           <string notr="true">font: 14pt &quot;Ubuntu&quot;;
+</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_7">
+                          <property name="styleSheet">
+                           <string notr="true">font: 700 12pt &quot;Ubuntu&quot;;</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Real part:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="2">
+                         <widget class="QLabel" name="warning">
+                          <property name="styleSheet">
+                           <string notr="true">font: 14pt &quot;Ubuntu&quot;;
+
+</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="1">
+                         <spacer name="verticalSpacer_3">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
                     </layout>
                    </widget>
                   </item>
                  </layout>
                 </widget>
-                <widget class="QWidget" name="page_2">
+                <widget class="QWidget" name="page_layers_wim">
                  <layout class="QVBoxLayout" name="verticalLayout_10">
                   <property name="spacing">
                    <number>8</number>
@@ -3373,6 +3297,15 @@ QGroupBox::title  {
                      <string>Analyte refractive index range</string>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_5">
+                     <property name="topMargin">
+                      <number>25</number>
+                     </property>
+                     <property name="horizontalSpacing">
+                      <number>10</number>
+                     </property>
+                     <property name="verticalSpacing">
+                      <number>25</number>
+                     </property>
                      <item row="1" column="2">
                       <widget class="QPushButton" name="btn_add_analyte_2">
                        <property name="minimumSize">
@@ -3474,6 +3407,9 @@ QDoubleSpinBox::down-button
                        <property name="maximum">
                         <double>5.000000000000000</double>
                        </property>
+                       <property name="singleStep">
+                        <double>0.001000000000000</double>
+                       </property>
                        <property name="value">
                         <double>1.360000000000000</double>
                        </property>
@@ -3525,6 +3461,9 @@ QDoubleSpinBox::down-button
                        </property>
                        <property name="maximum">
                         <double>3.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.001000000000000</double>
                        </property>
                        <property name="value">
                         <double>0.002000000000000</double>
@@ -3581,6 +3520,9 @@ QDoubleSpinBox::down-button
                        <property name="maximum">
                         <double>5.000000000000000</double>
                        </property>
+                       <property name="singleStep">
+                        <double>0.001000000000000</double>
+                       </property>
                        <property name="value">
                         <double>1.330000000000000</double>
                        </property>
@@ -3627,7 +3569,7 @@ QGroupBox::title  {
                       <number>9</number>
                      </property>
                      <property name="topMargin">
-                      <number>9</number>
+                      <number>25</number>
                      </property>
                      <property name="rightMargin">
                       <number>0</number>
@@ -3635,171 +3577,12 @@ QGroupBox::title  {
                      <property name="bottomMargin">
                       <number>0</number>
                      </property>
-                     <property name="spacing">
-                      <number>8</number>
+                     <property name="horizontalSpacing">
+                      <number>10</number>
                      </property>
-                     <item row="4" column="1">
-                      <widget class="QPushButton" name="btn_add_substrate_2">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-	font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 130, 180);
-	border-color: rgb(0, 100, 130);
-	border-width: 2px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(00, 140, 70);
-	border-color: rgb(0, 120, 40);
-	width: 40;
-	height: 35;
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>Add Substrate</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QPushButton" name="btn_add_layer_2">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-	font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 130, 180);
-	border-color: rgb(0, 100, 130);
-	border-width: 2px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(00, 140, 70);
-	border-color: rgb(0, 120, 40);
-	width: 40;
-	height: 35;
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>Add Layer</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="1">
-                      <spacer name="verticalSpacer_3">
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Fixed</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>20</width>
-                         <height>15</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QPushButton" name="btn_new_layer_2">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-		font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 70, 120);
-	border-radius:6px;
-}
-
-QPushButton:hover{
-	background: rgb(0, 0, 255);
-	width: 40;
-	height: 35;
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>New layer</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="label_13">
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Thickness:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="1">
-                      <widget class="QLineEdit" name="thickness_2">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true"> padding: 1px 18px 1px 3px;
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
- border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                       <property name="placeholderText">
-                        <string>Thickness (nm)</string>
-                       </property>
-                      </widget>
-                     </item>
+                     <property name="verticalSpacing">
+                      <number>25</number>
+                     </property>
                      <item row="0" column="1">
                       <widget class="QComboBox" name="cbox_material_2">
                        <property name="minimumSize">
@@ -3860,8 +3643,85 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
                        </item>
                       </widget>
                      </item>
-                     <item row="4" column="0">
-                      <widget class="QPushButton" name="btn_new_substrate_2">
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_13">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Thickness (nm):&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QPushButton" name="btn_add_layer_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>100</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
+	color: rgb(255, 255,255);
+	background-color: rgb(0, 130, 180);
+	border-color: rgb(0, 100, 130);
+	border-width: 2px;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(00, 140, 70);
+	border-color: rgb(0, 120, 40);
+	width: 40;
+	height: 35;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Add Layer</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="thickness_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"> padding: 1px 18px 1px 3px;
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+ border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Thickness (nm)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QPushButton" name="btn_new_layer_2">
                        <property name="minimumSize">
                         <size>
                          <width>100</width>
@@ -3889,7 +3749,7 @@ QPushButton:hover{
 }</string>
                        </property>
                        <property name="text">
-                        <string>New Substrate</string>
+                        <string>New layer</string>
                        </property>
                       </widget>
                      </item>
@@ -3902,6 +3762,19 @@ QPushButton:hover{
                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Material:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                       </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <spacer name="verticalSpacer_2">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>40</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                     </layout>
                    </widget>
@@ -3975,8 +3848,9 @@ border-radius:15px;</string>
                     <font>
                      <family>Ubuntu</family>
                      <pointsize>14</pointsize>
+                     <weight>63</weight>
                      <italic>false</italic>
-                     <bold>false</bold>
+                     <bold>true</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -4097,7 +3971,7 @@ QPushButton:hover{
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>550</width>
+                     <width>16777215</width>
                      <height>150</height>
                     </size>
                    </property>
@@ -4122,26 +3996,6 @@ QPushButton:hover{
                    <attribute name="horizontalHeaderStretchLastSection">
                     <bool>false</bool>
                    </attribute>
-                   <row>
-                    <property name="text">
-                     <string>Analyte</string>
-                    </property>
-                   </row>
-                   <row>
-                    <property name="text">
-                     <string>Layer 2</string>
-                    </property>
-                   </row>
-                   <row>
-                    <property name="text">
-                     <string>Layer 1</string>
-                    </property>
-                   </row>
-                   <row>
-                    <property name="text">
-                     <string>Substrate</string>
-                    </property>
-                   </row>
                    <column>
                     <property name="text">
                      <string>Material</string>
@@ -4162,6 +4016,54 @@ QPushButton:hover{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_92">
                    <item>
+                    <spacer name="horizontalSpacer">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="btn_edit_layers_2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>110</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
+	color: rgb(255, 255,255);
+	background-color: rgb(0, 130, 180);
+	border-color: rgb(0, 100, 130);
+	border-width: 2px;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+	background: rgb(0, 0, 255);
+	width: 40;
+	height: 35;
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>Edit layers</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
                     <spacer name="horizontalSpacer_218">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -4175,7 +4077,7 @@ QPushButton:hover{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_edit_layers_6">
+                    <widget class="QPushButton" name="btn_edit_layers">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -4184,7 +4086,7 @@ QPushButton:hover{
                      </property>
                      <property name="minimumSize">
                       <size>
-                       <width>60</width>
+                       <width>110</width>
                        <height>30</height>
                       </size>
                      </property>
@@ -4206,7 +4108,7 @@ QPushButton:hover{
 }</string>
                      </property>
                      <property name="text">
-                      <string>Edit</string>
+                      <string>Remove layer</string>
                      </property>
                     </widget>
                    </item>
@@ -4216,7 +4118,7 @@ QPushButton:hover{
                       <enum>Qt::Horizontal</enum>
                      </property>
                      <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
+                      <enum>QSizePolicy::Preferred</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -4227,7 +4129,7 @@ QPushButton:hover{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_save_table_6">
+                    <widget class="QPushButton" name="btn_save_table">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -4236,7 +4138,7 @@ QPushButton:hover{
                      </property>
                      <property name="minimumSize">
                       <size>
-                       <width>100</width>
+                       <width>110</width>
                        <height>30</height>
                       </size>
                      </property>
@@ -4469,7 +4371,7 @@ QPushButton:hover{
               <number>8</number>
              </property>
              <item>
-              <widget class="QPushButton" name="btn_home_8">
+              <widget class="QPushButton" name="btn_home_4">
                <property name="minimumSize">
                 <size>
                  <width>20</width>
@@ -4520,7 +4422,7 @@ QPushButton:hover{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_couplin_6">
+              <widget class="QPushButton" name="btn_coupling_4">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -4543,6 +4445,7 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -4593,7 +4496,7 @@ QPushButton:hover{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_interrogarion_9">
+              <widget class="QPushButton" name="btn_interrogation_3">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -4616,6 +4519,7 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -4666,7 +4570,7 @@ QPushButton:hover{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btn_interrogarion_10">
+              <widget class="QPushButton" name="btn_setting_layers_2">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
@@ -4689,6 +4593,7 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -4754,7 +4659,7 @@ QPushButton:hover{
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>240</width>
+                 <width>260</width>
                  <height>20</height>
                 </size>
                </property>
@@ -4762,6 +4667,7 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -4860,7 +4766,7 @@ QPushButton:hover{
               <item>
                <widget class="QStackedWidget" name="Stacked_config_mode">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="page_fiber_config">
                  <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -4903,8 +4809,9 @@ QPushButton:hover{
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>18</pointsize>
+                      <weight>63</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -5077,13 +4984,13 @@ background-color: rgb(255, 255, 255);</string>
                        </property>
                        <property name="minimumSize">
                         <size>
-                         <width>520</width>
+                         <width>450</width>
                          <height>130</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>520</width>
+                         <width>500</width>
                          <height>130</height>
                         </size>
                        </property>
@@ -5091,6 +4998,7 @@ background-color: rgb(255, 255, 255);</string>
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
+                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -5181,6 +5089,7 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -5224,6 +5133,7 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
+                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -5327,6 +5237,7 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -5369,6 +5280,7 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
+                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -5576,13 +5488,13 @@ QSlider::handle:horizontal {
                       <widget class="QGroupBox" name="wavelength_incident_4">
                        <property name="minimumSize">
                         <size>
-                         <width>510</width>
+                         <width>450</width>
                          <height>80</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>520</width>
+                         <width>500</width>
                          <height>110</height>
                         </size>
                        </property>
@@ -5590,6 +5502,7 @@ QSlider::handle:horizontal {
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
+                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -5672,6 +5585,7 @@ QGroupBox::title  {
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
+                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -5765,6 +5679,7 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
+                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -5975,6 +5890,7 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>14</pointsize>
+                            <weight>50</weight>
                             <italic>false</italic>
                             <bold>false</bold>
                            </font>
@@ -6034,6 +5950,7 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
+                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -6124,6 +6041,7 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>14</pointsize>
+                            <weight>50</weight>
                             <italic>false</italic>
                             <bold>false</bold>
                            </font>
@@ -6220,8 +6138,9 @@ QDoubleSpinBox::down-button
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>18</pointsize>
+                      <weight>63</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -6394,13 +6313,13 @@ background-color: rgb(255, 255, 255);</string>
                        </property>
                        <property name="minimumSize">
                         <size>
-                         <width>520</width>
+                         <width>450</width>
                          <height>130</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>520</width>
+                         <width>500</width>
                          <height>135</height>
                         </size>
                        </property>
@@ -6408,6 +6327,7 @@ background-color: rgb(255, 255, 255);</string>
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
+                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -6498,6 +6418,7 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -6541,6 +6462,7 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
+                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -6644,6 +6566,7 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -6686,6 +6609,7 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
+                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -6878,13 +6802,13 @@ QSlider::handle:horizontal {
                       <widget class="QGroupBox" name="wavelength_incident_2">
                        <property name="minimumSize">
                         <size>
-                         <width>510</width>
+                         <width>450</width>
                          <height>80</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>520</width>
+                         <width>500</width>
                          <height>80</height>
                         </size>
                        </property>
@@ -6892,6 +6816,7 @@ QSlider::handle:horizontal {
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
+                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -7046,6 +6971,7 @@ QGroupBox::title  {
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
+                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -7183,8 +7109,9 @@ QDoubleSpinBox::down-button
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>18</pointsize>
+                      <weight>63</weight>
                       <italic>false</italic>
-                      <bold>false</bold>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -7351,13 +7278,13 @@ background-color: rgb(255, 255, 255);</string>
                        </property>
                        <property name="minimumSize">
                         <size>
-                         <width>510</width>
+                         <width>400</width>
                          <height>130</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>520</width>
+                         <width>500</width>
                          <height>135</height>
                         </size>
                        </property>
@@ -7365,6 +7292,7 @@ background-color: rgb(255, 255, 255);</string>
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
+                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -7451,6 +7379,7 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -7488,6 +7417,7 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
+                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -7582,6 +7512,7 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
+                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -7618,6 +7549,7 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
+                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -7850,8 +7782,9 @@ border-radius:15px;</string>
                     <font>
                      <family>Ubuntu</family>
                      <pointsize>14</pointsize>
+                     <weight>63</weight>
                      <italic>false</italic>
-                     <bold>false</bold>
+                     <bold>true</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -7888,50 +7821,6 @@ border-color: rgb(53, 132, 228);
                    <property name="spacing">
                     <number>0</number>
                    </property>
-                   <item>
-                    <widget class="QPushButton" name="btn_prev_graph_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>35</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>45</width>
-                       <height>35</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QPushButton{
-	color: rgb(255, 255,255);
-	background-color: rgba(0, 130, 180, 80);
-	border-color: rgba(0, 100, 130,80);
-	border-width: 3px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(0, 130, 180);
-	width: 40;
-	height: 35;
-}</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="icons_.qrc">
-                       <normaloff>:/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png</normaloff>:/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png</iconset>
-                     </property>
-                    </widget>
-                   </item>
                    <item>
                     <spacer name="horizontalSpacer_98">
                      <property name="orientation">
@@ -7986,7 +7875,7 @@ QPushButton:hover{
                       <enum>Qt::Horizontal</enum>
                      </property>
                      <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
+                      <enum>QSizePolicy::Preferred</enum>
                      </property>
                      <property name="sizeHint" stdset="0">
                       <size>
@@ -8000,7 +7889,7 @@ QPushButton:hover{
                     <widget class="QPushButton" name="btn_export_data_4">
                      <property name="minimumSize">
                       <size>
-                       <width>110</width>
+                       <width>100</width>
                        <height>25</height>
                       </size>
                      </property>
@@ -8032,6 +7921,105 @@ QPushButton:hover{
                     </widget>
                    </item>
                    <item>
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBox">
+                     <property name="minimumSize">
+                      <size>
+                       <width>180</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QComboBox::drop-down {
+    width: 25;
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox
+{
+ padding: 1px 18px 1px 3px;
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+ border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;
+}
+QComboBox::down-arrow { /* shift the arrow when popup is open */
+    top: 1px;
+	image: url(:/icons/icons/arrow-down.png);
+    left: 1px;
+}</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string>Reflectance - TM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Reflectance - TE</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>FWHM - TM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>FWHM - TE</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Reflectance vs. Analyte - TM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Reflectance vs. Analyte - TE</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Sensibility - TM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Sensibility - TE</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Quality Factor - TM</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Quality Factor - TE</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item>
                     <spacer name="horizontalSpacer_100">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
@@ -8043,53 +8031,6 @@ QPushButton:hover{
                       </size>
                      </property>
                     </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="btn_next_graph_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>35</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>45</width>
-                       <height>35</height>
-                      </size>
-                     </property>
-                     <property name="layoutDirection">
-                      <enum>Qt::RightToLeft</enum>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QPushButton{
-	color: rgb(255, 255,255);
-	background-color: rgba(0, 130, 180, 80);
-	border-color: rgba(0, 100, 130,80);
-	border-width: 2px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(0, 130, 180);
-	width: 40;
-	height: 35;
-}</string>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="icon">
-                      <iconset resource="icons_.qrc">
-                       <normaloff>:/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png</normaloff>:/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png</iconset>
-                     </property>
-                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -8134,26 +8075,6 @@ QPushButton:hover{
                    <attribute name="horizontalHeaderStretchLastSection">
                     <bool>false</bool>
                    </attribute>
-                   <row>
-                    <property name="text">
-                     <string>Analyte</string>
-                    </property>
-                   </row>
-                   <row>
-                    <property name="text">
-                     <string>Layer 2</string>
-                    </property>
-                   </row>
-                   <row>
-                    <property name="text">
-                     <string>Layer 1</string>
-                    </property>
-                   </row>
-                   <row>
-                    <property name="text">
-                     <string>Core</string>
-                    </property>
-                   </row>
                    <column>
                     <property name="text">
                      <string>Material</string>
@@ -8219,58 +8140,6 @@ QPushButton:hover{
                      </property>
                      <property name="text">
                       <string>Edit</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_102">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeType">
-                      <enum>QSizePolicy::Fixed</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="btn_save_table_3">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>100</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">QPushButton{
-	font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 130, 180);
-	border-color: rgb(0, 100, 130);
-	border-width: 2px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(00, 140, 70);
-	border-color: rgb(0, 120, 40);
-	width: 40;
-	height: 35;
-}</string>
-                     </property>
-                     <property name="text">
-                      <string>Save Data</string>
                      </property>
                     </widget>
                    </item>
@@ -8522,8 +8391,9 @@ color: rgb(255, 255, 255);
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
+          <weight>63</weight>
           <italic>false</italic>
-          <bold>false</bold>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
