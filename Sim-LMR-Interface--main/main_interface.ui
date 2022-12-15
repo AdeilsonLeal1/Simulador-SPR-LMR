@@ -60,9 +60,11 @@
      </property>
      <property name="styleSheet">
       <string notr="true">QFrame{
-	background-color: rgb(0, 70, 120);
+	
+	background-color: rgb(218, 218, 218);
     border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+
 }
 
 </string>
@@ -134,6 +136,22 @@
        </widget>
       </item>
       <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>79</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
        <widget class="QLabel" name="label_title">
         <property name="maximumSize">
          <size>
@@ -145,9 +163,8 @@
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>63</weight>
           <italic>false</italic>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
@@ -156,7 +173,7 @@ color: rgb(0, 170, 255);
 font: 500 10pt &quot;Ubuntu&quot;;</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Sim -LMR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#353535;&quot;&gt;Sim -LMR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -171,14 +188,13 @@ font: 500 10pt &quot;Ubuntu&quot;;</string>
         <property name="maximumSize">
          <size>
           <width>65</width>
-          <height>25</height>
+          <height>22</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Ubuntu</family>
           <pointsize>11</pointsize>
-          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
@@ -193,7 +209,7 @@ font: 500 10pt &quot;Ubuntu&quot;;</string>
          <string notr="true">QPushButton{
 	font: 400 11pt &quot;Ubuntu&quot;;
 	color: rgb(255, 255,255);
-	background-color: rgb(0, 70, 120);
+	background-color: rgba(0,40, 120,120);
 	border-radius:6px;
 }
 
@@ -228,15 +244,14 @@ QPushButton:hover{
         </property>
         <property name="maximumSize">
          <size>
-          <width>20</width>
-          <height>20</height>
+          <width>22</width>
+          <height>22</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>99</weight>
           <italic>false</italic>
           <bold>true</bold>
          </font>
@@ -273,17 +288,16 @@ QPushButton:hover{
         </property>
         <property name="maximumSize">
          <size>
-          <width>20</width>
-          <height>20</height>
+          <width>22</width>
+          <height>22</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>63</weight>
           <italic>false</italic>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="cursor">
@@ -367,7 +381,7 @@ QPushButton:hover{
          <string notr="true">background:transparent;</string>
         </property>
         <property name="currentIndex">
-         <number>4</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="home_window">
          <property name="styleSheet">
@@ -511,7 +525,6 @@ font: 700 9pt &quot;Noto Serif Hebrew&quot;;
                   <font>
                    <family>Segoe UI Semibold</family>
                    <pointsize>15</pointsize>
-                   <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
@@ -588,7 +601,6 @@ QPushButton:hover{
                   <font>
                    <family>Segoe UI Semibold</family>
                    <pointsize>15</pointsize>
-                   <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
@@ -624,12 +636,6 @@ QPushButton:hover{
                    <width>30</width>
                    <height>30</height>
                   </size>
-                 </property>
-                 <property name="autoRepeatDelay">
-                  <number>1000</number>
-                 </property>
-                 <property name="autoRepeatInterval">
-                  <number>200</number>
                  </property>
                 </widget>
                </item>
@@ -801,7 +807,6 @@ background: transparent;</string>
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -1164,7 +1169,7 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}</string>
              </font>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;pre align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;tw-target-text-container&quot;/&gt;&lt;span style=&quot; font-family:'monospace'; color:#ffffff;&quot;/&gt;&lt;span style=&quot; font-family:'monospace'; color:#ffffff;&quot;&gt;- Select an option for optical coupling - &lt;/span&gt;&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;pre align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a name=&quot;tw-target-text-container&quot;/&gt;&lt;span style=&quot; font-family:'monospace'; color:#ffffff;&quot;&gt;-&lt;/span&gt;&lt;span style=&quot; font-family:'monospace'; color:#ffffff;&quot;&gt; Select an option for optical coupling - &lt;/span&gt;&lt;/pre&gt;&lt;pre align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'monospace'; color:#ffffff;&quot;&gt;Enter to continue...&lt;/span&gt;&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
@@ -1466,7 +1471,6 @@ background: transparent;</string>
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -1528,7 +1532,6 @@ background: transparent;</string>
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -2107,7 +2110,6 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -2181,7 +2183,6 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -2255,7 +2256,6 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -2354,7 +2354,7 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}
               <item>
                <widget class="QStackedWidget" name="stackedWidget">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="page_layers_aim">
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -2376,7 +2376,6 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>14</pointsize>
-                      <weight>50</weight>
                       <italic>false</italic>
                       <bold>false</bold>
                      </font>
@@ -2531,7 +2530,6 @@ QGroupBox::title  {
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>12</pointsize>
-                         <weight>88</weight>
                          <italic>false</italic>
                          <bold>true</bold>
                         </font>
@@ -2764,7 +2762,7 @@ QPushButton:hover{
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>150</width>
+                         <width>180</width>
                          <height>16777215</height>
                         </size>
                        </property>
@@ -2805,7 +2803,7 @@ border-radius:10px;</string>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>150</width>
+                         <width>180</width>
                          <height>16777215</height>
                         </size>
                        </property>
@@ -3943,9 +3941,8 @@ border-radius:15px;</string>
                     <font>
                      <family>Ubuntu</family>
                      <pointsize>14</pointsize>
-                     <weight>63</weight>
                      <italic>false</italic>
-                     <bold>true</bold>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -4540,7 +4537,6 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -4614,7 +4610,6 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -4688,7 +4683,6 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>true</underline>
                 </font>
@@ -4762,7 +4756,6 @@ QPushButton:hover{
                 <font>
                  <family>Segoe UI Semibold</family>
                  <pointsize>11</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                  <underline>false</underline>
                 </font>
@@ -4861,7 +4854,7 @@ QPushButton:hover{
               <item>
                <widget class="QStackedWidget" name="Stacked_config_mode">
                 <property name="currentIndex">
-                 <number>2</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="page_fiber_config">
                  <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -4904,9 +4897,8 @@ QPushButton:hover{
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>18</pointsize>
-                      <weight>63</weight>
                       <italic>false</italic>
-                      <bold>true</bold>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -5093,7 +5085,6 @@ background-color: rgb(255, 255, 255);</string>
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -5184,7 +5175,6 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -5228,7 +5218,6 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
-                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -5332,7 +5321,6 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -5375,7 +5363,6 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
-                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -5597,7 +5584,6 @@ QSlider::handle:horizontal {
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -5680,7 +5666,6 @@ QGroupBox::title  {
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
-                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -5774,7 +5759,6 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
-                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -5985,7 +5969,6 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>14</pointsize>
-                            <weight>50</weight>
                             <italic>false</italic>
                             <bold>false</bold>
                            </font>
@@ -6045,7 +6028,6 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
-                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -6136,7 +6118,6 @@ QDoubleSpinBox::down-button
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>14</pointsize>
-                            <weight>50</weight>
                             <italic>false</italic>
                             <bold>false</bold>
                            </font>
@@ -6233,9 +6214,8 @@ QDoubleSpinBox::down-button
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>18</pointsize>
-                      <weight>63</weight>
                       <italic>false</italic>
-                      <bold>true</bold>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -6422,7 +6402,6 @@ background-color: rgb(255, 255, 255);</string>
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -6513,7 +6492,6 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -6557,7 +6535,6 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
-                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -6661,7 +6638,6 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -6704,7 +6680,6 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
-                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -6911,7 +6886,6 @@ QSlider::handle:horizontal {
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -7066,7 +7040,6 @@ QGroupBox::title  {
                            <font>
                             <family>Ubuntu</family>
                             <pointsize>12</pointsize>
-                            <weight>88</weight>
                             <italic>false</italic>
                             <bold>true</bold>
                            </font>
@@ -7204,9 +7177,8 @@ QDoubleSpinBox::down-button
                      <font>
                       <family>Ubuntu</family>
                       <pointsize>18</pointsize>
-                      <weight>63</weight>
                       <italic>false</italic>
-                      <bold>true</bold>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -7387,7 +7359,6 @@ background-color: rgb(255, 255, 255);</string>
                         <font>
                          <family>Ubuntu</family>
                          <pointsize>14</pointsize>
-                         <weight>50</weight>
                          <italic>false</italic>
                          <bold>false</bold>
                         </font>
@@ -7474,7 +7445,6 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -7512,7 +7482,6 @@ QGroupBox::title  {
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
-                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -7607,7 +7576,6 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>14</pointsize>
-                              <weight>50</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -7644,7 +7612,6 @@ QDoubleSpinBox::down-button
                              <font>
                               <family>Ubuntu</family>
                               <pointsize>12</pointsize>
-                              <weight>88</weight>
                               <italic>false</italic>
                               <bold>true</bold>
                              </font>
@@ -7877,9 +7844,8 @@ border-radius:15px;</string>
                     <font>
                      <family>Ubuntu</family>
                      <pointsize>14</pointsize>
-                     <weight>63</weight>
                      <italic>false</italic>
-                     <bold>true</bold>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -8479,21 +8445,21 @@ color: rgb(255, 255, 255);
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>22</height>
+          <height>25</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Ubuntu</family>
-          <pointsize>10</pointsize>
-          <weight>63</weight>
+          <pointsize>11</pointsize>
           <italic>false</italic>
-          <bold>true</bold>
+          <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background:transparent;
-font: 500 10pt &quot;Ubuntu&quot;;</string>
+         <string notr="true">background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);
+font: 500 11pt &quot;Ubuntu&quot;;
+color: rgb(0, 0, 0);</string>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Sim-LMR v01.0_a&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
