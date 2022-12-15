@@ -13,11 +13,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 coupling, interrogation_mode = 0, 0
 
+
 class Ui_Widget(object):
-    
+
     def setupUi(self, Widget):
-        
-        
+
         Widget.setObjectName("Widget")
         Widget.resize(1035, 755)
         Widget.setMinimumSize(QtCore.QSize(750, 0))
@@ -203,7 +203,7 @@ class Ui_Widget(object):
         self.Stacked_windows.setFont(font)
         self.Stacked_windows.setStyleSheet("background:transparent;")
         self.Stacked_windows.setObjectName("Stacked_windows")
-        
+
         # Home page
         self.home_window = QtWidgets.QWidget()
         self.home_window.setStyleSheet("QFrame{\n"
@@ -226,21 +226,21 @@ class Ui_Widget(object):
         spacerItem = QtWidgets.QSpacerItem(
             20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_18.addItem(spacerItem)
-        self.label_5 = QtWidgets.QLabel(self.frame_6)
+        self.label_logo = QtWidgets.QLabel(self.frame_6)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
-            self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy)
-        self.label_5.setStyleSheet("background: transparent;\n"
-                                   "font: 700 9pt \"Noto Serif Hebrew\";\n"
-                                   "")
-        self.label_5.setTextFormat(QtCore.Qt.RichText)
-        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_5.setObjectName("label_5")
-        self.verticalLayout_18.addWidget(self.label_5)
+            self.label_logo.sizePolicy().hasHeightForWidth())
+        self.label_logo.setSizePolicy(sizePolicy)
+        self.label_logo.setStyleSheet("background: transparent;\n"
+                                      "font: 700 9pt \"Noto Serif Hebrew\";\n"
+                                      "")
+        self.label_logo.setTextFormat(QtCore.Qt.RichText)
+        self.label_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_logo.setObjectName("label_logo")
+        self.verticalLayout_18.addWidget(self.label_logo)
         spacerItem1 = QtWidgets.QSpacerItem(
             20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout_18.addItem(spacerItem1)
@@ -311,20 +311,20 @@ class Ui_Widget(object):
         self.exit_btn.setFont(font)
         self.exit_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.exit_btn.setStyleSheet("QPushButton{\n"
-                                      "    color: rgb(255, 255,255);\n"
-                                      "    background-color: rgb(0, 130, 180);\n"
-                                      "    border-color: rgb(0, 100, 130);\n"
-                                      "    border-style: outset;\n"
-                                      "    border-width: 3px;\n"
-                                      "    border-radius:10px;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QPushButton:hover{\n"
-                                      "    background-color: rgb(150, 40, 20);\n"
-                                      "    border-color: rgb(150, 25, 20);\n"
-                                      "\n"
-                                      "}\n"
-                                      "")
+                                    "    color: rgb(255, 255,255);\n"
+                                    "    background-color: rgb(0, 130, 180);\n"
+                                    "    border-color: rgb(0, 100, 130);\n"
+                                    "    border-style: outset;\n"
+                                    "    border-width: 3px;\n"
+                                    "    border-radius:10px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover{\n"
+                                    "    background-color: rgb(150, 40, 20);\n"
+                                    "    border-color: rgb(150, 25, 20);\n"
+                                    "\n"
+                                    "}\n"
+                                    "")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/icons/icons/logout.png"),
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -343,7 +343,7 @@ class Ui_Widget(object):
         self.verticalLayout_18.addItem(spacerItem5)
         self.verticalLayout_17.addWidget(self.frame_6)
         self.Stacked_windows.addWidget(self.home_window)
-        
+
         # Coupling window
         self.coupling_window = QtWidgets.QWidget()
         self.coupling_window.setStyleSheet("background:transparent;")
@@ -414,13 +414,13 @@ class Ui_Widget(object):
             681, 15, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_22.addItem(spacerItem6)
         self.verticalLayout_19.addWidget(self.frame_hierarq_4)
-        self.coupling_label = QtWidgets.QLabel(self.coupling_window)
-        self.coupling_label.setMinimumSize(QtCore.QSize(0, 60))
+        self.label_coupling = QtWidgets.QLabel(self.coupling_window)
+        self.label_coupling.setMinimumSize(QtCore.QSize(0, 60))
         font = QtGui.QFont()
         font.setPointSize(20)
-        self.coupling_label.setFont(font)
-        self.coupling_label.setObjectName("coupling_label")
-        self.verticalLayout_19.addWidget(self.coupling_label)
+        self.label_coupling.setFont(font)
+        self.label_coupling.setObjectName("label_coupling")
+        self.verticalLayout_19.addWidget(self.label_coupling)
         spacerItem7 = QtWidgets.QSpacerItem(
             20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_19.addItem(spacerItem7)
@@ -568,7 +568,7 @@ class Ui_Widget(object):
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_coup.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.prev_btn_coup.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                           "background: transparent;")
+                                         "background: transparent;")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap(
             ":/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -588,7 +588,7 @@ class Ui_Widget(object):
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next_btn_coup.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.next_btn_coup.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                           "background: transparent;")
+                                         "background: transparent;")
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap(
             ":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -615,7 +615,7 @@ class Ui_Widget(object):
         self.horizontalLayout_26.setObjectName("horizontalLayout_26")
         self.verticalLayout_19.addWidget(self.frame_10)
         self.Stacked_windows.addWidget(self.coupling_window)
-        
+
         # Interrogaton mode Window
         self.interrogation_window = QtWidgets.QWidget()
         self.interrogation_window.setObjectName("interrogation_window")
@@ -702,13 +702,13 @@ class Ui_Widget(object):
             675, 15, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_27.addItem(spacerItem14)
         self.verticalLayout_20.addWidget(self.frame_hierarq_5)
-        self.Interrogatio_label_2 = QtWidgets.QLabel(self.interrogation_window)
-        self.Interrogatio_label_2.setMinimumSize(QtCore.QSize(0, 60))
+        self.label_interrogation = QtWidgets.QLabel(self.interrogation_window)
+        self.label_interrogation.setMinimumSize(QtCore.QSize(0, 60))
         font = QtGui.QFont()
         font.setPointSize(20)
-        self.Interrogatio_label_2.setFont(font)
-        self.Interrogatio_label_2.setObjectName("Interrogatio_label_2")
-        self.verticalLayout_20.addWidget(self.Interrogatio_label_2)
+        self.label_interrogation.setFont(font)
+        self.label_interrogation.setObjectName("label_interrogation")
+        self.verticalLayout_20.addWidget(self.label_interrogation)
         spacerItem15 = QtWidgets.QSpacerItem(
             20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_20.addItem(spacerItem15)
@@ -736,14 +736,14 @@ class Ui_Widget(object):
         self.aim_btn.setMaximumSize(QtCore.QSize(350, 350))
         self.aim_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.aim_btn.setStyleSheet("QPushButton{ background-color: rgb(255, 255, 255);\n"
-                                     "border-color: rgb(31, 78, 121);\n"
-                                     "border-radius: 30px;\n"
-                                     "border-style: outset;\n"
-                                     "border-width: 7px;\n"
-                                     "}\n"
-                                     "QPushButton:hover{ border-color: rgb(255, 170, 0);}\n"
-                                     "\n"
-                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
+                                   "border-color: rgb(31, 78, 121);\n"
+                                   "border-radius: 30px;\n"
+                                   "border-style: outset;\n"
+                                   "border-width: 7px;\n"
+                                   "}\n"
+                                   "QPushButton:hover{ border-color: rgb(255, 170, 0);}\n"
+                                   "\n"
+                                   "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
         self.aim_btn.setText("")
         self.aim_btn.setCheckable(True)
         self.aim_btn.setAutoExclusive(True)
@@ -769,14 +769,14 @@ class Ui_Widget(object):
         self.wim_btn.setMaximumSize(QtCore.QSize(350, 350))
         self.wim_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.wim_btn.setStyleSheet("QPushButton{ background-color: rgb(255, 255, 255);\n"
-                                     "border-color: rgb(31, 78, 121);\n"
-                                     "border-radius: 30px;\n"
-                                     "border-style: outset;\n"
-                                     "border-width: 7px;\n"
-                                     "}\n"
-                                     "QPushButton:hover{ border-color: rgb(255, 170, 0);}\n"
-                                     "\n"
-                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
+                                   "border-color: rgb(31, 78, 121);\n"
+                                   "border-radius: 30px;\n"
+                                   "border-style: outset;\n"
+                                   "border-width: 7px;\n"
+                                   "}\n"
+                                   "QPushButton:hover{ border-color: rgb(255, 170, 0);}\n"
+                                   "\n"
+                                   "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
         self.wim_btn.setText("")
         self.wim_btn.setCheckable(True)
         self.wim_btn.setAutoExclusive(True)
@@ -1012,34 +1012,33 @@ class Ui_Widget(object):
             self.setting_layers_frame)
         self.stacked_layers.setObjectName("stacked_layers")
         self.page_layers_aim = QtWidgets.QWidget()
-        self.page_layers_aim.setObjectName("page_layers_aim")
+        self.page_layers_aim.setObjectName(u"page_layers_aim")
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page_layers_aim)
-        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_9.setSpacing(8)
-        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.gb_incident_wav = QtWidgets.QGroupBox(self.page_layers_aim)
-        self.gb_incident_wav.setMinimumSize(QtCore.QSize(510, 80))
+        self.gb_incident_wav.setObjectName(u"gb_incident_wav")
+        self.gb_incident_wav.setMinimumSize(QtCore.QSize(400, 80))
         self.gb_incident_wav.setMaximumSize(QtCore.QSize(520, 80))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.gb_incident_wav.setFont(font)
-        self.gb_incident_wav.setStyleSheet("/*{font: 14pt \"Ubuntu\";\n"
+        font12 = QtGui.QFont()
+        font12.setFamily(u"Ubuntu")
+        font12.setPointSize(14)
+        font12.setBold(False)
+        font12.setItalic(False)
+        font12.setWeight(50)
+        self.gb_incident_wav.setFont(font12)
+        self.gb_incident_wav.setStyleSheet(u"/*{font: 14pt \"Ubuntu\";\n"
                                            "color: rgb(255, 255, 255);\n"
-                                           "    background-color: rgba(255, 255, 255,20);\n"
+                                           "	background-color: rgba(255, 255, 255,20);\n"
                                            "}*/\n"
                                            "\n"
                                            "QGroupBox  {\n"
-                                           "    background-color: rgba(255, 255, 255,70);\n"
-                                           "    font: 14pt \"Ubuntu\";\n"
+                                           "	background-color: rgba(255, 255, 255,70);\n"
+                                           "	font: 14pt \"Ubuntu\";\n"
                                            "    border: 2px solid;\n"
                                            "    border-color: #FF17365D;\n"
                                            "    margin-top: 25px;\n"
                                            "    border-bottom-left-radius: 20px;\n"
-                                           "    border-bottom-right-radius: 20px;\n"
+                                           "	border-bottom-right-radius: 20px;\n"
                                            "}\n"
                                            "\n"
                                            "QGroupBox::title  {\n"
@@ -1054,26 +1053,28 @@ class Ui_Widget(object):
         self.gb_incident_wav.setAlignment(
             QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop)
         self.gb_incident_wav.setChecked(False)
-        self.gb_incident_wav.setObjectName("gb_incident_wav")
         self.horizontalLayout_35 = QtWidgets.QHBoxLayout(self.gb_incident_wav)
-        self.horizontalLayout_35.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_35.setSpacing(0)
-        self.horizontalLayout_35.setObjectName("horizontalLayout_35")
-        spacerItem23 = QtWidgets.QSpacerItem(
+        self.horizontalLayout_35.setObjectName(u"horizontalLayout_35")
+        self.horizontalLayout_35.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_58 = QtWidgets.QSpacerItem(
             15, 17, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_35.addItem(spacerItem23)
+
+        self.horizontalLayout_35.addItem(self.horizontalSpacer_58)
+
         self.angle_Slider_3 = QtWidgets.QSlider(self.gb_incident_wav)
-        sizePolicy = QtWidgets.QSizePolicy(
+        self.angle_Slider_3.setObjectName(u"angle_Slider_3")
+        sizePolicy9 = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(
             self.angle_Slider_3.sizePolicy().hasHeightForWidth())
-        self.angle_Slider_3.setSizePolicy(sizePolicy)
-        self.angle_Slider_3.setMinimumSize(QtCore.QSize(300, 25))
+        self.angle_Slider_3.setSizePolicy(sizePolicy9)
+        self.angle_Slider_3.setMinimumSize(QtCore.QSize(250, 25))
         self.angle_Slider_3.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.angle_Slider_3.setStyleSheet("QSlider::handle:horizontal {\n"
-                                          "    background-color: rgb(0,90,180);\n"
+        self.angle_Slider_3.setStyleSheet(u"QSlider::handle:horizontal {\n"
+                                          "	background-color: rgb(0,90,180);\n"
                                           "    width:64px;\n"
                                           "    height:64px;\n"
                                           "}\n"
@@ -1083,29 +1084,28 @@ class Ui_Widget(object):
         self.angle_Slider_3.setOrientation(QtCore.Qt.Horizontal)
         self.angle_Slider_3.setTickPosition(QtWidgets.QSlider.TicksBelow)
         self.angle_Slider_3.setTickInterval(100)
-        self.angle_Slider_3.setObjectName("angle_Slider_3")
+
         self.horizontalLayout_35.addWidget(self.angle_Slider_3)
-        spacerItem24 = QtWidgets.QSpacerItem(
+
+        self.horizontalSpacer_59 = QtWidgets.QSpacerItem(
             15, 17, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_35.addItem(spacerItem24)
+
+        self.horizontalLayout_35.addItem(self.horizontalSpacer_59)
+
         self.angle_incidence_3 = QtWidgets.QDoubleSpinBox(self.gb_incident_wav)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.angle_incidence_3.sizePolicy().hasHeightForWidth())
-        self.angle_incidence_3.setSizePolicy(sizePolicy)
+        self.angle_incidence_3.setObjectName(u"angle_incidence_3")
+        # QtWidgets.QSizePolicy.setHeightForWidth(self.angle_incidence_3.sizePolicy().hasHeightForWidth())
+        # self.angle_incidence_3.setSizePolicy(QtWidgets.QSizePolicy)
         self.angle_incidence_3.setMinimumSize(QtCore.QSize(130, 30))
         self.angle_incidence_3.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.angle_incidence_3.setFont(font)
-        self.angle_incidence_3.setStyleSheet("\n"
+        font13 = QtGui.QFont()
+        font13.setFamily(u"Ubuntu")
+        font13.setPointSize(12)
+        font13.setBold(True)
+        font13.setItalic(False)
+        font13.setWeight(88)
+        self.angle_incidence_3.setFont(font13)
+        self.angle_incidence_3.setStyleSheet(u"\n"
                                              "QDoubleSpinBox\n"
                                              "{\n"
                                              "color: rgb(10, 25, 90);\n"
@@ -1123,8 +1123,8 @@ class Ui_Widget(object):
                                              "    border-left-style: solid; /* just a single line */\n"
                                              "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
                                              "    border-bottom-right-radius: 3px;\n"
-                                             "    image: url(:/icons/icons/arrow-up.png);\n"
-                                             "    width: 25;\n"
+                                             "	image: url(:/icons/icons/arrow-up.png);\n"
+                                             "	width: 25;\n"
                                              "}\n"
                                              "QDoubleSpinBox::down-button\n"
                                              "{\n"
@@ -1133,8 +1133,8 @@ class Ui_Widget(object):
                                              "    border-left-style: solid; /* just a single line */\n"
                                              "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
                                              "    border-bottom-right-radius: 3px;\n"
-                                             "    image: url(:/icons/icons/arrow-down.png);\n"
-                                             "    width: 25;\n"
+                                             "	image: url(:/icons/icons/arrow-down.png);\n"
+                                             "	width: 25;\n"
                                              "}")
         self.angle_incidence_3.setWrapping(True)
         self.angle_incidence_3.setFrame(False)
@@ -1143,202 +1143,35 @@ class Ui_Widget(object):
             QtWidgets.QAbstractSpinBox.UpDownArrows)
         self.angle_incidence_3.setAccelerated(True)
         self.angle_incidence_3.setDecimals(2)
-        self.angle_incidence_3.setMinimum(400.0)
-        self.angle_incidence_3.setMaximum(2000.0)
-        self.angle_incidence_3.setSingleStep(0.01)
-        self.angle_incidence_3.setProperty("value", 400.0)
-        self.angle_incidence_3.setObjectName("angle_incidence_3")
+        self.angle_incidence_3.setMinimum(400.000000000000000)
+        self.angle_incidence_3.setMaximum(2000.000000000000000)
+        self.angle_incidence_3.setSingleStep(0.010000000000000)
+        self.angle_incidence_3.setValue(400.000000000000000)
+
         self.horizontalLayout_35.addWidget(self.angle_incidence_3)
-        spacerItem25 = QtWidgets.QSpacerItem(
+
+        self.horizontalSpacer_60 = QtWidgets.QSpacerItem(
             15, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_35.addItem(spacerItem25)
+
+        self.horizontalLayout_35.addItem(self.horizontalSpacer_60)
+
         self.verticalLayout_9.addWidget(self.gb_incident_wav)
-        self.gb_analyte = QtWidgets.QGroupBox(self.page_layers_aim)
-        self.gb_analyte.setStyleSheet("\n"
-                                      "QGroupBox  {\n"
-                                      "    font: 14pt \"Ubuntu\";\n"
-                                      "    background-color: rgba(255, 255, 255,70);\n"
-                                      "    border: 2px solid;\n"
-                                      "    border-color: #FF17365D;\n"
-                                      "    margin-top: 25px;\n"
-                                      "    margin-bottom: 0px;\n"
-                                      "    border-bottom-left-radius: 20px;\n"
-                                      "    border-bottom-right-radius: 20px;\n"
-                                      "}\n"
-                                      "\n"
-                                      "QGroupBox::title  {\n"
-                                      "    subcontrol-origin: margin;\n"
-                                      "    subcontrol-position: top center;\n"
-                                      "    padding: 5px 8000px 5px 8000px;\n"
-                                      "    background-color: #FF17365D;\n"
-                                      "    color: rgb(255, 255, 255);\n"
-                                      "}\n"
-                                      "")
-        self.gb_analyte.setObjectName("gb_analyte")
-        self.gridLayout_4 = QtWidgets.QGridLayout(self.gb_analyte)
-        self.gridLayout_4.setObjectName("gridLayout_4")
-        self.btn_add_analyte = QtWidgets.QPushButton(self.gb_analyte)
-        self.btn_add_analyte.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_analyte.setMaximumSize(QtCore.QSize(200, 16777215))
-        self.btn_add_analyte.setStyleSheet("QPushButton{\n"
-                                           "    font: 400 11pt \"Ubuntu\";\n"
-                                           "    color: rgb(255, 255,255);\n"
-                                           "    background-color: rgb(0, 130, 180);\n"
-                                           "    border-color: rgb(0, 100, 130);\n"
-                                           "    border-width: 2px;\n"
-                                           "    border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QPushButton:hover{\n"
-                                           "    background-color: rgb(00, 140, 70);\n"
-                                           "    border-color: rgb(0, 120, 40);\n"
-                                           "    width: 40;\n"
-                                           "    height: 35;\n"
-                                           "}")
-        self.btn_add_analyte.setObjectName("btn_add_analyte")
-        self.gridLayout_4.addWidget(self.btn_add_analyte, 1, 2, 1, 1)
-        self.warning_4 = QtWidgets.QLabel(self.gb_analyte)
-        self.warning_4.setStyleSheet("font: 14pt \"Ubuntu\";\n"
-                                     "\n"
-                                     "")
-        self.warning_4.setAlignment(QtCore.Qt.AlignCenter)
-        self.warning_4.setObjectName("warning_4")
-        self.gridLayout_4.addWidget(self.warning_4, 1, 0, 1, 1)
-        self.doubleSpinBox = QtWidgets.QDoubleSpinBox(self.gb_analyte)
-        self.doubleSpinBox.setMinimumSize(QtCore.QSize(0, 30))
-        self.doubleSpinBox.setStyleSheet("\n"
-                                         "QDoubleSpinBox\n"
-                                         "{\n"
-                                         "color: rgb(10, 25, 90);\n"
-                                         "font: 700 12pt \"Ubuntu\";\n"
-                                         "border: 2px solid;\n"
-                                         "border-color: #FF17365D;\n"
-                                         "background-color: rgba(255, 255, 255,210);\n"
-                                         "border-radius:10px;\n"
-                                         "}\n"
-                                         "\n"
-                                         "QDoubleSpinBox::up-button\n"
-                                         "{\n"
-                                         "    border-left-width: 1px;\n"
-                                         "    border-left-color: darkgray;\n"
-                                         "    border-left-style: solid; /* just a single line */\n"
-                                         "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                         "    border-bottom-right-radius: 3px;\n"
-                                         "    image: url(:/icons/icons/arrow-up.png);\n"
-                                         "    width: 25;\n"
-                                         "}\n"
-                                         "QDoubleSpinBox::down-button\n"
-                                         "{\n"
-                                         "    border-left-width: 1px;\n"
-                                         "    border-left-color: darkgray;\n"
-                                         "    border-left-style: solid; /* just a single line */\n"
-                                         "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                         "    border-bottom-right-radius: 3px;\n"
-                                         "    image: url(:/icons/icons/arrow-down.png);\n"
-                                         "    width: 25;\n"
-                                         "}")
-        self.doubleSpinBox.setDecimals(3)
-        self.doubleSpinBox.setMinimum(1.0)
-        self.doubleSpinBox.setMaximum(5.0)
-        self.doubleSpinBox.setProperty("value", 1.36)
-        self.doubleSpinBox.setObjectName("doubleSpinBox")
-        self.gridLayout_4.addWidget(self.doubleSpinBox, 0, 1, 1, 1)
-        self.doubleSpinBox_2 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
-        self.doubleSpinBox_2.setMinimumSize(QtCore.QSize(0, 30))
-        self.doubleSpinBox_2.setStyleSheet("\n"
-                                           "QDoubleSpinBox\n"
-                                           "{\n"
-                                           "color: rgb(10, 25, 90);\n"
-                                           "font: 700 12pt \"Ubuntu\";\n"
-                                           "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
-                                           "background-color: rgba(255, 255, 255,210);\n"
-                                           "border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QDoubleSpinBox::up-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-up.png);\n"
-                                           "    width: 25;\n"
-                                           "}\n"
-                                           "QDoubleSpinBox::down-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-down.png);\n"
-                                           "    width: 25;\n"
-                                           "}")
-        self.doubleSpinBox_2.setDecimals(3)
-        self.doubleSpinBox_2.setMaximum(3.0)
-        self.doubleSpinBox_2.setProperty("value", 0.002)
-        self.doubleSpinBox_2.setObjectName("doubleSpinBox_2")
-        self.gridLayout_4.addWidget(self.doubleSpinBox_2, 0, 2, 1, 1)
-        self.doubleSpinBox_3 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
-        self.doubleSpinBox_3.setMinimumSize(QtCore.QSize(0, 30))
-        self.doubleSpinBox_3.setStyleSheet("\n"
-                                           "QDoubleSpinBox\n"
-                                           "{\n"
-                                           "color: rgb(10, 25, 90);\n"
-                                           "font: 700 12pt \"Ubuntu\";\n"
-                                           "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
-                                           "background-color: rgba(255, 255, 255,210);\n"
-                                           "border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QDoubleSpinBox::up-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-up.png);\n"
-                                           "    width: 25;\n"
-                                           "}\n"
-                                           "QDoubleSpinBox::down-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-down.png);\n"
-                                           "    width: 25;\n"
-                                           "}")
-        self.doubleSpinBox_3.setDecimals(3)
-        self.doubleSpinBox_3.setMinimum(1.0)
-        self.doubleSpinBox_3.setMaximum(5.0)
-        self.doubleSpinBox_3.setProperty("value", 1.33)
-        self.doubleSpinBox_3.setObjectName("doubleSpinBox_3")
-        self.gridLayout_4.addWidget(self.doubleSpinBox_3, 0, 0, 1, 1)
-        self.verticalLayout_9.addWidget(self.gb_analyte)
+
         self.gb_layers = QtWidgets.QGroupBox(self.page_layers_aim)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
+        self.gb_layers.setObjectName(u"gb_layers")
         sizePolicy.setHeightForWidth(
             self.gb_layers.sizePolicy().hasHeightForWidth())
         self.gb_layers.setSizePolicy(sizePolicy)
-        self.gb_layers.setStyleSheet("\n"
+        self.gb_layers.setStyleSheet(u"\n"
                                      "QGroupBox  {\n"
-                                     "    font: 14pt \"Ubuntu\";\n"
-                                     "    background-color: rgba(255, 255, 255,70);\n"
+                                     "	font: 14pt \"Ubuntu\";\n"
+                                     "	background-color: rgba(255, 255, 255,70);\n"
                                      "    border: 2px solid;\n"
                                      "    border-color: #FF17365D;\n"
                                      "    margin-top: 25px;\n"
-                                     "    margin-bottom: 0px;\n"
+                                     "	margin-bottom: 0px;\n"
                                      "    border-bottom-left-radius: 20px;\n"
-                                     "    border-bottom-right-radius: 20px;\n"
+                                     "	border-bottom-right-radius: 20px;\n"
                                      "}\n"
                                      "\n"
                                      "QGroupBox::title  {\n"
@@ -1349,157 +1182,63 @@ class Ui_Widget(object):
                                      "    color: rgb(255, 255, 255);\n"
                                      "}\n"
                                      "")
-        self.gb_layers.setObjectName("gb_layers")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.gb_layers)
-        self.gridLayout_2.setContentsMargins(9, 9, 0, 0)
-        self.gridLayout_2.setSpacing(8)
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        self.label_12 = QtWidgets.QLabel(self.gb_layers)
-        self.label_12.setStyleSheet("font: 14pt \"Ubuntu\";")
-        self.label_12.setObjectName("label_12")
-        self.gridLayout_2.addWidget(self.label_12, 1, 0, 1, 1)
-        self.btn_new_substrate = QtWidgets.QPushButton(self.gb_layers)
-        self.btn_new_substrate.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_new_substrate.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_new_substrate.setStyleSheet("QPushButton{\n"
-                                             "        font: 400 11pt \"Ubuntu\";\n"
-                                             "    color: rgb(255, 255,255);\n"
-                                             "    background-color: rgb(0, 70, 120);\n"
-                                             "    border-radius:6px;\n"
-                                             "}\n"
-                                             "\n"
-                                             "QPushButton:hover{\n"
-                                             "    background: rgb(0, 0, 255);\n"
-                                             "    width: 40;\n"
-                                             "    height: 35;\n"
-                                             "}")
-        self.btn_new_substrate.setObjectName("btn_new_substrate")
-        self.gridLayout_2.addWidget(self.btn_new_substrate, 4, 0, 1, 1)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setHorizontalSpacing(10)
+        self.gridLayout_2.setVerticalSpacing(25)
+        self.gridLayout_2.setContentsMargins(9, 25, 0, 0)
         self.btn_new_layer = QtWidgets.QPushButton(self.gb_layers)
+        self.btn_new_layer.setObjectName(u"btn_new_layer")
         self.btn_new_layer.setMinimumSize(QtCore.QSize(100, 30))
         self.btn_new_layer.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_new_layer.setStyleSheet("QPushButton{\n"
-                                         "        font: 400 11pt \"Ubuntu\";\n"
-                                         "    color: rgb(255, 255,255);\n"
-                                         "    background-color: rgb(0, 70, 120);\n"
-                                         "    border-radius:6px;\n"
+        self.btn_new_layer.setStyleSheet(u"QPushButton{\n"
+                                         "		font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: rgb(0, 70, 120);\n"
+                                         "	border-radius:6px;\n"
                                          "}\n"
                                          "\n"
                                          "QPushButton:hover{\n"
-                                         "    background: rgb(0, 0, 255);\n"
-                                         "    width: 40;\n"
-                                         "    height: 35;\n"
+                                         "	background: rgb(0, 0, 255);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
                                          "}")
-        self.btn_new_layer.setObjectName("btn_new_layer")
-        self.gridLayout_2.addWidget(self.btn_new_layer, 2, 0, 1, 1)
-        spacerItem26 = QtWidgets.QSpacerItem(
-            20, 15, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        self.gridLayout_2.addItem(spacerItem26, 3, 1, 1, 1)
+
+        self.gridLayout_2.addWidget(self.btn_new_layer, 0, 0, 1, 1)
+
         self.label_11 = QtWidgets.QLabel(self.gb_layers)
-        self.label_11.setStyleSheet("font: 14pt \"Ubuntu\";")
-        self.label_11.setObjectName("label_11")
-        self.gridLayout_2.addWidget(self.label_11, 0, 0, 1, 1)
-        self.frame_refractive_index = QtWidgets.QFrame(self.gb_layers)
-        self.frame_refractive_index.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_refractive_index.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_refractive_index.setObjectName("frame_refractive_index")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_refractive_index)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.real_part_index = QtWidgets.QLineEdit(self.frame_refractive_index)
-        self.real_part_index.setMinimumSize(QtCore.QSize(0, 30))
-        self.real_part_index.setStyleSheet(" padding: 1px 18px 1px 3px;\n"
-                                           "color: rgb(10, 25, 90);\n"
-                                           "font: 700 12pt \"Ubuntu\";\n"
-                                           " border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
-                                           "background-color: rgba(255, 255, 255,210);\n"
-                                           "border-radius:10px;")
-        self.real_part_index.setAlignment(QtCore.Qt.AlignCenter)
-        self.real_part_index.setObjectName("real_part_index")
-        self.gridLayout_3.addWidget(self.real_part_index, 1, 1, 1, 1)
-        self.label_7 = QtWidgets.QLabel(self.frame_refractive_index)
-        self.label_7.setStyleSheet("font: 700 12pt \"Ubuntu\";")
-        self.label_7.setObjectName("label_7")
-        self.gridLayout_3.addWidget(self.label_7, 1, 0, 1, 1)
-        self.label_10 = QtWidgets.QLabel(self.frame_refractive_index)
-        self.label_10.setStyleSheet("font: 500 14pt \"Ubuntu\";")
-        self.label_10.setObjectName("label_10")
-        self.gridLayout_3.addWidget(self.label_10, 0, 0, 1, 1)
-        self.imaginary_part_index = QtWidgets.QLineEdit(
-            self.frame_refractive_index)
-        self.imaginary_part_index.setMinimumSize(QtCore.QSize(0, 30))
-        self.imaginary_part_index.setStyleSheet(" padding: 1px 18px 1px 3px;\n"
-                                                "color: rgb(10, 25, 90);\n"
-                                                "font: 700 12pt \"Ubuntu\";\n"
-                                                " border: 2px solid;\n"
-                                                "border-color: #FF17365D;\n"
-                                                "background-color: rgba(255, 255, 255,210);\n"
-                                                "border-radius:10px;")
-        self.imaginary_part_index.setAlignment(QtCore.Qt.AlignCenter)
-        self.imaginary_part_index.setObjectName("imaginary_part_index")
-        self.gridLayout_3.addWidget(self.imaginary_part_index, 3, 1, 1, 1)
-        self.label_9 = QtWidgets.QLabel(self.frame_refractive_index)
-        self.label_9.setStyleSheet("font: 700 12pt \"Ubuntu\";")
-        self.label_9.setObjectName("label_9")
-        self.gridLayout_3.addWidget(self.label_9, 3, 0, 1, 1)
-        self.warning = QtWidgets.QLabel(self.frame_refractive_index)
-        self.warning.setStyleSheet("font: 14pt \"Ubuntu\";\n"
-                                   "\n"
-                                   "")
-        self.warning.setAlignment(QtCore.Qt.AlignCenter)
-        self.warning.setObjectName("warning")
-        self.gridLayout_3.addWidget(self.warning, 1, 2, 1, 1)
-        self.warning_3 = QtWidgets.QLabel(self.frame_refractive_index)
-        self.warning_3.setStyleSheet("font: 14pt \"Ubuntu\";\n"
-                                     "")
-        self.warning_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.warning_3.setObjectName("warning_3")
-        self.gridLayout_3.addWidget(self.warning_3, 3, 2, 1, 1)
-        self.gridLayout_2.addWidget(self.frame_refractive_index, 5, 0, 1, 2)
-        self.btn_add_substrate = QtWidgets.QPushButton(self.gb_layers)
-        self.btn_add_substrate.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_substrate.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_add_substrate.setStyleSheet("QPushButton{\n"
-                                             "    font: 400 11pt \"Ubuntu\";\n"
-                                             "    color: rgb(255, 255,255);\n"
-                                             "    background-color: rgb(0, 130, 180);\n"
-                                             "    border-color: rgb(0, 100, 130);\n"
-                                             "    border-width: 2px;\n"
-                                             "    border-radius:10px;\n"
-                                             "}\n"
-                                             "\n"
-                                             "QPushButton:hover{\n"
-                                             "    background-color: rgb(00, 140, 70);\n"
-                                             "    border-color: rgb(0, 120, 40);\n"
-                                             "    width: 40;\n"
-                                             "    height: 35;\n"
-                                             "}")
-        self.btn_add_substrate.setObjectName("btn_add_substrate")
-        self.gridLayout_2.addWidget(self.btn_add_substrate, 4, 1, 1, 1)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_2.addWidget(self.label_11, 2, 0, 1, 1)
+
         self.btn_add_layer = QtWidgets.QPushButton(self.gb_layers)
+        self.btn_add_layer.setObjectName(u"btn_add_layer")
         self.btn_add_layer.setMinimumSize(QtCore.QSize(100, 30))
         self.btn_add_layer.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_add_layer.setStyleSheet("QPushButton{\n"
-                                         "    font: 400 11pt \"Ubuntu\";\n"
-                                         "    color: rgb(255, 255,255);\n"
-                                         "    background-color: rgb(0, 130, 180);\n"
-                                         "    border-color: rgb(0, 100, 130);\n"
-                                         "    border-width: 2px;\n"
-                                         "    border-radius:10px;\n"
+        self.btn_add_layer.setStyleSheet(u"QPushButton{\n"
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: rgb(0, 130, 180);\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
                                          "}\n"
                                          "\n"
                                          "QPushButton:hover{\n"
-                                         "    background-color: rgb(00, 140, 70);\n"
-                                         "    border-color: rgb(0, 120, 40);\n"
-                                         "    width: 40;\n"
-                                         "    height: 35;\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
                                          "}")
-        self.btn_add_layer.setObjectName("btn_add_layer")
-        self.gridLayout_2.addWidget(self.btn_add_layer, 2, 1, 1, 1)
+
+        self.gridLayout_2.addWidget(self.btn_add_layer, 0, 1, 1, 1)
+
         self.thickness = QtWidgets.QLineEdit(self.gb_layers)
+        self.thickness.setObjectName(u"thickness")
         self.thickness.setMinimumSize(QtCore.QSize(0, 30))
         self.thickness.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.thickness.setStyleSheet(" padding: 1px 18px 1px 3px;\n"
+        self.thickness.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
                                      "color: rgb(10, 25, 90);\n"
                                      "font: 700 12pt \"Ubuntu\";\n"
                                      " border: 2px solid;\n"
@@ -1507,14 +1246,25 @@ class Ui_Widget(object):
                                      "background-color: rgba(255, 255, 255,210);\n"
                                      "border-radius:10px;")
         self.thickness.setAlignment(QtCore.Qt.AlignCenter)
-        self.thickness.setObjectName("thickness")
-        self.gridLayout_2.addWidget(self.thickness, 1, 1, 1, 1)
+
+        self.gridLayout_2.addWidget(self.thickness, 3, 1, 1, 1)
+
+        self.label_12 = QtWidgets.QLabel(self.gb_layers)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_2.addWidget(self.label_12, 3, 0, 1, 1)
+
         self.cbox_material = QtWidgets.QComboBox(self.gb_layers)
+        self.cbox_material.addItem("")
+        self.cbox_material.addItem("")
+        self.cbox_material.addItem("")
+        self.cbox_material.setObjectName(u"cbox_material")
         self.cbox_material.setMinimumSize(QtCore.QSize(0, 30))
         self.cbox_material.setMaximumSize(QtCore.QSize(150, 16777215))
         self.cbox_material.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.cbox_material.setStyleSheet("QComboBox::drop-down {\n"
+        self.cbox_material.setStyleSheet(u"QComboBox::drop-down {\n"
                                          "    width: 25;\n"
                                          "    border-left-width: 1px;\n"
                                          "    border-left-color: darkgray;\n"
@@ -1535,208 +1285,309 @@ class Ui_Widget(object):
                                          "}\n"
                                          "QComboBox::down-arrow { /* shift the arrow when popup is open */\n"
                                          "    top: 1px;\n"
-                                         "    image: url(:/icons/icons/arrow-down.png);\n"
+                                         "	image: url(:/icons/icons/arrow-down.png);\n"
                                          "    left: 1px;\n"
                                          "}")
-        self.cbox_material.setObjectName("cbox_material")
-        self.cbox_material.addItem("")
-        self.cbox_material.addItem("")
-        self.cbox_material.addItem("")
-        self.gridLayout_2.addWidget(self.cbox_material, 0, 1, 1, 1)
+
+        self.gridLayout_2.addWidget(self.cbox_material, 2, 1, 1, 1)
+
+        self.frame_refractive_index = QtWidgets.QFrame(self.gb_layers)
+        self.frame_refractive_index.setObjectName(u"frame_refractive_index")
+        self.frame_refractive_index.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_refractive_index.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_refractive_index)
+        self.gridLayout_3.setSpacing(20)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setContentsMargins(0, 0, 0, 10)
+        self.label_7 = QtWidgets.QLabel(self.frame_refractive_index)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setStyleSheet(u"font:14pt \"Ubuntu\";")
+
+        self.gridLayout_3.addWidget(self.label_7, 0, 0, 1, 1)
+
+        self.label_9 = QtWidgets.QLabel(self.frame_refractive_index)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setStyleSheet(u"font:14pt \"Ubuntu\";")
+
+        self.gridLayout_3.addWidget(self.label_9, 3, 0, 1, 1)
+
+        self.warning = QtWidgets.QLabel(self.frame_refractive_index)
+        self.warning.setObjectName(u"warning")
+        self.warning.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
+                                   "\n"
+                                   "")
+        self.warning.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_3.addWidget(self.warning, 0, 2, 1, 1)
+
+        self.real_part_index = QtWidgets.QLineEdit(self.frame_refractive_index)
+        self.real_part_index.setObjectName(u"real_part_index")
+        self.real_part_index.setMinimumSize(QtCore.QSize(0, 30))
+        self.real_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                           "color: rgb(10, 25, 90);\n"
+                                           "font: 700 12pt \"Ubuntu\";\n"
+                                           " border: 2px solid;\n"
+                                           "border-color: #FF17365D;\n"
+                                           "background-color: rgba(255, 255, 255,210);\n"
+                                           "border-radius:10px;")
+        self.real_part_index.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_3.addWidget(self.real_part_index, 0, 1, 1, 1)
+
+        self.warning_3 = QtWidgets.QLabel(self.frame_refractive_index)
+        self.warning_3.setObjectName(u"warning_3")
+        self.warning_3.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
+                                     "")
+        self.warning_3.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_3.addWidget(self.warning_3, 3, 2, 1, 1)
+
+        self.imaginary_part_index = QtWidgets.QLineEdit(
+            self.frame_refractive_index)
+        self.imaginary_part_index.setObjectName(u"imaginary_part_index")
+        self.imaginary_part_index.setMinimumSize(QtCore.QSize(0, 30))
+        self.imaginary_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                                "color: rgb(10, 25, 90);\n"
+                                                "font: 700 12pt \"Ubuntu\";\n"
+                                                " border: 2px solid;\n"
+                                                "border-color: #FF17365D;\n"
+                                                "background-color: rgba(255, 255, 255,210);\n"
+                                                "border-radius:10px;")
+        self.imaginary_part_index.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_3.addWidget(self.imaginary_part_index, 3, 1, 1, 1)
+
+        self.gridLayout_2.addWidget(self.frame_refractive_index, 5, 0, 1, 2)
+
         self.verticalLayout_9.addWidget(self.gb_layers)
-        self.stacked_layers.addWidget(self.page_layers_aim)
-        self.page_layers_wim = QtWidgets.QWidget()
-        self.page_layers_wim.setObjectName("page_layers_wim")
-        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.page_layers_wim)
-        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_10.setSpacing(8)
-        self.verticalLayout_10.setObjectName("verticalLayout_10")
-        self.gb_analyte_2 = QtWidgets.QGroupBox(self.page_layers_wim)
-        self.gb_analyte_2.setStyleSheet("\n"
-                                        "QGroupBox  {\n"
-                                        "    font: 14pt \"Ubuntu\";\n"
-                                        "    background-color: rgba(255, 255, 255,70);\n"
-                                        "    border: 2px solid;\n"
-                                        "    border-color: #FF17365D;\n"
-                                        "    margin-top: 25px;\n"
-                                        "    margin-bottom: 0px;\n"
-                                        "    border-bottom-left-radius: 20px;\n"
-                                        "    border-bottom-right-radius: 20px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "QGroupBox::title  {\n"
-                                        "    subcontrol-origin: margin;\n"
-                                        "    subcontrol-position: top center;\n"
-                                        "    padding: 5px 8000px 5px 8000px;\n"
-                                        "    background-color: #FF17365D;\n"
-                                        "    color: rgb(255, 255, 255);\n"
-                                        "}\n"
-                                        "")
-        self.gb_analyte_2.setObjectName("gb_analyte_2")
-        self.gridLayout_5 = QtWidgets.QGridLayout(self.gb_analyte_2)
-        self.gridLayout_5.setObjectName("gridLayout_5")
-        self.btn_add_analyte_2 = QtWidgets.QPushButton(self.gb_analyte_2)
-        self.btn_add_analyte_2.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_analyte_2.setMaximumSize(QtCore.QSize(200, 16777215))
-        self.btn_add_analyte_2.setStyleSheet("QPushButton{\n"
-                                             "    font: 400 11pt \"Ubuntu\";\n"
-                                             "    color: rgb(255, 255,255);\n"
-                                             "    background-color: rgb(0, 130, 180);\n"
-                                             "    border-color: rgb(0, 100, 130);\n"
-                                             "    border-width: 2px;\n"
-                                             "    border-radius:10px;\n"
-                                             "}\n"
-                                             "\n"
-                                             "QPushButton:hover{\n"
-                                             "    background-color: rgb(00, 140, 70);\n"
-                                             "    border-color: rgb(0, 120, 40);\n"
-                                             "    width: 40;\n"
-                                             "    height: 35;\n"
-                                             "}")
-        self.btn_add_analyte_2.setObjectName("btn_add_analyte_2")
-        self.gridLayout_5.addWidget(self.btn_add_analyte_2, 1, 2, 1, 1)
-        self.warning_5 = QtWidgets.QLabel(self.gb_analyte_2)
-        self.warning_5.setStyleSheet("font: 14pt \"Ubuntu\";\n"
+
+        self.gb_analyte = QtWidgets.QGroupBox(self.page_layers_aim)
+        self.gb_analyte.setObjectName(u"gb_analyte")
+        self.gb_analyte.setStyleSheet(u"\n"
+                                      "QGroupBox  {\n"
+                                      "	font: 14pt \"Ubuntu\";\n"
+                                      "	background-color: rgba(255, 255, 255,70);\n"
+                                      "    border: 2px solid;\n"
+                                      "    border-color: #FF17365D;\n"
+                                      "    margin-top: 25px;\n"
+                                      "	margin-bottom: 0px;\n"
+                                      "    border-bottom-left-radius: 20px;\n"
+                                      "	border-bottom-right-radius: 20px;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QGroupBox::title  {\n"
+                                      "    subcontrol-origin: margin;\n"
+                                      "    subcontrol-position: top center;\n"
+                                      "    padding: 5px 8000px 5px 8000px;\n"
+                                      "    background-color: #FF17365D;\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "")
+        self.gridLayout_7 = QtWidgets.QGridLayout(self.gb_analyte)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setHorizontalSpacing(10)
+        self.gridLayout_7.setVerticalSpacing(20)
+        self.gridLayout_7.setContentsMargins(-1, 25, 9, 25)
+        self.label_20 = QtWidgets.QLabel(self.gb_analyte)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_7.addWidget(self.label_20, 0, 0, 1, 1)
+
+        self.doubleSpinBox_7 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
+        self.doubleSpinBox_7.setObjectName(u"doubleSpinBox_7")
+        self.doubleSpinBox_7.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_7.setStyleSheet(u"\n"
+                                           "QDoubleSpinBox\n"
+                                           "{\n"
+                                           "color: rgb(10, 25, 90);\n"
+                                           "font: 700 12pt \"Ubuntu\";\n"
+                                           "border: 2px solid;\n"
+                                           "border-color: #FF17365D;\n"
+                                           "background-color: rgba(255, 255, 255,210);\n"
+                                           "border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QDoubleSpinBox::up-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-up.png);\n"
+                                           "	width: 25;\n"
+                                           "}\n"
+                                           "QDoubleSpinBox::down-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-down.png);\n"
+                                           "	width: 25;\n"
+                                           "}")
+        self.doubleSpinBox_7.setDecimals(3)
+        self.doubleSpinBox_7.setMinimum(1.000000000000000)
+        self.doubleSpinBox_7.setMaximum(5.000000000000000)
+        self.doubleSpinBox_7.setSingleStep(0.001000000000000)
+        self.doubleSpinBox_7.setValue(1.330000000000000)
+
+        self.gridLayout_7.addWidget(self.doubleSpinBox_7, 0, 1, 1, 1)
+
+        self.btn_add_analyte = QtWidgets.QPushButton(self.gb_analyte)
+        self.btn_add_analyte.setObjectName(u"btn_add_analyte")
+        self.btn_add_analyte.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_add_analyte.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.btn_add_analyte.setCursor(
+            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_add_analyte.setStyleSheet(u"QPushButton{\n"
+                                           "	font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: rgb(0, 130, 180);\n"
+                                           "	border-color: rgb(0, 100, 130);\n"
+                                           "	border-width: 2px;\n"
+                                           "	border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background-color: rgb(00, 140, 70);\n"
+                                           "	border-color: rgb(0, 120, 40);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+
+        self.gridLayout_7.addWidget(self.btn_add_analyte, 0, 2, 1, 1)
+
+        self.label_21 = QtWidgets.QLabel(self.gb_analyte)
+        self.label_21.setObjectName(u"label_21")
+        self.label_21.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_7.addWidget(self.label_21, 1, 0, 1, 1)
+
+        self.doubleSpinBox_8 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
+        self.doubleSpinBox_8.setObjectName(u"doubleSpinBox_8")
+        self.doubleSpinBox_8.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_8.setStyleSheet(u"\n"
+                                           "QDoubleSpinBox\n"
+                                           "{\n"
+                                           "color: rgb(10, 25, 90);\n"
+                                           "font: 700 12pt \"Ubuntu\";\n"
+                                           "border: 2px solid;\n"
+                                           "border-color: #FF17365D;\n"
+                                           "background-color: rgba(255, 255, 255,210);\n"
+                                           "border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QDoubleSpinBox::up-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-up.png);\n"
+                                           "	width: 25;\n"
+                                           "}\n"
+                                           "QDoubleSpinBox::down-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-down.png);\n"
+                                           "	width: 25;\n"
+                                           "}")
+        self.doubleSpinBox_8.setDecimals(3)
+        self.doubleSpinBox_8.setMinimum(1.000000000000000)
+        self.doubleSpinBox_8.setMaximum(5.000000000000000)
+        self.doubleSpinBox_8.setSingleStep(0.001000000000000)
+        self.doubleSpinBox_8.setValue(1.360000000000000)
+
+        self.gridLayout_7.addWidget(self.doubleSpinBox_8, 1, 1, 1, 1)
+
+        self.label_22 = QtWidgets.QLabel(self.gb_analyte)
+        self.label_22.setObjectName(u"label_22")
+        self.label_22.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_7.addWidget(self.label_22, 2, 0, 1, 1)
+
+        self.doubleSpinBox_9 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
+        self.doubleSpinBox_9.setObjectName(u"doubleSpinBox_9")
+        self.doubleSpinBox_9.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_9.setStyleSheet(u"\n"
+                                           "QDoubleSpinBox\n"
+                                           "{\n"
+                                           "color: rgb(10, 25, 90);\n"
+                                           "font: 700 12pt \"Ubuntu\";\n"
+                                           "border: 2px solid;\n"
+                                           "border-color: #FF17365D;\n"
+                                           "background-color: rgba(255, 255, 255,210);\n"
+                                           "border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QDoubleSpinBox::up-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-up.png);\n"
+                                           "	width: 25;\n"
+                                           "}\n"
+                                           "QDoubleSpinBox::down-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-down.png);\n"
+                                           "	width: 25;\n"
+                                           "}")
+        self.doubleSpinBox_9.setDecimals(3)
+        self.doubleSpinBox_9.setMaximum(3.000000000000000)
+        self.doubleSpinBox_9.setSingleStep(0.001000000000000)
+        self.doubleSpinBox_9.setValue(0.002000000000000)
+
+        self.gridLayout_7.addWidget(self.doubleSpinBox_9, 2, 1, 1, 1)
+
+        self.warning_6 = QtWidgets.QLabel(self.gb_analyte)
+        self.warning_6.setObjectName(u"warning_6")
+        self.warning_6.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
                                      "\n"
                                      "")
-        self.warning_5.setAlignment(QtCore.Qt.AlignCenter)
-        self.warning_5.setObjectName("warning_5")
-        self.gridLayout_5.addWidget(self.warning_5, 1, 0, 1, 1)
-        self.doubleSpinBox_4 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
-        self.doubleSpinBox_4.setMinimumSize(QtCore.QSize(0, 30))
-        self.doubleSpinBox_4.setStyleSheet("\n"
-                                           "QDoubleSpinBox\n"
-                                           "{\n"
-                                           "color: rgb(10, 25, 90);\n"
-                                           "font: 700 12pt \"Ubuntu\";\n"
-                                           "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
-                                           "background-color: rgba(255, 255, 255,210);\n"
-                                           "border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QDoubleSpinBox::up-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-up.png);\n"
-                                           "    width: 25;\n"
-                                           "}\n"
-                                           "QDoubleSpinBox::down-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-down.png);\n"
-                                           "    width: 25;\n"
-                                           "}")
-        self.doubleSpinBox_4.setDecimals(3)
-        self.doubleSpinBox_4.setMinimum(1.0)
-        self.doubleSpinBox_4.setMaximum(5.0)
-        self.doubleSpinBox_4.setProperty("value", 1.36)
-        self.doubleSpinBox_4.setObjectName("doubleSpinBox_4")
-        self.gridLayout_5.addWidget(self.doubleSpinBox_4, 0, 1, 1, 1)
-        self.doubleSpinBox_5 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
-        self.doubleSpinBox_5.setMinimumSize(QtCore.QSize(0, 30))
-        self.doubleSpinBox_5.setStyleSheet("\n"
-                                           "QDoubleSpinBox\n"
-                                           "{\n"
-                                           "color: rgb(10, 25, 90);\n"
-                                           "font: 700 12pt \"Ubuntu\";\n"
-                                           "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
-                                           "background-color: rgba(255, 255, 255,210);\n"
-                                           "border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QDoubleSpinBox::up-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-up.png);\n"
-                                           "    width: 25;\n"
-                                           "}\n"
-                                           "QDoubleSpinBox::down-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-down.png);\n"
-                                           "    width: 25;\n"
-                                           "}")
-        self.doubleSpinBox_5.setDecimals(3)
-        self.doubleSpinBox_5.setMaximum(3.0)
-        self.doubleSpinBox_5.setProperty("value", 0.002)
-        self.doubleSpinBox_5.setObjectName("doubleSpinBox_5")
-        self.gridLayout_5.addWidget(self.doubleSpinBox_5, 0, 2, 1, 1)
-        self.doubleSpinBox_6 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
-        self.doubleSpinBox_6.setMinimumSize(QtCore.QSize(0, 30))
-        self.doubleSpinBox_6.setStyleSheet("\n"
-                                           "QDoubleSpinBox\n"
-                                           "{\n"
-                                           "color: rgb(10, 25, 90);\n"
-                                           "font: 700 12pt \"Ubuntu\";\n"
-                                           "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
-                                           "background-color: rgba(255, 255, 255,210);\n"
-                                           "border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QDoubleSpinBox::up-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-up.png);\n"
-                                           "    width: 25;\n"
-                                           "}\n"
-                                           "QDoubleSpinBox::down-button\n"
-                                           "{\n"
-                                           "    border-left-width: 1px;\n"
-                                           "    border-left-color: darkgray;\n"
-                                           "    border-left-style: solid; /* just a single line */\n"
-                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                           "    border-bottom-right-radius: 3px;\n"
-                                           "    image: url(:/icons/icons/arrow-down.png);\n"
-                                           "    width: 25;\n"
-                                           "}")
-        self.doubleSpinBox_6.setDecimals(3)
-        self.doubleSpinBox_6.setMinimum(1.0)
-        self.doubleSpinBox_6.setMaximum(5.0)
-        self.doubleSpinBox_6.setProperty("value", 1.33)
-        self.doubleSpinBox_6.setObjectName("doubleSpinBox_6")
-        self.gridLayout_5.addWidget(self.doubleSpinBox_6, 0, 0, 1, 1)
-        self.verticalLayout_10.addWidget(self.gb_analyte_2)
+        self.warning_6.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_7.addWidget(self.warning_6, 1, 2, 1, 1)
+
+        self.verticalLayout_9.addWidget(self.gb_analyte)
+
+        self.stacked_layers.addWidget(self.page_layers_aim)
+        self.page_layers_wim = QtWidgets.QWidget()
+        self.page_layers_wim.setObjectName(u"page_layers_wim")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.page_layers_wim)
+        self.verticalLayout_10.setSpacing(8)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.gb_layers_2 = QtWidgets.QGroupBox(self.page_layers_wim)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
+        self.gb_layers_2.setObjectName(u"gb_layers_2")
         sizePolicy.setHeightForWidth(
             self.gb_layers_2.sizePolicy().hasHeightForWidth())
         self.gb_layers_2.setSizePolicy(sizePolicy)
-        self.gb_layers_2.setStyleSheet("\n"
+        self.gb_layers_2.setStyleSheet(u"\n"
                                        "QGroupBox  {\n"
-                                       "    font: 14pt \"Ubuntu\";\n"
-                                       "    background-color: rgba(255, 255, 255,70);\n"
+                                       "	font: 14pt \"Ubuntu\";\n"
+                                       "	background-color: rgba(255, 255, 255,70);\n"
                                        "    border: 2px solid;\n"
                                        "    border-color: #FF17365D;\n"
                                        "    margin-top: 25px;\n"
-                                       "    margin-bottom: 0px;\n"
+                                       "	margin-bottom: 0px;\n"
                                        "    border-bottom-left-radius: 20px;\n"
-                                       "    border-bottom-right-radius: 20px;\n"
+                                       "	border-bottom-right-radius: 20px;\n"
                                        "}\n"
                                        "\n"
                                        "QGroupBox::title  {\n"
@@ -1747,94 +1598,21 @@ class Ui_Widget(object):
                                        "    color: rgb(255, 255, 255);\n"
                                        "}\n"
                                        "")
-        self.gb_layers_2.setObjectName("gb_layers_2")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.gb_layers_2)
-        self.gridLayout_6.setContentsMargins(9, 9, 0, 0)
-        self.gridLayout_6.setSpacing(8)
-        self.gridLayout_6.setObjectName("gridLayout_6")
-        self.btn_add_substrate_2 = QtWidgets.QPushButton(self.gb_layers_2)
-        self.btn_add_substrate_2.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_substrate_2.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_add_substrate_2.setStyleSheet("QPushButton{\n"
-                                               "    font: 400 11pt \"Ubuntu\";\n"
-                                               "    color: rgb(255, 255,255);\n"
-                                               "    background-color: rgb(0, 130, 180);\n"
-                                               "    border-color: rgb(0, 100, 130);\n"
-                                               "    border-width: 2px;\n"
-                                               "    border-radius:10px;\n"
-                                               "}\n"
-                                               "\n"
-                                               "QPushButton:hover{\n"
-                                               "    background-color: rgb(00, 140, 70);\n"
-                                               "    border-color: rgb(0, 120, 40);\n"
-                                               "    width: 40;\n"
-                                               "    height: 35;\n"
-                                               "}")
-        self.btn_add_substrate_2.setObjectName("btn_add_substrate_2")
-        self.gridLayout_6.addWidget(self.btn_add_substrate_2, 4, 1, 1, 1)
-        self.btn_add_layer_2 = QtWidgets.QPushButton(self.gb_layers_2)
-        self.btn_add_layer_2.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_layer_2.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_add_layer_2.setStyleSheet("QPushButton{\n"
-                                           "    font: 400 11pt \"Ubuntu\";\n"
-                                           "    color: rgb(255, 255,255);\n"
-                                           "    background-color: rgb(0, 130, 180);\n"
-                                           "    border-color: rgb(0, 100, 130);\n"
-                                           "    border-width: 2px;\n"
-                                           "    border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QPushButton:hover{\n"
-                                           "    background-color: rgb(00, 140, 70);\n"
-                                           "    border-color: rgb(0, 120, 40);\n"
-                                           "    width: 40;\n"
-                                           "    height: 35;\n"
-                                           "}")
-        self.btn_add_layer_2.setObjectName("btn_add_layer_2")
-        self.gridLayout_6.addWidget(self.btn_add_layer_2, 2, 1, 1, 1)
-        spacerItem27 = QtWidgets.QSpacerItem(
-            20, 15, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        self.gridLayout_6.addItem(spacerItem27, 3, 1, 1, 1)
-        self.btn_new_layer_2 = QtWidgets.QPushButton(self.gb_layers_2)
-        self.btn_new_layer_2.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_new_layer_2.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_new_layer_2.setStyleSheet("QPushButton{\n"
-                                           "        font: 400 11pt \"Ubuntu\";\n"
-                                           "    color: rgb(255, 255,255);\n"
-                                           "    background-color: rgb(0, 70, 120);\n"
-                                           "    border-radius:6px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QPushButton:hover{\n"
-                                           "    background: rgb(0, 0, 255);\n"
-                                           "    width: 40;\n"
-                                           "    height: 35;\n"
-                                           "}")
-        self.btn_new_layer_2.setObjectName("btn_new_layer_2")
-        self.gridLayout_6.addWidget(self.btn_new_layer_2, 2, 0, 1, 1)
-        self.label_13 = QtWidgets.QLabel(self.gb_layers_2)
-        self.label_13.setStyleSheet("font: 14pt \"Ubuntu\";")
-        self.label_13.setObjectName("label_13")
-        self.gridLayout_6.addWidget(self.label_13, 1, 0, 1, 1)
-        self.thickness_2 = QtWidgets.QLineEdit(self.gb_layers_2)
-        self.thickness_2.setMinimumSize(QtCore.QSize(0, 30))
-        self.thickness_2.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.thickness_2.setStyleSheet(" padding: 1px 18px 1px 3px;\n"
-                                       "color: rgb(10, 25, 90);\n"
-                                       "font: 700 12pt \"Ubuntu\";\n"
-                                       " border: 2px solid;\n"
-                                       "border-color: #FF17365D;\n"
-                                       "background-color: rgba(255, 255, 255,210);\n"
-                                       "border-radius:10px;")
-        self.thickness_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.thickness_2.setObjectName("thickness_2")
-        self.gridLayout_6.addWidget(self.thickness_2, 1, 1, 1, 1)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setHorizontalSpacing(10)
+        self.gridLayout_6.setVerticalSpacing(20)
+        self.gridLayout_6.setContentsMargins(9, 25, 0, 25)
         self.cbox_material_2 = QtWidgets.QComboBox(self.gb_layers_2)
+        self.cbox_material_2.addItem("")
+        self.cbox_material_2.addItem("")
+        self.cbox_material_2.addItem("")
+        self.cbox_material_2.setObjectName(u"cbox_material_2")
         self.cbox_material_2.setMinimumSize(QtCore.QSize(0, 30))
         self.cbox_material_2.setMaximumSize(QtCore.QSize(150, 16777215))
         self.cbox_material_2.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.cbox_material_2.setStyleSheet("QComboBox::drop-down {\n"
+        self.cbox_material_2.setStyleSheet(u"QComboBox::drop-down {\n"
                                            "    width: 25;\n"
                                            "    border-left-width: 1px;\n"
                                            "    border-left-color: darkgray;\n"
@@ -1855,37 +1633,298 @@ class Ui_Widget(object):
                                            "}\n"
                                            "QComboBox::down-arrow { /* shift the arrow when popup is open */\n"
                                            "    top: 1px;\n"
-                                           "    image: url(:/icons/icons/arrow-down.png);\n"
+                                           "	image: url(:/icons/icons/arrow-down.png);\n"
                                            "    left: 1px;\n"
                                            "}")
-        self.cbox_material_2.setObjectName("cbox_material_2")
-        self.cbox_material_2.addItem("")
-        self.cbox_material_2.addItem("")
-        self.cbox_material_2.addItem("")
-        self.gridLayout_6.addWidget(self.cbox_material_2, 0, 1, 1, 1)
-        self.btn_new_substrate_2 = QtWidgets.QPushButton(self.gb_layers_2)
-        self.btn_new_substrate_2.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_new_substrate_2.setMaximumSize(QtCore.QSize(150, 16777215))
-        self.btn_new_substrate_2.setStyleSheet("QPushButton{\n"
-                                               "        font: 400 11pt \"Ubuntu\";\n"
-                                               "    color: rgb(255, 255,255);\n"
-                                               "    background-color: rgb(0, 70, 120);\n"
-                                               "    border-radius:6px;\n"
-                                               "}\n"
-                                               "\n"
-                                               "QPushButton:hover{\n"
-                                               "    background: rgb(0, 0, 255);\n"
-                                               "    width: 40;\n"
-                                               "    height: 35;\n"
-                                               "}")
-        self.btn_new_substrate_2.setObjectName("btn_new_substrate_2")
-        self.gridLayout_6.addWidget(self.btn_new_substrate_2, 4, 0, 1, 1)
+
+        self.gridLayout_6.addWidget(self.cbox_material_2, 1, 1, 1, 1)
+
         self.label_14 = QtWidgets.QLabel(self.gb_layers_2)
-        self.label_14.setStyleSheet("font: 14pt \"Ubuntu\";")
-        self.label_14.setObjectName("label_14")
-        self.gridLayout_6.addWidget(self.label_14, 0, 0, 1, 1)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_6.addWidget(self.label_14, 1, 0, 1, 1)
+
+        self.label_13 = QtWidgets.QLabel(self.gb_layers_2)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_6.addWidget(self.label_13, 2, 0, 1, 1)
+
+        self.thickness_2 = QtWidgets.QLineEdit(self.gb_layers_2)
+        self.thickness_2.setObjectName(u"thickness_2")
+        self.thickness_2.setMinimumSize(QtCore.QSize(0, 30))
+        self.thickness_2.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.thickness_2.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                       "color: rgb(10, 25, 90);\n"
+                                       "font: 700 12pt \"Ubuntu\";\n"
+                                       " border: 2px solid;\n"
+                                       "border-color: #FF17365D;\n"
+                                       "background-color: rgba(255, 255, 255,210);\n"
+                                       "border-radius:10px;")
+        self.thickness_2.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_6.addWidget(self.thickness_2, 2, 1, 1, 1)
+
+        self.btn_new_layer_2 = QtWidgets.QPushButton(self.gb_layers_2)
+        self.btn_new_layer_2.setObjectName(u"btn_new_layer_2")
+        self.btn_new_layer_2.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_new_layer_2.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.btn_new_layer_2.setCursor(
+            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_new_layer_2.setStyleSheet(u"QPushButton{\n"
+                                           "		font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: rgb(0, 70, 120);\n"
+                                           "	border-radius:6px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background: rgb(0, 0, 255);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+
+        self.gridLayout_6.addWidget(self.btn_new_layer_2, 0, 0, 1, 1)
+
+        self.btn_add_layer_2 = QtWidgets.QPushButton(self.gb_layers_2)
+        self.btn_add_layer_2.setObjectName(u"btn_add_layer_2")
+        self.btn_add_layer_2.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_add_layer_2.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.btn_add_layer_2.setCursor(
+            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_add_layer_2.setStyleSheet(u"QPushButton{\n"
+                                           "	font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: rgb(0, 130, 180);\n"
+                                           "	border-color: rgb(0, 100, 130);\n"
+                                           "	border-width: 2px;\n"
+                                           "	border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background-color: rgb(00, 140, 70);\n"
+                                           "	border-color: rgb(0, 120, 40);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+
+        self.gridLayout_6.addWidget(self.btn_add_layer_2, 0, 1, 1, 1)
+
         self.verticalLayout_10.addWidget(self.gb_layers_2)
+
+        self.gb_analyte_2 = QtWidgets.QGroupBox(self.page_layers_wim)
+        self.gb_analyte_2.setObjectName(u"gb_analyte_2")
+        self.gb_analyte_2.setStyleSheet(u"\n"
+                                        "QGroupBox  {\n"
+                                        "	font: 14pt \"Ubuntu\";\n"
+                                        "	background-color: rgba(255, 255, 255,70);\n"
+                                        "    border: 2px solid;\n"
+                                        "    border-color: #FF17365D;\n"
+                                        "    margin-top: 25px;\n"
+                                        "	margin-bottom: 0px;\n"
+                                        "    border-bottom-left-radius: 20px;\n"
+                                        "	border-bottom-right-radius: 20px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QGroupBox::title  {\n"
+                                        "    subcontrol-origin: margin;\n"
+                                        "    subcontrol-position: top center;\n"
+                                        "    padding: 5px 8000px 5px 8000px;\n"
+                                        "    background-color: #FF17365D;\n"
+                                        "    color: rgb(255, 255, 255);\n"
+                                        "}\n"
+                                        "")
+        self.gridLayout_5 = QtWidgets.QGridLayout(self.gb_analyte_2)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.gridLayout_5.setHorizontalSpacing(10)
+        self.gridLayout_5.setVerticalSpacing(20)
+        self.gridLayout_5.setContentsMargins(-1, 25, -1, 25)
+        self.label_15 = QtWidgets.QLabel(self.gb_analyte_2)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_5.addWidget(self.label_15, 0, 0, 1, 1)
+
+        self.doubleSpinBox_6 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
+        self.doubleSpinBox_6.setObjectName(u"doubleSpinBox_6")
+        self.doubleSpinBox_6.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_6.setStyleSheet(u"\n"
+                                           "QDoubleSpinBox\n"
+                                           "{\n"
+                                           "color: rgb(10, 25, 90);\n"
+                                           "font: 700 12pt \"Ubuntu\";\n"
+                                           "border: 2px solid;\n"
+                                           "border-color: #FF17365D;\n"
+                                           "background-color: rgba(255, 255, 255,210);\n"
+                                           "border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QDoubleSpinBox::up-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-up.png);\n"
+                                           "	width: 25;\n"
+                                           "}\n"
+                                           "QDoubleSpinBox::down-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-down.png);\n"
+                                           "	width: 25;\n"
+                                           "}")
+        self.doubleSpinBox_6.setDecimals(3)
+        self.doubleSpinBox_6.setMinimum(1.000000000000000)
+        self.doubleSpinBox_6.setMaximum(5.000000000000000)
+        self.doubleSpinBox_6.setSingleStep(0.001000000000000)
+        self.doubleSpinBox_6.setValue(1.330000000000000)
+
+        self.gridLayout_5.addWidget(self.doubleSpinBox_6, 0, 1, 1, 1)
+
+        self.btn_add_analyte_2 = QtWidgets.QPushButton(self.gb_analyte_2)
+        self.btn_add_analyte_2.setObjectName(u"btn_add_analyte_2")
+        self.btn_add_analyte_2.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_add_analyte_2.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.btn_add_analyte_2.setCursor(
+            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_add_analyte_2.setStyleSheet(u"QPushButton{\n"
+                                             "	font: 400 11pt \"Ubuntu\";\n"
+                                             "	color: rgb(255, 255,255);\n"
+                                             "	background-color: rgb(0, 130, 180);\n"
+                                             "	border-color: rgb(0, 100, 130);\n"
+                                             "	border-width: 2px;\n"
+                                             "	border-radius:10px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QPushButton:hover{\n"
+                                             "	background-color: rgb(00, 140, 70);\n"
+                                             "	border-color: rgb(0, 120, 40);\n"
+                                             "	width: 40;\n"
+                                             "	height: 35;\n"
+                                             "}")
+
+        self.gridLayout_5.addWidget(self.btn_add_analyte_2, 0, 2, 1, 1)
+
+        self.label_16 = QtWidgets.QLabel(self.gb_analyte_2)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_5.addWidget(self.label_16, 1, 0, 1, 1)
+
+        self.doubleSpinBox_4 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
+        self.doubleSpinBox_4.setObjectName(u"doubleSpinBox_4")
+        self.doubleSpinBox_4.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_4.setStyleSheet(u"\n"
+                                           "QDoubleSpinBox\n"
+                                           "{\n"
+                                           "color: rgb(10, 25, 90);\n"
+                                           "font: 700 12pt \"Ubuntu\";\n"
+                                           "border: 2px solid;\n"
+                                           "border-color: #FF17365D;\n"
+                                           "background-color: rgba(255, 255, 255,210);\n"
+                                           "border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QDoubleSpinBox::up-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-up.png);\n"
+                                           "	width: 25;\n"
+                                           "}\n"
+                                           "QDoubleSpinBox::down-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-down.png);\n"
+                                           "	width: 25;\n"
+                                           "}")
+        self.doubleSpinBox_4.setDecimals(3)
+        self.doubleSpinBox_4.setMinimum(1.000000000000000)
+        self.doubleSpinBox_4.setMaximum(5.000000000000000)
+        self.doubleSpinBox_4.setSingleStep(0.001000000000000)
+        self.doubleSpinBox_4.setValue(1.360000000000000)
+
+        self.gridLayout_5.addWidget(self.doubleSpinBox_4, 1, 1, 1, 1)
+
+        self.label_17 = QtWidgets.QLabel(self.gb_analyte_2)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_5.addWidget(self.label_17, 2, 0, 1, 1)
+
+        self.doubleSpinBox_5 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
+        self.doubleSpinBox_5.setObjectName(u"doubleSpinBox_5")
+        self.doubleSpinBox_5.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_5.setStyleSheet(u"\n"
+                                           "QDoubleSpinBox\n"
+                                           "{\n"
+                                           "color: rgb(10, 25, 90);\n"
+                                           "font: 700 12pt \"Ubuntu\";\n"
+                                           "border: 2px solid;\n"
+                                           "border-color: #FF17365D;\n"
+                                           "background-color: rgba(255, 255, 255,210);\n"
+                                           "border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QDoubleSpinBox::up-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-up.png);\n"
+                                           "	width: 25;\n"
+                                           "}\n"
+                                           "QDoubleSpinBox::down-button\n"
+                                           "{\n"
+                                           "    border-left-width: 1px;\n"
+                                           "    border-left-color: darkgray;\n"
+                                           "    border-left-style: solid; /* just a single line */\n"
+                                           "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                           "    border-bottom-right-radius: 3px;\n"
+                                           "	image: url(:/icons/icons/arrow-down.png);\n"
+                                           "	width: 25;\n"
+                                           "}")
+        self.doubleSpinBox_5.setDecimals(3)
+        self.doubleSpinBox_5.setMaximum(3.000000000000000)
+        self.doubleSpinBox_5.setSingleStep(0.001000000000000)
+        self.doubleSpinBox_5.setValue(0.002000000000000)
+
+        self.gridLayout_5.addWidget(self.doubleSpinBox_5, 2, 1, 1, 1)
+
+        self.warning_4 = QtWidgets.QLabel(self.gb_analyte_2)
+        self.warning_4.setObjectName(u"warning_4")
+        self.warning_4.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
+                                     "\n"
+                                     "")
+        self.warning_4.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_5.addWidget(self.warning_4, 1, 2, 1, 1)
+
+        self.verticalLayout_10.addWidget(self.gb_analyte_2)
+
+        self.verticalSpacer_2 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer_2)
+
         self.stacked_layers.addWidget(self.page_layers_wim)
+
         self.verticalLayout_8.addWidget(self.stacked_layers)
         self.graphics_frame_4 = QtWidgets.QFrame(self.splitter_layers)
         sizePolicy = QtWidgets.QSizePolicy(
@@ -2011,70 +2050,103 @@ class Ui_Widget(object):
         self.tableWidget_fiber_4.horizontalHeader().setStretchLastSection(False)
         self.verticalLayout_56.addWidget(
             self.tableWidget_fiber_4, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+
         self.horizontalLayout_92 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_92.setObjectName("horizontalLayout_92")
-        spacerItem30 = QtWidgets.QSpacerItem(
+        self.horizontalLayout_92.setObjectName(u"horizontalLayout_92")
+        self.horizontalSpacer = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_92.addItem(spacerItem30)
-        self.btn_edit_layers_6 = QtWidgets.QPushButton(self.grafico1_7)
-        sizePolicy = QtWidgets.QSizePolicy(
+
+        self.horizontalLayout_92.addItem(self.horizontalSpacer)
+        sizePolicy5 = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_edit_layers_6.sizePolicy().hasHeightForWidth())
-        self.btn_edit_layers_6.setSizePolicy(sizePolicy)
-        self.btn_edit_layers_6.setMinimumSize(QtCore.QSize(60, 30))
-        self.btn_edit_layers_6.setStyleSheet("QPushButton{\n"
-                                             "    font: 400 11pt \"Ubuntu\";\n"
-                                             "    color: rgb(255, 255,255);\n"
-                                             "    background-color: rgb(0, 130, 180);\n"
-                                             "    border-color: rgb(0, 100, 130);\n"
-                                             "    border-width: 2px;\n"
-                                             "    border-radius:10px;\n"
+        self.btn_edit_layers = QtWidgets.QPushButton(self.grafico1_7)
+        self.btn_edit_layers.setObjectName(u"btn_edit_layers")
+        sizePolicy5.setHeightForWidth(
+            self.btn_edit_layers.sizePolicy().hasHeightForWidth())
+        self.btn_edit_layers.setSizePolicy(sizePolicy5)
+        self.btn_edit_layers.setMinimumSize(QtCore.QSize(110, 30))
+        self.btn_edit_layers.setStyleSheet(u"QPushButton{\n"
+                                           "	font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: rgb(0, 130, 180);\n"
+                                           "	border-color: rgb(0, 100, 130);\n"
+                                           "	border-width: 2px;\n"
+                                           "	border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background: rgb(0, 0, 255);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+
+        self.horizontalLayout_92.addWidget(self.btn_edit_layers)
+
+        self.horizontalSpacer_218 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_92.addItem(self.horizontalSpacer_218)
+
+        self.btn_remove_layers = QtWidgets.QPushButton(self.grafico1_7)
+        self.btn_remove_layers.setObjectName(u"btn_remove_layers")
+        sizePolicy5.setHeightForWidth(
+            self.btn_remove_layers.sizePolicy().hasHeightForWidth())
+        self.btn_remove_layers.setSizePolicy(sizePolicy5)
+        self.btn_remove_layers.setMinimumSize(QtCore.QSize(110, 30))
+        self.btn_remove_layers.setStyleSheet(u"QPushButton{\n"
+                                             "	font: 400 11pt \"Ubuntu\";\n"
+                                             "	color: rgb(255, 255,255);\n"
+                                             "	background-color: rgb(0, 130, 180);\n"
+                                             "	border-color: rgb(0, 100, 130);\n"
+                                             "	border-width: 2px;\n"
+                                             "	border-radius:10px;\n"
                                              "}\n"
                                              "\n"
                                              "QPushButton:hover{\n"
-                                             "    background-color: rgb(200, 200, 70);\n"
-                                             "    border-color: rgb(0, 120, 40);\n"
-                                             "    width: 40;\n"
-                                             "    height: 35;\n"
+                                             "	background-color: rgb(200, 200, 70);\n"
+                                             "	border-color: rgb(0, 120, 40);\n"
+                                             "	width: 40;\n"
+                                             "	height: 35;\n"
                                              "}")
-        self.btn_edit_layers_6.setObjectName("btn_edit_layers_6")
-        self.horizontalLayout_92.addWidget(self.btn_edit_layers_6)
-        spacerItem31 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_92.addItem(spacerItem31)
-        self.btn_save_table_6 = QtWidgets.QPushButton(self.grafico1_7)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_save_table_6.sizePolicy().hasHeightForWidth())
-        self.btn_save_table_6.setSizePolicy(sizePolicy)
-        self.btn_save_table_6.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_save_table_6.setStyleSheet("QPushButton{\n"
-                                            "    font: 400 11pt \"Ubuntu\";\n"
-                                            "    color: rgb(255, 255,255);\n"
-                                            "    background-color: rgb(0, 130, 180);\n"
-                                            "    border-color: rgb(0, 100, 130);\n"
-                                            "    border-width: 2px;\n"
-                                            "    border-radius:10px;\n"
-                                            "}\n"
-                                            "\n"
-                                            "QPushButton:hover{\n"
-                                            "    background-color: rgb(00, 140, 70);\n"
-                                            "    border-color: rgb(0, 120, 40);\n"
-                                            "    width: 40;\n"
-                                            "    height: 35;\n"
-                                            "}")
-        self.btn_save_table_6.setObjectName("btn_save_table_6")
-        self.horizontalLayout_92.addWidget(self.btn_save_table_6)
-        spacerItem32 = QtWidgets.QSpacerItem(
+
+        self.horizontalLayout_92.addWidget(self.btn_remove_layers)
+
+        self.horizontalSpacer_219 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_92.addItem(self.horizontalSpacer_219)
+
+        self.btn_save_table = QtWidgets.QPushButton(self.grafico1_7)
+        self.btn_save_table.setObjectName(u"btn_save_table")
+        sizePolicy5.setHeightForWidth(
+            self.btn_save_table.sizePolicy().hasHeightForWidth())
+        self.btn_save_table.setSizePolicy(sizePolicy5)
+        self.btn_save_table.setMinimumSize(QtCore.QSize(110, 30))
+        self.btn_save_table.setStyleSheet(u"QPushButton{\n"
+                                          "	font: 400 11pt \"Ubuntu\";\n"
+                                          "	color: rgb(255, 255,255);\n"
+                                          "	background-color: rgb(0, 130, 180);\n"
+                                          "	border-color: rgb(0, 100, 130);\n"
+                                          "	border-width: 2px;\n"
+                                          "	border-radius:10px;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover{\n"
+                                          "	background-color: rgb(00, 140, 70);\n"
+                                          "	border-color: rgb(0, 120, 40);\n"
+                                          "	width: 40;\n"
+                                          "	height: 35;\n"
+                                          "}")
+
+        self.horizontalLayout_92.addWidget(self.btn_save_table)
+
+        self.horizontalSpacer_220 = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_92.addItem(spacerItem32)
+
+        self.horizontalLayout_92.addItem(self.horizontalSpacer_220)
+
         self.verticalLayout_56.addLayout(self.horizontalLayout_92)
+
         self.verticalLayout_55.addWidget(self.grafico1_7)
         self.verticalLayout_2.addWidget(self.splitter_layers)
         self.frame_next_previous_9 = QtWidgets.QFrame(self.layers_window)
@@ -3778,111 +3850,112 @@ class Ui_Widget(object):
                                               "    border-radius:10px;")
         self.graphicsView_fiber.setObjectName("graphicsView_fiber")
         self.verticalLayout_36.addWidget(self.graphicsView_fiber)
+
         self.horizontalLayout_53 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_53.setSpacing(0)
-        self.horizontalLayout_53.setObjectName("horizontalLayout_53")
-        self.btn_prev_graph_4 = QtWidgets.QPushButton(self.grafico1_4)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_prev_graph_4.sizePolicy().hasHeightForWidth())
-        self.btn_prev_graph_4.setSizePolicy(sizePolicy)
-        self.btn_prev_graph_4.setMinimumSize(QtCore.QSize(35, 25))
-        self.btn_prev_graph_4.setMaximumSize(QtCore.QSize(45, 35))
-        self.btn_prev_graph_4.setStyleSheet("QPushButton{\n"
-                                            "    color: rgb(255, 255,255);\n"
-                                            "    background-color: rgba(0, 130, 180, 80);\n"
-                                            "    border-color: rgba(0, 100, 130,80);\n"
-                                            "    border-width: 3px;\n"
-                                            "    border-radius:10px;\n"
-                                            "}\n"
-                                            "\n"
-                                            "QPushButton:hover{\n"
-                                            "    background-color: rgb(0, 130, 180);\n"
-                                            "    width: 40;\n"
-                                            "    height: 35;\n"
-                                            "}")
-        self.btn_prev_graph_4.setText("")
-        self.btn_prev_graph_4.setIcon(icon8)
-        self.btn_prev_graph_4.setObjectName("btn_prev_graph_4")
-        self.horizontalLayout_53.addWidget(self.btn_prev_graph_4)
-        spacerItem68 = QtWidgets.QSpacerItem(
+        self.horizontalLayout_53.setObjectName(u"horizontalLayout_53")
+        self.horizontalSpacer_98 = QtWidgets.QSpacerItem(
             14, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_53.addItem(spacerItem68)
+
+        self.horizontalLayout_53.addItem(self.horizontalSpacer_98)
+
         self.btn_save_graph_4 = QtWidgets.QPushButton(self.grafico1_4)
+        self.btn_save_graph_4.setObjectName(u"btn_save_graph_4")
         self.btn_save_graph_4.setMinimumSize(QtCore.QSize(90, 25))
         self.btn_save_graph_4.setMaximumSize(QtCore.QSize(120, 25))
-        self.btn_save_graph_4.setStyleSheet("QPushButton{\n"
+        self.btn_save_graph_4.setStyleSheet(u"QPushButton{\n"
                                             "font: 400 11pt \"Ubuntu\";\n"
-                                            "    color: rgb(255, 255,255);\n"
-                                            "    background-color: rgba(0, 130, 180,160);\n"
-                                            "    border-color: rgba(0, 100, 130,160);\n"
-                                            "    border-width: 2px;\n"
-                                            "    border-radius:10px;\n"
+                                            "	color: rgb(255, 255,255);\n"
+                                            "	background-color: rgba(0, 130, 180,160);\n"
+                                            "	border-color: rgba(0, 100, 130,160);\n"
+                                            "	border-width: 2px;\n"
+                                            "	border-radius:10px;\n"
                                             "}\n"
                                             "\n"
                                             "QPushButton:hover{\n"
-                                            "    background-color: rgb(0, 130, 180);\n"
-                                            "    width: 40;\n"
-                                            "    height: 35;\n"
+                                            "	background-color: rgb(0, 130, 180);\n"
+                                            "	width: 40;\n"
+                                            "	height: 35;\n"
                                             "}")
-        self.btn_save_graph_4.setObjectName("btn_save_graph_4")
+
         self.horizontalLayout_53.addWidget(self.btn_save_graph_4)
-        spacerItem69 = QtWidgets.QSpacerItem(
-            40, 0, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_53.addItem(spacerItem69)
+
+        self.horizontalSpacer_99 = QtWidgets.QSpacerItem(
+            40, 0, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_53.addItem(self.horizontalSpacer_99)
+
         self.btn_export_data_4 = QtWidgets.QPushButton(self.grafico1_4)
-        self.btn_export_data_4.setMinimumSize(QtCore.QSize(110, 25))
+        self.btn_export_data_4.setObjectName(u"btn_export_data_4")
+        self.btn_export_data_4.setMinimumSize(QtCore.QSize(100, 25))
         self.btn_export_data_4.setMaximumSize(QtCore.QSize(120, 25))
-        self.btn_export_data_4.setStyleSheet("QPushButton{\n"
-                                             "    font: 400 11pt \"Ubuntu\";\n"
-                                             "    color: rgb(255, 255,255);\n"
-                                             "        background-color: rgba(0, 130, 180,160);\n"
-                                             "    border-color: rgba(0, 100, 130,160);\n"
-                                             "    border-width: 2px;\n"
-                                             "    border-radius:10px;\n"
+        self.btn_export_data_4.setStyleSheet(u"QPushButton{\n"
+                                             "	font: 400 11pt \"Ubuntu\";\n"
+                                             "	color: rgb(255, 255,255);\n"
+                                             "		background-color: rgba(0, 130, 180,160);\n"
+                                             "	border-color: rgba(0, 100, 130,160);\n"
+                                             "	border-width: 2px;\n"
+                                             "	border-radius:10px;\n"
                                              "}\n"
                                              "\n"
                                              "QPushButton:hover{\n"
-                                             "    background-color: rgb(0, 130, 180);\n"
-                                             "    width: 40;\n"
-                                             "    height: 35;\n"
+                                             "	background-color: rgb(0, 130, 180);\n"
+                                             "	width: 40;\n"
+                                             "	height: 35;\n"
                                              "}")
-        self.btn_export_data_4.setObjectName("btn_export_data_4")
+
         self.horizontalLayout_53.addWidget(self.btn_export_data_4)
-        spacerItem70 = QtWidgets.QSpacerItem(
+
+        self.horizontalSpacer_2 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_53.addItem(self.horizontalSpacer_2)
+
+        self.select_chart = QtWidgets.QComboBox(self.grafico1_4)
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.addItem("")
+        self.select_chart.setObjectName(u"select_chart")
+        self.select_chart.setMinimumSize(QtCore.QSize(180, 0))
+        self.select_chart.setStyleSheet(u"QComboBox::drop-down {\n"
+                                        "    width: 25;\n"
+                                        "    border-left-width: 1px;\n"
+                                        "    border-left-color: darkgray;\n"
+                                        "    border-left-style: solid; /* just a single line */\n"
+                                        "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                        "    border-bottom-right-radius: 3px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QComboBox\n"
+                                        "{\n"
+                                        " padding: 1px 18px 1px 3px;\n"
+                                        "color: rgb(10, 25, 90);\n"
+                                        "font: 700 12pt \"Ubuntu\";\n"
+                                        " border: 2px solid;\n"
+                                        "border-color: #FF17365D;\n"
+                                        "background-color: rgba(255, 255, 255,210);\n"
+                                        "border-radius:10px;\n"
+                                        "}\n"
+                                        "QComboBox::down-arrow { /* shift the arrow when popup is open */\n"
+                                        "    top: 1px;\n"
+                                        "	image: url(:/icons/icons/arrow-down.png);\n"
+                                        "    left: 1px;\n"
+                                        "}")
+
+        self.horizontalLayout_53.addWidget(self.select_chart)
+
+        self.horizontalSpacer_100 = QtWidgets.QSpacerItem(
             14, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_53.addItem(spacerItem70)
-        self.btn_next_graph_4 = QtWidgets.QPushButton(self.grafico1_4)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_next_graph_4.sizePolicy().hasHeightForWidth())
-        self.btn_next_graph_4.setSizePolicy(sizePolicy)
-        self.btn_next_graph_4.setMinimumSize(QtCore.QSize(35, 25))
-        self.btn_next_graph_4.setMaximumSize(QtCore.QSize(45, 35))
-        self.btn_next_graph_4.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.btn_next_graph_4.setStyleSheet("QPushButton{\n"
-                                            "    color: rgb(255, 255,255);\n"
-                                            "    background-color: rgba(0, 130, 180, 80);\n"
-                                            "    border-color: rgba(0, 100, 130,80);\n"
-                                            "    border-width: 2px;\n"
-                                            "    border-radius:10px;\n"
-                                            "}\n"
-                                            "\n"
-                                            "QPushButton:hover{\n"
-                                            "    background-color: rgb(0, 130, 180);\n"
-                                            "    width: 40;\n"
-                                            "    height: 35;\n"
-                                            "}")
-        self.btn_next_graph_4.setText("")
-        self.btn_next_graph_4.setIcon(icon9)
-        self.btn_next_graph_4.setObjectName("btn_next_graph_4")
-        self.horizontalLayout_53.addWidget(self.btn_next_graph_4)
+
+        self.horizontalLayout_53.addItem(self.horizontalSpacer_100)
+
         self.verticalLayout_36.addLayout(self.horizontalLayout_53)
         self.tableWidget_fiber = QtWidgets.QTableWidget(self.grafico1_4)
         sizePolicy = QtWidgets.QSizePolicy(
@@ -4103,13 +4176,15 @@ class Ui_Widget(object):
         self.retranslateUi(Widget)
 
         self.Stacked_windows.setCurrentIndex(0)
-        self.stacked_layers.setCurrentIndex(1)
+        self.stacked_layers.setCurrentIndex(0)
         self.Stacked_config_mode.setCurrentIndex(1)
 
         self.btn_close.clicked.connect(Widget.close)    # close window
-        self.btn_minimizar.clicked.connect( Widget.showMinimized)    # minimize window
+        self.btn_minimizar.clicked.connect(
+            Widget.showMinimized)    # minimize window
         self.exit_btn.clicked.connect(Widget.close)    # close window
-        self.start_btn.clicked.connect(lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))    # show coupling window
+        self.start_btn.clicked.connect(lambda: self.Stacked_windows.setCurrentWidget(
+            self.coupling_window))    # show coupling window
 
         # return to home window
         self.btn_home.clicked.connect(
@@ -4121,7 +4196,7 @@ class Ui_Widget(object):
         self.btn_home_4.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
 
-        # return to coupling page 
+        # return to coupling page
         self.btn_coupling.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
         self.btn_coupling_2.clicked.connect(
@@ -4131,248 +4206,316 @@ class Ui_Widget(object):
         self.btn_coupling_4.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
 
-        # return to interrogation mode page 
+        # return to interrogation mode page
         self.btn_interrogation.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
         self.btn_interrogation_2.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
         self.btn_interrogation_3.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
-        
-        # return to setting layers page 
+
+        # return to setting layers page
         self.btn_setting_layers.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
         self.btn_setting_layers_2.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
-        
 
-        # Coupling page buttons 
+        # Coupling page buttons
         self.prism_btn.clicked.connect(self.prism_btn_clicked)
         self.fiber_btn.clicked.connect(self.fiber_btn_clicked)
         self.prev_btn_coup.clicked.connect(lambda: self.previous_page())
-        self.next_btn_coup.clicked.connect(lambda: self.next_page(op = coupling, warning=self.warning_2))
+        self.next_btn_coup.clicked.connect(
+            lambda: self.next_page(op=coupling, warning=self.warning_2))
 
-        # Interrogation mode page buttons 
+        # Interrogation mode page buttons
         self.aim_btn.clicked.connect(self.aim_btn_clicked)
         self.wim_btn.clicked.connect(self.wim_btn_clicked)
         self.prev_btn_inter.clicked.connect(lambda: self.previous_page())
-        self.next_btn_inter.clicked.connect(lambda: self.next_page(op = interrogation_mode, warning=self.warning_inter))
-
-
-
+        self.next_btn_inter.clicked.connect(lambda: self.next_page(
+            op=interrogation_mode, warning=self.warning_inter))
 
         QtCore.QMetaObject.connectSlotsByName(Widget)
 
     def retranslateUi(self, Widget):
         _translate = QtCore.QCoreApplication.translate
-        Widget.setWindowTitle(_translate("Widget", "Widget"))
+
+        Widget.setWindowTitle(_translate("Widget", u"Widget", None))
+        self.icon.setText("")
         self.label_title.setText(_translate(
-            "Widget", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Sim -LMR</span></p></body></html>"))
-        self.btn_help.setText(_translate("Widget", "Help  "))
-        self.btn_minimizar.setText(_translate("Widget", "_"))
-        self.label_5.setText(_translate("Widget", "<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/LOGO.png\"/></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:22pt; font-style:italic;\">Welcome to</span></p><p align=\"center\"><span style=\" font-size:72pt; color:#005a82;\">Sim-LMR</span></p></body></html>"))
-        self.start_btn.setText(_translate("Widget", "Start Simulation"))
-        self.exit_btn.setText(_translate("Widget", "Exit"))
-        self.btn_coupling.setText(_translate("Widget", "Optical Cupling"))
-        self.coupling_label.setText(_translate(
-            "Widget", "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt; color:#ffffff;\">Optical Coupling</span></p></body></html>"))
-        self.warning_2.setText(_translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffffff;\">- Select an option for optical coupling - </span></pre></body></html>"))
-        self.prev_btn_coup.setText(_translate("Widget", " Previous"))
-        self.next_btn_coup.setText(_translate("Widget", "Next "))
-        self.btn_coupling_2.setText(_translate("Widget", "Optical Cupling"))
-        self.btn_interrogation.setText(_translate("Widget", "Interrogation Mode"))
-        self.Interrogatio_label_2.setText(_translate(
-            "Widget", "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt; color:#ffffff;\">Interrogation Mode</span></p></body></html>"))
-        self.warning_inter.setText(_translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffffff;\">-</span><span style=\" font-family:\'monospace\'; color:#ffffff;\"> Select an interrogation mode - </span></pre></body></html>"))
-        self.prev_btn_inter.setText(_translate("Widget", " Previous"))
-        self.next_btn_inter.setText(_translate("Widget", "Next "))
-        self.btn_coupling_3.setText(_translate("Widget", "Optical Cupling"))
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Sim -LMR</span></p></body></html>", None))
+        self.btn_help.setText(_translate("Widget", u"Help  ", None))
+        self.btn_minimizar.setText(_translate("Widget", u"_", None))
+        self.btn_close.setText("")
+        self.label_logo.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/LOGO.png\"/></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:22pt; font-style:italic;\">Welcome to</span></p><p align=\"center\"><span style=\" font-size:72pt; color:#005a82;\">Sim-LMR</span></p></body></html>", None))
+        self.start_btn.setText(_translate("Widget", u"Start Simulation", None))
+        self.exit_btn.setText(_translate("Widget", u"Exit", None))
+        self.btn_home.setText("")
+        self.label_18.setText("")
+        self.btn_coupling.setText(_translate(
+            "Widget", u"Optical Cupling", None))
+        self.label_coupling.setText(_translate(
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:22pt; color:#ffffff;\">Optical Coupling</span></p></body></html>", None))
+        self.prism_btn.setText("")
+        self.fiber_btn.setText("")
+        self.warning_2.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; color:#ffffff;\"/><span style=\" font-family:'monospace'; color:#ffffff;\">- Select an option for optical coupling - </span></pre></body></html>", None))
+        self.prev_btn_coup.setText(_translate("Widget", u" Previous", None))
+        self.next_btn_coup.setText(_translate("Widget", u"Next ", None))
+        self.btn_home_2.setText("")
+        self.label_8.setText("")
+        self.btn_coupling_2.setText(_translate(
+            "Widget", u"Optical Cupling", None))
+        self.label_19.setText("")
+        self.btn_interrogation.setText(_translate(
+            "Widget", u"Interrogation Mode", None))
+        self.label_interrogation.setText(_translate(
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:22pt; color:#ffffff;\">Interrogation Mode</span></p></body></html>", None))
+        self.aim_btn.setText("")
+        self.wim_btn.setText("")
+        self.warning_inter.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; color:#ffffff;\">-</span><span style=\" font-family:'monospace'; color:#ffffff;\"> Select an interrogation mode - </span></pre></body></html>", None))
+        self.prev_btn_inter.setText(_translate("Widget", u" Previous", None))
+        self.next_btn_inter.setText(_translate("Widget", u"Next ", None))
+        self.btn_home_3.setText("")
+        self.label_68.setText("")
+        self.btn_coupling_3.setText(_translate(
+            "Widget", u"Optical Cupling", None))
+        self.label_69.setText("")
         self.btn_interrogation_2.setText(
-            _translate("Widget", "Interrogation Mode"))
+            _translate("Widget", u"Interrogation Mode", None))
+        self.label_70.setText("")
         self.btn_setting_layers.setText(
-            _translate("Widget", "Setting Layers"))
-        self.gb_incident_wav.setTitle(
-            _translate("Widget", "Incident wavelength"))
-        self.angle_incidence_3.setSuffix(_translate("Widget", " nm"))
-        self.gb_analyte.setTitle(_translate(
-            "Widget", "Analyte refractive index range"))
-        self.btn_add_analyte.setText(_translate("Widget", "Add Layer"))
-        self.warning_4.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>"))
-        self.gb_layers.setTitle(_translate("Widget", "Layers"))
-        self.label_12.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Thickness:</span></p></body></html>"))
-        self.btn_new_substrate.setText(_translate("Widget", "New Substrate"))
-        self.btn_new_layer.setText(_translate("Widget", "New layer"))
+            _translate("Widget", u"Setting Layers", None))
+        self.gb_incident_wav.setTitle(_translate(
+            "Widget", u"Incident wavelength", None))
+        self.angle_incidence_3.setSuffix(_translate("Widget", u" nm", None))
+        self.gb_layers.setTitle(_translate("Widget", u"Layers", None))
+        self.btn_new_layer.setText(_translate("Widget", u"New layer", None))
         self.label_11.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>"))
-        self.real_part_index.setPlaceholderText(_translate("Widget", "Real"))
-        self.label_7.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Real part:</span></p></body></html>"))
-        self.label_10.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">- Refractive index -</span></p></body></html>"))
-        self.imaginary_part_index.setPlaceholderText(
-            _translate("Widget", "Imaginary"))
-        self.label_9.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Imaginary part:</span></p></body></html>"))
-        self.warning.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>"))
-        self.warning_3.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>"))
-        self.btn_add_substrate.setText(_translate("Widget", "Add Substrate"))
-        self.btn_add_layer.setText(_translate("Widget", "Add Layer"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>", None))
+        self.btn_add_layer.setText(_translate("Widget", u"Add Layer", None))
         self.thickness.setPlaceholderText(
-            _translate("Widget", "Thickness (nm)"))
-        self.cbox_material.setItemText(0, _translate("Widget", "BK7"))
-        self.cbox_material.setItemText(1, _translate("Widget", "Silica"))
-        self.cbox_material.setItemText(2, _translate("Widget", "Other"))
-        self.gb_analyte_2.setTitle(_translate(
-            "Widget", "Analyte refractive index range"))
-        self.btn_add_analyte_2.setText(_translate("Widget", "Add Layer"))
-        self.warning_5.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>"))
-        self.gb_layers_2.setTitle(_translate("Widget", "Layers"))
-        self.btn_add_substrate_2.setText(_translate("Widget", "Add Substrate"))
-        self.btn_add_layer_2.setText(_translate("Widget", "Add Layer"))
-        self.btn_new_layer_2.setText(_translate("Widget", "New layer"))
-        self.label_13.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Thickness:</span></p></body></html>"))
-        self.thickness_2.setPlaceholderText(
-            _translate("Widget", "Thickness (nm)"))
-        self.cbox_material_2.setItemText(0, _translate("Widget", "BK7"))
-        self.cbox_material_2.setItemText(1, _translate("Widget", "Silica"))
-        self.cbox_material_2.setItemText(2, _translate("Widget", "Other"))
-        self.btn_new_substrate_2.setText(_translate("Widget", "New Substrate"))
+            _translate("Widget", u"Thickness (nm)", None))
+        self.label_12.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness:</span></p></body></html>", None))
+        self.cbox_material.setItemText(0, _translate("Widget", u"BK7", None))
+        self.cbox_material.setItemText(
+            1, _translate("Widget", u"Silica", None))
+        self.cbox_material.setItemText(2, _translate("Widget", u"Other", None))
+
+        self.label_7.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Real part:</span></p></body></html>", None))
+        self.label_9.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Imaginary part:</span></p></body></html>", None))
+        self.warning.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Warning -</span></p></body></html>", None))
+        self.real_part_index.setPlaceholderText(
+            _translate("Widget", u"Real", None))
+        self.warning_3.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Warning -</span></p></body></html>", None))
+        self.imaginary_part_index.setPlaceholderText(
+            _translate("Widget", u"Imaginary", None))
+        self.gb_analyte.setTitle(_translate(
+            "Widget", u"Analyte refractive index range", None))
+        self.label_20.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial refractive index:</span></p></body></html>", None))
+        self.doubleSpinBox_7.setSuffix(_translate("Widget", u" RIU", None))
+        self.btn_add_analyte.setText(_translate("Widget", u"Add Layer", None))
+        self.label_21.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index:</span></p></body></html>", None))
+        self.doubleSpinBox_8.setSuffix(_translate("Widget", u" RIU", None))
+        self.label_22.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index step:</span></p></body></html>", None))
+        self.doubleSpinBox_9.setSuffix(_translate("Widget", u" RIU", None))
+        self.warning_6.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Warning -</span></p></body></html>", None))
+        self.gb_layers_2.setTitle(_translate("Widget", u"Layers", None))
+        self.cbox_material_2.setItemText(0, _translate("Widget", u"BK7", None))
+        self.cbox_material_2.setItemText(
+            1, _translate("Widget", u"Silica", None))
+        self.cbox_material_2.setItemText(
+            2, _translate("Widget", u"Other", None))
+
         self.label_14.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>", None))
+        self.label_13.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm):</span></p></body></html>", None))
+        self.thickness_2.setPlaceholderText(
+            _translate("Widget", u"Thickness (nm)", None))
+        self.btn_new_layer_2.setText(_translate("Widget", u"New layer", None))
+        self.btn_add_layer_2.setText(_translate("Widget", u"Add Layer", None))
+        self.gb_analyte_2.setTitle(_translate(
+            "Widget", u"Analyte refractive index range", None))
+        self.label_15.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial refractive index :</span></p></body></html>", None))
+        self.doubleSpinBox_6.setSuffix(_translate("Widget", u" RIU", None))
+        self.btn_add_analyte_2.setText(
+            _translate("Widget", u"Add Layer", None))
+        self.label_16.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index :</span></p></body></html>", None))
+        self.doubleSpinBox_4.setSuffix(_translate("Widget", u" RIU", None))
+        self.label_17.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index step:</span></p></body></html>", None))
+        self.doubleSpinBox_5.setSuffix(_translate("Widget", u" RIU", None))
+        self.warning_4.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Warning -</span></p></body></html>", None))
         self.title_graphs_fiber_4.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" font-family:\'inherit\';\">Layers of structure</span></p></body></html>"))
-        self.btn_save_graph_7.setText(_translate("Widget", "Save figure"))
-        item = self.tableWidget_fiber_4.verticalHeaderItem(0)
-        item.setText(_translate("Widget", "Analyte"))
-        item = self.tableWidget_fiber_4.verticalHeaderItem(1)
-        item.setText(_translate("Widget", "Layer 2"))
-        item = self.tableWidget_fiber_4.verticalHeaderItem(2)
-        item.setText(_translate("Widget", "Layer 1"))
-        item = self.tableWidget_fiber_4.verticalHeaderItem(3)
-        item.setText(_translate("Widget", "Substrate"))
-        item = self.tableWidget_fiber_4.horizontalHeaderItem(0)
-        item.setText(_translate("Widget", "Material"))
-        item = self.tableWidget_fiber_4.horizontalHeaderItem(1)
-        item.setText(_translate("Widget", "Thickness"))
-        item = self.tableWidget_fiber_4.horizontalHeaderItem(2)
-        item.setText(_translate("Widget", "Refract. Index"))
-        self.btn_edit_layers_6.setText(_translate("Widget", "Edit"))
-        self.btn_save_table_6.setText(_translate("Widget", "Save Data"))
-        self.prev_btn_config_aim_7.setText(_translate("Widget", " Previous"))
-        self.next_btn_inter_3.setText(_translate("Widget", "Next "))
-        self.btn_coupling_4.setText(_translate("Widget", "Optical Cupling"))
+            "Widget", u"<html><head/><body><p><span style=\" font-family:'inherit';\">Layers of structure</span></p></body></html>", None))
+        self.btn_save_graph_7.setText(
+            _translate("Widget", u"Save figure", None))
+        ___qtablewidgetitem = self.tableWidget_fiber_4.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(_translate("Widget", u"Material", None))
+        ___qtablewidgetitem1 = self.tableWidget_fiber_4.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(_translate("Widget", u"Thickness", None))
+        ___qtablewidgetitem2 = self.tableWidget_fiber_4.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(
+            _translate("Widget", u"Refract. Index", None))
+        self.btn_edit_layers.setText(
+            _translate("Widget", u"Edit layers", None))
+        self.btn_remove_layers.setText(
+            _translate("Widget", u"Remove layer", None))
+        self.btn_save_table.setText(_translate("Widget", u"Save Data", None))
+        self.prev_btn_config_aim_7.setText(
+            _translate("Widget", u" Previous", None))
+        self.next_btn_inter_3.setText(_translate("Widget", u"Next ", None))
+        self.btn_home_4.setText("")
+        self.label_36.setText("")
+        self.btn_coupling_4.setText(_translate(
+            "Widget", u"Optical Cupling", None))
+        self.label_37.setText("")
         self.btn_interrogation_3.setText(
-            _translate("Widget", "Interrogation Mode"))
+            _translate("Widget", u"Interrogation Mode", None))
+        self.label_38.setText("")
         self.btn_setting_layers_2.setText(
-            _translate("Widget", "Setting Layers"))
+            _translate("Widget", u"Setting Layers", None))
+        self.label_39.setText("")
         self.btn_config_WIM_fiber.setText(_translate(
-            "Widget", "Configure WIM mode on Fiber"))
+            "Widget", u"Configure WIM mode on Fiber", None))
         self.configWIM_label_3.setText(_translate(
-            "Widget", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Configure WIM mode on Fiber</span></p></body></html>"))
-        self.Spectral_range_3.setTitle(_translate("Widget", "Spectral range"))
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Configure WIM mode on Fiber</span></p></body></html>", None))
+        self.pushButton_11.setText("")
+        self.Spectral_range_3.setTitle(
+            _translate("Widget", u"Spectral range", None))
         self.label_33.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Initial:</span></p></body></html>"))
-        self.a1_4.setSuffix(_translate("Widget", " nm"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial:</span></p></body></html>", None))
+        self.a1_4.setSuffix(_translate("Widget", u" nm", None))
         self.label_34.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Final:</span></p></body></html>"))
-        self.a2_4.setSuffix(_translate("Widget", "nm"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final:</span></p></body></html>", None))
+        self.a2_4.setSuffix(_translate("Widget", u"nm", None))
         self.label_35.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>", None))
         self.wavelength_incident_4.setTitle(
-            _translate("Widget", "Geometry on fiber"))
-        self.L_fiber.setSuffix(_translate("Widget", " mm"))
-        self.D_fiber.setSuffix(_translate("Widget", " um"))
+            _translate("Widget", u"Geometry on fiber", None))
+        self.L_fiber.setSuffix(_translate("Widget", u" mm", None))
+        self.D_fiber.setSuffix(_translate("Widget", u" um", None))
         self.label_3.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Angle:</span></p></body></html>"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Angle:</span></p></body></html>", None))
         self.label_40.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">L:</span></p></body></html>"))
-        self.angle_incidence_2.setSuffix(_translate("Widget", "°"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">L:</span></p></body></html>", None))
+        self.angle_incidence_2.setSuffix(_translate("Widget", u"\u00b0", None))
         self.label_41.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">D:</span></p></body></html>"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">D:</span></p></body></html>", None))
         self.configWIM_label_2.setText(_translate(
-            "Widget", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Configure WIM mode</span></p></body></html>"))
-        self.Spectral_range_2.setTitle(_translate("Widget", "Spectral range"))
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Configure WIM mode</span></p></body></html>", None))
+        self.pushButton_10.setText("")
+        self.Spectral_range_2.setTitle(
+            _translate("Widget", u"Spectral range", None))
         self.label_23.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Initial:</span></p></body></html>"))
-        self.a1_2.setSuffix(_translate("Widget", " nm"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial:</span></p></body></html>", None))
+        self.a1_2.setSuffix(_translate("Widget", u" nm", None))
         self.label_24.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Final: </span></p></body></html>"))
-        self.a2_2.setSuffix(_translate("Widget", "nm"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final: </span></p></body></html>", None))
+        self.a2_2.setSuffix(_translate("Widget", u"nm", None))
         self.label_25.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffff01;\">- Invalid -</span></p></body></html>"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffff01;\">- Invalid -</span></p></body></html>", None))
         self.wavelength_incident_2.setTitle(
-            _translate("Widget", "Incidence angle"))
-        self.angle_incidence.setSuffix(_translate("Widget", "°"))
+            _translate("Widget", u"Incidence angle", None))
+        self.angle_incidence.setSuffix(_translate("Widget", u"\u00b0", None))
         self.configAIM_label_3.setText(_translate(
-            "Widget", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Configure AIM mode</span></p></body></html>"))
-        self.Angular_range_3.setTitle(_translate("Widget", "Angular range"))
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Configure AIM mode</span></p></body></html>", None))
+        self.pushButton_13.setText("")
+        self.Angular_range_3.setTitle(
+            _translate("Widget", u"Angular range", None))
         self.label_26.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Initial angle:</span></p></body></html>"))
-        self.a1_3.setSuffix(_translate("Widget", " º"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial angle:</span></p></body></html>", None))
+        self.a1_3.setSuffix(_translate("Widget", u" \u00ba", None))
         self.label_27.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffffff;\">Final angle:  </span></p></body></html>"))
-        self.a2_3.setSuffix(_translate("Widget", " º"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final angle:  </span></p></body></html>", None))
+        self.a2_3.setSuffix(_translate("Widget", u" \u00ba", None))
         self.label_28.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Invalid -</span></p></body></html>", None))
         self.title_graphs_fiber.setText(_translate(
-            "Widget", "<html><head/><body><p><span style=\" color:#000000;\">Reflectance vs Wavelength</span></p></body></html>"))
-        self.btn_save_graph_4.setText(_translate("Widget", "Save figure"))
-        self.btn_export_data_4.setText(_translate("Widget", "Export data"))
-        item = self.tableWidget_fiber.verticalHeaderItem(0)
-        item.setText(_translate("Widget", "Analyte"))
-        item = self.tableWidget_fiber.verticalHeaderItem(1)
-        item.setText(_translate("Widget", "Layer 2"))
-        item = self.tableWidget_fiber.verticalHeaderItem(2)
-        item.setText(_translate("Widget", "Layer 1"))
-        item = self.tableWidget_fiber.verticalHeaderItem(3)
-        item.setText(_translate("Widget", "Core"))
-        item = self.tableWidget_fiber.horizontalHeaderItem(0)
-        item.setText(_translate("Widget", "Material"))
-        item = self.tableWidget_fiber.horizontalHeaderItem(1)
-        item.setText(_translate("Widget", "Thickness"))
-        item = self.tableWidget_fiber.horizontalHeaderItem(2)
-        item.setText(_translate("Widget", "Refract. Index"))
-        self.btn_edit_layers_3.setText(_translate("Widget", "Edit"))
-        self.btn_save_table_3.setText(_translate("Widget", "Save Data"))
-        self.btn_run_4.setText(_translate("Widget", "Run"))
-        self.prev_btn_config_aim_4.setText(_translate("Widget", " Previous"))
+            "Widget", u"<html><head/><body><p><span style=\" color:#000000;\">Reflectance vs Wavelength</span></p></body></html>", None))
+        self.btn_save_graph_4.setText(
+            _translate("Widget", u"Save figure", None))
+        self.btn_export_data_4.setText(
+            _translate("Widget", u"Export data", None))
+        self.select_chart.setItemText(0, _translate(
+            "Widget", u"Reflectance - TM", None))
+        self.select_chart.setItemText(1, _translate(
+            "Widget", u"Reflectance - TE", None))
+        self.select_chart.setItemText(
+            2, _translate("Widget", u"FWHM - TM", None))
+        self.select_chart.setItemText(
+            3, _translate("Widget", u"FWHM - TE", None))
+        self.select_chart.setItemText(4, _translate(
+            "Widget", u"Reflectance vs. Analyte - TM", None))
+        self.select_chart.setItemText(5, _translate(
+            "Widget", u"Reflectance vs. Analyte - TE", None))
+        self.select_chart.setItemText(6, _translate(
+            "Widget", u"Sensibility - TM", None))
+        self.select_chart.setItemText(7, _translate(
+            "Widget", u"Sensibility - TE", None))
+        self.select_chart.setItemText(8, _translate(
+            "Widget", u"Quality Factor - TM", None))
+        self.select_chart.setItemText(9, _translate(
+            "Widget", u"Quality Factor - TE", None))
+
+        ___qtablewidgetitem3 = self.tableWidget_fiber.horizontalHeaderItem(0)
+        ___qtablewidgetitem3.setText(_translate("Widget", u"Material", None))
+        ___qtablewidgetitem4 = self.tableWidget_fiber.horizontalHeaderItem(1)
+        ___qtablewidgetitem4.setText(_translate("Widget", u"Thickness", None))
+        ___qtablewidgetitem5 = self.tableWidget_fiber.horizontalHeaderItem(2)
+        ___qtablewidgetitem5.setText(
+            _translate("Widget", u"Refract. Index", None))
+        self.btn_edit_layers_3.setText(_translate("Widget", u"Edit", None))
+        self.btn_run_4.setText(_translate("Widget", u"Run", None))
+        self.prev_btn_config_aim_4.setText(
+            _translate("Widget", u" Previous", None))
         self.label_footer.setText(_translate(
-            "Widget", "<html><head/><body><p align=\"center\">Sim-LMR v01.0_a</p></body></html>"))
+            "Widget", u"<html><head/><body><p align=\"center\">Sim-LMR v01.0_a</p></body></html>", None))
+    # retranslateUi
 
     def prism_btn_clicked(self):
         self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Coupling through prism - </span></pre></body></html>"))
         global coupling
         coupling = 1
-        
+
     def fiber_btn_clicked(self):
         self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Coupling through optical fiber under development - </span></pre></body></html>"))
         global coupling
         coupling = 0
-        
+
     def next_page(self, op, warning):
         if op == 0:
             warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ff9664;\">- *! Select a valid option !* - </span></pre></body></html>"))
         else:
-            self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)
+            self.Stacked_windows.setCurrentIndex(
+                self.Stacked_windows.currentIndex()+1)
 
     def previous_page(self):
-        self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()-1)
+        self.Stacked_windows.setCurrentIndex(
+            self.Stacked_windows.currentIndex()-1)
 
     def aim_btn_clicked(self):
         global interrogation_mode
-        self.warning_inter.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Angular interrogation mode selected - </span></pre></body></html>"))
+        self.warning_inter.setText(QtCore.QCoreApplication.translate(
+            "Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Angular interrogation mode selected - </span></pre></body></html>"))
         interrogation_mode = 1
-        
+
     def wim_btn_clicked(self):
         global interrogation_mode
         self.warning_inter.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Wavelength interrogation mode selected - </span></pre></body></html>"))
         interrogation_mode = 2
+
 
 if __name__ == "__main__":
     import sys

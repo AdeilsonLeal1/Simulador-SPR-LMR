@@ -430,7 +430,7 @@ QPushButton:hover{
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_5">
+              <widget class="QLabel" name="label_logo">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                  <horstretch>0</horstretch>
@@ -488,7 +488,7 @@ font: 700 9pt &quot;Noto Serif Hebrew&quot;;
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="start_btn_2">
+                <widget class="QPushButton" name="start_btn">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                    <horstretch>0</horstretch>
@@ -850,7 +850,7 @@ background: transparent;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="coupling_label_2">
+           <widget class="QLabel" name="label_coupling">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1576,7 +1576,7 @@ background: transparent;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="Interrogatio_label_2">
+           <widget class="QLabel" name="label_interrogation">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -2358,21 +2358,6 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}
                 </property>
                 <widget class="QWidget" name="page_layers_aim">
                  <layout class="QVBoxLayout" name="verticalLayout_9">
-                  <property name="spacing">
-                   <number>8</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
                   <item>
                    <widget class="QGroupBox" name="gb_incident_wav">
                     <property name="minimumSize">
@@ -2639,262 +2624,9 @@ QDoubleSpinBox::down-button
                    </widget>
                   </item>
                   <item>
-                   <widget class="QGroupBox" name="gb_analyte">
-                    <property name="styleSheet">
-                     <string notr="true">
-QGroupBox  {
-	font: 14pt &quot;Ubuntu&quot;;
-	background-color: rgba(255, 255, 255,70);
-    border: 2px solid;
-    border-color: #FF17365D;
-    margin-top: 25px;
-	margin-bottom: 0px;
-    border-bottom-left-radius: 20px;
-	border-bottom-right-radius: 20px;
-}
-
-QGroupBox::title  {
-    subcontrol-origin: margin;
-    subcontrol-position: top center;
-    padding: 5px 8000px 5px 8000px;
-    background-color: #FF17365D;
-    color: rgb(255, 255, 255);
-}
-</string>
-                    </property>
-                    <property name="title">
-                     <string>Analyte refractive index range</string>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_4">
-                     <property name="topMargin">
-                      <number>25</number>
-                     </property>
-                     <property name="horizontalSpacing">
-                      <number>10</number>
-                     </property>
-                     <property name="verticalSpacing">
-                      <number>25</number>
-                     </property>
-                     <item row="1" column="2">
-                      <widget class="QPushButton" name="btn_add_analyte">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>200</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-	font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 130, 180);
-	border-color: rgb(0, 100, 130);
-	border-width: 2px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(00, 140, 70);
-	border-color: rgb(0, 120, 40);
-	width: 40;
-	height: 35;
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>Add Layer</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="warning_4">
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;
-
-</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="1">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">
-QDoubleSpinBox
-{
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
-border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;
-}
-
-QDoubleSpinBox::up-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-up.png);
-	width: 25;
-}
-QDoubleSpinBox::down-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-down.png);
-	width: 25;
-}</string>
-                       </property>
-                       <property name="decimals">
-                        <number>3</number>
-                       </property>
-                       <property name="minimum">
-                        <double>1.000000000000000</double>
-                       </property>
-                       <property name="maximum">
-                        <double>5.000000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>1.360000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="2">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">
-QDoubleSpinBox
-{
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
-border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;
-}
-
-QDoubleSpinBox::up-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-up.png);
-	width: 25;
-}
-QDoubleSpinBox::down-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-down.png);
-	width: 25;
-}</string>
-                       </property>
-                       <property name="decimals">
-                        <number>3</number>
-                       </property>
-                       <property name="maximum">
-                        <double>3.000000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>0.002000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="0">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">
-QDoubleSpinBox
-{
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
-border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;
-}
-
-QDoubleSpinBox::up-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-up.png);
-	width: 25;
-}
-QDoubleSpinBox::down-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-down.png);
-	width: 25;
-}</string>
-                       </property>
-                       <property name="decimals">
-                        <number>3</number>
-                       </property>
-                       <property name="minimum">
-                        <double>1.000000000000000</double>
-                       </property>
-                       <property name="maximum">
-                        <double>5.000000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>1.330000000000000</double>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
                    <widget class="QGroupBox" name="gb_layers">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
@@ -2943,7 +2675,7 @@ QGroupBox::title  {
                      <property name="verticalSpacing">
                       <number>25</number>
                      </property>
-                     <item row="3" column="0">
+                     <item row="0" column="0">
                       <widget class="QPushButton" name="btn_new_layer">
                        <property name="minimumSize">
                         <size>
@@ -2976,7 +2708,17 @@ QPushButton:hover{
                        </property>
                       </widget>
                      </item>
-                     <item row="3" column="1">
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_11">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Material:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
                       <widget class="QPushButton" name="btn_add_layer">
                        <property name="minimumSize">
                         <size>
@@ -3012,17 +2754,48 @@ QPushButton:hover{
                        </property>
                       </widget>
                      </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="label_11">
+                     <item row="3" column="1">
+                      <widget class="QLineEdit" name="thickness">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true"> padding: 1px 18px 1px 3px;
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+ border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Thickness (nm)</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="label_12">
                        <property name="styleSheet">
                         <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Material:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Thickness:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="1" column="1">
+                     <item row="2" column="1">
                       <widget class="QComboBox" name="cbox_material">
                        <property name="minimumSize">
                         <size>
@@ -3082,48 +2855,7 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
                        </item>
                       </widget>
                      </item>
-                     <item row="2" column="1">
-                      <widget class="QLineEdit" name="thickness">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true"> padding: 1px 18px 1px 3px;
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
- border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                       <property name="placeholderText">
-                        <string>Thickness (nm)</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QLabel" name="label_12">
-                       <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Thickness:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="4" column="0" colspan="2">
+                     <item row="5" column="0" colspan="2">
                       <widget class="QFrame" name="frame_refractive_index">
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
@@ -3132,38 +2864,53 @@ border-radius:10px;</string>
                         <enum>QFrame::Raised</enum>
                        </property>
                        <layout class="QGridLayout" name="gridLayout_3">
-                        <item row="3" column="1">
-                         <widget class="QLineEdit" name="imaginary_part_index">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>30</height>
-                           </size>
-                          </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>10</number>
+                        </property>
+                        <property name="spacing">
+                         <number>20</number>
+                        </property>
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_7">
                           <property name="styleSheet">
-                           <string notr="true"> padding: 1px 18px 1px 3px;
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
- border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;</string>
+                           <string notr="true">font:14pt &quot;Ubuntu&quot;;</string>
                           </property>
-                          <property name="alignment">
-                           <set>Qt::AlignCenter</set>
-                          </property>
-                          <property name="placeholderText">
-                           <string>Imaginary</string>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Real part:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                           </property>
                          </widget>
                         </item>
                         <item row="3" column="0">
                          <widget class="QLabel" name="label_9">
                           <property name="styleSheet">
-                           <string notr="true">font: 700 12pt &quot;Ubuntu&quot;;</string>
+                           <string notr="true">font:14pt &quot;Ubuntu&quot;;</string>
                           </property>
                           <property name="text">
                            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Imaginary part:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="2">
+                         <widget class="QLabel" name="warning">
+                          <property name="styleSheet">
+                           <string notr="true">font: 14pt &quot;Ubuntu&quot;;
+
+</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
                           </property>
                          </widget>
                         </item>
@@ -3206,43 +2953,30 @@ border-radius:10px;</string>
                           </property>
                          </widget>
                         </item>
-                        <item row="0" column="0">
-                         <widget class="QLabel" name="label_7">
+                        <item row="3" column="1">
+                         <widget class="QLineEdit" name="imaginary_part_index">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>30</height>
+                           </size>
+                          </property>
                           <property name="styleSheet">
-                           <string notr="true">font: 700 12pt &quot;Ubuntu&quot;;</string>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Real part:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="2">
-                         <widget class="QLabel" name="warning">
-                          <property name="styleSheet">
-                           <string notr="true">font: 14pt &quot;Ubuntu&quot;;
-
-</string>
-                          </property>
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                           <string notr="true"> padding: 1px 18px 1px 3px;
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+ border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>
                           </property>
+                          <property name="placeholderText">
+                           <string>Imaginary</string>
+                          </property>
                          </widget>
-                        </item>
-                        <item row="4" column="1">
-                         <spacer name="verticalSpacer_3">
-                          <property name="orientation">
-                           <enum>Qt::Vertical</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>20</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                         </spacer>
                         </item>
                        </layout>
                       </widget>
@@ -3250,27 +2984,8 @@ border-radius:10px;</string>
                     </layout>
                    </widget>
                   </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="page_layers_wim">
-                 <layout class="QVBoxLayout" name="verticalLayout_10">
-                  <property name="spacing">
-                   <number>8</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
                   <item>
-                   <widget class="QGroupBox" name="gb_analyte_2">
+                   <widget class="QGroupBox" name="gb_analyte">
                     <property name="styleSheet">
                      <string notr="true">
 QGroupBox  {
@@ -3296,18 +3011,95 @@ QGroupBox::title  {
                     <property name="title">
                      <string>Analyte refractive index range</string>
                     </property>
-                    <layout class="QGridLayout" name="gridLayout_5">
+                    <layout class="QGridLayout" name="gridLayout_7">
                      <property name="topMargin">
+                      <number>25</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>9</number>
+                     </property>
+                     <property name="bottomMargin">
                       <number>25</number>
                      </property>
                      <property name="horizontalSpacing">
                       <number>10</number>
                      </property>
                      <property name="verticalSpacing">
-                      <number>25</number>
+                      <number>20</number>
                      </property>
-                     <item row="1" column="2">
-                      <widget class="QPushButton" name="btn_add_analyte_2">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_20">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Initial refractive index:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_7">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">
+QDoubleSpinBox
+{
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;
+}
+
+QDoubleSpinBox::up-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-up.png);
+	width: 25;
+}
+QDoubleSpinBox::down-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-down.png);
+	width: 25;
+}</string>
+                       </property>
+                       <property name="suffix">
+                        <string> RIU</string>
+                       </property>
+                       <property name="decimals">
+                        <number>3</number>
+                       </property>
+                       <property name="minimum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="maximum">
+                        <double>5.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.001000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>1.330000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QPushButton" name="btn_add_analyte_3">
                        <property name="minimumSize">
                         <size>
                          <width>100</width>
@@ -3319,6 +3111,9 @@ QGroupBox::title  {
                          <width>200</width>
                          <height>16777215</height>
                         </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">QPushButton{
@@ -3343,22 +3138,17 @@ QPushButton:hover{
                       </widget>
                      </item>
                      <item row="1" column="0">
-                      <widget class="QLabel" name="warning_5">
+                      <widget class="QLabel" name="label_21">
                        <property name="styleSheet">
-                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;
-
-</string>
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Invalid -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Final refractive index:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="0" column="1">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+                     <item row="1" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_8">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -3397,6 +3187,9 @@ QDoubleSpinBox::down-button
 	image: url(:/icons/icons/arrow-down.png);
 	width: 25;
 }</string>
+                       </property>
+                       <property name="suffix">
+                        <string> RIU</string>
                        </property>
                        <property name="decimals">
                         <number>3</number>
@@ -3415,8 +3208,18 @@ QDoubleSpinBox::down-button
                        </property>
                       </widget>
                      </item>
-                     <item row="0" column="2">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_22">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Refractive index step:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_9">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -3455,6 +3258,9 @@ QDoubleSpinBox::down-button
 	image: url(:/icons/icons/arrow-down.png);
 	width: 25;
 }</string>
+                       </property>
+                       <property name="suffix">
+                        <string> RIU</string>
                        </property>
                        <property name="decimals">
                         <number>3</number>
@@ -3470,71 +3276,47 @@ QDoubleSpinBox::down-button
                        </property>
                       </widget>
                      </item>
-                     <item row="0" column="0">
-                      <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>30</height>
-                        </size>
-                       </property>
+                     <item row="1" column="2">
+                      <widget class="QLabel" name="warning_6">
                        <property name="styleSheet">
-                        <string notr="true">
-QDoubleSpinBox
-{
-color: rgb(10, 25, 90);
-font: 700 12pt &quot;Ubuntu&quot;;
-border: 2px solid;
-border-color: #FF17365D;
-background-color: rgba(255, 255, 255,210);
-border-radius:10px;
-}
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;
 
-QDoubleSpinBox::up-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-up.png);
-	width: 25;
-}
-QDoubleSpinBox::down-button
-{
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid; /* just a single line */
-    border-top-right-radius: 3px; /* same radius as the QComboBox */
-    border-bottom-right-radius: 3px;
-	image: url(:/icons/icons/arrow-down.png);
-	width: 25;
-}</string>
+</string>
                        </property>
-                       <property name="decimals">
-                        <number>3</number>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
-                       <property name="minimum">
-                        <double>1.000000000000000</double>
-                       </property>
-                       <property name="maximum">
-                        <double>5.000000000000000</double>
-                       </property>
-                       <property name="singleStep">
-                        <double>0.001000000000000</double>
-                       </property>
-                       <property name="value">
-                        <double>1.330000000000000</double>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
                        </property>
                       </widget>
                      </item>
                     </layout>
                    </widget>
                   </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="page_layers_wim">
+                 <layout class="QVBoxLayout" name="verticalLayout_10">
+                  <property name="spacing">
+                   <number>8</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <widget class="QGroupBox" name="gb_layers_2">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
@@ -3575,15 +3357,15 @@ QGroupBox::title  {
                       <number>0</number>
                      </property>
                      <property name="bottomMargin">
-                      <number>0</number>
+                      <number>25</number>
                      </property>
                      <property name="horizontalSpacing">
                       <number>10</number>
                      </property>
                      <property name="verticalSpacing">
-                      <number>25</number>
+                      <number>20</number>
                      </property>
-                     <item row="0" column="1">
+                     <item row="1" column="1">
                       <widget class="QComboBox" name="cbox_material_2">
                        <property name="minimumSize">
                         <size>
@@ -3644,6 +3426,16 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
                       </widget>
                      </item>
                      <item row="1" column="0">
+                      <widget class="QLabel" name="label_14">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Material:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
                       <widget class="QLabel" name="label_13">
                        <property name="styleSheet">
                         <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
@@ -3654,42 +3446,6 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
                       </widget>
                      </item>
                      <item row="2" column="1">
-                      <widget class="QPushButton" name="btn_add_layer_2">
-                       <property name="minimumSize">
-                        <size>
-                         <width>100</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>150</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
-	font: 400 11pt &quot;Ubuntu&quot;;
-	color: rgb(255, 255,255);
-	background-color: rgb(0, 130, 180);
-	border-color: rgb(0, 100, 130);
-	border-width: 2px;
-	border-radius:10px;
-}
-
-QPushButton:hover{
-	background-color: rgb(00, 140, 70);
-	border-color: rgb(0, 120, 40);
-	width: 40;
-	height: 35;
-}</string>
-                       </property>
-                       <property name="text">
-                        <string>Add Layer</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="1">
                       <widget class="QLineEdit" name="thickness_2">
                        <property name="minimumSize">
                         <size>
@@ -3720,7 +3476,7 @@ border-radius:10px;</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="2" column="0">
+                     <item row="0" column="0">
                       <widget class="QPushButton" name="btn_new_layer_2">
                        <property name="minimumSize">
                         <size>
@@ -3733,6 +3489,9 @@ border-radius:10px;</string>
                          <width>150</width>
                          <height>16777215</height>
                         </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">QPushButton{
@@ -3753,31 +3512,367 @@ QPushButton:hover{
                        </property>
                       </widget>
                      </item>
+                     <item row="0" column="1">
+                      <widget class="QPushButton" name="btn_add_layer_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>100</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
+	color: rgb(255, 255,255);
+	background-color: rgb(0, 130, 180);
+	border-color: rgb(0, 100, 130);
+	border-width: 2px;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(00, 140, 70);
+	border-color: rgb(0, 120, 40);
+	width: 40;
+	height: 35;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Add Layer</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="gb_analyte_2">
+                    <property name="styleSheet">
+                     <string notr="true">
+QGroupBox  {
+	font: 14pt &quot;Ubuntu&quot;;
+	background-color: rgba(255, 255, 255,70);
+    border: 2px solid;
+    border-color: #FF17365D;
+    margin-top: 25px;
+	margin-bottom: 0px;
+    border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+QGroupBox::title  {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 5px 8000px 5px 8000px;
+    background-color: #FF17365D;
+    color: rgb(255, 255, 255);
+}
+</string>
+                    </property>
+                    <property name="title">
+                     <string>Analyte refractive index range</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_5">
+                     <property name="topMargin">
+                      <number>25</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>25</number>
+                     </property>
+                     <property name="horizontalSpacing">
+                      <number>10</number>
+                     </property>
+                     <property name="verticalSpacing">
+                      <number>20</number>
+                     </property>
                      <item row="0" column="0">
-                      <widget class="QLabel" name="label_14">
+                      <widget class="QLabel" name="label_15">
                        <property name="styleSheet">
                         <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
                        </property>
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Material:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Initial refractive index :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="3" column="1">
-                      <spacer name="verticalSpacer_2">
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
+                     <item row="0" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
+                       <property name="minimumSize">
                         <size>
-                         <width>20</width>
-                         <height>40</height>
+                         <width>0</width>
+                         <height>30</height>
                         </size>
                        </property>
-                      </spacer>
+                       <property name="styleSheet">
+                        <string notr="true">
+QDoubleSpinBox
+{
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;
+}
+
+QDoubleSpinBox::up-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-up.png);
+	width: 25;
+}
+QDoubleSpinBox::down-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-down.png);
+	width: 25;
+}</string>
+                       </property>
+                       <property name="suffix">
+                        <string> RIU</string>
+                       </property>
+                       <property name="decimals">
+                        <number>3</number>
+                       </property>
+                       <property name="minimum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="maximum">
+                        <double>5.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.001000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>1.330000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QPushButton" name="btn_add_analyte_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>100</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>200</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	font: 400 11pt &quot;Ubuntu&quot;;
+	color: rgb(255, 255,255);
+	background-color: rgb(0, 130, 180);
+	border-color: rgb(0, 100, 130);
+	border-width: 2px;
+	border-radius:10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(00, 140, 70);
+	border-color: rgb(0, 120, 40);
+	width: 40;
+	height: 35;
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Add Layer</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_16">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Final refractive index :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">
+QDoubleSpinBox
+{
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;
+}
+
+QDoubleSpinBox::up-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-up.png);
+	width: 25;
+}
+QDoubleSpinBox::down-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-down.png);
+	width: 25;
+}</string>
+                       </property>
+                       <property name="suffix">
+                        <string> RIU</string>
+                       </property>
+                       <property name="decimals">
+                        <number>3</number>
+                       </property>
+                       <property name="minimum">
+                        <double>1.000000000000000</double>
+                       </property>
+                       <property name="maximum">
+                        <double>5.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.001000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>1.360000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_17">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Refractive index step:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">
+QDoubleSpinBox
+{
+color: rgb(10, 25, 90);
+font: 700 12pt &quot;Ubuntu&quot;;
+border: 2px solid;
+border-color: #FF17365D;
+background-color: rgba(255, 255, 255,210);
+border-radius:10px;
+}
+
+QDoubleSpinBox::up-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-up.png);
+	width: 25;
+}
+QDoubleSpinBox::down-button
+{
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+	image: url(:/icons/icons/arrow-down.png);
+	width: 25;
+}</string>
+                       </property>
+                       <property name="suffix">
+                        <string> RIU</string>
+                       </property>
+                       <property name="decimals">
+                        <number>3</number>
+                       </property>
+                       <property name="maximum">
+                        <double>3.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.001000000000000</double>
+                       </property>
+                       <property name="value">
+                        <double>0.002000000000000</double>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QLabel" name="warning_5">
+                       <property name="styleSheet">
+                        <string notr="true">font: 14pt &quot;Ubuntu&quot;;
+
+</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;- Warning -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                  </layout>
                 </widget>
@@ -4029,7 +4124,7 @@ QPushButton:hover{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_edit_layers_2">
+                    <widget class="QPushButton" name="btn_edit_layers">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -4077,7 +4172,7 @@ QPushButton:hover{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btn_edit_layers">
+                    <widget class="QPushButton" name="btn_remove_layers">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -7934,7 +8029,7 @@ QPushButton:hover{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QComboBox" name="comboBox">
+                    <widget class="QComboBox" name="select_chart">
                      <property name="minimumSize">
                       <size>
                        <width>180</width>
@@ -8034,7 +8129,7 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
                    </item>
                   </layout>
                  </item>
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                 <item>
                   <widget class="QTableWidget" name="tableWidget_fiber">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
