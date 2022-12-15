@@ -11,8 +11,6 @@
 import icons_
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-coupling, interrogation_mode = 0, 0
-
 
 class Ui_Widget(object):
 
@@ -40,7 +38,7 @@ class Ui_Widget(object):
         self.header_frame.setSizePolicy(sizePolicy)
         self.header_frame.setMaximumSize(QtCore.QSize(16777215, 35))
         self.header_frame.setStyleSheet("QFrame{\n"
-                                        "    background-color: rgb(0, 70, 120);\n"
+                                        "    background-color: rgb(218, 218, 218);\n"
                                         "    border-top-left-radius: 10px;\n"
                                         "    border-top-right-radius: 10px;\n"
                                         "}\n"
@@ -76,6 +74,11 @@ class Ui_Widget(object):
         self.icon.setIconSize(QtCore.QSize(40, 40))
         self.icon.setObjectName("icon")
         self.horizontalLayout.addWidget(self.icon)
+
+        self.horizontalSpacer_3 = QtWidgets.QSpacerItem(89, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_3)
+
         self.label_title = QtWidgets.QLabel(self.header_frame)
         self.label_title.setMaximumSize(QtCore.QSize(16777215, 40))
         font = QtGui.QFont()
@@ -91,8 +94,9 @@ class Ui_Widget(object):
         self.label_title.setObjectName("label_title")
         self.horizontalLayout.addWidget(self.label_title)
         self.btn_help = QtWidgets.QPushButton(self.header_frame)
-        self.btn_help.setMinimumSize(QtCore.QSize(20, 20))
-        self.btn_help.setMaximumSize(QtCore.QSize(65, 25))
+        self.btn_help.setMinimumSize(QtCore.QSize(65, 22))
+        self.btn_help.setMaximumSize(QtCore.QSize(65, 22))
+        self.btn_help.setToolTip("Help")
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(11)
@@ -105,7 +109,7 @@ class Ui_Widget(object):
         self.btn_help.setStyleSheet("QPushButton{\n"
                                     "    font: 400 11pt \"Ubuntu\";\n"
                                     "    color: rgb(255, 255,255);\n"
-                                    "    background-color: rgb(0, 70, 120);\n"
+                                    "   background-color: rgba(0, 40, 120, 120);\n"
                                     "    border-radius:6px;\n"
                                     "}\n"
                                     "\n"
@@ -121,22 +125,23 @@ class Ui_Widget(object):
         self.btn_help.setIconSize(QtCore.QSize(15, 15))
         self.btn_help.setObjectName("btn_help")
         self.horizontalLayout.addWidget(self.btn_help)
-        self.btn_minimizar = QtWidgets.QPushButton(self.header_frame)
-        self.btn_minimizar.setMinimumSize(QtCore.QSize(20, 20))
-        self.btn_minimizar.setMaximumSize(QtCore.QSize(20, 20))
+        self.btn_minimize = QtWidgets.QPushButton(self.header_frame)
+        self.btn_minimize.setMinimumSize(QtCore.QSize(20, 20))
+        self.btn_minimize.setMaximumSize(QtCore.QSize(22, 22))
+        self.btn_minimize.setToolTip("Minimize")
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(10)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(99)
-        self.btn_minimizar.setFont(font)
-        self.btn_minimizar.setCursor(
+        self.btn_minimize.setFont(font)
+        self.btn_minimize.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_minimizar.setStyleSheet("QPushButton{\n"
+        self.btn_minimize.setStyleSheet("QPushButton{\n"
                                          "    font: 900 10pt \"Ubuntu\";\n"
                                          "    color: rgb(255, 255,255);\n"
-                                         "    background:rgba(0, 190, 0, 120);\n"
+                                         "    background:rgba(0, 190, 0, 180);\n"
                                          "    border-radius:6px;\n"
                                          "}\n"
                                          "\n"
@@ -145,11 +150,12 @@ class Ui_Widget(object):
                                          "    width: 40;\n"
                                          "    height: 35;\n"
                                          "}")
-        self.btn_minimizar.setObjectName("btn_minimizar")
-        self.horizontalLayout.addWidget(self.btn_minimizar)
+        self.btn_minimize.setObjectName("btn_minimize")
+        self.horizontalLayout.addWidget(self.btn_minimize)
         self.btn_close = QtWidgets.QPushButton(self.header_frame)
         self.btn_close.setMinimumSize(QtCore.QSize(20, 20))
-        self.btn_close.setMaximumSize(QtCore.QSize(20, 20))
+        self.btn_close.setMaximumSize(QtCore.QSize(22, 22))
+        self.btn_close.setToolTip("Close")
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(10)
@@ -161,7 +167,7 @@ class Ui_Widget(object):
         self.btn_close.setStyleSheet("QPushButton{\n"
                                      "    font: 500 10pt \"Ubuntu\";\n"
                                      "    color: rgb(255, 255,255);\n"
-                                     "    background:rgba(255, 0, 0, 130);\n"
+                                     "    background:rgba(255, 0, 0, 180);\n"
                                      "    border-radius:6px;\n"
                                      "}\n"
                                      "\n"
@@ -534,7 +540,7 @@ class Ui_Widget(object):
         self.warning_2.setSizePolicy(sizePolicy)
         self.warning_2.setMinimumSize(QtCore.QSize(50, 50))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(18)
         self.warning_2.setFont(font)
         self.warning_2.setObjectName("warning_2")
         self.verticalLayout_19.addWidget(self.warning_2)
@@ -562,7 +568,7 @@ class Ui_Widget(object):
         self.prev_btn_coup = QtWidgets.QPushButton(
             self.frame_next_previous_4)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.prev_btn_coup.setFont(font)
         self.prev_btn_coup.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -573,7 +579,7 @@ class Ui_Widget(object):
         icon8.addPixmap(QtGui.QPixmap(
             ":/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.prev_btn_coup.setIcon(icon8)
-        self.prev_btn_coup.setIconSize(QtCore.QSize(25, 25))
+        self.prev_btn_coup.setIconSize(QtCore.QSize(20, 20))
         self.prev_btn_coup.setObjectName("prev_btn_coup")
         self.horizontalLayout_25.addWidget(self.prev_btn_coup)
         spacerItem13 = QtWidgets.QSpacerItem(
@@ -582,7 +588,7 @@ class Ui_Widget(object):
         self.next_btn_coup = QtWidgets.QPushButton(
             self.frame_next_previous_4)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.next_btn_coup.setFont(font)
         self.next_btn_coup.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -593,7 +599,7 @@ class Ui_Widget(object):
         icon9.addPixmap(QtGui.QPixmap(
             ":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.next_btn_coup.setIcon(icon9)
-        self.next_btn_coup.setIconSize(QtCore.QSize(25, 25))
+        self.next_btn_coup.setIconSize(QtCore.QSize(20, 20))
         self.next_btn_coup.setObjectName("next_btn_coup")
         self.horizontalLayout_25.addWidget(self.next_btn_coup)
         self.verticalLayout_19.addWidget(self.frame_next_previous_4)
@@ -804,7 +810,7 @@ class Ui_Widget(object):
         self.warning_inter.setSizePolicy(sizePolicy)
         self.warning_inter.setMinimumSize(QtCore.QSize(50, 50))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(18)
         self.warning_inter.setFont(font)
         self.warning_inter.setObjectName("warning_inter")
         self.verticalLayout_20.addWidget(self.warning_inter)
@@ -833,13 +839,13 @@ class Ui_Widget(object):
         self.prev_btn_inter = QtWidgets.QPushButton(
             self.frame_next_previous_5)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.prev_btn_inter.setFont(font)
         self.prev_btn_inter.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_inter.setStyleSheet("color: rgb(255, 255, 255);")
         self.prev_btn_inter.setIcon(icon8)
-        self.prev_btn_inter.setIconSize(QtCore.QSize(25, 25))
+        self.prev_btn_inter.setIconSize(QtCore.QSize(20, 20))
         self.prev_btn_inter.setObjectName("prev_btn_inter")
         self.horizontalLayout_29.addWidget(self.prev_btn_inter)
         spacerItem21 = QtWidgets.QSpacerItem(
@@ -849,14 +855,14 @@ class Ui_Widget(object):
             self.frame_next_previous_5)
         self.next_btn_inter.setEnabled(True)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.next_btn_inter.setFont(font)
         self.next_btn_inter.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next_btn_inter.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.next_btn_inter.setStyleSheet("color: rgb(255, 255, 255);")
         self.next_btn_inter.setIcon(icon9)
-        self.next_btn_inter.setIconSize(QtCore.QSize(25, 25))
+        self.next_btn_inter.setIconSize(QtCore.QSize(20, 20))
         self.next_btn_inter.setObjectName("next_btn_inter")
         self.horizontalLayout_29.addWidget(self.next_btn_inter)
         self.verticalLayout_20.addWidget(self.frame_next_previous_5)
@@ -1185,7 +1191,7 @@ class Ui_Widget(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.gb_layers)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(10)
-        self.gridLayout_2.setVerticalSpacing(25)
+        self.gridLayout_2.setVerticalSpacing(15)
         self.gridLayout_2.setContentsMargins(9, 25, 0, 0)
         self.btn_new_layer = QtWidgets.QPushButton(self.gb_layers)
         self.btn_new_layer.setObjectName(u"btn_new_layer")
@@ -1237,7 +1243,7 @@ class Ui_Widget(object):
         self.thickness = QtWidgets.QLineEdit(self.gb_layers)
         self.thickness.setObjectName(u"thickness")
         self.thickness.setMinimumSize(QtCore.QSize(0, 30))
-        self.thickness.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.thickness.setMaximumSize(QtCore.QSize(180, 16777215))
         self.thickness.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
                                      "color: rgb(10, 25, 90);\n"
                                      "font: 700 12pt \"Ubuntu\";\n"
@@ -1261,7 +1267,7 @@ class Ui_Widget(object):
         self.cbox_material.addItem("")
         self.cbox_material.setObjectName(u"cbox_material")
         self.cbox_material.setMinimumSize(QtCore.QSize(0, 30))
-        self.cbox_material.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.cbox_material.setMaximumSize(QtCore.QSize(180, 16777215))
         self.cbox_material.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.cbox_material.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -1386,7 +1392,7 @@ class Ui_Widget(object):
         self.gridLayout_7 = QtWidgets.QGridLayout(self.gb_analyte)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setHorizontalSpacing(10)
-        self.gridLayout_7.setVerticalSpacing(20)
+        self.gridLayout_7.setVerticalSpacing(15)
         self.gridLayout_7.setContentsMargins(-1, 25, 9, 25)
         self.label_20 = QtWidgets.QLabel(self.gb_analyte)
         self.label_20.setObjectName(u"label_20")
@@ -1601,7 +1607,7 @@ class Ui_Widget(object):
         self.gridLayout_6 = QtWidgets.QGridLayout(self.gb_layers_2)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setHorizontalSpacing(10)
-        self.gridLayout_6.setVerticalSpacing(20)
+        self.gridLayout_6.setVerticalSpacing(15)
         self.gridLayout_6.setContentsMargins(9, 25, 0, 25)
         self.cbox_material_2 = QtWidgets.QComboBox(self.gb_layers_2)
         self.cbox_material_2.addItem("")
@@ -1738,7 +1744,7 @@ class Ui_Widget(object):
         self.gridLayout_5 = QtWidgets.QGridLayout(self.gb_analyte_2)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setHorizontalSpacing(10)
-        self.gridLayout_5.setVerticalSpacing(20)
+        self.gridLayout_5.setVerticalSpacing(15)
         self.gridLayout_5.setContentsMargins(-1, 25, -1, 25)
         self.label_15 = QtWidgets.QLabel(self.gb_analyte_2)
         self.label_15.setObjectName(u"label_15")
@@ -2054,7 +2060,7 @@ class Ui_Widget(object):
         self.horizontalLayout_92 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_92.setObjectName(u"horizontalLayout_92")
         self.horizontalSpacer = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+            40, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
 
         self.horizontalLayout_92.addItem(self.horizontalSpacer)
         sizePolicy5 = QtWidgets.QSizePolicy(
@@ -2083,7 +2089,7 @@ class Ui_Widget(object):
         self.horizontalLayout_92.addWidget(self.btn_edit_layers)
 
         self.horizontalSpacer_218 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+            40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
 
         self.horizontalLayout_92.addItem(self.horizontalSpacer_218)
 
@@ -2141,7 +2147,7 @@ class Ui_Widget(object):
         self.horizontalLayout_92.addWidget(self.btn_save_table)
 
         self.horizontalSpacer_220 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+            40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
 
         self.horizontalLayout_92.addItem(self.horizontalSpacer_220)
 
@@ -2170,13 +2176,13 @@ class Ui_Widget(object):
         self.prev_btn_config_aim_7 = QtWidgets.QPushButton(
             self.frame_next_previous_9)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.prev_btn_config_aim_7.setFont(font)
         self.prev_btn_config_aim_7.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_config_aim_7.setStyleSheet("color: rgb(255, 255, 255);")
         self.prev_btn_config_aim_7.setIcon(icon8)
-        self.prev_btn_config_aim_7.setIconSize(QtCore.QSize(25, 25))
+        self.prev_btn_config_aim_7.setIconSize(QtCore.QSize(20, 20))
         self.prev_btn_config_aim_7.setObjectName("prev_btn_config_aim_7")
         self.horizontalLayout_94.addWidget(self.prev_btn_config_aim_7)
         spacerItem33 = QtWidgets.QSpacerItem(
@@ -2186,14 +2192,14 @@ class Ui_Widget(object):
             self.frame_next_previous_9)
         self.next_btn_inter_3.setEnabled(True)
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(14)
         self.next_btn_inter_3.setFont(font)
         self.next_btn_inter_3.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next_btn_inter_3.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.next_btn_inter_3.setStyleSheet("color: rgb(255, 255, 255);")
         self.next_btn_inter_3.setIcon(icon9)
-        self.next_btn_inter_3.setIconSize(QtCore.QSize(25, 25))
+        self.next_btn_inter_3.setIconSize(QtCore.QSize(20, 20))
         self.next_btn_inter_3.setCheckable(False)
         self.next_btn_inter_3.setChecked(False)
         self.next_btn_inter_3.setObjectName("next_btn_inter_3")
@@ -4130,7 +4136,7 @@ class Ui_Widget(object):
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_config_aim_4.setStyleSheet("color: rgb(255, 255, 255);")
         self.prev_btn_config_aim_4.setIcon(icon8)
-        self.prev_btn_config_aim_4.setIconSize(QtCore.QSize(25, 25))
+        self.prev_btn_config_aim_4.setIconSize(QtCore.QSize(20, 20))
         self.prev_btn_config_aim_4.setObjectName("prev_btn_config_aim_4")
         self.horizontalLayout_48.addWidget(self.prev_btn_config_aim_4)
         spacerItem76 = QtWidgets.QSpacerItem(
@@ -4141,8 +4147,9 @@ class Ui_Widget(object):
         self.verticalLayout_16.addWidget(self.Stacked_windows)
         self.verticalLayout.addWidget(self.main_frame)
         self.footer_frame = QtWidgets.QFrame(Widget)
-        self.footer_frame.setStyleSheet("background-color: rgb(0, 70, 120);\n"
-                                        "color: rgb(255, 255, 255);\n"
+        self.footer_frame.setStyleSheet("background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);"
+                                        "font: 500 11pt \"Ubuntu\";"
+                                        "color: rgb(0, 0, 0);"
                                         "")
         self.footer_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.footer_frame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -4159,7 +4166,7 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.label_footer.sizePolicy().hasHeightForWidth())
         self.label_footer.setSizePolicy(sizePolicy)
-        self.label_footer.setMinimumSize(QtCore.QSize(0, 22))
+        self.label_footer.setMinimumSize(QtCore.QSize(0, 25))
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(10)
@@ -4167,72 +4174,12 @@ class Ui_Widget(object):
         font.setItalic(False)
         font.setWeight(63)
         self.label_footer.setFont(font)
-        self.label_footer.setStyleSheet("background:transparent;\n"
-                                        "font: 500 10pt \"Ubuntu\";")
+        self.label_footer.setStyleSheet("background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);")
         self.label_footer.setObjectName("label_footer")
         self.horizontalLayout_3.addWidget(self.label_footer)
         self.verticalLayout.addWidget(self.footer_frame)
 
         self.retranslateUi(Widget)
-
-        self.Stacked_windows.setCurrentIndex(0)
-        self.stacked_layers.setCurrentIndex(0)
-        self.Stacked_config_mode.setCurrentIndex(1)
-
-        self.btn_close.clicked.connect(Widget.close)    # close window
-        self.btn_minimizar.clicked.connect(
-            Widget.showMinimized)    # minimize window
-        self.exit_btn.clicked.connect(Widget.close)    # close window
-        self.start_btn.clicked.connect(lambda: self.Stacked_windows.setCurrentWidget(
-            self.coupling_window))    # show coupling window
-
-        # return to home window
-        self.btn_home.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-        self.btn_home_2.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-        self.btn_home_3.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-        self.btn_home_4.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-
-        # return to coupling page
-        self.btn_coupling.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
-        self.btn_coupling_2.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
-        self.btn_coupling_3.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
-        self.btn_coupling_4.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
-
-        # return to interrogation mode page
-        self.btn_interrogation.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
-        self.btn_interrogation_2.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
-        self.btn_interrogation_3.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
-
-        # return to setting layers page
-        self.btn_setting_layers.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
-        self.btn_setting_layers_2.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
-
-        # Coupling page buttons
-        self.prism_btn.clicked.connect(self.prism_btn_clicked)
-        self.fiber_btn.clicked.connect(self.fiber_btn_clicked)
-        self.prev_btn_coup.clicked.connect(lambda: self.previous_page())
-        self.next_btn_coup.clicked.connect(
-            lambda: self.next_page(op=coupling, warning=self.warning_2))
-
-        # Interrogation mode page buttons
-        self.aim_btn.clicked.connect(self.aim_btn_clicked)
-        self.wim_btn.clicked.connect(self.wim_btn_clicked)
-        self.prev_btn_inter.clicked.connect(lambda: self.previous_page())
-        self.next_btn_inter.clicked.connect(lambda: self.next_page(
-            op=interrogation_mode, warning=self.warning_inter))
 
         QtCore.QMetaObject.connectSlotsByName(Widget)
 
@@ -4242,9 +4189,9 @@ class Ui_Widget(object):
         Widget.setWindowTitle(_translate("Widget", u"Widget", None))
         self.icon.setText("")
         self.label_title.setText(_translate(
-            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">Sim -LMR</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#000000;\">Sim - LMR</span></p></body></html>", None))
         self.btn_help.setText(_translate("Widget", u"Help  ", None))
-        self.btn_minimizar.setText(_translate("Widget", u"_", None))
+        self.btn_minimize.setText(_translate("Widget", u"_", None))
         self.btn_close.setText("")
         self.label_logo.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/LOGO.png\"/></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:22pt; font-style:italic;\">Welcome to</span></p><p align=\"center\"><span style=\" font-size:72pt; color:#005a82;\">Sim-LMR</span></p></body></html>", None))
         self.start_btn.setText(_translate("Widget", u"Start Simulation", None))
@@ -4483,45 +4430,3 @@ class Ui_Widget(object):
         self.label_footer.setText(_translate(
             "Widget", u"<html><head/><body><p align=\"center\">Sim-LMR v01.0_a</p></body></html>", None))
     # retranslateUi
-
-    def prism_btn_clicked(self):
-        self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Coupling through prism - </span></pre></body></html>"))
-        global coupling
-        coupling = 1
-
-    def fiber_btn_clicked(self):
-        self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Coupling through optical fiber under development - </span></pre></body></html>"))
-        global coupling
-        coupling = 0
-
-    def next_page(self, op, warning):
-        if op == 0:
-            warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ff9664;\">- *! Select a valid option !* - </span></pre></body></html>"))
-        else:
-            self.Stacked_windows.setCurrentIndex(
-                self.Stacked_windows.currentIndex()+1)
-
-    def previous_page(self):
-        self.Stacked_windows.setCurrentIndex(
-            self.Stacked_windows.currentIndex()-1)
-
-    def aim_btn_clicked(self):
-        global interrogation_mode
-        self.warning_inter.setText(QtCore.QCoreApplication.translate(
-            "Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Angular interrogation mode selected - </span></pre></body></html>"))
-        interrogation_mode = 1
-
-    def wim_btn_clicked(self):
-        global interrogation_mode
-        self.warning_inter.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:\'monospace\'; color:#ffff64;\">- Wavelength interrogation mode selected - </span></pre></body></html>"))
-        interrogation_mode = 2
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Widget = QtWidgets.QWidget()
-    ui = Ui_Widget()
-    ui.setupUi(Widget)
-    Widget.show()
-    sys.exit(app.exec_())
