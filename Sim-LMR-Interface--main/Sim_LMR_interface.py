@@ -1005,7 +1005,6 @@ class Ui_Widget(object):
         self.splitter_layers.setObjectName("splitter_layers")
         self.setting_layers_frame = QtWidgets.QFrame(self.splitter_layers)
         self.setting_layers_frame.setMinimumSize(QtCore.QSize(540, 350))
-        self.setting_layers_frame.setMaximumSize(QtCore.QSize(570, 16777215))
         self.setting_layers_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.setting_layers_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.setting_layers_frame.setObjectName("setting_layers_frame")
@@ -1024,7 +1023,6 @@ class Ui_Widget(object):
         self.gb_incident_wav = QtWidgets.QGroupBox(self.page_layers_aim)
         self.gb_incident_wav.setObjectName(u"gb_incident_wav")
         self.gb_incident_wav.setMinimumSize(QtCore.QSize(400, 80))
-        self.gb_incident_wav.setMaximumSize(QtCore.QSize(520, 80))
         font12 = QtGui.QFont()
         font12.setFamily(u"Ubuntu")
         font12.setPointSize(14)
@@ -1165,6 +1163,7 @@ class Ui_Widget(object):
 
         self.gb_layers = QtWidgets.QGroupBox(self.page_layers_aim)
         self.gb_layers.setObjectName(u"gb_layers")
+        self.gb_layers.setToolTip("Click in 'New layer' to enable")
         sizePolicy.setHeightForWidth(
             self.gb_layers.sizePolicy().hasHeightForWidth())
         self.gb_layers.setSizePolicy(sizePolicy)
@@ -1195,6 +1194,7 @@ class Ui_Widget(object):
         self.gridLayout_2.setContentsMargins(9, 25, 0, 0)
         self.btn_new_layer = QtWidgets.QPushButton(self.gb_layers)
         self.btn_new_layer.setObjectName(u"btn_new_layer")
+        self.btn_new_layer.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_new_layer.setMinimumSize(QtCore.QSize(100, 30))
         self.btn_new_layer.setMaximumSize(QtCore.QSize(150, 16777215))
         self.btn_new_layer.setStyleSheet(u"QPushButton{\n"
@@ -1220,12 +1220,13 @@ class Ui_Widget(object):
 
         self.btn_add_layer = QtWidgets.QPushButton(self.gb_layers)
         self.btn_add_layer.setObjectName(u"btn_add_layer")
+        self.btn_add_layer.setEnabled(False)
         self.btn_add_layer.setMinimumSize(QtCore.QSize(100, 30))
         self.btn_add_layer.setMaximumSize(QtCore.QSize(150, 16777215))
         self.btn_add_layer.setStyleSheet(u"QPushButton{\n"
                                          "	font: 400 11pt \"Ubuntu\";\n"
                                          "	color: rgb(255, 255,255);\n"
-                                         "	background-color: rgb(0, 130, 180);\n"
+                                         "	background-color: #606060;\n"
                                          "	border-color: rgb(0, 100, 130);\n"
                                          "	border-width: 2px;\n"
                                          "	border-radius:10px;\n"
@@ -1242,13 +1243,14 @@ class Ui_Widget(object):
 
         self.thickness = QtWidgets.QLineEdit(self.gb_layers)
         self.thickness.setObjectName(u"thickness")
+        self.thickness.setEnabled(False)
         self.thickness.setMinimumSize(QtCore.QSize(0, 30))
         self.thickness.setMaximumSize(QtCore.QSize(180, 16777215))
         self.thickness.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
-                                     "color: rgb(10, 25, 90);\n"
+                                     "color: #606060;\n"
                                      "font: 700 12pt \"Ubuntu\";\n"
                                      " border: 2px solid;\n"
-                                     "border-color: #FF17365D;\n"
+                                     "border-color: #606060;\n"
                                      "background-color: rgba(255, 255, 255,210);\n"
                                      "border-radius:10px;")
         self.thickness.setAlignment(QtCore.Qt.AlignCenter)
@@ -1266,6 +1268,7 @@ class Ui_Widget(object):
         self.cbox_material.addItem("")
         self.cbox_material.addItem("")
         self.cbox_material.setObjectName(u"cbox_material")
+        self.cbox_material.setEnabled(False)
         self.cbox_material.setMinimumSize(QtCore.QSize(0, 30))
         self.cbox_material.setMaximumSize(QtCore.QSize(180, 16777215))
         self.cbox_material.setCursor(
@@ -1282,10 +1285,10 @@ class Ui_Widget(object):
                                          "QComboBox\n"
                                          "{\n"
                                          " padding: 1px 18px 1px 3px;\n"
-                                         "color: rgb(10, 25, 90);\n"
+                                         "color: #606060;\n"
                                          "font: 700 12pt \"Ubuntu\";\n"
                                          " border: 2px solid;\n"
-                                         "border-color: #FF17365D;\n"
+                                         "border-color: #606060;\n"
                                          "background-color: rgba(255, 255, 255,210);\n"
                                          "border-radius:10px;\n"
                                          "}\n"
@@ -1319,6 +1322,7 @@ class Ui_Widget(object):
 
         self.warning = QtWidgets.QLabel(self.frame_refractive_index)
         self.warning.setObjectName(u"warning")
+        self.warning.setHidden(True)
         self.warning.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
                                    "\n"
                                    "")
@@ -1329,11 +1333,12 @@ class Ui_Widget(object):
         self.real_part_index = QtWidgets.QLineEdit(self.frame_refractive_index)
         self.real_part_index.setObjectName(u"real_part_index")
         self.real_part_index.setMinimumSize(QtCore.QSize(0, 30))
+        self.real_part_index.setEnabled(False)
         self.real_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
-                                           "color: rgb(10, 25, 90);\n"
+                                           "color: #606060;\n"
                                            "font: 700 12pt \"Ubuntu\";\n"
                                            " border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
+                                           "border-color: #606060;\n"
                                            "background-color: rgba(255, 255, 255,210);\n"
                                            "border-radius:10px;")
         self.real_part_index.setAlignment(QtCore.Qt.AlignCenter)
@@ -1342,6 +1347,7 @@ class Ui_Widget(object):
 
         self.warning_3 = QtWidgets.QLabel(self.frame_refractive_index)
         self.warning_3.setObjectName(u"warning_3")
+        self.warning_3.setHidden(True)
         self.warning_3.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
                                      "")
         self.warning_3.setAlignment(QtCore.Qt.AlignCenter)
@@ -1351,12 +1357,13 @@ class Ui_Widget(object):
         self.imaginary_part_index = QtWidgets.QLineEdit(
             self.frame_refractive_index)
         self.imaginary_part_index.setObjectName(u"imaginary_part_index")
+        self.imaginary_part_index.setEnabled(False)
         self.imaginary_part_index.setMinimumSize(QtCore.QSize(0, 30))
         self.imaginary_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
-                                                "color: rgb(10, 25, 90);\n"
+                                                "color: #606060;\n"
                                                 "font: 700 12pt \"Ubuntu\";\n"
                                                 " border: 2px solid;\n"
-                                                "border-color: #FF17365D;\n"
+                                                "border-color: #606060;\n"
                                                 "background-color: rgba(255, 255, 255,210);\n"
                                                 "border-radius:10px;")
         self.imaginary_part_index.setAlignment(QtCore.Qt.AlignCenter)
@@ -1369,6 +1376,8 @@ class Ui_Widget(object):
 
         self.gb_analyte = QtWidgets.QGroupBox(self.page_layers_aim)
         self.gb_analyte.setObjectName(u"gb_analyte")
+        self.gb_analyte.setEnabled(False)
+        self.gb_analyte.setToolTip("Click in 'New layer' to enable")
         self.gb_analyte.setStyleSheet(u"\n"
                                       "QGroupBox  {\n"
                                       "	font: 14pt \"Ubuntu\";\n"
@@ -1406,10 +1415,10 @@ class Ui_Widget(object):
         self.doubleSpinBox_7.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
-                                           "color: rgb(10, 25, 90);\n"
+                                           "color: #606060;\n"
                                            "font: 700 12pt \"Ubuntu\";\n"
                                            "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
+                                           "border-color: #606060;\n"
                                            "background-color: rgba(255, 255, 255,210);\n"
                                            "border-radius:10px;\n"
                                            "}\n"
@@ -1451,7 +1460,7 @@ class Ui_Widget(object):
         self.btn_add_analyte.setStyleSheet(u"QPushButton{\n"
                                            "	font: 400 11pt \"Ubuntu\";\n"
                                            "	color: rgb(255, 255,255);\n"
-                                           "	background-color: rgb(0, 130, 180);\n"
+                                           "	background-color: #606060;\n"
                                            "	border-color: rgb(0, 100, 130);\n"
                                            "	border-width: 2px;\n"
                                            "	border-radius:10px;\n"
@@ -1478,10 +1487,10 @@ class Ui_Widget(object):
         self.doubleSpinBox_8.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
-                                           "color: rgb(10, 25, 90);\n"
+                                           "color: #606060;\n"
                                            "font: 700 12pt \"Ubuntu\";\n"
                                            "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
+                                           "border-color: #606060;\n"
                                            "background-color: rgba(255, 255, 255,210);\n"
                                            "border-radius:10px;\n"
                                            "}\n"
@@ -1526,10 +1535,10 @@ class Ui_Widget(object):
         self.doubleSpinBox_9.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
-                                           "color: rgb(10, 25, 90);\n"
+                                           "color: #606060;\n"
                                            "font: 700 12pt \"Ubuntu\";\n"
                                            "border: 2px solid;\n"
-                                           "border-color: #FF17365D;\n"
+                                           "border-color: #606060;\n"
                                            "background-color: rgba(255, 255, 255,210);\n"
                                            "border-radius:10px;\n"
                                            "}\n"
@@ -1563,6 +1572,7 @@ class Ui_Widget(object):
 
         self.warning_6 = QtWidgets.QLabel(self.gb_analyte)
         self.warning_6.setObjectName(u"warning_6")
+        self.warning_6.setHidden(True)
         self.warning_6.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
                                      "\n"
                                      "")
@@ -1615,7 +1625,7 @@ class Ui_Widget(object):
         self.cbox_material_2.addItem("")
         self.cbox_material_2.setObjectName(u"cbox_material_2")
         self.cbox_material_2.setMinimumSize(QtCore.QSize(0, 30))
-        self.cbox_material_2.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.cbox_material_2.setMaximumSize(QtCore.QSize(180, 16777215))
         self.cbox_material_2.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.cbox_material_2.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -1660,7 +1670,7 @@ class Ui_Widget(object):
         self.thickness_2 = QtWidgets.QLineEdit(self.gb_layers_2)
         self.thickness_2.setObjectName(u"thickness_2")
         self.thickness_2.setMinimumSize(QtCore.QSize(0, 30))
-        self.thickness_2.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.thickness_2.setMaximumSize(QtCore.QSize(180, 16777215))
         self.thickness_2.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
                                        "color: rgb(10, 25, 90);\n"
                                        "font: 700 12pt \"Ubuntu\";\n"
@@ -1915,6 +1925,7 @@ class Ui_Widget(object):
 
         self.warning_4 = QtWidgets.QLabel(self.gb_analyte_2)
         self.warning_4.setObjectName(u"warning_4")
+        self.warning_4.setHidden(True)
         self.warning_4.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
                                      "\n"
                                      "")
@@ -2071,6 +2082,7 @@ class Ui_Widget(object):
             self.btn_edit_layers.sizePolicy().hasHeightForWidth())
         self.btn_edit_layers.setSizePolicy(sizePolicy5)
         self.btn_edit_layers.setMinimumSize(QtCore.QSize(110, 30))
+        self.btn_edit_layers.setMaximumSize(QtCore.QSize(130, 30))
         self.btn_edit_layers.setStyleSheet(u"QPushButton{\n"
                                            "	font: 400 11pt \"Ubuntu\";\n"
                                            "	color: rgb(255, 255,255);\n"
@@ -2099,6 +2111,7 @@ class Ui_Widget(object):
             self.btn_remove_layers.sizePolicy().hasHeightForWidth())
         self.btn_remove_layers.setSizePolicy(sizePolicy5)
         self.btn_remove_layers.setMinimumSize(QtCore.QSize(110, 30))
+        self.btn_remove_layers.setMaximumSize(QtCore.QSize(130, 30))
         self.btn_remove_layers.setStyleSheet(u"QPushButton{\n"
                                              "	font: 400 11pt \"Ubuntu\";\n"
                                              "	color: rgb(255, 255,255);\n"
@@ -2128,6 +2141,7 @@ class Ui_Widget(object):
             self.btn_save_table.sizePolicy().hasHeightForWidth())
         self.btn_save_table.setSizePolicy(sizePolicy5)
         self.btn_save_table.setMinimumSize(QtCore.QSize(110, 30))
+        self.btn_save_table.setMaximumSize(QtCore.QSize(130, 30))
         self.btn_save_table.setStyleSheet(u"QPushButton{\n"
                                           "	font: 400 11pt \"Ubuntu\";\n"
                                           "	color: rgb(255, 255,255);\n"
@@ -2173,37 +2187,37 @@ class Ui_Widget(object):
         self.horizontalLayout_94.setContentsMargins(20, 6, 20, 6)
         self.horizontalLayout_94.setSpacing(5)
         self.horizontalLayout_94.setObjectName("horizontalLayout_94")
-        self.prev_btn_config_aim_7 = QtWidgets.QPushButton(
+        self.prev_btn_config_layers = QtWidgets.QPushButton(
             self.frame_next_previous_9)
         font = QtGui.QFont()
         font.setPointSize(14)
-        self.prev_btn_config_aim_7.setFont(font)
-        self.prev_btn_config_aim_7.setCursor(
+        self.prev_btn_config_layers.setFont(font)
+        self.prev_btn_config_layers.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.prev_btn_config_aim_7.setStyleSheet("color: rgb(255, 255, 255);")
-        self.prev_btn_config_aim_7.setIcon(icon8)
-        self.prev_btn_config_aim_7.setIconSize(QtCore.QSize(20, 20))
-        self.prev_btn_config_aim_7.setObjectName("prev_btn_config_aim_7")
-        self.horizontalLayout_94.addWidget(self.prev_btn_config_aim_7)
+        self.prev_btn_config_layers.setStyleSheet("color: rgb(255, 255, 255);")
+        self.prev_btn_config_layers.setIcon(icon8)
+        self.prev_btn_config_layers.setIconSize(QtCore.QSize(20, 20))
+        self.prev_btn_config_layers.setObjectName("prev_btn_config_layers")
+        self.horizontalLayout_94.addWidget(self.prev_btn_config_layers)
         spacerItem33 = QtWidgets.QSpacerItem(
             100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_94.addItem(spacerItem33)
-        self.next_btn_inter_3 = QtWidgets.QPushButton(
+        self.next_btn_config_layers = QtWidgets.QPushButton(
             self.frame_next_previous_9)
-        self.next_btn_inter_3.setEnabled(True)
+        self.next_btn_config_layers.setEnabled(True)
         font = QtGui.QFont()
         font.setPointSize(14)
-        self.next_btn_inter_3.setFont(font)
-        self.next_btn_inter_3.setCursor(
+        self.next_btn_config_layers.setFont(font)
+        self.next_btn_config_layers.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.next_btn_inter_3.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.next_btn_inter_3.setStyleSheet("color: rgb(255, 255, 255);")
-        self.next_btn_inter_3.setIcon(icon9)
-        self.next_btn_inter_3.setIconSize(QtCore.QSize(20, 20))
-        self.next_btn_inter_3.setCheckable(False)
-        self.next_btn_inter_3.setChecked(False)
-        self.next_btn_inter_3.setObjectName("next_btn_inter_3")
-        self.horizontalLayout_94.addWidget(self.next_btn_inter_3)
+        self.next_btn_config_layers.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.next_btn_config_layers.setStyleSheet("color: rgb(255, 255, 255);")
+        self.next_btn_config_layers.setIcon(icon9)
+        self.next_btn_config_layers.setIconSize(QtCore.QSize(20, 20))
+        self.next_btn_config_layers.setCheckable(False)
+        self.next_btn_config_layers.setChecked(False)
+        self.next_btn_config_layers.setObjectName("next_btn_config_layers")
+        self.horizontalLayout_94.addWidget(self.next_btn_config_layers)
         self.verticalLayout_2.addWidget(self.frame_next_previous_9)
         self.Stacked_windows.addWidget(self.layers_window)
         self.geometry_setting = QtWidgets.QWidget()
@@ -4320,9 +4334,9 @@ class Ui_Widget(object):
         self.btn_remove_layers.setText(
             _translate("Widget", u"Remove layer", None))
         self.btn_save_table.setText(_translate("Widget", u"Save Data", None))
-        self.prev_btn_config_aim_7.setText(
+        self.prev_btn_config_layers.setText(
             _translate("Widget", u" Previous", None))
-        self.next_btn_inter_3.setText(_translate("Widget", u"Next ", None))
+        self.next_btn_config_layers.setText(_translate("Widget", u"Next ", None))
         self.btn_home_4.setText("")
         self.label_36.setText("")
         self.btn_coupling_4.setText(_translate(
