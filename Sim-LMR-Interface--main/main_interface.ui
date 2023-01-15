@@ -59,13 +59,12 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QFrame{
-	
-	background-color: rgb(218, 218, 218);
-    border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+      <string notr="true">background-color: rgb(0, 40, 120);
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+font: 500 10pt &quot;Ubuntu&quot;;
+color: rgb(255, 255, 255);
 
-}
 
 </string>
      </property>
@@ -168,12 +167,11 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background:transparent;
-color: rgb(0, 170, 255);
-font: 500 10pt &quot;Ubuntu&quot;;</string>
+         <string notr="true">
+</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#353535;&quot;&gt;Sim -LMR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Sim -LMR&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
@@ -381,7 +379,7 @@ QPushButton:hover{
          <string notr="true">background:transparent;</string>
         </property>
         <property name="currentIndex">
-         <number>4</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="home_window">
          <property name="styleSheet">
@@ -2354,7 +2352,7 @@ QPushButton:checked{ border-color: rgb(0, 170, 0);}
               <item>
                <widget class="QStackedWidget" name="stacked_layers">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="page_layers_aim">
                  <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -2448,7 +2446,7 @@ QGroupBox::title  {
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QSlider" name="angle_Slider_3">
+                      <widget class="QSlider" name="lambda_i_slider">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                          <horstretch>0</horstretch>
@@ -2507,7 +2505,7 @@ QGroupBox::title  {
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QDoubleSpinBox" name="angle_incidence_3">
+                      <widget class="QDoubleSpinBox" name="lambda_i">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
                          <horstretch>0</horstretch>
@@ -2791,6 +2789,9 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
 	image: url(:/icons/icons/arrow-down.png);
     left: 1px;
 }</string>
+                       </property>
+                       <property name="maxVisibleItems">
+                        <number>6</number>
                        </property>
                        <item>
                         <property name="text">
@@ -3528,6 +3529,9 @@ QComboBox::down-arrow { /* shift the arrow when popup is open */
 	image: url(:/icons/icons/arrow-down.png);
     left: 1px;
 }</string>
+                       </property>
+                       <property name="editable">
+                        <bool>true</bool>
                        </property>
                        <item>
                         <property name="text">
@@ -4927,7 +4931,7 @@ QPushButton:hover{
               <item>
                <widget class="QStackedWidget" name="Stacked_config_mode">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="page_fiber_config">
                  <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -5095,7 +5099,7 @@ background-color: rgb(255, 255, 255);</string>
                   <item>
                    <widget class="QFrame" name="frame_16">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
@@ -5137,7 +5141,7 @@ background-color: rgb(255, 255, 255);</string>
                      <item>
                       <widget class="QGroupBox" name="Spectral_range_3">
                        <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                          <horstretch>0</horstretch>
                          <verstretch>0</verstretch>
                         </sizepolicy>
@@ -5151,7 +5155,7 @@ background-color: rgb(255, 255, 255);</string>
                        <property name="maximumSize">
                         <size>
                          <width>500</width>
-                         <height>130</height>
+                         <height>135</height>
                         </size>
                        </property>
                        <property name="font">
@@ -5193,7 +5197,7 @@ QGroupBox::title  {
                        <property name="checked">
                         <bool>false</bool>
                        </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_34">
+                       <layout class="QVBoxLayout" name="verticalLayout_25">
                         <property name="spacing">
                          <number>0</number>
                         </property>
@@ -5201,7 +5205,7 @@ QGroupBox::title  {
                          <number>0</number>
                         </property>
                         <property name="topMargin">
-                         <number>7</number>
+                         <number>8</number>
                         </property>
                         <property name="rightMargin">
                          <number>0</number>
@@ -5210,12 +5214,12 @@ QGroupBox::title  {
                          <number>0</number>
                         </property>
                         <item>
-                         <layout class="QHBoxLayout" name="horizontalLayout_50">
+                         <layout class="QHBoxLayout" name="horizontalLayout_36">
                           <property name="spacing">
                            <number>5</number>
                           </property>
                           <item>
-                           <spacer name="horizontalSpacer_90">
+                           <spacer name="horizontalSpacer_61">
                             <property name="orientation">
                              <enum>Qt::Horizontal</enum>
                             </property>
@@ -5231,7 +5235,7 @@ QGroupBox::title  {
                            </spacer>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_33">
+                           <widget class="QLabel" name="label_25">
                             <property name="minimumSize">
                              <size>
                               <width>50</width>
@@ -5361,7 +5365,7 @@ QDoubleSpinBox::down-button
                            </widget>
                           </item>
                           <item>
-                           <spacer name="horizontalSpacer_91">
+                           <spacer name="horizontalSpacer_62">
                             <property name="orientation">
                              <enum>Qt::Horizontal</enum>
                             </property>
@@ -5377,7 +5381,7 @@ QDoubleSpinBox::down-button
                            </spacer>
                           </item>
                           <item>
-                           <widget class="QLabel" name="label_34">
+                           <widget class="QLabel" name="label_28">
                             <property name="minimumSize">
                              <size>
                               <width>50</width>
@@ -5405,7 +5409,7 @@ QDoubleSpinBox::down-button
                              <string notr="true">font: 14pt &quot;Ubuntu&quot;;</string>
                             </property>
                             <property name="text">
-                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Final:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Final: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                             <property name="alignment">
                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -5509,7 +5513,7 @@ QDoubleSpinBox::down-button
                            </widget>
                           </item>
                           <item>
-                           <spacer name="horizontalSpacer_92">
+                           <spacer name="horizontalSpacer_63">
                             <property name="orientation">
                              <enum>Qt::Horizontal</enum>
                             </property>
@@ -5527,22 +5531,16 @@ QDoubleSpinBox::down-button
                          </layout>
                         </item>
                         <item>
-                         <layout class="QHBoxLayout" name="horizontalLayout_51">
-                          <property name="spacing">
-                           <number>0</number>
-                          </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_37">
                           <item>
-                           <spacer name="horizontalSpacer_93">
+                           <spacer name="horizontalSpacer_64">
                             <property name="orientation">
                              <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                             <enum>QSizePolicy::Expanding</enum>
                             </property>
                             <property name="sizeHint" stdset="0">
                              <size>
                               <width>40</width>
-                              <height>5</height>
+                              <height>20</height>
                              </size>
                             </property>
                            </spacer>
@@ -5583,22 +5581,30 @@ QSlider::handle:horizontal {
                            </widget>
                           </item>
                           <item>
-                           <spacer name="horizontalSpacer_94">
+                           <spacer name="horizontalSpacer_65">
                             <property name="orientation">
                              <enum>Qt::Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                             <enum>QSizePolicy::Expanding</enum>
                             </property>
                             <property name="sizeHint" stdset="0">
                              <size>
                               <width>40</width>
-                              <height>5</height>
+                              <height>20</height>
                              </size>
                             </property>
                            </spacer>
                           </item>
                          </layout>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="label_2">
+                          <property name="styleSheet">
+                           <string notr="true">font: 14pt &quot;Ubuntu&quot;;
+</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffff01;&quot;&gt;- Invalid -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
                         </item>
                        </layout>
                       </widget>
@@ -5608,13 +5614,10 @@ QSlider::handle:horizontal {
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Maximum</enum>
-                       </property>
                        <property name="sizeHint" stdset="0">
                         <size>
                          <width>20</width>
-                         <height>15</height>
+                         <height>40</height>
                         </size>
                        </property>
                       </spacer>
@@ -5624,13 +5627,13 @@ QSlider::handle:horizontal {
                        <property name="minimumSize">
                         <size>
                          <width>450</width>
-                         <height>80</height>
+                         <height>100</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
                          <width>500</width>
-                         <height>110</height>
+                         <height>150</height>
                         </size>
                        </property>
                        <property name="font">
@@ -6448,7 +6451,7 @@ background-color: rgb(255, 255, 255);</string>
                        <property name="maximumSize">
                         <size>
                          <width>500</width>
-                         <height>135</height>
+                         <height>160</height>
                         </size>
                        </property>
                        <property name="font">
@@ -6839,11 +6842,11 @@ QDoubleSpinBox::down-button
                            </spacer>
                           </item>
                           <item>
-                           <widget class="QSlider" name="wavw_slider">
+                           <widget class="QSlider" name="wavelength_slider">
                             <property name="minimumSize">
                              <size>
                               <width>300</width>
-                              <height>25</height>
+                              <height>20</height>
                              </size>
                             </property>
                             <property name="maximumSize">
@@ -6853,13 +6856,30 @@ QDoubleSpinBox::down-button
                              </size>
                             </property>
                             <property name="styleSheet">
-                             <string notr="true">
-QSlider::handle:horizontal {
-	background-color: rgb(0,90,180);
-    width:64px;
-    height:64px;
+                             <string notr="true">QSlider {
+    min-height: 20px;
 }
-
+QSlider::groove:horizontal {
+    border: 0px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #888, stop:1 #ddd);
+    height: 20px;
+    border-radius: 10px;
+}
+QSlider::handle {
+    background: qradialgradient(cx:0, cy:0, radius: 1.2, fx:0.35,
+                                fy:0.3, stop:0 #eef, stop:1 #002);
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+QSlider::sub-page:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #FF17365D, stop:1 #77a);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+QRangeSlider {
+    qproperty-barColor: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #FF17365D, stop:1 #77a);
+}
 </string>
                             </property>
                             <property name="minimum">
@@ -6888,6 +6908,23 @@ QSlider::handle:horizontal {
                           </item>
                          </layout>
                         </item>
+                        <item>
+                         <widget class="QLabel" name="warning_range">
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>35</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">font: 12pt &quot;Ubuntu&quot;;
+</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight: 700; color:#ff4064;&quot;&gt;- Final menor que inicial! Verifique-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
+                        </item>
                        </layout>
                       </widget>
                      </item>
@@ -6897,7 +6934,7 @@ QSlider::handle:horizontal {
                         <enum>Qt::Vertical</enum>
                        </property>
                        <property name="sizeType">
-                        <enum>QSizePolicy::Fixed</enum>
+                        <enum>QSizePolicy::Preferred</enum>
                        </property>
                        <property name="sizeHint" stdset="0">
                         <size>
@@ -7007,7 +7044,7 @@ QGroupBox::title  {
                           <property name="minimumSize">
                            <size>
                             <width>300</width>
-                            <height>25</height>
+                            <height>20</height>
                            </size>
                           </property>
                           <property name="maximumSize">
@@ -7017,12 +7054,30 @@ QGroupBox::title  {
                            </size>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">QSlider::handle:horizontal {
-	background-color: rgb(0,90,180);
-    width:64px;
-    height:64px;
+                           <string notr="true">QSlider {
+    min-height: 20px;
 }
-
+QSlider::groove:horizontal {
+    border: 0px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #888, stop:1 #ddd);
+    height: 20px;
+    border-radius: 10px;
+}
+QSlider::handle {
+    background: qradialgradient(cx:0, cy:0, radius: 1.2, fx:0.35,
+                                fy:0.3, stop:0 #eef, stop:1 #002);
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+QSlider::sub-page:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #FF17365D, stop:1 #77a);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+QRangeSlider {
+    qproperty-barColor: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #FF17365D, stop:1 #77a);
+}
 </string>
                           </property>
                           <property name="maximum">
@@ -7116,17 +7171,8 @@ QDoubleSpinBox::down-button
 	width: 25;
 }</string>
                           </property>
-                          <property name="wrapping">
-                           <bool>true</bool>
-                          </property>
-                          <property name="frame">
-                           <bool>false</bool>
-                          </property>
                           <property name="alignment">
                            <set>Qt::AlignCenter</set>
-                          </property>
-                          <property name="buttonSymbols">
-                           <enum>QAbstractSpinBox::UpDownArrows</enum>
                           </property>
                           <property name="accelerated">
                            <bool>true</bool>
@@ -7385,7 +7431,7 @@ background-color: rgb(255, 255, 255);</string>
                        <property name="minimumSize">
                         <size>
                          <width>400</width>
-                         <height>130</height>
+                         <height>150</height>
                         </size>
                        </property>
                        <property name="maximumSize">
@@ -7434,19 +7480,19 @@ QGroupBox::title  {
                        </property>
                        <layout class="QVBoxLayout" name="verticalLayout_29">
                         <property name="spacing">
-                         <number>0</number>
+                         <number>12</number>
                         </property>
                         <property name="leftMargin">
                          <number>0</number>
                         </property>
                         <property name="topMargin">
-                         <number>8</number>
+                         <number>12</number>
                         </property>
                         <property name="rightMargin">
                          <number>0</number>
                         </property>
                         <property name="bottomMargin">
-                         <number>0</number>
+                         <number>10</number>
                         </property>
                         <item>
                          <layout class="QHBoxLayout" name="horizontalLayout_41">
@@ -7688,12 +7734,6 @@ QDoubleSpinBox::down-button
 	width: 25;
 }</string>
                             </property>
-                            <property name="wrapping">
-                             <bool>true</bool>
-                            </property>
-                            <property name="frame">
-                             <bool>false</bool>
-                            </property>
                             <property name="alignment">
                              <set>Qt::AlignCenter</set>
                             </property>
@@ -7751,7 +7791,7 @@ QDoubleSpinBox::down-button
                            </spacer>
                           </item>
                           <item>
-                           <widget class="QSlider" name="horizontalSlider_5">
+                           <widget class="QSlider" name="angular_range">
                             <property name="minimumSize">
                              <size>
                               <width>300</width>
@@ -7793,6 +7833,17 @@ QSlider::handle:horizontal {
                            </spacer>
                           </item>
                          </layout>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="warning_angular">
+                          <property name="styleSheet">
+                           <string notr="true">font: 12pt &quot;Ubuntu&quot;;
+</string>
+                          </property>
+                          <property name="text">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ff6400;&quot;&gt;Starting value less than the ending value in the range. Check! &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
+                         </widget>
                         </item>
                        </layout>
                       </widget>
@@ -8254,7 +8305,7 @@ QPushButton:hover{
 </string>
                 </property>
                 <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff01;&quot;&gt;- Invalid -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#B21222;&quot;&gt;- Invalid -&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -8447,9 +8498,10 @@ QPushButton:hover{
    <item>
     <widget class="QFrame" name="footer_frame">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 70, 120);
-color: rgb(255, 255, 255);
-</string>
+      <string notr="true">background-color: rgb(0, 40, 120);
+color: rgb(230, 230, 230);
+font: 700 10pt &quot;Ubuntu&quot;;
+color: rgb(255, 255, 255);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -8490,15 +8542,13 @@ color: rgb(255, 255, 255);
         <property name="font">
          <font>
           <family>Ubuntu</family>
-          <pointsize>11</pointsize>
+          <pointsize>10</pointsize>
           <italic>false</italic>
-          <bold>false</bold>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);
-font: 500 11pt &quot;Ubuntu&quot;;
-color: rgb(0, 0, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Sim-LMR v01.0_a&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

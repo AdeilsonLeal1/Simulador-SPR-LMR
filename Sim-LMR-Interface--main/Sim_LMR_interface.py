@@ -10,7 +10,34 @@
 
 import icons_
 from PyQt5 import QtCore, QtGui, QtWidgets
+from qtrangeslider import QDoubleRangeSlider, QRangeSlider
 
+QSS = """
+QSlider {
+    min-height: 20px;
+}
+QSlider::groove:horizontal {
+    border: 0px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #888, stop:1 #ddd);
+    height: 20px;
+    border-radius: 10px;
+}
+QSlider::handle {
+    background: qradialgradient(cx:0, cy:0, radius: 1.2, fx:0.35,
+                                fy:0.3, stop:0 #eef, stop:1 #002);
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
+QSlider::sub-page:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #FF17365D, stop:1 #77a);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+QRangeSlider {
+    qproperty-barColor: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #FF17365D, stop:1 #77a);
+}
+"""
 
 class Ui_Widget(object):
 
@@ -30,22 +57,18 @@ class Ui_Widget(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.header_frame = QtWidgets.QFrame(Widget)
         sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
             self.header_frame.sizePolicy().hasHeightForWidth())
         self.header_frame.setSizePolicy(sizePolicy)
-        self.header_frame.setMaximumSize(QtCore.QSize(16777215, 35))
-        self.header_frame.setStyleSheet("QFrame{\n"
-                                        "    background-color: rgb(218, 218, 218);\n"
-                                        "    border-top-left-radius: 10px;\n"
-                                        "    border-top-right-radius: 10px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "")
-        self.header_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.header_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.header_frame.setMaximumSize(QtCore.QSize(16777215, 32))
+        self.header_frame.setStyleSheet(u"background-color: rgb(0, 40, 120);\n"
+                                        "border-top-left-radius: 10px;\n"
+                                        "border-top-right-radius: 10px;\n"
+                                        "font: 700 11pt \"Ubuntu\";\n"
+                                        "color: rgb(255, 255, 255);\n")
         self.header_frame.setObjectName("header_frame")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.header_frame)
         self.horizontalLayout.setContentsMargins(8, 0, 8, 0)
@@ -59,8 +82,7 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.icon.sizePolicy().hasHeightForWidth())
         self.icon.setSizePolicy(sizePolicy)
-        self.icon.setMinimumSize(QtCore.QSize(40, 30))
-        self.icon.setMaximumSize(QtCore.QSize(40, 60))
+        self.icon.setMaximumSize(QtCore.QSize(40, 30))
         self.icon.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.icon.setStyleSheet("QPushButton{\n"
                                 "    background:transparent;\n"
@@ -83,14 +105,9 @@ class Ui_Widget(object):
         self.label_title.setMaximumSize(QtCore.QSize(16777215, 40))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
         font.setWeight(63)
         self.label_title.setFont(font)
-        self.label_title.setStyleSheet("background:transparent;\n"
-                                       "color: rgb(0, 170, 255);\n"
-                                       "font: 500 10pt \"Ubuntu\";")
+        self.label_title.setStyleSheet("background:transparent;\n")
         self.label_title.setObjectName("label_title")
         self.horizontalLayout.addWidget(self.label_title)
         self.btn_help = QtWidgets.QPushButton(self.header_frame)
@@ -139,7 +156,7 @@ class Ui_Widget(object):
         self.btn_minimize.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_minimize.setStyleSheet("QPushButton{\n"
-                                         "    font: 900 10pt \"Ubuntu\";\n"
+                                         "    font: 900 11pt \"Ubuntu\";\n"
                                          "    color: rgb(255, 255,255);\n"
                                          "    background:rgba(0, 190, 0, 180);\n"
                                          "    border-radius:6px;\n"
@@ -165,7 +182,7 @@ class Ui_Widget(object):
         self.btn_close.setFont(font)
         self.btn_close.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_close.setStyleSheet("QPushButton{\n"
-                                     "    font: 500 10pt \"Ubuntu\";\n"
+                                     "    font: 500 11pt \"Ubuntu\";\n"
                                      "    color: rgb(255, 255,255);\n"
                                      "    background:rgba(255, 0, 0, 180);\n"
                                      "    border-radius:6px;\n"
@@ -284,7 +301,7 @@ class Ui_Widget(object):
                                      "}\n"
                                      "\n"
                                      "QPushButton:hover{\n"
-                                     "    background-color: rgb(00, 130, 70);\n"
+                                     "    background-color: rgb(0, 150, 50);\n"
                                      "    border-color: rgb(0, 120, 40);\n"
                                      "\n"
                                      "}\n"
@@ -326,7 +343,7 @@ class Ui_Widget(object):
                                     "}\n"
                                     "\n"
                                     "QPushButton:hover{\n"
-                                    "    background-color: rgb(150, 40, 20);\n"
+                                    "    background-color: rgb(180, 20, 20);\n"
                                     "    border-color: rgb(150, 25, 20);\n"
                                     "\n"
                                     "}\n"
@@ -1066,50 +1083,45 @@ class Ui_Widget(object):
 
         self.horizontalLayout_35.addItem(self.horizontalSpacer_58)
 
-        self.angle_Slider_3 = QtWidgets.QSlider(self.gb_incident_wav)
-        self.angle_Slider_3.setObjectName(u"angle_Slider_3")
+        self.lambda_i_slider = QtWidgets.QSlider(self.gb_incident_wav)
+        self.lambda_i_slider.setObjectName(u"lambda_i_slider")
         sizePolicy9 = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy9.setHorizontalStretch(0)
         sizePolicy9.setVerticalStretch(0)
         sizePolicy9.setHeightForWidth(
-            self.angle_Slider_3.sizePolicy().hasHeightForWidth())
-        self.angle_Slider_3.setSizePolicy(sizePolicy9)
-        self.angle_Slider_3.setMinimumSize(QtCore.QSize(250, 25))
-        self.angle_Slider_3.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.angle_Slider_3.setStyleSheet(u"QSlider::handle:horizontal {\n"
-                                          "	background-color: rgb(0,90,180);\n"
-                                          "    width:64px;\n"
-                                          "    height:64px;\n"
-                                          "}\n"
-                                          "\n"
-                                          "")
-        self.angle_Slider_3.setMaximum(90)
-        self.angle_Slider_3.setOrientation(QtCore.Qt.Horizontal)
-        self.angle_Slider_3.setTickPosition(QtWidgets.QSlider.TicksBelow)
-        self.angle_Slider_3.setTickInterval(100)
+            self.lambda_i_slider.sizePolicy().hasHeightForWidth())
+        self.lambda_i_slider.setSizePolicy(sizePolicy9)
+        self.lambda_i_slider.setMinimumSize(QtCore.QSize(250, 25))
+        self.lambda_i_slider.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.lambda_i_slider.setStyleSheet(QSS)
+        self.lambda_i_slider.setMinimum(4000)
+        self.lambda_i_slider.setMaximum(20000)
+        self.lambda_i_slider.setOrientation(QtCore.Qt.Horizontal)
+        self.lambda_i_slider.setTickPosition(QtWidgets.QSlider.TicksBelow)
+        self.lambda_i_slider.setTickInterval(100)
 
-        self.horizontalLayout_35.addWidget(self.angle_Slider_3)
+        self.horizontalLayout_35.addWidget(self.lambda_i_slider)
 
         self.horizontalSpacer_59 = QtWidgets.QSpacerItem(
             15, 17, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
 
         self.horizontalLayout_35.addItem(self.horizontalSpacer_59)
 
-        self.angle_incidence_3 = QtWidgets.QDoubleSpinBox(self.gb_incident_wav)
-        self.angle_incidence_3.setObjectName(u"angle_incidence_3")
-        # QtWidgets.QSizePolicy.setHeightForWidth(self.angle_incidence_3.sizePolicy().hasHeightForWidth())
-        # self.angle_incidence_3.setSizePolicy(QtWidgets.QSizePolicy)
-        self.angle_incidence_3.setMinimumSize(QtCore.QSize(130, 30))
-        self.angle_incidence_3.setMaximumSize(QtCore.QSize(130, 35))
+        self.lambda_i = QtWidgets.QDoubleSpinBox(self.gb_incident_wav)
+        self.lambda_i.setObjectName(u"lambda_i")
+        # QtWidgets.QSizePolicy.setHeightForWidth(self.lambda_i.sizePolicy().hasHeightForWidth())
+        # self.lambda_i.setSizePolicy(QtWidgets.QSizePolicy)
+        self.lambda_i.setMinimumSize(QtCore.QSize(130, 30))
+        self.lambda_i.setMaximumSize(QtCore.QSize(130, 35))
         font13 = QtGui.QFont()
         font13.setFamily(u"Ubuntu")
         font13.setPointSize(12)
         font13.setBold(True)
         font13.setItalic(False)
         font13.setWeight(88)
-        self.angle_incidence_3.setFont(font13)
-        self.angle_incidence_3.setStyleSheet(u"\n"
+        self.lambda_i.setFont(font13)
+        self.lambda_i.setStyleSheet(u"\n"
                                              "QDoubleSpinBox\n"
                                              "{\n"
                                              "color: rgb(10, 25, 90);\n"
@@ -1140,19 +1152,19 @@ class Ui_Widget(object):
                                              "	image: url(:/icons/icons/arrow-down.png);\n"
                                              "	width: 25;\n"
                                              "}")
-        self.angle_incidence_3.setWrapping(True)
-        self.angle_incidence_3.setFrame(False)
-        self.angle_incidence_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.angle_incidence_3.setButtonSymbols(
+        self.lambda_i.setWrapping(True)
+        self.lambda_i.setFrame(False)
+        self.lambda_i.setAlignment(QtCore.Qt.AlignCenter)
+        self.lambda_i.setButtonSymbols(
             QtWidgets.QAbstractSpinBox.UpDownArrows)
-        self.angle_incidence_3.setAccelerated(True)
-        self.angle_incidence_3.setDecimals(2)
-        self.angle_incidence_3.setMinimum(400.000000000000000)
-        self.angle_incidence_3.setMaximum(2000.000000000000000)
-        self.angle_incidence_3.setSingleStep(0.010000000000000)
-        self.angle_incidence_3.setValue(400.000000000000000)
+        self.lambda_i.setAccelerated(True)
+        self.lambda_i.setDecimals(2)
+        self.lambda_i.setMinimum(400.000000000000000)
+        self.lambda_i.setMaximum(2000.000000000000000)
+        self.lambda_i.setSingleStep(0.010000000000000)
+        self.lambda_i.setValue(400.000000000000000)
 
-        self.horizontalLayout_35.addWidget(self.angle_incidence_3)
+        self.horizontalLayout_35.addWidget(self.lambda_i)
 
         self.horizontalSpacer_60 = QtWidgets.QSpacerItem(
             15, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
@@ -1190,7 +1202,7 @@ class Ui_Widget(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(10)
         self.gridLayout_2.setVerticalSpacing(10)
-        self.gridLayout_2.setContentsMargins(9, 25, 0, 0)
+        self.gridLayout_2.setContentsMargins(0, 25, 0, 15)
         self.btn_new_layer = QtWidgets.QPushButton(self.gb_layers)
         self.btn_new_layer.setObjectName(u"btn_new_layer")
         self.btn_new_layer.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -1215,13 +1227,13 @@ class Ui_Widget(object):
         self.label_11.setObjectName(u"label_11")
         self.label_11.setStyleSheet(u"font: 14pt \"Ubuntu\";")
 
-        self.gridLayout_2.addWidget(self.label_11, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.label_11, 1, 0, 1, 1)
 
         self.btn_add_layer = QtWidgets.QPushButton(self.gb_layers)
         self.btn_add_layer.setObjectName(u"btn_add_layer")
         self.btn_add_layer.setEnabled(False)
         self.btn_add_layer.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_layer.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.btn_add_layer.setMaximumSize(QtCore.QSize(120, 16777215))
         self.btn_add_layer.setStyleSheet(u"QPushButton{\n"
                                          "	font: 400 11pt \"Ubuntu\";\n"
                                          "	color: rgb(255, 255,255);\n"
@@ -1244,7 +1256,7 @@ class Ui_Widget(object):
         self.thickness.setObjectName(u"thickness")
         self.thickness.setEnabled(False)
         self.thickness.setMinimumSize(QtCore.QSize(0, 30))
-        self.thickness.setMaximumSize(QtCore.QSize(180, 16777215))
+        self.thickness.setMaximumSize(QtCore.QSize(260, 16777215))
         self.thickness.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
                                      "color: #606060;\n"
                                      "font: 700 12pt \"Ubuntu\";\n"
@@ -1254,22 +1266,41 @@ class Ui_Widget(object):
                                      "border-radius:10px;")
         self.thickness.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_2.addWidget(self.thickness, 3, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.thickness, 2, 1, 1, 1)
 
         self.label_12 = QtWidgets.QLabel(self.gb_layers)
         self.label_12.setObjectName(u"label_12")
         self.label_12.setStyleSheet(u"font: 14pt \"Ubuntu\";")
 
-        self.gridLayout_2.addWidget(self.label_12, 3, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.label_12, 2, 0, 1, 1)
 
         self.cbox_material = QtWidgets.QComboBox(self.gb_layers)
-        self.cbox_material.addItem("")
-        self.cbox_material.addItem("")
-        self.cbox_material.addItem("")
+        self.cbox_material.addItem("BK7")
+        self.cbox_material.addItem("Silica")
+        self.cbox_material.addItem("N-F2")
+        self.cbox_material.addItem("Synthetic sapphire(Al2O3)")
+        self.cbox_material.addItem("SF10")
+        self.cbox_material.addItem("FK51A")
+        self.cbox_material.addItem("N-SF14")
+        self.cbox_material.addItem("Acrylic SUVT")
+        self.cbox_material.addItem("PVA")
+        self.cbox_material.addItem("Glycerin")
+        self.cbox_material.addItem("Quartz")
+        self.cbox_material.addItem("Aluminium")
+        self.cbox_material.addItem("Gold")
+        self.cbox_material.addItem("Silver")
+        self.cbox_material.addItem("Copper")
+        self.cbox_material.addItem("Water (RI = 1.33)")
+        self.cbox_material.addItem("Air")
+        self.cbox_material.addItem("LiF")
+        self.cbox_material.addItem("Cytop")
+        self.cbox_material.addItem("Custom")
+
+
         self.cbox_material.setObjectName(u"cbox_material")
         self.cbox_material.setEnabled(False)
         self.cbox_material.setMinimumSize(QtCore.QSize(0, 30))
-        self.cbox_material.setMaximumSize(QtCore.QSize(180, 16777215))
+        self.cbox_material.setMaximumSize(QtCore.QSize(260, 16777215))
         self.cbox_material.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.cbox_material.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -1296,17 +1327,20 @@ class Ui_Widget(object):
                                          "	image: url(:/icons/icons/arrow-down.png);\n"
                                          "    left: 1px;\n"
                                          "}")
+        self.cbox_material.setMaxVisibleItems(6)
+        self.cbox_material.setEditable(True)
 
-        self.gridLayout_2.addWidget(self.cbox_material, 2, 1, 1, 1)
+        
+        self.gridLayout_2.addWidget(self.cbox_material, 1, 1, 1, 1)
 
         self.frame_refractive_index = QtWidgets.QFrame(self.gb_layers)
         self.frame_refractive_index.setObjectName(u"frame_refractive_index")
         self.frame_refractive_index.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_refractive_index.setFrameShadow(QtWidgets.QFrame.Raised)
         self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_refractive_index)
-        self.gridLayout_3.setSpacing(20)
+        self.gridLayout_3.setSpacing(10)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.gridLayout_3.setContentsMargins(0, 0, 0, 10)
+        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
         self.label_7 = QtWidgets.QLabel(self.frame_refractive_index)
         self.label_7.setObjectName(u"label_7")
         self.label_7.setStyleSheet(u"font:14pt \"Ubuntu\";")
@@ -1322,6 +1356,7 @@ class Ui_Widget(object):
         self.real_part_index = QtWidgets.QLineEdit(self.frame_refractive_index)
         self.real_part_index.setObjectName(u"real_part_index")
         self.real_part_index.setMinimumSize(QtCore.QSize(0, 30))
+        self.real_part_index.setMaximumSize(QtCore.QSize(180, 16777215))
         self.real_part_index.setEnabled(False)
         self.real_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
                                            "color: #606060;\n"
@@ -1339,6 +1374,7 @@ class Ui_Widget(object):
         self.imaginary_part_index.setObjectName(u"imaginary_part_index")
         self.imaginary_part_index.setEnabled(False)
         self.imaginary_part_index.setMinimumSize(QtCore.QSize(0, 30))
+        self.imaginary_part_index.setMaximumSize(QtCore.QSize(180, 16777215))
         self.imaginary_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
                                                 "color: #606060;\n"
                                                 "font: 700 12pt \"Ubuntu\";\n"
@@ -1350,7 +1386,7 @@ class Ui_Widget(object):
 
         self.gridLayout_3.addWidget(self.imaginary_part_index, 3, 1, 1, 1)
 
-        self.gridLayout_2.addWidget(self.frame_refractive_index, 5, 0, 1, 2)
+        self.gridLayout_2.addWidget(self.frame_refractive_index, 3, 0, 1, 2)
 
         self.label_description = QtWidgets.QLabel(self.gb_layers)
         self.label_description.setObjectName(u"label_description")
@@ -1362,7 +1398,7 @@ class Ui_Widget(object):
         self.description.setObjectName(u"description")
         self.description.setEnabled(False)
         self.description.setMinimumSize(QtCore.QSize(0, 30))
-        self.description.setMaximumSize(QtCore.QSize(180, 16777215))
+        self.description.setMaximumSize(QtCore.QSize(260, 16777215))
         self.description.setStyleSheet(u"color: #606060;\n"
                                      "font: 700 12pt \"Ubuntu\";\n"
                                      " border: 2px solid;\n"
@@ -1401,9 +1437,8 @@ class Ui_Widget(object):
                                       "")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.gb_analyte)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.gridLayout_7.setHorizontalSpacing(10)
-        self.gridLayout_7.setVerticalSpacing(15)
-        self.gridLayout_7.setContentsMargins(-1, 25, 9, 25)
+        self.gridLayout_7.setSpacing(10)
+        self.gridLayout_7.setContentsMargins(30, 15, 30, 9)
         self.label_20 = QtWidgets.QLabel(self.gb_analyte)
         self.label_20.setObjectName(u"label_20")
         self.label_20.setStyleSheet(u"font: 14pt \"Ubuntu\";")
@@ -1413,6 +1448,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_7 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
         self.doubleSpinBox_7.setObjectName(u"doubleSpinBox_7")
         self.doubleSpinBox_7.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_7.setMaximumSize(QtCore.QSize(120, 1000))
         self.doubleSpinBox_7.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
@@ -1455,7 +1491,7 @@ class Ui_Widget(object):
         self.btn_add_analyte = QtWidgets.QPushButton(self.gb_analyte)
         self.btn_add_analyte.setObjectName(u"btn_add_analyte")
         self.btn_add_analyte.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_analyte.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.btn_add_analyte.setMaximumSize(QtCore.QSize(120, 16777215))
         self.btn_add_analyte.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_add_analyte.setStyleSheet(u"QPushButton{\n"
@@ -1485,6 +1521,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_8 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
         self.doubleSpinBox_8.setObjectName(u"doubleSpinBox_8")
         self.doubleSpinBox_8.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_8.setMaximumSize(QtCore.QSize(120, 1000))
         self.doubleSpinBox_8.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
@@ -1530,9 +1567,16 @@ class Ui_Widget(object):
 
         self.gridLayout_7.addWidget(self.label_22, 2, 0, 1, 1)
 
+        self.label_description_3 = QtWidgets.QLabel(self.gb_analyte)
+        self.label_description_3.setObjectName(u"label_description_3")
+        self.label_description_3.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_7.addWidget(self.label_description_3, 3, 0, 1, 1)
+
         self.doubleSpinBox_9 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
         self.doubleSpinBox_9.setObjectName(u"doubleSpinBox_9")
         self.doubleSpinBox_9.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_9.setMaximumSize(QtCore.QSize(120, 1000))
         self.doubleSpinBox_9.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
@@ -1570,6 +1614,21 @@ class Ui_Widget(object):
         self.doubleSpinBox_9.setValue(0.002000000000000)
 
         self.gridLayout_7.addWidget(self.doubleSpinBox_9, 2, 1, 1, 1)
+        
+        self.description_3 = QtWidgets.QLineEdit(self.gb_analyte)
+        self.description_3.setObjectName(u"description_3")
+        self.description_3.setEnabled(False)
+        self.description_3.setMinimumSize(QtCore.QSize(0, 30))
+        self.description_3.setMaximumSize(QtCore.QSize(260, 16777215))
+        self.description_3.setStyleSheet(u"color: #606060;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #606060;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+        self.description_3.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_7.addWidget(self.description_3, 3, 1, 1, 2)
 
         self.verticalLayout_9.addWidget(self.gb_analyte)
 
@@ -1610,14 +1669,31 @@ class Ui_Widget(object):
         self.gridLayout_6.setHorizontalSpacing(10)
         self.gridLayout_6.setVerticalSpacing(15)
         self.gridLayout_6.setContentsMargins(9, 25, 0, 25)
+        
         self.cbox_material_2 = QtWidgets.QComboBox(self.gb_layers_2)
-        self.cbox_material_2.addItem("")
-        self.cbox_material_2.addItem("")
-        self.cbox_material_2.addItem("")
+        self.cbox_material_2.addItem("BK7")
+        self.cbox_material_2.addItem("Silica")
+        self.cbox_material_2.addItem("N-F2")
+        self.cbox_material_2.addItem("Synthetic sapphire(Al2O3)")
+        self.cbox_material_2.addItem("FS10")
+        self.cbox_material_2.addItem("FK51A")
+        self.cbox_material_2.addItem("N-SF14")
+        self.cbox_material_2.addItem("Acrylic SUVT")
+        self.cbox_material_2.addItem("PVA")
+        self.cbox_material_2.addItem("Glycerin")
+        self.cbox_material_2.addItem("Quartz")
+        self.cbox_material_2.addItem("Aluminium")
+        self.cbox_material_2.addItem("Gold")
+        self.cbox_material_2.addItem("Silver")
+        self.cbox_material_2.addItem("Copper")
+        self.cbox_material_2.addItem("Water (RI = 1.33)")
+        self.cbox_material_2.addItem("Air")
+        self.cbox_material_2.addItem("LiF")
+        self.cbox_material_2.addItem("Cytop")
         self.cbox_material_2.setObjectName(u"cbox_material_2")
         self.cbox_material_2.setEnabled(False)
         self.cbox_material_2.setMinimumSize(QtCore.QSize(0, 30))
-        self.cbox_material_2.setMaximumSize(QtCore.QSize(180, 16777215))
+        self.cbox_material_2.setMaximumSize(QtCore.QSize(250, 16777215))
         self.cbox_material_2.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.cbox_material_2.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -1644,6 +1720,8 @@ class Ui_Widget(object):
                                          "	image: url(:/icons/icons/arrow-down.png);\n"
                                          "    left: 1px;\n"
                                          "}")
+        self.cbox_material_2.setMaxVisibleItems(6)
+        self.cbox_material_2.setEditable(True)
 
 
         self.gridLayout_6.addWidget(self.cbox_material_2, 1, 1, 1, 1)
@@ -1700,7 +1778,7 @@ class Ui_Widget(object):
         self.btn_add_layer_2.setObjectName(u"btn_add_layer_2")
         self.btn_add_layer_2.setEnabled(False)
         self.btn_add_layer_2.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_layer_2.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.btn_add_layer_2.setMaximumSize(QtCore.QSize(120, 16777215))
         self.btn_add_layer_2.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_add_layer_2.setStyleSheet(u"QPushButton{\n"
@@ -1770,8 +1848,8 @@ class Ui_Widget(object):
         self.gridLayout_5 = QtWidgets.QGridLayout(self.gb_analyte_2)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setHorizontalSpacing(10)
-        self.gridLayout_5.setVerticalSpacing(15)
-        self.gridLayout_5.setContentsMargins(-1, 25, -1, 25)
+        self.gridLayout_5.setVerticalSpacing(10)
+        self.gridLayout_5.setContentsMargins(30, 15, 30, 9)
         self.label_15 = QtWidgets.QLabel(self.gb_analyte_2)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setStyleSheet(u"font: 14pt \"Ubuntu\";")
@@ -1781,6 +1859,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_6 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
         self.doubleSpinBox_6.setObjectName(u"doubleSpinBox_6")
         self.doubleSpinBox_6.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_6.setMaximumSize(QtCore.QSize(120, 1000))
         self.doubleSpinBox_6.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
@@ -1823,7 +1902,7 @@ class Ui_Widget(object):
         self.btn_add_analyte_2 = QtWidgets.QPushButton(self.gb_analyte_2)
         self.btn_add_analyte_2.setObjectName(u"btn_add_analyte_2")
         self.btn_add_analyte_2.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_add_analyte_2.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.btn_add_analyte_2.setMaximumSize(QtCore.QSize(120, 16777215))
         self.btn_add_analyte_2.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_add_analyte_2.setStyleSheet(u"QPushButton{\n"
@@ -1849,9 +1928,31 @@ class Ui_Widget(object):
 
         self.gridLayout_5.addWidget(self.label_16, 1, 0, 1, 1)
 
+        self.label_description_4 = QtWidgets.QLabel(self.gb_analyte_2)
+        self.label_description_4.setObjectName(u"label_description_4")
+        self.label_description_4.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_5.addWidget(self.label_description_4, 3, 0, 1, 1)
+
+        self.description_4 = QtWidgets.QLineEdit(self.gb_analyte_2)
+        self.description_4.setObjectName(u"description_4")
+        self.description_4.setEnabled(False)
+        self.description_4.setMinimumSize(QtCore.QSize(0, 30))
+        self.description_4.setMaximumSize(QtCore.QSize(260, 16777215))
+        self.description_4.setStyleSheet(u"color: #606060;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #606060;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+        self.description_4.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_5.addWidget(self.description_4, 3, 1, 1, 2)
+
         self.doubleSpinBox_4 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
         self.doubleSpinBox_4.setObjectName(u"doubleSpinBox_4")
         self.doubleSpinBox_4.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_4.setMaximumSize(QtCore.QSize(120, 1000))
         self.doubleSpinBox_4.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
@@ -1900,6 +2001,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_5 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
         self.doubleSpinBox_5.setObjectName(u"doubleSpinBox_5")
         self.doubleSpinBox_5.setMinimumSize(QtCore.QSize(0, 30))
+        self.doubleSpinBox_5.setMaximumSize(QtCore.QSize(120, 1000))
         self.doubleSpinBox_5.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
@@ -2042,50 +2144,50 @@ class Ui_Widget(object):
             14, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_91.addItem(spacerItem29)
         self.verticalLayout_56.addLayout(self.horizontalLayout_91)
-        self.tableWidget_fiber_4 = QtWidgets.QTableWidget(self.grafico1_7)
+        self.tableWidget_layers = QtWidgets.QTableWidget(self.grafico1_7)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
-            self.tableWidget_fiber_4.sizePolicy().hasHeightForWidth())
-        self.tableWidget_fiber_4.setSizePolicy(sizePolicy)
-        self.tableWidget_fiber_4.setMinimumSize(QtCore.QSize(400, 150))
-        self.tableWidget_fiber_4.setMaximumSize(QtCore.QSize(16777215, 150))
-        self.tableWidget_fiber_4.setStyleSheet("font: 700 10pt \"Ubuntu\";")
-        self.tableWidget_fiber_4.setSizeAdjustPolicy(
+            self.tableWidget_layers.sizePolicy().hasHeightForWidth())
+        self.tableWidget_layers.setSizePolicy(sizePolicy)
+        self.tableWidget_layers.setMinimumSize(QtCore.QSize(400, 150))
+        self.tableWidget_layers.setMaximumSize(QtCore.QSize(16777215, 150))
+        self.tableWidget_layers.setStyleSheet("font: 700 10pt \"Ubuntu\";")
+        self.tableWidget_layers.setSizeAdjustPolicy(
             QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.tableWidget_fiber_4.setEditTriggers(
+        self.tableWidget_layers.setEditTriggers(
             QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.tableWidget_fiber_4.setVerticalScrollMode(
+        self.tableWidget_layers.setVerticalScrollMode(
             QtWidgets.QAbstractItemView.ScrollPerPixel)
-        self.tableWidget_fiber_4.setHorizontalScrollMode(
+        self.tableWidget_layers.setHorizontalScrollMode(
             QtWidgets.QAbstractItemView.ScrollPerPixel)
-        self.tableWidget_fiber_4.setWordWrap(True)
-        self.tableWidget_fiber_4.setObjectName("tableWidget_fiber_4")
-        self.tableWidget_fiber_4.setColumnCount(4)
-        self.tableWidget_fiber_4.setRowCount(4)
+        self.tableWidget_layers.setWordWrap(True)
+        self.tableWidget_layers.setObjectName("tableWidget_layers")
+        self.tableWidget_layers.setColumnCount(4)
+        self.tableWidget_layers.setRowCount(4)
         
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setVerticalHeaderItem(0, item)
+        self.tableWidget_layers.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setVerticalHeaderItem(1, item)
+        self.tableWidget_layers.setVerticalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setVerticalHeaderItem(2, item) 
+        self.tableWidget_layers.setVerticalHeaderItem(2, item) 
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setVerticalHeaderItem(3, item)
+        self.tableWidget_layers.setVerticalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setHorizontalHeaderItem(0, item)
+        self.tableWidget_layers.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setHorizontalHeaderItem(1, item)
+        self.tableWidget_layers.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setHorizontalHeaderItem(2, item)
+        self.tableWidget_layers.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber_4.setHorizontalHeaderItem(3, item)
-        self.tableWidget_fiber_4.horizontalHeader().setStretchLastSection(False)
+        self.tableWidget_layers.setHorizontalHeaderItem(3, item)
+        self.tableWidget_layers.horizontalHeader().setStretchLastSection(False)
        
         self.verticalLayout_56.addWidget(
-            self.tableWidget_fiber_4, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+            self.tableWidget_layers, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
 
         self.horizontalLayout_92 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_92.setObjectName(u"horizontalLayout_92")
@@ -2520,8 +2622,7 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.Spectral_range_3.sizePolicy().hasHeightForWidth())
         self.Spectral_range_3.setSizePolicy(sizePolicy)
-        self.Spectral_range_3.setMinimumSize(QtCore.QSize(520, 130))
-        self.Spectral_range_3.setMaximumSize(QtCore.QSize(520, 130))
+        self.Spectral_range_3.setMaximumSize(QtCore.QSize(520, 150))
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(14)
@@ -2554,8 +2655,8 @@ class Ui_Widget(object):
         self.Spectral_range_3.setChecked(False)
         self.Spectral_range_3.setObjectName("Spectral_range_3")
         self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.Spectral_range_3)
-        self.verticalLayout_34.setContentsMargins(0, 7, 0, 0)
-        self.verticalLayout_34.setSpacing(0)
+        self.verticalLayout_34.setContentsMargins(0, 15, 0, 10)
+        self.verticalLayout_34.setSpacing(12)
         self.verticalLayout_34.setObjectName("verticalLayout_34")
         self.horizontalLayout_50 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_50.setSpacing(5)
@@ -2728,10 +2829,10 @@ class Ui_Widget(object):
         spacerItem40 = QtWidgets.QSpacerItem(
             40, 5, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_51.addItem(spacerItem40)
-        self.wavw_slider_2 = QtWidgets.QSlider(self.Spectral_range_3)
-        self.wavw_slider_2.setMinimumSize(QtCore.QSize(300, 25))
-        self.wavw_slider_2.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.wavw_slider_2.setStyleSheet("\n"
+        self.wavelength_range_2 = QtWidgets.QSlider(self.Spectral_range_3)
+        self.wavelength_range_2.setMinimumSize(QtCore.QSize(300, 25))
+        self.wavelength_range_2.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.wavelength_range_2.setStyleSheet("\n"
                                          "QSlider::handle:horizontal {\n"
                                          "    background-color: rgb(0,90,180);\n"
                                          "    width:64px;\n"
@@ -2739,11 +2840,11 @@ class Ui_Widget(object):
                                          "}\n"
                                          "\n"
                                          "")
-        self.wavw_slider_2.setMinimum(40)
-        self.wavw_slider_2.setMaximum(150)
-        self.wavw_slider_2.setOrientation(QtCore.Qt.Horizontal)
-        self.wavw_slider_2.setObjectName("wavw_slider_2")
-        self.horizontalLayout_51.addWidget(self.wavw_slider_2)
+        self.wavelength_range_2.setMinimum(40)
+        self.wavelength_range_2.setMaximum(150)
+        self.wavelength_range_2.setOrientation(QtCore.Qt.Horizontal)
+        self.wavelength_range_2.setObjectName("wavelength_range_2")
+        self.horizontalLayout_51.addWidget(self.wavelength_range_2)
         spacerItem41 = QtWidgets.QSpacerItem(
             40, 5, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_51.addItem(spacerItem41)
@@ -3153,8 +3254,7 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.Spectral_range_2.sizePolicy().hasHeightForWidth())
         self.Spectral_range_2.setSizePolicy(sizePolicy)
-        self.Spectral_range_2.setMinimumSize(QtCore.QSize(520, 130))
-        self.Spectral_range_2.setMaximumSize(QtCore.QSize(520, 135))
+        self.Spectral_range_2.setMaximumSize(QtCore.QSize(520, 150))
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(14)
@@ -3187,8 +3287,8 @@ class Ui_Widget(object):
         self.Spectral_range_2.setChecked(False)
         self.Spectral_range_2.setObjectName("Spectral_range_2")
         self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.Spectral_range_2)
-        self.verticalLayout_24.setContentsMargins(0, 8, 0, 0)
-        self.verticalLayout_24.setSpacing(0)
+        self.verticalLayout_24.setContentsMargins(0, 15, 0, 10)
+        self.verticalLayout_24.setSpacing(12)
         self.verticalLayout_24.setObjectName("verticalLayout_24")
         self.horizontalLayout_32 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_32.setSpacing(5)
@@ -3261,14 +3361,10 @@ class Ui_Widget(object):
                                 "    image: url(:/icons/icons/arrow-down.png);\n"
                                 "    width: 25;\n"
                                 "}")
-        self.a1_2.setWrapping(True)
-        self.a1_2.setFrame(False)
         self.a1_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.a1_2.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
         self.a1_2.setAccelerated(True)
         self.a1_2.setDecimals(1)
-        self.a1_2.setMinimum(400.0)
-        self.a1_2.setMaximum(1800.0)
+        self.a1_2.setRange(0,2000)
         self.a1_2.setSingleStep(0.1)
         self.a1_2.setObjectName("a1_2")
         self.horizontalLayout_32.addWidget(self.a1_2)
@@ -3305,7 +3401,6 @@ class Ui_Widget(object):
         font.setFamily("Ubuntu")
         font.setPointSize(12)
         font.setBold(True)
-        font.setItalic(False)
         font.setWeight(88)
         self.a2_2.setFont(font)
         self.a2_2.setStyleSheet("\n"
@@ -3339,16 +3434,12 @@ class Ui_Widget(object):
                                 "    image: url(:/icons/icons/arrow-down.png);\n"
                                 "    width: 25;\n"
                                 "}")
-        self.a2_2.setWrapping(True)
-        self.a2_2.setFrame(False)
         self.a2_2.setAlignment(QtCore.Qt.AlignCenter)
         self.a2_2.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
         self.a2_2.setAccelerated(True)
         self.a2_2.setDecimals(1)
-        self.a2_2.setMinimum(401.0)
-        self.a2_2.setMaximum(1800.0)
+        self.a2_2.setRange(0,2000)
         self.a2_2.setSingleStep(0.1)
-        self.a2_2.setProperty("value", 1500.0)
         self.a2_2.setObjectName("a2_2")
         self.horizontalLayout_32.addWidget(self.a2_2)
         spacerItem54 = QtWidgets.QSpacerItem(
@@ -3360,29 +3451,35 @@ class Ui_Widget(object):
         spacerItem55 = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_33.addItem(spacerItem55)
-        self.wavw_slider = QtWidgets.QSlider(self.Spectral_range_2)
-        self.wavw_slider.setMinimumSize(QtCore.QSize(300, 25))
-        self.wavw_slider.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.wavw_slider.setStyleSheet("\n"
-                                       "QSlider::handle:horizontal {\n"
-                                       "    background-color: rgb(0,90,180);\n"
-                                       "    width:64px;\n"
-                                       "    height:64px;\n"
-                                       "}\n"
-                                       "\n"
-                                       "")
-        self.wavw_slider.setMinimum(40)
-        self.wavw_slider.setMaximum(150)
-        self.wavw_slider.setOrientation(QtCore.Qt.Horizontal)
-        self.wavw_slider.setObjectName("wavw_slider")
-        self.horizontalLayout_33.addWidget(self.wavw_slider)
+        
+        self.wavelength_range = QDoubleRangeSlider(QtCore.Qt.Horizontal)
+        self.wavelength_range.setMinimumSize(QtCore.QSize(300, 25))
+        self.wavelength_range.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.wavelength_range.setRange(0, 2000)
+        self.wavelength_range.setSingleStep(1)
+        self.wavelength_range.setValue((405, 1100))
+        self.wavelength_range.setStyleSheet(QSS)
+        self.horizontalLayout_33.addWidget(self.wavelength_range)
+
+        self.a1_2.setValue(float(self.wavelength_range.value()[0]))
+        self.a2_2.setValue(float(self.wavelength_range.value()[1]))
+
         spacerItem56 = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_33.addItem(spacerItem56)
         self.verticalLayout_24.addLayout(self.horizontalLayout_33)
+
+        self.warning_range = QtWidgets.QLabel(self.Spectral_range_2)
+        self.warning_range.setObjectName(u"warning_range")
+        self.warning_range.setHidden(True)
+        self.warning_range.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.warning_range.setStyleSheet(u"font: 11pt \"Ubuntu\";")
+
+        self.verticalLayout_24.addWidget(self.warning_range)
+
         self.verticalLayout_23.addWidget(self.Spectral_range_2)
         spacerItem57 = QtWidgets.QSpacerItem(
-            20, 15, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+            20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         self.verticalLayout_23.addItem(spacerItem57)
         self.wavelength_incident_2 = QtWidgets.QGroupBox(self.frame_12)
         self.wavelength_incident_2.setMinimumSize(QtCore.QSize(510, 80))
@@ -3440,17 +3537,11 @@ class Ui_Widget(object):
         self.angle_Slider.setSizePolicy(sizePolicy)
         self.angle_Slider.setMinimumSize(QtCore.QSize(300, 25))
         self.angle_Slider.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.angle_Slider.setStyleSheet("QSlider::handle:horizontal {\n"
-                                        "    background-color: rgb(0,90,180);\n"
-                                        "    width:64px;\n"
-                                        "    height:64px;\n"
-                                        "}\n"
-                                        "\n"
-                                        "")
-        self.angle_Slider.setMaximum(90)
+        self.angle_Slider.setStyleSheet(QSS)
+        self.angle_Slider.setMaximum(900)
         self.angle_Slider.setOrientation(QtCore.Qt.Horizontal)
         self.angle_Slider.setTickPosition(QtWidgets.QSlider.TicksBelow)
-        self.angle_Slider.setTickInterval(100)
+        self.angle_Slider.setTickInterval(10)
         self.angle_Slider.setObjectName("angle_Slider")
         self.horizontalLayout_34.addWidget(self.angle_Slider)
         spacerItem59 = QtWidgets.QSpacerItem(
@@ -3505,15 +3596,10 @@ class Ui_Widget(object):
                                            "    image: url(:/icons/icons/arrow-down.png);\n"
                                            "    width: 25;\n"
                                            "}")
-        self.angle_incidence.setWrapping(True)
-        self.angle_incidence.setFrame(False)
         self.angle_incidence.setAlignment(QtCore.Qt.AlignCenter)
-        self.angle_incidence.setButtonSymbols(
-            QtWidgets.QAbstractSpinBox.UpDownArrows)
         self.angle_incidence.setAccelerated(True)
         self.angle_incidence.setDecimals(2)
-        self.angle_incidence.setMinimum(0.0)
-        self.angle_incidence.setMaximum(90.0)
+        self.angle_incidence.setRange(0, 90)
         self.angle_incidence.setSingleStep(0.01)
         self.angle_incidence.setProperty("value", 0.0)
         self.angle_incidence.setObjectName("angle_incidence")
@@ -3608,8 +3694,7 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.Angular_range_3.sizePolicy().hasHeightForWidth())
         self.Angular_range_3.setSizePolicy(sizePolicy)
-        self.Angular_range_3.setMinimumSize(QtCore.QSize(510, 130))
-        self.Angular_range_3.setMaximumSize(QtCore.QSize(520, 135))
+        self.Angular_range_3.setMinimumSize(QtCore.QSize(510, 160))
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(14)
@@ -3641,8 +3726,8 @@ class Ui_Widget(object):
         self.Angular_range_3.setChecked(False)
         self.Angular_range_3.setObjectName("Angular_range_3")
         self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.Angular_range_3)
-        self.verticalLayout_29.setContentsMargins(0, 8, 0, 0)
-        self.verticalLayout_29.setSpacing(0)
+        self.verticalLayout_29.setContentsMargins(0, 15, 0, 10)
+        self.verticalLayout_29.setSpacing(12)
         self.verticalLayout_29.setObjectName("verticalLayout_29")
         self.horizontalLayout_41 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_41.setSpacing(0)
@@ -3678,7 +3763,6 @@ class Ui_Widget(object):
         font.setFamily("Ubuntu")
         font.setPointSize(12)
         font.setBold(True)
-        font.setItalic(False)
         font.setWeight(88)
         self.a1_3.setFont(font)
         self.a1_3.setStyleSheet("\n"
@@ -3717,7 +3801,7 @@ class Ui_Widget(object):
         self.a1_3.setAlignment(QtCore.Qt.AlignCenter)
         self.a1_3.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
         self.a1_3.setAccelerated(True)
-        self.a1_3.setMaximum(89.99)
+        self.a1_3.setMaximum(90)
         self.a1_3.setSingleStep(0.01)
         self.a1_3.setObjectName("a1_3")
         self.horizontalLayout_41.addWidget(self.a1_3)
@@ -3790,7 +3874,6 @@ class Ui_Widget(object):
         self.a2_3.setAlignment(QtCore.Qt.AlignCenter)
         self.a2_3.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
         self.a2_3.setAccelerated(True)
-        self.a2_3.setMinimum(0.01)
         self.a2_3.setMaximum(90.0)
         self.a2_3.setSingleStep(0.01)
         self.a2_3.setObjectName("a2_3")
@@ -3805,24 +3888,33 @@ class Ui_Widget(object):
         spacerItem66 = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_42.addItem(spacerItem66)
-        self.horizontalSlider_5 = QtWidgets.QSlider(self.Angular_range_3)
-        self.horizontalSlider_5.setMinimumSize(QtCore.QSize(300, 25))
-        self.horizontalSlider_5.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.horizontalSlider_5.setStyleSheet("\n"
-                                              "QSlider::handle:horizontal {\n"
-                                              "    background-color: rgb(0,90,180);\n"
-                                              "    width:64px;\n"
-                                              "    height:64px;\n"
-                                              "}\n"
-                                              "\n"
-                                              "")
-        self.horizontalSlider_5.setOrientation(QtCore.Qt.Horizontal)
-        self.horizontalSlider_5.setObjectName("horizontalSlider_5")
-        self.horizontalLayout_42.addWidget(self.horizontalSlider_5)
+        
+        self.angular_range = QDoubleRangeSlider(QtCore.Qt.Horizontal)
+        self.angular_range.setMinimumSize(QtCore.QSize(300, 25))
+        self.angular_range.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.angular_range.setRange(0, 90)
+        self.angular_range.setSingleStep(0.01)
+        self.angular_range.setValue((40, 60))
+        self.angular_range.setStyleSheet(QSS)
+
+        self.angular_range.setObjectName("angular_range")
+        self.horizontalLayout_42.addWidget(self.angular_range)
+
+        self.a1_3.setValue(float(self.angular_range.value()[0]))
+        self.a2_3.setValue(float(self.angular_range.value()[1]))
+        
         spacerItem67 = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_42.addItem(spacerItem67)
         self.verticalLayout_29.addLayout(self.horizontalLayout_42)
+
+        self.warning_angular = QtWidgets.QLabel(self.Angular_range_3)
+        self.warning_angular.setObjectName(u"warning_angular")
+        self.warning_angular.setHidden(True)
+        self.warning_angular.setStyleSheet(u"font: 11pt \"Ubuntu\";")
+
+        self.verticalLayout_29.addWidget(self.warning_angular)
+
         self.verticalLayout_28.addWidget(self.Angular_range_3)
         self.verticalLayout_7.addWidget(self.frame_14)
         self.Stacked_config_mode.addWidget(self.page_AIM_config)
@@ -3988,48 +4080,48 @@ class Ui_Widget(object):
         self.horizontalLayout_53.addItem(self.horizontalSpacer_100)
 
         self.verticalLayout_36.addLayout(self.horizontalLayout_53)
-        self.tableWidget_fiber = QtWidgets.QTableWidget(self.grafico1_4)
+        self.tableWidget_graph = QtWidgets.QTableWidget(self.grafico1_4)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
-            self.tableWidget_fiber.sizePolicy().hasHeightForWidth())
-        self.tableWidget_fiber.setSizePolicy(sizePolicy)
-        self.tableWidget_fiber.setMinimumSize(QtCore.QSize(400, 150))
-        self.tableWidget_fiber.setStyleSheet("font: 700 10pt \"Ubuntu\";")
-        self.tableWidget_fiber.setSizeAdjustPolicy(
+            self.tableWidget_graph.sizePolicy().hasHeightForWidth())
+        self.tableWidget_graph.setSizePolicy(sizePolicy)
+        self.tableWidget_graph.setMinimumSize(QtCore.QSize(400, 150))
+        self.tableWidget_graph.setStyleSheet("font: 700 10pt \"Ubuntu\";")
+        self.tableWidget_graph.setSizeAdjustPolicy(
             QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.tableWidget_fiber.setEditTriggers(
+        self.tableWidget_graph.setEditTriggers(
             QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.tableWidget_fiber.setVerticalScrollMode(
+        self.tableWidget_graph.setVerticalScrollMode(
             QtWidgets.QAbstractItemView.ScrollPerPixel)
-        self.tableWidget_fiber.setHorizontalScrollMode(
+        self.tableWidget_graph.setHorizontalScrollMode(
             QtWidgets.QAbstractItemView.ScrollPerPixel)
-        self.tableWidget_fiber.setWordWrap(True)
-        self.tableWidget_fiber.setObjectName("tableWidget_fiber")
-        self.tableWidget_fiber.setColumnCount(4)
-        self.tableWidget_fiber.setRowCount(4)
+        self.tableWidget_graph.setWordWrap(True)
+        self.tableWidget_graph.setObjectName("tableWidget_graph")
+        self.tableWidget_graph.setColumnCount(4)
+        self.tableWidget_graph.setRowCount(4)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setVerticalHeaderItem(0, item)
+        self.tableWidget_graph.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setVerticalHeaderItem(1, item)
+        self.tableWidget_graph.setVerticalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setVerticalHeaderItem(2, item)
+        self.tableWidget_graph.setVerticalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setVerticalHeaderItem(3, item)
+        self.tableWidget_graph.setVerticalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setHorizontalHeaderItem(0, item)
+        self.tableWidget_graph.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setHorizontalHeaderItem(1, item)
+        self.tableWidget_graph.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setHorizontalHeaderItem(2, item)
+        self.tableWidget_graph.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_fiber.setHorizontalHeaderItem(3, item)
+        self.tableWidget_graph.setHorizontalHeaderItem(3, item)
 
-        self.tableWidget_fiber.horizontalHeader().setStretchLastSection(False)
+        self.tableWidget_graph.horizontalHeader().setStretchLastSection(False)
         self.verticalLayout_36.addWidget(
-            self.tableWidget_fiber, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+            self.tableWidget_graph, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
         self.horizontalLayout_54 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_54.setObjectName("horizontalLayout_54")
         spacerItem71 = QtWidgets.QSpacerItem(
@@ -4182,10 +4274,9 @@ class Ui_Widget(object):
         self.verticalLayout_16.addWidget(self.Stacked_windows)
         self.verticalLayout.addWidget(self.main_frame)
         self.footer_frame = QtWidgets.QFrame(Widget)
-        self.footer_frame.setStyleSheet("background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);"
-                                        "font: 500 11pt \"Ubuntu\";"
-                                        "color: rgb(0, 0, 0);"
-                                        "")
+        self.footer_frame.setStyleSheet(u"background-color: rgb(0, 40, 120);\n"
+                                            "font: 700 11pt \"Ubuntu\";\n"
+                                            "color: rgb(255, 255, 255);")
         self.footer_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.footer_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.footer_frame.setObjectName("footer_frame")
@@ -4201,15 +4292,10 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.label_footer.sizePolicy().hasHeightForWidth())
         self.label_footer.setSizePolicy(sizePolicy)
-        self.label_footer.setMinimumSize(QtCore.QSize(0, 25))
+        self.label_footer.setMinimumSize(QtCore.QSize(0, 23))
         font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setItalic(False)
         font.setWeight(63)
         self.label_footer.setFont(font)
-        self.label_footer.setStyleSheet("background-image: url(:/icons/icons/Plano_de_fundo/Plano_de_Fundo1.png);")
         self.label_footer.setObjectName("label_footer")
         self.horizontalLayout_3.addWidget(self.label_footer)
         self.verticalLayout.addWidget(self.footer_frame)
@@ -4224,7 +4310,7 @@ class Ui_Widget(object):
         Widget.setWindowTitle(_translate("Widget", u"Widget", None))
         self.icon.setText("")
         self.label_title.setText(_translate(
-            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; color:#000000;\">Sim - LMR</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">Sim - LMR</span></p></body></html>", None))
         self.btn_help.setText(_translate("Widget", u"Help  ", None))
         self.btn_minimize.setText(_translate("Widget", u"_", None))
         self.btn_close.setText("")
@@ -4239,7 +4325,7 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:22pt; color:#ffffff;\">Optical Coupling</span></p></body></html>", None))
         self.prism_btn.setText("")
         self.fiber_btn.setText("")
-        self.warning_2.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; color:#ffffff;\"/><span style=\" font-family:'monospace'; color:#ffffff;\">- Select an option for optical coupling - </span></pre></body></html>", None))
+        self.warning_2.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:'monospace'; color:#ffffff;\"/><span style=\" font-weight:500; font-family:'monospace'; color:#ffffff;\">- Select an option for optical coupling - </span></pre></body></html>", None))
         self.prev_btn_coup.setText(_translate("Widget", u" Previous", None))
         self.next_btn_coup.setText(_translate("Widget", u"Next ", None))
         self.btn_home_2.setText("")
@@ -4253,7 +4339,7 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:22pt; color:#ffffff;\">Interrogation Mode</span></p></body></html>", None))
         self.aim_btn.setText("")
         self.wim_btn.setText("")
-        self.warning_inter.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; color:#ffffff;\">-</span><span style=\" font-family:'monospace'; color:#ffffff;\"> Select an interrogation mode - </span></pre></body></html>", None))
+        self.warning_inter.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:'monospace'; color:#ffffff;\">-</span><span style=\" font-weight:500; font-family:'monospace'; color:#ffffff;\"> Select an interrogation mode - </span></pre></body></html>", None))
         self.prev_btn_inter.setText(_translate("Widget", u" Previous", None))
         self.next_btn_inter.setText(_translate("Widget", u"Next ", None))
         self.btn_home_3.setText("")
@@ -4268,7 +4354,7 @@ class Ui_Widget(object):
             _translate("Widget", u"Setting Layers", None))
         self.gb_incident_wav.setTitle(_translate(
             "Widget", u"Incident wavelength", None))
-        self.angle_incidence_3.setSuffix(_translate("Widget", u" nm", None))
+        self.lambda_i.setSuffix(_translate("Widget", u" nm", None))
         self.gb_layers.setTitle(_translate("Widget", u"Layers", None))
         self.btn_new_layer.setText(_translate("Widget", u"New layer", None))
         self.label_11.setText(_translate(
@@ -4278,17 +4364,17 @@ class Ui_Widget(object):
             _translate("Widget", u"Thickness (nm)", None))
         self.label_12.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness:</span></p></body></html>", None))
-        self.cbox_material.setItemText(0, _translate("Widget", u"BK7", None))
-        self.cbox_material.setItemText(
-            1, _translate("Widget", u"Silica", None))
-        self.cbox_material.setItemText(2, _translate("Widget", u"Other", None))
+        
+        #self.cbox_material.setItemText(0, _translate("Widget", u"BK7", None))
+        #self.cbox_material.setItemText(1, _translate("Widget", u"Silica", None))
+        #self.cbox_material.setItemText(2, _translate("Widget", u"Other", None))
 
         self.label_7.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Real part:</span></p></body></html>", None))
         self.label_9.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Imaginary part:</span></p></body></html>", None))
         self.warning.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Warning -</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\"font-weight:500; color:#ffff00;\">- Warning -</span></p></body></html>", None))
         self.real_part_index.setPlaceholderText(
             _translate("Widget", u"Real", None))
         self.imaginary_part_index.setPlaceholderText(
@@ -4304,15 +4390,14 @@ class Ui_Widget(object):
         self.label_21.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index:</span></p></body></html>", None))
         self.doubleSpinBox_8.setSuffix(_translate("Widget", u" RIU", None))
+        self.label_description_3.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
         self.label_22.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index step:</span></p></body></html>", None))
         self.doubleSpinBox_9.setSuffix(_translate("Widget", u" RIU", None))
         self.gb_layers_2.setTitle(_translate("Widget", u"Layers", None))
-        self.cbox_material_2.setItemText(0, _translate("Widget", u"BK7", None))
-        self.cbox_material_2.setItemText(
-            1, _translate("Widget", u"Silica", None))
-        self.cbox_material_2.setItemText(
-            2, _translate("Widget", u"Other", None))
+        #self.cbox_material_2.setItemText(0, _translate("Widget", u"BK7", None))
+        #self.cbox_material_2.setItemText(1, _translate("Widget", u"Silica", None))
+        #self.cbox_material_2.setItemText(2, _translate("Widget", u"Other", None))
 
         self.label_14.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>", None))
@@ -4332,23 +4417,25 @@ class Ui_Widget(object):
             _translate("Widget", u"Add Layer", None))
         self.label_16.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index :</span></p></body></html>", None))
+        self.label_description_4.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
+
         self.doubleSpinBox_4.setSuffix(_translate("Widget", u" RIU", None))
         self.label_17.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index step:</span></p></body></html>", None))
         self.doubleSpinBox_5.setSuffix(_translate("Widget", u" RIU", None))
         self.warning_4.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffff00;\">- Warning -</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" font-weight:500; color:#ffff00;\">- Warning -</span></p></body></html>", None))
         self.title_graphs_fiber_4.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" font-family:'inherit';\">Layers of structure</span></p></body></html>", None))
         self.btn_save_graph_7.setText(
             _translate("Widget", u"Save figure", None))
-        ___qtablewidgetitem = self.tableWidget_fiber_4.horizontalHeaderItem(3)
+        ___qtablewidgetitem = self.tableWidget_layers.horizontalHeaderItem(3)
         ___qtablewidgetitem.setText(_translate("Widget", u"Description", None))
-        ___qtablewidgetitem1 = self.tableWidget_fiber_4.horizontalHeaderItem(0)
+        ___qtablewidgetitem1 = self.tableWidget_layers.horizontalHeaderItem(0)
         ___qtablewidgetitem1.setText(_translate("Widget", u"Material", None))
-        ___qtablewidgetitem2 = self.tableWidget_fiber_4.horizontalHeaderItem(1)
+        ___qtablewidgetitem2 = self.tableWidget_layers.horizontalHeaderItem(1)
         ___qtablewidgetitem2.setText(_translate("Widget", u"Thickness", None))
-        ___qtablewidgetitem3 = self.tableWidget_fiber_4.horizontalHeaderItem(2)
+        ___qtablewidgetitem3 = self.tableWidget_layers.horizontalHeaderItem(2)
         ___qtablewidgetitem3.setText(
             _translate("Widget", u"Refract. Index", None))
             
@@ -4406,8 +4493,11 @@ class Ui_Widget(object):
         self.label_24.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final: </span></p></body></html>", None))
         self.a2_2.setSuffix(_translate("Widget", u"nm", None))
+        
+        self.warning_range.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#b41414;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
+        
         self.label_warning.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffff01;\">- Check the chosen range -</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" font-weight:500; color:#ffff01;\">- Check the chosen range -</span></p></body></html>", None))
         self.wavelength_incident_2.setTitle(
             _translate("Widget", u"Incidence angle", None))
         self.angle_incidence.setSuffix(_translate("Widget", u"\u00b0", None))
@@ -4422,6 +4512,9 @@ class Ui_Widget(object):
         self.label_27.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final angle:  </span></p></body></html>", None))
         self.a2_3.setSuffix(_translate("Widget", u" \u00ba", None))
+        
+        self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#b41414;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
+        
         self.title_graphs_fiber.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#000000;\">Reflectance vs Wavelength</span></p></body></html>", None))
         self.btn_save_graph_4.setText(
@@ -4449,13 +4542,13 @@ class Ui_Widget(object):
         self.select_chart.setItemText(9, _translate(
             "Widget", u"Quality Factor - TE", None))
 
-        ___qtablewidgetitem4 = self.tableWidget_fiber.horizontalHeaderItem(3)
+        ___qtablewidgetitem4 = self.tableWidget_graph.horizontalHeaderItem(3)
         ___qtablewidgetitem4.setText(_translate("Widget", u"Description", None))
-        ___qtablewidgetitem5 = self.tableWidget_fiber.horizontalHeaderItem(0)
+        ___qtablewidgetitem5 = self.tableWidget_graph.horizontalHeaderItem(0)
         ___qtablewidgetitem5.setText(_translate("Widget", u"Material", None))
-        ___qtablewidgetitem6 = self.tableWidget_fiber.horizontalHeaderItem(1)
+        ___qtablewidgetitem6 = self.tableWidget_graph.horizontalHeaderItem(1)
         ___qtablewidgetitem6.setText(_translate("Widget", u"Thickness", None))
-        ___qtablewidgetitem7 = self.tableWidget_fiber.horizontalHeaderItem(2)
+        ___qtablewidgetitem7 = self.tableWidget_graph.horizontalHeaderItem(2)
         ___qtablewidgetitem7.setText(
             _translate("Widget", u"Refract. Index", None))
         self.btn_edit_layers_3.setText(_translate("Widget", u"Edit", None))
