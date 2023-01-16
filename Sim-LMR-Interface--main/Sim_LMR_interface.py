@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'main_interface.ui'
 #
@@ -1040,6 +1040,8 @@ class Ui_Widget(object):
         self.gb_incident_wav = QtWidgets.QGroupBox(self.page_layers_aim)
         self.gb_incident_wav.setObjectName(u"gb_incident_wav")
         self.gb_incident_wav.setMinimumSize(QtCore.QSize(400, 80))
+        self.gb_incident_wav.setSizePolicy(QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed))
         font12 = QtGui.QFont()
         font12.setFamily(u"Ubuntu")
         font12.setPointSize(14)
@@ -1177,7 +1179,8 @@ class Ui_Widget(object):
         self.gb_layers.setObjectName(u"gb_layers")
         sizePolicy.setHeightForWidth(
             self.gb_layers.sizePolicy().hasHeightForWidth())
-        self.gb_layers.setSizePolicy(sizePolicy)
+        self.gb_layers.setSizePolicy(QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed))
         self.gb_layers.setStyleSheet(u"\n"
                                      "QGroupBox  {\n"
                                      "	font: 14pt \"Ubuntu\";\n"
@@ -1413,6 +1416,8 @@ class Ui_Widget(object):
 
         self.gb_analyte = QtWidgets.QGroupBox(self.page_layers_aim)
         self.gb_analyte.setObjectName(u"gb_analyte")
+        self.gb_analyte.setSizePolicy(QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed))
         self.gb_analyte.setEnabled(False)
         self.gb_analyte.setToolTip("Click in 'New layer' to enable")
         self.gb_analyte.setStyleSheet(u"\n"
@@ -1643,7 +1648,8 @@ class Ui_Widget(object):
         self.gb_layers_2.setObjectName(u"gb_layers_2")
         sizePolicy.setHeightForWidth(
             self.gb_layers_2.sizePolicy().hasHeightForWidth())
-        self.gb_layers_2.setSizePolicy(sizePolicy)
+        self.gb_layers_2.setSizePolicy(QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed))
         self.gb_layers_2.setStyleSheet(u"\n"
                                        "QGroupBox  {\n"
                                        "	font: 14pt \"Ubuntu\";\n"
@@ -1824,6 +1830,8 @@ class Ui_Widget(object):
 
         self.gb_analyte_2 = QtWidgets.QGroupBox(self.page_layers_wim)
         self.gb_analyte_2.setObjectName(u"gb_analyte_2")
+        self.gb_analyte_2.setSizePolicy(QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed))
         self.gb_analyte_2.setEnabled(False)
         self.gb_analyte_2.setStyleSheet(u"\n"
                                         "QGroupBox  {\n"
@@ -2157,8 +2165,6 @@ class Ui_Widget(object):
         self.tableWidget_layers.setStyleSheet("font: 700 10pt \"Ubuntu\";")
         self.tableWidget_layers.setSizeAdjustPolicy(
             QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.tableWidget_layers.setEditTriggers(
-            QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget_layers.setVerticalScrollMode(
             QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.tableWidget_layers.setHorizontalScrollMode(
@@ -4363,16 +4369,16 @@ class Ui_Widget(object):
         self.thickness.setPlaceholderText(
             _translate("Widget", u"Thickness (nm)", None))
         self.label_12.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness:</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm):</span></p></body></html>", None))
         
         #self.cbox_material.setItemText(0, _translate("Widget", u"BK7", None))
         #self.cbox_material.setItemText(1, _translate("Widget", u"Silica", None))
         #self.cbox_material.setItemText(2, _translate("Widget", u"Other", None))
 
         self.label_7.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Real part:</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index - Real part:</span></p></body></html>", None))
         self.label_9.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Imaginary part:</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index - Imaginary part:</span></p></body></html>", None))
         self.warning.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\"font-weight:500; color:#ffff00;\">- Warning -</span></p></body></html>", None))
         self.real_part_index.setPlaceholderText(

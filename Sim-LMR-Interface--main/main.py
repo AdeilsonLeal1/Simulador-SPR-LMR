@@ -994,8 +994,16 @@ class MainWindow(QWidget, Ui_Widget):
 
     def remove_layers(self):
         if self.layers>=1:
+            db = dataBaseLayers()
+            db.connect()
+
+            layer = self.tableWidget_layers.selectionModel().currentIndex().siblingAtColumn(0).data()
+            result = db.remove_layer(layer)
+            self.show_layers()
+            self.warning.setText(f"{result}")
+
+            db.close_connection()
             self.layers = self.layers-1
-            self.warning.setText(f" ## {self.layers} Layers ##")
         else:
              self.warning.setText(f" Error! Check the layers\n ## {self.layers} Layers ##")
              self.btn_remove_layers.setEnabled(False)
@@ -1047,6 +1055,7 @@ class MainWindow(QWidget, Ui_Widget):
             fullDataSet = ( material, thickness, refractive_index, description )
         else:   #WIM
             fullDataSet = ( material, thickness, "-", description ) if material != 'Analyte' else ( material, thickness, refractive_index, description )
+        
         ans = db.insert_layer(fullDataSet)
         
         ## show layers in table
@@ -1072,9 +1081,10 @@ class MainWindow(QWidget, Ui_Widget):
                 self.tableWidget_layers.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
                 self.tableWidget_graph.setItem(row, column, QtWidgets.QTableWidgetItem(str(data)))
         db.close_connection()
-
+        
     
     def close(self) -> bool:
+        db = dataBaseLayers()
         db.connect()
         db.clear_dataset()
         db.close_connection()
