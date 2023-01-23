@@ -4371,10 +4371,6 @@ class Ui_Widget(object):
         self.label_12.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm):</span></p></body></html>", None))
         
-        #self.cbox_material.setItemText(0, _translate("Widget", u"BK7", None))
-        #self.cbox_material.setItemText(1, _translate("Widget", u"Silica", None))
-        #self.cbox_material.setItemText(2, _translate("Widget", u"Other", None))
-
         self.label_7.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index - Real part:</span></p></body></html>", None))
         self.label_9.setText(_translate(
@@ -4401,9 +4397,6 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index step:</span></p></body></html>", None))
         self.doubleSpinBox_9.setSuffix(_translate("Widget", u" RIU", None))
         self.gb_layers_2.setTitle(_translate("Widget", u"Layers", None))
-        #self.cbox_material_2.setItemText(0, _translate("Widget", u"BK7", None))
-        #self.cbox_material_2.setItemText(1, _translate("Widget", u"Silica", None))
-        #self.cbox_material_2.setItemText(2, _translate("Widget", u"Other", None))
 
         self.label_14.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>", None))

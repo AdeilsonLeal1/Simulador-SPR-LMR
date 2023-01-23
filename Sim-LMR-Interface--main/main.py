@@ -99,6 +99,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.btn_add_analyte.clicked.connect(self.set_Enable_False)
         self.btn_add_layer.clicked.connect(self.set_Enable_False_2)
         self.cbox_material.currentTextChanged.connect(self.set_RefractiveIndex)
+        self.lambda_i_slider.valueChanged.connect(self.set_RefractiveIndex)
+        self.lambda_i.valueChanged.connect(self.set_RefractiveIndex)
     
         self.btn_new_layer_2.clicked.connect(self.set_Enable_True)  
         self.btn_add_analyte_2.clicked.connect(self.set_Enable_False)
@@ -149,7 +151,7 @@ class MainWindow(QWidget, Ui_Widget):
             if self.Stacked_windows.currentIndex() == 3:
                 if self.nLayers < 3:
                     self.warning.setHidden(False)
-                    self.warning.setText(f"## Insert more than 3 layers ## \n  ## {self.layers} Layers ##")
+                    self.warning.setText(f"## Insert more than 3 layers ## \n  ## {self.nLayers} Layers ##")
                 else:
                     self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)
             else:
@@ -164,8 +166,7 @@ class MainWindow(QWidget, Ui_Widget):
                     self.btn_config_WIM_fiber.setText("Configure WIM mode")
             
     def previous_page(self):
-        self.Stacked_windows.setCurrentIndex(
-            self.Stacked_windows.currentIndex()-1)
+        self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()-1)
 
     def aim_btn_clicked(self):
         global INTERROGATION_MODE
@@ -1109,14 +1110,13 @@ class MainWindow(QWidget, Ui_Widget):
             description = self.description.text()
             real = float(self.real_part_index.text().replace(',','.'))
             imag = float(self.imaginary_part_index.text().replace(',','.'))
+            refractiveIndex = str(complex(real, imag)).replace('(',' ').replace(')',' ')
         else:   # WIM
             material = self.cbox_material_2.currentText()
             thickness = self.thickness_2.text()
             description = self.description_2.text()
-            real = 0
-            imag = 0
+            refractiveIndex = '-'
         
-        refractiveIndex = str(complex(real, imag)).replace('(',' ').replace(')',' ')
         self.layers.append({"material": material, "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description })
 
         self.nLayers = len(self.layers)
@@ -1150,7 +1150,8 @@ class MainWindow(QWidget, Ui_Widget):
     def add_analyte(self):
         description = self.description_3.text() if INTERROGATION_MODE == 1 else self.description_4.text()
 
-        refractiveIndex = f"{self.doubleSpinBox_7.value()} - {self.doubleSpinBox_8.value()}"
+        refractiveIndex = f"{self.doubleSpinBox_7.value()} - {self.doubleSpinBox_8.value()}" if INTERROGATION_MODE == 1 else f"{self.doubleSpinBox_6.value()} - {self.doubleSpinBox_4.value()}"
+        
         self.layers.append({"material": "Analyte", "thickness": "-", "refractiveIndex": refractiveIndex, "description": description })
         
         self.nLayers = len(self.layers)
@@ -1180,7 +1181,7 @@ class MainWindow(QWidget, Ui_Widget):
 
     def remove_layers(self):
         if self.nLayers>=1:
-            self.layers.pop((self.tableWidget_layers.currentRow())-1)
+            self.layers.pop((self.tableWidget_layers.currentRow()))
             self.show_layers()
             #self.warning.setText(f"{result}")
 
@@ -1230,19 +1231,13 @@ class MainWindow(QWidget, Ui_Widget):
         spin2.setValue(float(slider.value()[1]))
 
     def show_layers(self):
-        row = 0
         self.tableWidget_layers.setRowCount(len(self.layers))
         self.tableWidget_graph.setRowCount(len(self.layers))
-        for l in self.layers:
-            self.tableWidget_layers.setItem(row, 0, QtWidgets.QTableWidgetItem(l["material"]))
-            self.tableWidget_layers.setItem(row, 1, QtWidgets.QTableWidgetItem(l["thickness"]))
-            self.tableWidget_layers.setItem(row, 2, QtWidgets.QTableWidgetItem(l["refractiveIndex"]))
-            self.tableWidget_layers.setItem(row, 3, QtWidgets.QTableWidgetItem(l["description"]))
-            self.tableWidget_graph.setItem(row, 0, QtWidgets.QTableWidgetItem(l["material"]))
-            self.tableWidget_graph.setItem(row, 1, QtWidgets.QTableWidgetItem(l["thickness"]))
-            self.tableWidget_graph.setItem(row, 2, QtWidgets.QTableWidgetItem(l["refractiveIndex"]))
-            self.tableWidget_graph.setItem(row, 3, QtWidgets.QTableWidgetItem(l["description"]))
-            row += 1
+        for row, text in enumerate(self.layers):
+            for column, data in enumerate(text):
+                self.tableWidget_layers.setItem(row, column, QtWidgets.QTableWidgetItem(str(text[f'{data}'])))
+                self.tableWidget_graph.setItem(row, column, QtWidgets.QTableWidgetItem(str(text[f'{data}'])))
+
 
 
 if __name__ == "__main__":
