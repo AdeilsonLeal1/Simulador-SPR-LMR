@@ -382,7 +382,7 @@ class Ui_Widget(object):
         self.frame_hierarq_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_hierarq_4.setObjectName("frame_hierarq_4")
         self.horizontalLayout_22 = QtWidgets.QHBoxLayout(self.frame_hierarq_4)
-        self.horizontalLayout_22.setContentsMargins(20, 8, 8, 8)
+        self.horizontalLayout_22.setContentsMargins(20, 8, 0, 8)
         self.horizontalLayout_22.setSpacing(8)
         self.horizontalLayout_22.setObjectName("horizontalLayout_22")
         self.btn_home = QtWidgets.QPushButton(self.frame_hierarq_4)
@@ -579,7 +579,7 @@ class Ui_Widget(object):
         self.frame_next_previous_4.setObjectName("frame_next_previous_4")
         self.horizontalLayout_25 = QtWidgets.QHBoxLayout(
             self.frame_next_previous_4)
-        self.horizontalLayout_25.setContentsMargins(20, 6, 20, 6)
+        self.horizontalLayout_25.setContentsMargins(20, 5, 20, 5)
         self.horizontalLayout_25.setSpacing(5)
         self.horizontalLayout_25.setObjectName("horizontalLayout_25")
         self.prev_btn_coup = QtWidgets.QPushButton(
@@ -653,7 +653,7 @@ class Ui_Widget(object):
         self.frame_hierarq_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_hierarq_5.setObjectName("frame_hierarq_5")
         self.horizontalLayout_27 = QtWidgets.QHBoxLayout(self.frame_hierarq_5)
-        self.horizontalLayout_27.setContentsMargins(20, 8, 8, 8)
+        self.horizontalLayout_27.setContentsMargins(20, 8, 0, 8)
         self.horizontalLayout_27.setSpacing(8)
         self.horizontalLayout_27.setObjectName("horizontalLayout_27")
         self.btn_home_2 = QtWidgets.QPushButton(self.frame_hierarq_5)
@@ -850,7 +850,7 @@ class Ui_Widget(object):
         self.frame_next_previous_5.setObjectName("frame_next_previous_5")
         self.horizontalLayout_29 = QtWidgets.QHBoxLayout(
             self.frame_next_previous_5)
-        self.horizontalLayout_29.setContentsMargins(20, 6, 20, 6)
+        self.horizontalLayout_29.setContentsMargins(20, 5, 20, 5)
         self.horizontalLayout_29.setSpacing(5)
         self.horizontalLayout_29.setObjectName("horizontalLayout_29")
         self.prev_btn_inter = QtWidgets.QPushButton(
@@ -904,7 +904,7 @@ class Ui_Widget(object):
         self.hierarchy_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.hierarchy_frame.setObjectName("hierarchy_frame")
         self.horizontalLayout_79 = QtWidgets.QHBoxLayout(self.hierarchy_frame)
-        self.horizontalLayout_79.setContentsMargins(20, 8, 8, 8)
+        self.horizontalLayout_79.setContentsMargins(20, 8, 0, 8)
         self.horizontalLayout_79.setSpacing(8)
         self.horizontalLayout_79.setObjectName("horizontalLayout_79")
         self.btn_home_3 = QtWidgets.QPushButton(self.hierarchy_frame)
@@ -1027,7 +1027,7 @@ class Ui_Widget(object):
         self.setting_layers_frame.setObjectName("setting_layers_frame")
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(
             self.setting_layers_frame)
-        self.verticalLayout_8.setContentsMargins(30, 20, 20, 0)
+        self.verticalLayout_8.setContentsMargins(30, 0, 20, 0)
         self.verticalLayout_8.setSpacing(5)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.stacked_layers = QtWidgets.QStackedWidget(
@@ -1037,6 +1037,8 @@ class Ui_Widget(object):
         self.page_layers_aim.setObjectName(u"page_layers_aim")
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page_layers_aim)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_9.setSpacing(5)
         self.gb_incident_wav = QtWidgets.QGroupBox(self.page_layers_aim)
         self.gb_incident_wav.setObjectName(u"gb_incident_wav")
         self.gb_incident_wav.setMinimumSize(QtCore.QSize(400, 80))
@@ -1205,7 +1207,8 @@ class Ui_Widget(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setHorizontalSpacing(10)
         self.gridLayout_2.setVerticalSpacing(10)
-        self.gridLayout_2.setContentsMargins(0, 25, 0, 15)
+        self.gridLayout_2.setContentsMargins(0, 15, 0, 9)
+        self.gridLayout_2.setSpacing(8)
         self.btn_new_layer = QtWidgets.QPushButton(self.gb_layers)
         self.btn_new_layer.setObjectName(u"btn_new_layer")
         self.btn_new_layer.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
@@ -1442,8 +1445,8 @@ class Ui_Widget(object):
                                       "")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.gb_analyte)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setContentsMargins(25, 15, 25, 9)
         self.gridLayout_7.setSpacing(10)
-        self.gridLayout_7.setContentsMargins(30, 15, 30, 9)
         self.label_20 = QtWidgets.QLabel(self.gb_analyte)
         self.label_20.setObjectName(u"label_20")
         self.label_20.setStyleSheet(u"font: 14pt \"Ubuntu\";")
@@ -1562,7 +1565,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_8.setMinimum(1.000000000000000)
         self.doubleSpinBox_8.setMaximum(5.000000000000000)
         self.doubleSpinBox_8.setSingleStep(0.001000000000000)
-        self.doubleSpinBox_8.setValue(1.360000000000000)
+        self.doubleSpinBox_8.setValue(1.35000000000000)
 
         self.gridLayout_7.addWidget(self.doubleSpinBox_8, 1, 1, 1, 1)
 
@@ -1572,11 +1575,33 @@ class Ui_Widget(object):
 
         self.gridLayout_7.addWidget(self.label_22, 2, 0, 1, 1)
 
+        self.label_30 = QtWidgets.QLabel(self.gb_analyte)
+        self.label_30.setObjectName(u"label_30")
+        self.label_30.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_7.addWidget(self.label_30, 3, 0, 1, 1)
+
+        self.thickness_4 = QtWidgets.QLineEdit(self.gb_analyte)
+        self.thickness_4.setObjectName(u"thickness_4")
+        self.thickness_4.setMinimumSize(QtCore.QSize(0, 30))
+        self.thickness_4.setMaximumSize(QtCore.QSize(260, 16777215))
+        self.thickness_4.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #606060;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #606060;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+        self.thickness_4.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_7.addWidget(self.thickness_4, 3, 1, 1, 2)
+
+
         self.label_description_3 = QtWidgets.QLabel(self.gb_analyte)
         self.label_description_3.setObjectName(u"label_description_3")
         self.label_description_3.setStyleSheet(u"font: 14pt \"Ubuntu\";")
 
-        self.gridLayout_7.addWidget(self.label_description_3, 3, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.label_description_3, 4, 0, 1, 1)
 
         self.doubleSpinBox_9 = QtWidgets.QDoubleSpinBox(self.gb_analyte)
         self.doubleSpinBox_9.setObjectName(u"doubleSpinBox_9")
@@ -1616,7 +1641,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_9.setDecimals(3)
         self.doubleSpinBox_9.setMaximum(3.000000000000000)
         self.doubleSpinBox_9.setSingleStep(0.001000000000000)
-        self.doubleSpinBox_9.setValue(0.002000000000000)
+        self.doubleSpinBox_9.setValue(0.01000000000000)
 
         self.gridLayout_7.addWidget(self.doubleSpinBox_9, 2, 1, 1, 1)
         
@@ -1633,7 +1658,7 @@ class Ui_Widget(object):
                                      "border-radius:10px;")
         self.description_3.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_7.addWidget(self.description_3, 3, 1, 1, 2)
+        self.gridLayout_7.addWidget(self.description_3, 4, 1, 1, 2)
 
         self.verticalLayout_9.addWidget(self.gb_analyte)
 
@@ -1672,9 +1697,8 @@ class Ui_Widget(object):
                                        "")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.gb_layers_2)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.gridLayout_6.setHorizontalSpacing(10)
-        self.gridLayout_6.setVerticalSpacing(15)
-        self.gridLayout_6.setContentsMargins(9, 25, 0, 25)
+        self.gridLayout_6.setSpacing(8)
+        self.gridLayout_6.setContentsMargins(0, 15, 0, 9)
         
         self.cbox_material_2 = QtWidgets.QComboBox(self.gb_layers_2)
         self.cbox_material_2.addItem("BK7")
@@ -1855,9 +1879,8 @@ class Ui_Widget(object):
                                         "")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.gb_analyte_2)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.gridLayout_5.setHorizontalSpacing(10)
-        self.gridLayout_5.setVerticalSpacing(10)
-        self.gridLayout_5.setContentsMargins(30, 15, 30, 9)
+        self.gridLayout_5.setContentsMargins(25, 15, 25, 9)
+        self.gridLayout_5.setSpacing(10)
         self.label_15 = QtWidgets.QLabel(self.gb_analyte_2)
         self.label_15.setObjectName(u"label_15")
         self.label_15.setStyleSheet(u"font: 14pt \"Ubuntu\";")
@@ -1940,7 +1963,7 @@ class Ui_Widget(object):
         self.label_description_4.setObjectName(u"label_description_4")
         self.label_description_4.setStyleSheet(u"font: 14pt \"Ubuntu\";")
 
-        self.gridLayout_5.addWidget(self.label_description_4, 3, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.label_description_4, 4, 0, 1, 1)
 
         self.description_4 = QtWidgets.QLineEdit(self.gb_analyte_2)
         self.description_4.setObjectName(u"description_4")
@@ -1955,7 +1978,28 @@ class Ui_Widget(object):
                                      "border-radius:10px;")
         self.description_4.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_5.addWidget(self.description_4, 3, 1, 1, 2)
+        self.gridLayout_5.addWidget(self.description_4, 4, 1, 1, 2)
+
+        self.label_29 = QtWidgets.QLabel(self.gb_analyte_2)
+        self.label_29.setObjectName(u"label_29")
+        self.label_29.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+
+        self.gridLayout_5.addWidget(self.label_29, 3, 0, 1, 1)
+
+        self.thickness_3 = QtWidgets.QLineEdit(self.gb_analyte_2)
+        self.thickness_3.setObjectName(u"thickness_3")
+        self.thickness_3.setMinimumSize(QtCore.QSize(0, 30))
+        self.thickness_3.setMaximumSize(QtCore.QSize(260, 16777215))
+        self.thickness_3.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #606060;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #606060;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+        self.thickness_3.setAlignment(QtCore.Qt.AlignCenter)
+
+        self.gridLayout_5.addWidget(self.thickness_3, 3, 1, 1, 1)
 
         self.doubleSpinBox_4 = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
         self.doubleSpinBox_4.setObjectName(u"doubleSpinBox_4")
@@ -1996,7 +2040,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_4.setMinimum(1.000000000000000)
         self.doubleSpinBox_4.setMaximum(5.000000000000000)
         self.doubleSpinBox_4.setSingleStep(0.001000000000000)
-        self.doubleSpinBox_4.setValue(1.360000000000000)
+        self.doubleSpinBox_4.setValue(1.35000000000000)
 
         self.gridLayout_5.addWidget(self.doubleSpinBox_4, 1, 1, 1, 1)
 
@@ -2044,19 +2088,9 @@ class Ui_Widget(object):
         self.doubleSpinBox_5.setDecimals(3)
         self.doubleSpinBox_5.setMaximum(3.000000000000000)
         self.doubleSpinBox_5.setSingleStep(0.001000000000000)
-        self.doubleSpinBox_5.setValue(0.002000000000000)
+        self.doubleSpinBox_5.setValue(0.01000000000000)
 
         self.gridLayout_5.addWidget(self.doubleSpinBox_5, 2, 1, 1, 1)
-
-        self.warning_4 = QtWidgets.QLabel(self.gb_analyte_2)
-        self.warning_4.setObjectName(u"warning_4")
-        self.warning_4.setHidden(True)
-        self.warning_4.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
-                                     "\n"
-                                     "")
-        self.warning_4.setAlignment(QtCore.Qt.AlignCenter)
-
-        self.gridLayout_5.addWidget(self.warning_4, 1, 2, 1, 1)
 
         self.verticalLayout_10.addWidget(self.gb_analyte_2)
 
@@ -2081,7 +2115,7 @@ class Ui_Widget(object):
         self.graphics_frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.graphics_frame_4.setObjectName("graphics_frame_4")
         self.verticalLayout_55 = QtWidgets.QVBoxLayout(self.graphics_frame_4)
-        self.verticalLayout_55.setContentsMargins(20, 20, 30, 0)
+        self.verticalLayout_55.setContentsMargins(20, 0, 30, 0)
         self.verticalLayout_55.setSpacing(5)
         self.verticalLayout_55.setObjectName("verticalLayout_55")
         self.grafico1_7 = QtWidgets.QFrame(self.graphics_frame_4)
@@ -2094,19 +2128,19 @@ class Ui_Widget(object):
         self.verticalLayout_56.setContentsMargins(9, -1, 9, 10)
         self.verticalLayout_56.setSpacing(9)
         self.verticalLayout_56.setObjectName("verticalLayout_56")
-        self.title_graphs_fiber_4 = QtWidgets.QLabel(self.grafico1_7)
+        self.title_instructions = QtWidgets.QLabel(self.grafico1_7)
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(14)
         font.setBold(True)
         font.setItalic(False)
         font.setWeight(63)
-        self.title_graphs_fiber_4.setFont(font)
-        self.title_graphs_fiber_4.setStyleSheet("background: transparent;\n"
+        self.title_instructions.setFont(font)
+        self.title_instructions.setStyleSheet("background: transparent;\n"
                                                 "font: 500 14pt \"Ubuntu\";")
-        self.title_graphs_fiber_4.setAlignment(QtCore.Qt.AlignCenter)
-        self.title_graphs_fiber_4.setObjectName("title_graphs_fiber_4")
-        self.verticalLayout_56.addWidget(self.title_graphs_fiber_4)
+        self.title_instructions.setAlignment(QtCore.Qt.AlignCenter)
+        self.title_instructions.setObjectName("title_instructions")
+        self.verticalLayout_56.addWidget(self.title_instructions)
         self.frame = QtWidgets.QFrame(self.grafico1_7)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -2123,35 +2157,7 @@ class Ui_Widget(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.verticalLayout_56.addWidget(self.frame)
-        self.horizontalLayout_91 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_91.setSpacing(0)
-        self.horizontalLayout_91.setObjectName("horizontalLayout_91")
-        spacerItem28 = QtWidgets.QSpacerItem(
-            14, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_91.addItem(spacerItem28)
-        self.btn_save_graph_7 = QtWidgets.QPushButton(self.grafico1_7)
-        self.btn_save_graph_7.setMinimumSize(QtCore.QSize(90, 25))
-        self.btn_save_graph_7.setMaximumSize(QtCore.QSize(120, 25))
-        self.btn_save_graph_7.setStyleSheet("QPushButton{\n"
-                                            "font: 400 11pt \"Ubuntu\";\n"
-                                            "    color: rgb(255, 255,255);\n"
-                                            "    background-color: rgba(0, 130, 180,160);\n"
-                                            "    border-color: rgba(0, 100, 130,160);\n"
-                                            "    border-width: 2px;\n"
-                                            "    border-radius:10px;\n"
-                                            "}\n"
-                                            "\n"
-                                            "QPushButton:hover{\n"
-                                            "    background-color: rgb(0, 130, 180);\n"
-                                            "    width: 40;\n"
-                                            "    height: 35;\n"
-                                            "}")
-        self.btn_save_graph_7.setObjectName("btn_save_graph_7")
-        self.horizontalLayout_91.addWidget(self.btn_save_graph_7)
-        spacerItem29 = QtWidgets.QSpacerItem(
-            14, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_91.addItem(spacerItem29)
-        self.verticalLayout_56.addLayout(self.horizontalLayout_91)
+
         self.tableWidget_layers = QtWidgets.QTableWidget(self.grafico1_7)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
@@ -2160,9 +2166,10 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.tableWidget_layers.sizePolicy().hasHeightForWidth())
         self.tableWidget_layers.setSizePolicy(sizePolicy)
-        self.tableWidget_layers.setMinimumSize(QtCore.QSize(400, 150))
-        self.tableWidget_layers.setMaximumSize(QtCore.QSize(16777215, 150))
+        self.tableWidget_layers.setMinimumSize(QtCore.QSize(550, 130))
+        self.tableWidget_layers.setMaximumSize(QtCore.QSize(16777215, 130))
         self.tableWidget_layers.setStyleSheet("font: 700 10pt \"Ubuntu\";")
+        self.tableWidget_layers.horizontalHeader().setDefaultSectionSize(110)
         self.tableWidget_layers.setSizeAdjustPolicy(
             QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.tableWidget_layers.setVerticalScrollMode(
@@ -2322,7 +2329,7 @@ class Ui_Widget(object):
         self.frame_next_previous_9.setObjectName("frame_next_previous_9")
         self.horizontalLayout_94 = QtWidgets.QHBoxLayout(
             self.frame_next_previous_9)
-        self.horizontalLayout_94.setContentsMargins(20, 6, 20, 6)
+        self.horizontalLayout_94.setContentsMargins(20, 5, 20, 5)
         self.horizontalLayout_94.setSpacing(5)
         self.horizontalLayout_94.setObjectName("horizontalLayout_94")
         self.prev_btn_config_layers = QtWidgets.QPushButton(
@@ -2378,7 +2385,7 @@ class Ui_Widget(object):
         self.frame_hierarq_8.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_hierarq_8.setObjectName("frame_hierarq_8")
         self.horizontalLayout_56 = QtWidgets.QHBoxLayout(self.frame_hierarq_8)
-        self.horizontalLayout_56.setContentsMargins(20, 8, 8, 8)
+        self.horizontalLayout_56.setContentsMargins(20, 8, 0, 8)
         self.horizontalLayout_56.setSpacing(8)
         self.horizontalLayout_56.setObjectName("horizontalLayout_56")
         self.btn_home_4 = QtWidgets.QPushButton(self.frame_hierarq_8)
@@ -3938,7 +3945,7 @@ class Ui_Widget(object):
         self.graphics_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.graphics_frame.setObjectName("graphics_frame")
         self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.graphics_frame)
-        self.verticalLayout_35.setContentsMargins(20, 20, 30, 0)
+        self.verticalLayout_35.setContentsMargins(20, 9, 30, 0)
         self.verticalLayout_35.setSpacing(5)
         self.verticalLayout_35.setObjectName("verticalLayout_35")
         self.grafico1_4 = QtWidgets.QFrame(self.graphics_frame)
@@ -3948,37 +3955,35 @@ class Ui_Widget(object):
         self.grafico1_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.grafico1_4.setObjectName("grafico1_4")
         self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.grafico1_4)
-        self.verticalLayout_36.setContentsMargins(9, -1, 9, 10)
-        self.verticalLayout_36.setSpacing(9)
+        self.verticalLayout_36.setContentsMargins(15, 9, 15, 5)
+        self.verticalLayout_36.setSpacing(5)
         self.verticalLayout_36.setObjectName("verticalLayout_36")
-        self.title_graphs_fiber = QtWidgets.QLabel(self.grafico1_4)
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(63)
-        self.title_graphs_fiber.setFont(font)
-        self.title_graphs_fiber.setStyleSheet("background: transparent;\n"
-                                              "font: 500 14pt \"Ubuntu\";")
-        self.title_graphs_fiber.setAlignment(QtCore.Qt.AlignCenter)
-        self.title_graphs_fiber.setObjectName("title_graphs_fiber")
-        self.verticalLayout_36.addWidget(self.title_graphs_fiber)
-        self.graphicsView_fiber = QtWidgets.QGraphicsView(self.grafico1_4)
+        
+        self.frame_graphs = QtWidgets.QFrame(self.grafico1_4)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
-            self.graphicsView_fiber.sizePolicy().hasHeightForWidth())
-        self.graphicsView_fiber.setSizePolicy(sizePolicy)
-        self.graphicsView_fiber.setStyleSheet("\n"
-                                              "    border-style: outset;\n"
-                                              "border-color: rgb(53, 132, 228);\n"
-                                              "    border-width: 2px;\n"
-                                              "    border-radius:10px;")
-        self.graphicsView_fiber.setObjectName("graphicsView_fiber")
-        self.verticalLayout_36.addWidget(self.graphicsView_fiber)
+            self.frame_graphs.sizePolicy().hasHeightForWidth())
+        self.frame_graphs.setSizePolicy(sizePolicy)
+        self.frame_graphs.setStyleSheet("QFrame{border: 2px solid;\n"
+                                        "border-color: rgb(0, 75, 150);\n"
+                                        "font: 700 12pt \"Ubuntu\";\n"
+                                        "border-radius:10px;\n}"
+                                        "QLabel{"
+                                            "border: none"
+                                            "}")
+        self.frame_graphs.setObjectName("frame_graphs")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.frame_graphs)
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.verticalLayout_12.setContentsMargins(2, 2, 2, 2)
+        self.layout_graphs = QtWidgets.QVBoxLayout()
+        self.layout_graphs.setObjectName(u"layout_graphs")
+
+        self.verticalLayout_12.addLayout(self.layout_graphs)
+        self.verticalLayout_36.addWidget(self.frame_graphs)
 
         self.horizontalLayout_53 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_53.setSpacing(0)
@@ -3988,26 +3993,32 @@ class Ui_Widget(object):
 
         self.horizontalLayout_53.addItem(self.horizontalSpacer_98)
 
-        self.btn_save_graph_4 = QtWidgets.QPushButton(self.grafico1_4)
-        self.btn_save_graph_4.setObjectName(u"btn_save_graph_4")
-        self.btn_save_graph_4.setMinimumSize(QtCore.QSize(90, 25))
-        self.btn_save_graph_4.setMaximumSize(QtCore.QSize(120, 25))
-        self.btn_save_graph_4.setStyleSheet(u"QPushButton{\n"
-                                            "font: 400 11pt \"Ubuntu\";\n"
-                                            "	color: rgb(255, 255,255);\n"
-                                            "	background-color: rgba(0, 130, 180,160);\n"
-                                            "	border-color: rgba(0, 100, 130,160);\n"
-                                            "	border-width: 2px;\n"
-                                            "	border-radius:10px;\n"
-                                            "}\n"
-                                            "\n"
-                                            "QPushButton:hover{\n"
-                                            "	background-color: rgb(0, 130, 180);\n"
-                                            "	width: 40;\n"
-                                            "	height: 35;\n"
-                                            "}")
-
-        self.horizontalLayout_53.addWidget(self.btn_save_graph_4)
+        self.btn_edit_layers_3 = QtWidgets.QPushButton(self.grafico1_4)
+        sizePolicy = QtWidgets.QSizePolicy( QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+        self.btn_edit_layers_3.sizePolicy().hasHeightForWidth())
+        self.btn_edit_layers_3.setSizePolicy(sizePolicy)
+        self.btn_edit_layers_3.setMinimumSize(QtCore.QSize(100, 25))
+        self.btn_edit_layers_3.setMaximumSize(QtCore.QSize(120, 25))
+        self.btn_edit_layers_3.setStyleSheet(u"QPushButton{\n"
+                                             "	font: 400 11pt \"Ubuntu\";\n"
+                                             "	color: rgb(255, 255,255);\n"
+                                             "		background-color: rgba(0, 130, 180,160);\n"
+                                             "	border-color: rgba(0, 100, 130,160);\n"
+                                             "	border-width: 2px;\n"
+                                             "	border-radius:10px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QPushButton:hover{\n"
+                                             "	background-color: rgb(200, 200, 70);\n"
+	                                         "  border-color: rgb(0, 120, 40);"
+                                             "	width: 40;\n"
+                                             "	height: 35;\n"
+                                             "}")
+        self.btn_edit_layers_3.setObjectName("btn_edit_layers_3")
+        self.horizontalLayout_53.addWidget(self.btn_edit_layers_3)
 
         self.horizontalSpacer_99 = QtWidgets.QSpacerItem(
             40, 0, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
@@ -4040,20 +4051,20 @@ class Ui_Widget(object):
 
         self.horizontalLayout_53.addItem(self.horizontalSpacer_2)
 
-        self.select_chart = QtWidgets.QComboBox(self.grafico1_4)
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.addItem("")
-        self.select_chart.setObjectName(u"select_chart")
-        self.select_chart.setMinimumSize(QtCore.QSize(180, 0))
-        self.select_chart.setStyleSheet(u"QComboBox::drop-down {\n"
+        self.select_graphs = QtWidgets.QComboBox(self.grafico1_4)
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.setObjectName(u"select_graphs")
+        self.select_graphs.setMinimumSize(QtCore.QSize(180, 0))
+        self.select_graphs.setStyleSheet(u"QComboBox::drop-down {\n"
                                         "    width: 25;\n"
                                         "    border-left-width: 1px;\n"
                                         "    border-left-color: darkgray;\n"
@@ -4078,7 +4089,7 @@ class Ui_Widget(object):
                                         "    left: 1px;\n"
                                         "}")
 
-        self.horizontalLayout_53.addWidget(self.select_chart)
+        self.horizontalLayout_53.addWidget(self.select_graphs)
 
         self.horizontalSpacer_100 = QtWidgets.QSpacerItem(
             14, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -4086,112 +4097,21 @@ class Ui_Widget(object):
         self.horizontalLayout_53.addItem(self.horizontalSpacer_100)
 
         self.verticalLayout_36.addLayout(self.horizontalLayout_53)
-        self.tableWidget_graph = QtWidgets.QTableWidget(self.grafico1_4)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.tableWidget_graph.sizePolicy().hasHeightForWidth())
-        self.tableWidget_graph.setSizePolicy(sizePolicy)
-        self.tableWidget_graph.setMinimumSize(QtCore.QSize(400, 150))
-        self.tableWidget_graph.setStyleSheet("font: 700 10pt \"Ubuntu\";")
-        self.tableWidget_graph.setSizeAdjustPolicy(
-            QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.tableWidget_graph.setEditTriggers(
-            QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.tableWidget_graph.setVerticalScrollMode(
-            QtWidgets.QAbstractItemView.ScrollPerPixel)
-        self.tableWidget_graph.setHorizontalScrollMode(
-            QtWidgets.QAbstractItemView.ScrollPerPixel)
-        self.tableWidget_graph.setWordWrap(True)
-        self.tableWidget_graph.setObjectName("tableWidget_graph")
-        self.tableWidget_graph.setColumnCount(4)
-        self.tableWidget_graph.setRowCount(4)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setVerticalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setVerticalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_graph.setHorizontalHeaderItem(3, item)
+        self.textBrowser = QtWidgets.QTextBrowser(self.grafico1_4)
+        self.textBrowser.setObjectName(u"textBrowser")
+        sizePolicy12 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy12.setHorizontalStretch(0)
+        sizePolicy12.setVerticalStretch(0)
+        sizePolicy12.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
+        self.textBrowser.setSizePolicy(sizePolicy12)
+        self.textBrowser.setMaximumSize(QtCore.QSize(16777215, 60))
+        self.textBrowser.setStyleSheet(u"QFrame{border: 2px solid;\n"
+                                        "border-color: rgb(0, 75, 150);\n"
+                                        "border-radius:10px;}\n"
+                                        "")
 
-        self.tableWidget_graph.horizontalHeader().setStretchLastSection(False)
-        self.verticalLayout_36.addWidget(
-            self.tableWidget_graph, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
-        self.horizontalLayout_54 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_54.setObjectName("horizontalLayout_54")
-        spacerItem71 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_54.addItem(spacerItem71)
-        self.btn_edit_layers_3 = QtWidgets.QPushButton(self.grafico1_4)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_edit_layers_3.sizePolicy().hasHeightForWidth())
-        self.btn_edit_layers_3.setSizePolicy(sizePolicy)
-        self.btn_edit_layers_3.setMinimumSize(QtCore.QSize(60, 30))
-        self.btn_edit_layers_3.setStyleSheet("QPushButton{\n"
-                                             "    font: 400 11pt \"Ubuntu\";\n"
-                                             "    color: rgb(255, 255,255);\n"
-                                             "    background-color: rgb(0, 130, 180);\n"
-                                             "    border-color: rgb(0, 100, 130);\n"
-                                             "    border-width: 2px;\n"
-                                             "    border-radius:10px;\n"
-                                             "}\n"
-                                             "\n"
-                                             "QPushButton:hover{\n"
-                                             "    background-color: rgb(200, 200, 70);\n"
-                                             "    border-color: rgb(0, 120, 40);\n"
-                                             "    width: 40;\n"
-                                             "    height: 35;\n"
-                                             "}")
-        self.btn_edit_layers_3.setObjectName("btn_edit_layers_3")
-        self.horizontalLayout_54.addWidget(self.btn_edit_layers_3)
-        spacerItem72 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_54.addItem(spacerItem72)
-        self.btn_save_table_3 = QtWidgets.QPushButton(self.grafico1_4)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_save_table_3.sizePolicy().hasHeightForWidth())
-        self.btn_save_table_3.setSizePolicy(sizePolicy)
-        self.btn_save_table_3.setMinimumSize(QtCore.QSize(100, 30))
-        self.btn_save_table_3.setStyleSheet("QPushButton{\n"
-                                            "    font: 400 11pt \"Ubuntu\";\n"
-                                            "    color: rgb(255, 255,255);\n"
-                                            "    background-color: rgb(0, 130, 180);\n"
-                                            "    border-color: rgb(0, 100, 130);\n"
-                                            "    border-width: 2px;\n"
-                                            "    border-radius:10px;\n"
-                                            "}\n"
-                                            "\n"
-                                            "QPushButton:hover{\n"
-                                            "    background-color: rgb(00, 140, 70);\n"
-                                            "    border-color: rgb(0, 120, 40);\n"
-                                            "    width: 40;\n"
-                                            "    height: 35;\n"
-                                            "}")
-        self.btn_save_table_3.setObjectName("btn_save_table_3")
-        self.horizontalLayout_54.addWidget(self.btn_save_table_3)
-        spacerItem73 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_54.addItem(spacerItem73)
-        self.verticalLayout_36.addLayout(self.horizontalLayout_54)
+        self.verticalLayout_36.addWidget(self.textBrowser)
+        
         self.verticalLayout_35.addWidget(self.grafico1_4)
 
         self.label_warning = QtWidgets.QLabel(self.graphics_frame)
@@ -4207,17 +4127,17 @@ class Ui_Widget(object):
         spacerItem74 = QtWidgets.QSpacerItem(
             14, 23, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_55.addItem(spacerItem74)
-        self.btn_run_4 = QtWidgets.QPushButton(self.graphics_frame)
+        self.btn_run = QtWidgets.QPushButton(self.graphics_frame)
         sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
-            self.btn_run_4.sizePolicy().hasHeightForWidth())
-        self.btn_run_4.setSizePolicy(sizePolicy)
-        self.btn_run_4.setMinimumSize(QtCore.QSize(200, 35))
-        self.btn_run_4.setMaximumSize(QtCore.QSize(250, 40))
-        self.btn_run_4.setStyleSheet("QPushButton{\n"
+            self.btn_run.sizePolicy().hasHeightForWidth())
+        self.btn_run.setSizePolicy(sizePolicy)
+        self.btn_run.setMinimumSize(QtCore.QSize(200, 35))
+        self.btn_run.setMaximumSize(QtCore.QSize(250, 35))
+        self.btn_run.setStyleSheet("QPushButton{\n"
                                      "    \n"
                                      "    font: 400 14pt \"Ubuntu\";\n"
                                      "    color: rgb(255, 255,255);\n"
@@ -4233,10 +4153,10 @@ class Ui_Widget(object):
                                      "    border-color: rgb(0, 120, 40);\n"
                                      "\n"
                                      "}")
-        self.btn_run_4.setIcon(icon3)
-        self.btn_run_4.setIconSize(QtCore.QSize(20, 20))
-        self.btn_run_4.setObjectName("btn_run_4")
-        self.horizontalLayout_55.addWidget(self.btn_run_4)
+        self.btn_run.setIcon(icon3)
+        self.btn_run.setIconSize(QtCore.QSize(20, 20))
+        self.btn_run.setObjectName("btn_run_4")
+        self.horizontalLayout_55.addWidget(self.btn_run)
         spacerItem75 = QtWidgets.QSpacerItem(
             14, 23, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_55.addItem(spacerItem75)
@@ -4257,7 +4177,7 @@ class Ui_Widget(object):
         self.frame_next_previous_8.setObjectName("frame_next_previous_8")
         self.horizontalLayout_48 = QtWidgets.QHBoxLayout(
             self.frame_next_previous_8)
-        self.horizontalLayout_48.setContentsMargins(20, 6, 20, 6)
+        self.horizontalLayout_48.setContentsMargins(20, 5, 20, 5)
         self.horizontalLayout_48.setSpacing(5)
         self.horizontalLayout_48.setObjectName("horizontalLayout_48")
         self.prev_btn_config_aim_4 = QtWidgets.QPushButton(
@@ -4364,24 +4284,26 @@ class Ui_Widget(object):
         self.gb_layers.setTitle(_translate("Widget", u"Layers", None))
         self.btn_new_layer.setText(_translate("Widget", u"New layer", None))
         self.label_11.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material*:</span></p></body></html>", None))
         self.btn_add_layer.setText(_translate("Widget", u"Add Layer", None))
         self.thickness.setPlaceholderText(
             _translate("Widget", u"Thickness (nm)", None))
         self.label_12.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm):</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm)*:</span></p></body></html>", None))
         
         self.label_7.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index - Real part:</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index - Real part*:</span></p></body></html>", None))
         self.label_9.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index - Imaginary part:</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index - Imaginary part*:</span></p></body></html>", None))
         self.warning.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\"font-weight:500; color:#ffff00;\">- Warning -</span></p></body></html>", None))
-        self.real_part_index.setPlaceholderText(
-            _translate("Widget", u"Real", None))
-        self.imaginary_part_index.setPlaceholderText(
-            _translate("Widget", u"Imaginary", None))
+        self.real_part_index.setPlaceholderText(_translate("Widget", u"Real", None))
+        self.imaginary_part_index.setPlaceholderText( _translate("Widget", u"Imaginary", None))
         self.label_description.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
+        self.description.setPlaceholderText(_translate("Widget", u"Optional", None))
+        self.description_2.setPlaceholderText(_translate("Widget", u"Optional", None))
+        self.description_3.setPlaceholderText(_translate("Widget", u"Optional", None))
+        self.description_4.setPlaceholderText(_translate("Widget", u"Optional", None))
         
         self.gb_analyte.setTitle(_translate(
             "Widget", u"Analyte refractive index range", None))
@@ -4399,10 +4321,14 @@ class Ui_Widget(object):
         self.gb_layers_2.setTitle(_translate("Widget", u"Layers", None))
 
         self.label_14.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material*:</span></p></body></html>", None))
         self.label_13.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm):</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm)*:</span></p></body></html>", None))
         self.thickness_2.setPlaceholderText(
+            _translate("Widget", u"Thickness (nm)", None))
+        self.label_30.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm)*:</span></p></body></html>", None))
+        self.thickness_4.setPlaceholderText(
             _translate("Widget", u"Thickness (nm)", None))
         self.btn_new_layer_2.setText(_translate("Widget", u"New layer", None))
         self.btn_add_layer_2.setText(_translate("Widget", u"Add Layer", None))
@@ -4422,18 +4348,18 @@ class Ui_Widget(object):
         self.label_17.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index step:</span></p></body></html>", None))
         self.doubleSpinBox_5.setSuffix(_translate("Widget", u" RIU", None))
-        self.warning_4.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" font-weight:500; color:#ffff00;\">- Warning -</span></p></body></html>", None))
-        self.title_graphs_fiber_4.setText(_translate(
+        self.label_29.setText(_translate(
+            "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Thickness (nm)*:</span></p></body></html>", None))
+        self.thickness_3.setPlaceholderText( _translate("Widget", u"Thickness (nm)", None))
+
+        self.title_instructions.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" font-family:'inherit';\">Layers of structure</span></p></body></html>", None))
-        self.btn_save_graph_7.setText(
-            _translate("Widget", u"Save figure", None))
         ___qtablewidgetitem = self.tableWidget_layers.horizontalHeaderItem(3)
         ___qtablewidgetitem.setText(_translate("Widget", u"Description", None))
         ___qtablewidgetitem1 = self.tableWidget_layers.horizontalHeaderItem(0)
         ___qtablewidgetitem1.setText(_translate("Widget", u"Material", None))
         ___qtablewidgetitem2 = self.tableWidget_layers.horizontalHeaderItem(1)
-        ___qtablewidgetitem2.setText(_translate("Widget", u"Thickness", None))
+        ___qtablewidgetitem2.setText(_translate("Widget", u"Thickness (nm)", None))
         ___qtablewidgetitem3 = self.tableWidget_layers.horizontalHeaderItem(2)
         ___qtablewidgetitem3.setText(
             _translate("Widget", u"Refract. Index", None))
@@ -4514,45 +4440,31 @@ class Ui_Widget(object):
         
         self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#b41414;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
         
-        self.title_graphs_fiber.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" color:#000000;\">Reflectance vs Wavelength</span></p></body></html>", None))
-        self.btn_save_graph_4.setText(
-            _translate("Widget", u"Save figure", None))
         self.btn_export_data_4.setText(
             _translate("Widget", u"Export data", None))
-        self.select_chart.setItemText(0, _translate(
+        self.select_graphs.setItemText(0, _translate(
             "Widget", u"Reflectance - TM", None))
-        self.select_chart.setItemText(1, _translate(
+        self.select_graphs.setItemText(1, _translate(
             "Widget", u"Reflectance - TE", None))
-        self.select_chart.setItemText(
+        self.select_graphs.setItemText(
             2, _translate("Widget", u"FWHM - TM", None))
-        self.select_chart.setItemText(
+        self.select_graphs.setItemText(
             3, _translate("Widget", u"FWHM - TE", None))
-        self.select_chart.setItemText(4, _translate(
+        self.select_graphs.setItemText(4, _translate(
             "Widget", u"Reflectance vs. Analyte - TM", None))
-        self.select_chart.setItemText(5, _translate(
+        self.select_graphs.setItemText(5, _translate(
             "Widget", u"Reflectance vs. Analyte - TE", None))
-        self.select_chart.setItemText(6, _translate(
+        self.select_graphs.setItemText(6, _translate(
             "Widget", u"Sensibility - TM", None))
-        self.select_chart.setItemText(7, _translate(
+        self.select_graphs.setItemText(7, _translate(
             "Widget", u"Sensibility - TE", None))
-        self.select_chart.setItemText(8, _translate(
+        self.select_graphs.setItemText(8, _translate(
             "Widget", u"Quality Factor - TM", None))
-        self.select_chart.setItemText(9, _translate(
+        self.select_graphs.setItemText(9, _translate(
             "Widget", u"Quality Factor - TE", None))
 
-        ___qtablewidgetitem4 = self.tableWidget_graph.horizontalHeaderItem(3)
-        ___qtablewidgetitem4.setText(_translate("Widget", u"Description", None))
-        ___qtablewidgetitem5 = self.tableWidget_graph.horizontalHeaderItem(0)
-        ___qtablewidgetitem5.setText(_translate("Widget", u"Material", None))
-        ___qtablewidgetitem6 = self.tableWidget_graph.horizontalHeaderItem(1)
-        ___qtablewidgetitem6.setText(_translate("Widget", u"Thickness", None))
-        ___qtablewidgetitem7 = self.tableWidget_graph.horizontalHeaderItem(2)
-        ___qtablewidgetitem7.setText(
-            _translate("Widget", u"Refract. Index", None))
-        self.btn_edit_layers_3.setText(_translate("Widget", u"Edit", None))
-        self.btn_save_table_3.setText(_translate("Widget", u"Save table", None))
-        self.btn_run_4.setText(_translate("Widget", u"Run", None))
+        self.btn_edit_layers_3.setText(_translate("Widget", u"Edit layers", None))
+        self.btn_run.setText(_translate("Widget", u"Run", None))
         self.prev_btn_config_aim_4.setText(
             _translate("Widget", u" Previous", None))
         self.label_footer.setText(_translate(
