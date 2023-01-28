@@ -20,6 +20,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.layers = list() # Layer list
         self.d = list () # Thickness
         self.material = list()  # List with the materials of each layer
+        self.material_id = list()  # List with the materials id of each layer
         self.indexRef = list()  # List with refractive index of each layer
         self.index_ref_analyte = list()  # List with analyte refraction indices for graph plotting
         self.critical_point = list()
@@ -112,12 +113,12 @@ class MainWindow(QWidget, Ui_Widget):
 
         ## Enable insertion of new layers
         self.btn_new_layer.clicked.connect(self.set_Enable_True)
-        self.btn_new_layer.clicked.connect(self.set_RefractiveIndex)   
+        self.btn_new_layer.clicked.connect(lambda: self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9))   
         self.btn_add_analyte.clicked.connect(self.set_Enable_False)
         self.btn_add_layer.clicked.connect(self.set_Enable_False_2)
-        self.cbox_material.currentTextChanged.connect(self.set_RefractiveIndex)
-        self.lambda_i_slider.valueChanged.connect(self.set_RefractiveIndex)
-        self.lambda_i.valueChanged.connect(self.set_RefractiveIndex)
+        self.cbox_material.currentIndexChanged.connect(lambda: self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9))
+        self.lambda_i_slider.valueChanged.connect(lambda: self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9))
+        self.lambda_i.valueChanged.connect(lambda: self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9))
     
         self.btn_new_layer_2.clicked.connect(self.set_Enable_True)  
         self.btn_add_analyte_2.clicked.connect(self.set_Enable_False)
@@ -986,8 +987,7 @@ class MainWindow(QWidget, Ui_Widget):
                                          "}")
         self.btn_add_layer_2.setToolTip("Click in 'New layer' to enable")
 
-    def set_RefractiveIndex(self):
-        material = self.cbox_material.currentIndex()
+    def set_RefractiveIndex(self, material, lambda_i):
         
         if material == 19:
             self.real_part_index.setEnabled(True)
@@ -995,7 +995,7 @@ class MainWindow(QWidget, Ui_Widget):
             self.imaginary_part_index.setEnabled(True)
             self.imaginary_part_index.setText("")
         else:
-            wi = self.lambda_i.value() * 1e-9
+            wi = lambda_i 
             B1, B2, B3, C1, C2, C3, X, n, k_index = 0, 0, 0, 0, 0, 0, [], [], []  # Initialization of variables
             Lambda_i = wi * 1e6  # Incidence Wavelength in micrometers
             j = 0 + 1j
@@ -1161,6 +1161,7 @@ class MainWindow(QWidget, Ui_Widget):
                 refractiveIndex = str(complex(real, imag)).replace('(',' ').replace(')',' ')
                 
                 self.material.append(material)
+                self.material_id.append(self.cbox_material.currentIndex())
                 self.d.append(float(thickness)*1e-9)
                 self.indexRef.append(complex(real, imag))
 
@@ -1172,6 +1173,7 @@ class MainWindow(QWidget, Ui_Widget):
                 description = self.description_2.text()
                 
                 self.material.append(material)
+                self.material_id.append(self.cbox_material_2.currentIndex())
                 self.d.append(float(thickness)*1e-9)
                 self.indexRef.append(complex(0,0))
                 
@@ -1180,6 +1182,7 @@ class MainWindow(QWidget, Ui_Widget):
         except:
             self.warning.setHidden(False)
             self.material.pop(-1)
+            self.material_id.pop(-1)
             self.warning.setText("Fill in all required fields *")
         
         self.nLayers = len(self.layers)
@@ -1230,6 +1233,7 @@ class MainWindow(QWidget, Ui_Widget):
             refractiveIndex = f"{round(initial_index_analyte,4)} - {round(final_index_analyte,4)}" 
                         
             self.material.append("Analyte")
+            self.material_id.append(16)
             self.d.append(float(thickness)*1e-9)
             self.indexRef.append(complex(initial_index_analyte, 0))
             
@@ -1243,6 +1247,7 @@ class MainWindow(QWidget, Ui_Widget):
         except:
             self.warning.setHidden(False)
             self.material.pop(-1)
+            self.material_id.pop(-1)
             self.warning.setText("Fill in all required fields *")
         
         self.show_layers()
@@ -1279,6 +1284,7 @@ class MainWindow(QWidget, Ui_Widget):
                 if self.material[index_remove]=='Analyte':
                     self.index_ref_analyte.pop(-1)
                 self.material.pop(index_remove)
+                self.material_id.pop(index_remove)
                 self.d.pop(index_remove)
                 self.indexRef.pop(index_remove)
                 self.show_layers()
@@ -1345,7 +1351,11 @@ class MainWindow(QWidget, Ui_Widget):
         if interrogarion_mode == 1:
             self.reflectance_AIM()
             self.show_graphs()
-
+        else:
+            self.reflectance_WIM()
+            self.show_graphs()
+    
+    
     def reflectance_AIM(self):
         STEP = 0.01*(pi/180)
         lambda_i = self.lambda_i.value()*1E-9
@@ -1371,6 +1381,36 @@ class MainWindow(QWidget, Ui_Widget):
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
 
+    def reflectance_WIM(self):
+        STEP = 0.1*1E-9
+        theta_i = self.angle_incidence.value()*(pi/180)
+        a1 = self.a1_2.value()*1E-9
+        a2 = self.a2_2.value()*1E-9
+        lambda_i = arange(a1, a2, STEP)
+
+        for index_analyte in self.index_ref_analyte[0]:
+            layer_analyte = self.material.index('Analyte')
+
+            R_TM_i = []
+            R_TE_i = []
+
+            for t in range(len(lambda_i)):
+                self.indexRef = []  # Reset of refractive index for each wavelength
+
+                for m in range(self.nLayers):  # Calculation of the new refractive index for each material
+                    self.set_RefractiveIndex(self.material_id[m], lambda_i[t])
+                    real = float(self.real_part_index.text().replace(',','.'))
+                    imag = float(self.imaginary_part_index.text().replace(',','.'))
+                    self.indexRef.append(complex(real,imag))
+                self.indexRef[layer_analyte] = index_analyte
+                
+                r_tm, r_te = self.Reflectance(self.indexRef, theta_i, lambda_i[t])
+                R_TM_i.append(r_tm)
+                R_TE_i.append(r_te)
+            
+            self.Reflectance_TM.append(R_TM_i)
+            self.Reflectance_TE.append(R_TE_i)
+    
     def Reflectance(self, index, theta_i, wavelenght):
         """ The numerical model is based on the attenuated total reflection method combined with the transfer matrix
             method for a multilayer system according to:
@@ -1420,26 +1460,34 @@ class MainWindow(QWidget, Ui_Widget):
 
     def show_graphs(self):
         graph = self.select_graphs.currentText()
+        
+        if INTERROGATION_MODE == 1:
+            STEP = 0.01*(pi/180)
+            a1 = self.a1_3.value()*(pi/180) 
+            a2 = self.a2_3.value()*(pi/180) 
+            theta_i = arange(a1, a2, STEP)    
 
+            ax_x =  theta_i* (180 / pi) 
+        else:
+            STEP = 0.1*1E-9
+            a1 = self.a1_2.value()*1E-9
+            a2 = self.a2_2.value()*1E-9
+            lambda_i = arange(a1, a2, STEP)
+
+            ax_x = lambda_i*1E9
+
+        font=dict(size=6, family="Segoe UI")
+
+        plt.subplots_adjust(left=0.160,
+            bottom=0.180, 
+            right=0.920, 
+            top=0.900, 
+            wspace=0.2, 
+            hspace=0.2)
+        
         match graph:
             case "Reflectance - TM":
                 self.figure.clear()
-                
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
-
-                font=dict(size=6, family="Segoe UI")
-
-                plt.subplots_adjust(left=0.160,
-                    bottom=0.180, 
-                    right=0.920, 
-                    top=0.900, 
-                    wspace=0.2, 
-                    hspace=0.2)
                 plt.plot(ax_x, (self.Reflectance_TM[0]))
                 plt.title("Reflectance vs Angle of incidence - TM-polarization", pad=6, fontsize=6)
                 plt.grid(True)
@@ -1453,30 +1501,21 @@ class MainWindow(QWidget, Ui_Widget):
             case "Reflectance - TE":
                 
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
-                plt.title("TE-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
+                
+                plt.plot(ax_x, (self.Reflectance_TE[0]))
+                plt.title("Reflectance vs Angle of incidence - TE-polarization", pad=6, fontsize=6)
+                plt.grid(True)
+                plt.xlabel('Incidence Angle (°)', fontdict=font)
+                plt.ylabel('Reflectance', fontdict=font)
+                plt.yticks(arange(0, 1.20, 0.20), fontsize=6 )
+                plt.xticks(fontsize=6)
                 
                 self.canvas.draw()
             
             case "FWHM - TM":
                 
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
+                   
                 plt.title("TM-polarization")
                 plt.xlabel('Incidence Angle (°)')
                 plt.ylabel('Reflectivity')
@@ -1487,13 +1526,7 @@ class MainWindow(QWidget, Ui_Widget):
             case "FWHM - TE":
                 
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
+               
                 plt.title("TE-polarization")
                 plt.xlabel('Incidence Angle (°)')
                 plt.ylabel('Reflectivity')
@@ -1504,47 +1537,43 @@ class MainWindow(QWidget, Ui_Widget):
             case "Reflectance vs. Analyte - TM":
                
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
-                plt.title("TM-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
-
+                
+                legend = list()
+                for i in range(len(self.index_ref_analyte[0])):
+                    plt.plot(ax_x, self.Reflectance_TM[i])
+                    legend.append(fr"{self.index_ref_analyte[0][i].real:.3f}")
+                plt.title("Reflectance vs. Analyte - TM-polarization", pad=6, fontsize=6)
+                plt.grid(True)
+                plt.legend(legend, fontsize=6)
+                plt.xlabel('Incidence Angle (°)', fontdict=font)
+                plt.ylabel('Reflectance', fontdict=font)
+                plt.yticks(arange(0, 1.20, 0.20), fontsize=6 )
+                plt.xticks(fontsize=6)
+                
                 self.canvas.draw()
             
             case "Reflectance vs. Analyte - TE":
                 
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
-                plt.title("TE-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
-
+                
+                legend = list()
+                for i in range(len(self.index_ref_analyte[0])):
+                    plt.plot(ax_x, self.Reflectance_TE[i])
+                    legend.append(fr"{self.index_ref_analyte[0][i].real:.3f}")
+                plt.title("Reflectance vs. Analyte - TE-polarization", pad=6, fontsize=6)
+                plt.grid(True)
+                plt.legend(legend, fontsize=6)
+                plt.xlabel('Incidence Angle (°)', fontdict=font)
+                plt.ylabel('Reflectance', fontdict=font)
+                plt.yticks(arange(0, 1.20, 0.20), fontsize=6 )
+                plt.xticks(fontsize=6)
+                
                 self.canvas.draw()
             
             case "Sensibility - TM":
                 
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
+    
                 plt.title("TM-polarization")
                 plt.xlabel('Incidence Angle (°)')
                 plt.ylabel('Reflectivity')
@@ -1556,12 +1585,7 @@ class MainWindow(QWidget, Ui_Widget):
                 
                 self.figure.clear()
                 plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
+               
                 plt.title("TE-polarization")
                 plt.xlabel('Incidence Angle (°)')
                 plt.ylabel('Reflectivity')
@@ -1572,13 +1596,8 @@ class MainWindow(QWidget, Ui_Widget):
             case "Quality Factor - TM":
                 
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
+                
+      
                 plt.title("TM-polarization")
                 plt.xlabel('Incidence Angle (°)')
                 plt.ylabel('Reflectivity')
@@ -1589,38 +1608,13 @@ class MainWindow(QWidget, Ui_Widget):
             case "Quality Factor - TE":
                 
                 self.figure.clear()
-                plt.grid()
-                STEP = 0.01*(pi/180)
-                a1 = self.a1_3.value()*(pi/180)
-                a2 = self.a2_3.value()*(pi/180)
-                theta_i = arange(a1, a2, STEP)    
-        
-                ax_x =  theta_i* (180 / pi) 
+               
                 plt.title("TE-polarization")
                 plt.xlabel('Incidence Angle (°)')
                 plt.ylabel('Reflectivity')
                 plt.yticks(arange(0, 1.20, 0.20))
 
                 self.canvas.draw()
-
-
-class Canvas_Reflec_TM(FigureCanvas, MainWindow):
-    def __init__(self):     
-        self.fig , self.ax = plt.subplots(1,dpi=200, figsize=(400, 250))
-        super().__init__(self.fig) 
-        self.ax.grid()
-
-        STEP = 0.01*(pi/180)
-        a1 = self.a1_3.value()*(pi/180)
-        a2 = self.a2_3.value()*(pi/180)
-        theta_i = arange(a1, a2, STEP)    
- 
-        ax_x =  theta_i* (180 / pi) 
-
-        plt.xlabel('Incidence Angle (°)')
-        plt.ylabel('Reflectivity')
-        plt.yticks(arange(0, 1.20, 0.20))
-        plt.plot(ax_x, (self.Reflectance_TM[0]))
 
 if __name__ == "__main__":
 
