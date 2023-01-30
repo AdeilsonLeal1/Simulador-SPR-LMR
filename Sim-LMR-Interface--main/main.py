@@ -9,6 +9,7 @@ from matplotlib.figure import Figure
 import icons_
 import sys
 import matplotlib.pyplot as plt
+import time
 
 
 COUPLING, INTERROGATION_MODE = 0, 0
@@ -18,14 +19,16 @@ class MainWindow(QWidget, Ui_Widget):
         ## Variables
         self.nLayers = 0 # Number of layers
         self.layers = list() # Layer list
-        self.d = list () # Thickness
+        self.d = list () # Thickness of layers 
         self.material = list()  # List with the materials of each layer
         self.material_id = list()  # List with the materials id of each layer
         self.indexRef = list()  # List with refractive index of each layer
         self.index_ref_analyte = list()  # List with analyte refraction indices for graph plotting
-        self.critical_point = list()
-        self.Reflectance_TM = list()
-        self.Reflectance_TE = list()
+        self.critical_point = list()     # threshold angle for Attenuated Total Reflection
+        self.Reflectance_TM = list()     # List with reflectance values for plotting multiple curves in TM polarization
+        self.Reflectance_TE = list()     # List with reflectance values for plotting multiple curves in TE polarization
+        self.Resonance_Point_TM = list()  # Resonance angle or resonance wavelength  on TM polarization
+        self.Resonance_Point_TE = list()  # Resonance angle or resonance wavelength  on TE polarization
 
         ## Application startup parameters
         super(MainWindow,self).__init__()
@@ -150,7 +153,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.a2_3.valueChanged.connect(lambda: self.change_range_slider(self.a1_3, self.a2_3, self.angular_range, self.warning_angular))
 
         ## Methods for displaying charts
-        self.btn_run.clicked.connect(lambda: self.start_simulation(INTERROGATION_MODE))
+        self.btn_run.clicked.connect(self.start_simulation)
         self.select_graphs.currentIndexChanged.connect(self.show_graphs)
     
     # APP FUNCTIONS     
@@ -175,16 +178,38 @@ class MainWindow(QWidget, Ui_Widget):
                     self.warning.setText(f"## Insert more than 3 layers ## \n  ## {self.nLayers} Layers ##")
                 else:
                     self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)
+
             else:
-                self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)       
+                self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)   
+                self.figure.clear()
+                self.canvas.draw()    
                 if op == 1: # AIM mode
                     self.stacked_layers.setCurrentIndex(0)
                     self.Stacked_config_mode.setCurrentIndex(2)
                     self.btn_config_WIM_fiber.setText("Configure AIM mode")
+                    self.textBrowser_2.setText("You have already selected PRISM coupling and ANGULAR INTERROGATION MODE."
+                                    "\n\nTo continue your simulation:\n"
+                                    "\n\t* Enter the operating wavelength in your simulation, in the 'Incident wavelength' field;"
+                                    "\n\t* Add at least 3 layers to build your sensor structure;"
+                                    "\n\t* In the 'Layers' field, add optical substrate layers, thin films and adhesion layers;"
+                                    "\n\t* Don't forget to add the analyte analysis range, in the 'Analyte refractive " "index range' field."
+                                    "\n\nIn the table below you can see the added layers.")
+                    self.textBrowser.setText("Select the analysis angular range in the 'Angular range' field;"
+                                            "\nClick the 'Run' button to start the calculations;"
+                                            "\nYou can choose which chart to view in the combobox below the chart area;")
                 else:   #WIM mode
                     self.stacked_layers.setCurrentIndex(1)
                     self.Stacked_config_mode.setCurrentIndex(1)
                     self.btn_config_WIM_fiber.setText("Configure WIM mode")
+                    self.textBrowser_2.setText("You have already selected PRISM coupling and WAVELENGTH INTERROGATION MODE."
+                                    "\n\nTo continue your simulation:\n"
+                                    "\n\t* Add at least 3 layers to build your sensor structure;"
+                                    "\n\t* In the 'Layers' field, add optical substrate layers, thin films and adhesion layers;"
+                                    "\n\t* Don't forget to add the analyte analysis range, in the 'Analyte refractive " "index range' field."
+                                    "\n\nIn the table below you can see the added layers.")
+                    self.textBrowser.setText("Select the wavelength range of the analysis in the 'Spectral range' field   and add the incidence angle in the 'Incidence angle' field;"
+                                            "\nClick the 'Run' button to start the calculations;"
+                                            "\nYou can choose which chart to view in the combobox below the chart area.")
             
     def previous_page(self):
         self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()-1)
@@ -1178,7 +1203,7 @@ class MainWindow(QWidget, Ui_Widget):
                 self.indexRef.append(complex(0,0))
                 
                 self.layers.append({"material": material, "thickness": thickness, "refractiveIndex": '-', "description": description })
-                    
+            
         except:
             self.warning.setHidden(False)
             self.material.pop(-1)
@@ -1343,19 +1368,19 @@ class MainWindow(QWidget, Ui_Widget):
             for column, data in enumerate(text):
                 self.tableWidget_layers.setItem(row, column, QtWidgets.QTableWidgetItem(str(text[f'{data}'])))
 
-
-    def start_simulation(self, interrogarion_mode):
+    def start_simulation(self):
         self.Reflectance_TM = []
         self.Reflectance_TE = []
+        self.Resonance_Point_TM = []
+        self.Resonance_Point_TE = []
         
-        if interrogarion_mode == 1:
+        if INTERROGATION_MODE == 1:
             self.reflectance_AIM()
             self.show_graphs()
         else:
             self.reflectance_WIM()
             self.show_graphs()
-    
-    
+     
     def reflectance_AIM(self):
         STEP = 0.01*(pi/180)
         lambda_i = self.lambda_i.value()*1E-9
@@ -1378,8 +1403,42 @@ class MainWindow(QWidget, Ui_Widget):
                 R_TM_i.append(r_tm)
                 R_TE_i.append(r_te)
                 
+
+            self.Resonance_Point_TM.append(self.Point_LMR(theta_i, R_TM_i))
+            self.Resonance_Point_TE.append(self.Point_LMR(theta_i, R_TE_i))
+            
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
+    
+    def Point_LMR(self,axis_x ,reflectance):
+        # The method self.Point_LMR() returns the resonance point of the curve
+        try:
+            id_min = reflectance.index(min(reflectance))  # Position of the minimum point of the curve
+
+            if INTERROGATION_MODE == 1:
+                min_point = axis_x[id_min] * (180 / pi)
+                critical_point = self.critical_point[-1]
+                # Checks if the minimum is before the critical point
+                if min_point > critical_point:
+                    resonance_point = min_point
+                else:  # It adjusts to be the next minimum after the critical angle
+                    lst = asarray(axis_x)
+                    idx = (abs(lst - (critical_point * pi / 180))).argmin()
+
+                    reflect_right_critical_point = reflectance[idx:-1]
+                    id_min = reflectance.index(min(reflect_right_critical_point))
+                    resonance_point = axis_x[id_min] * (180 / pi)
+
+                return resonance_point  # Returns the angle in degrees
+            else: 
+                return axis_x[id_min] * 1E9  # Returns the wavelength in nanometers
+        
+        except ValueError:
+            self.textBrowser.setText("---------------------- {!} ---------------------- "
+                  "\nThere is no resonance in the specified range."
+                  "\nGenerated value does not match the real value\n"
+                  "------------------------------------------------- ")
+            return -1 # Returns the angle in degrees
 
     def reflectance_WIM(self):
         STEP = 0.1*1E-9
@@ -1408,6 +1467,9 @@ class MainWindow(QWidget, Ui_Widget):
                 R_TM_i.append(r_tm)
                 R_TE_i.append(r_te)
             
+            self.Resonance_Point_TM.append(self.Point_LMR(lambda_i, R_TM_i))
+            self.Resonance_Point_TE.append(self.Point_LMR(lambda_i, R_TE_i))
+
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
     
@@ -1460,6 +1522,9 @@ class MainWindow(QWidget, Ui_Widget):
 
     def show_graphs(self):
         graph = self.select_graphs.currentText()
+        self.textBrowser.setText(f"\nPontos de ressonancia-TM polarization: {self.Resonance_Point_TM}"
+                                 f"\nPontos de ressonancia-TE polarization: {self.Resonance_Point_TE}"
+                                 )
         
         if INTERROGATION_MODE == 1:
             STEP = 0.01*(pi/180)
@@ -1480,7 +1545,7 @@ class MainWindow(QWidget, Ui_Widget):
 
         plt.subplots_adjust(left=0.160,
             bottom=0.180, 
-            right=0.920, 
+            right=0.930, 
             top=0.900, 
             wspace=0.2, 
             hspace=0.2)
@@ -1489,12 +1554,12 @@ class MainWindow(QWidget, Ui_Widget):
             case "Reflectance - TM":
                 self.figure.clear()
                 plt.plot(ax_x, (self.Reflectance_TM[0]))
-                plt.title("Reflectance vs Angle of incidence - TM-polarization", pad=6, fontsize=6)
+                plt.title("Reflectance vs Angle of incidence - TM-polarization", pad=4, fontdict=font)
                 plt.grid(True)
                 plt.xlabel('Incidence Angle (°)', fontdict=font)
                 plt.ylabel('Reflectance', fontdict=font)
-                plt.yticks(arange(0, 1.20, 0.20), fontsize=6 )
-                plt.xticks(fontsize=6)
+                plt.yticks(arange(0, 1.20, 0.20), fontsize=5)
+                plt.xticks(fontsize=5)
                 
                 self.canvas.draw()
 

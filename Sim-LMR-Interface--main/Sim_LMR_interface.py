@@ -2133,7 +2133,6 @@ class Ui_Widget(object):
         font.setFamily("Ubuntu")
         font.setPointSize(14)
         font.setBold(True)
-        font.setItalic(False)
         font.setWeight(63)
         self.title_instructions.setFont(font)
         self.title_instructions.setStyleSheet("background: transparent;\n"
@@ -2150,12 +2149,22 @@ class Ui_Widget(object):
             self.frame.sizePolicy().hasHeightForWidth())
         self.frame.setSizePolicy(sizePolicy)
         self.frame.setStyleSheet("border-style: outset;\n"
-                                 "border-color: rgb(53, 132, 228);\n"
+                                 "border-color: rgb(0, 75, 150);\n"
                                  "border-width: 2px;\n"
                                  "border-radius:20px;")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.frame)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.textBrowser_2 = QtWidgets.QTextBrowser(self.frame)
+        self.textBrowser_2.setObjectName(u"textBrowser_2")
+        self.textBrowser_2.setTabStopDistance(20)
+        self.textBrowser_2.setStyleSheet(u"QTextBrowser{border:none;"
+                                            "font: 700 11pt \"Ubuntu\";\n"
+                                            "}")        
+        self.verticalLayout_13.addWidget(self.textBrowser_2)
+
         self.verticalLayout_56.addWidget(self.frame)
 
         self.tableWidget_layers = QtWidgets.QTableWidget(self.grafico1_7)
@@ -2179,16 +2188,8 @@ class Ui_Widget(object):
         self.tableWidget_layers.setWordWrap(True)
         self.tableWidget_layers.setObjectName("tableWidget_layers")
         self.tableWidget_layers.setColumnCount(4)
-        self.tableWidget_layers.setRowCount(4)
-        
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_layers.setVerticalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_layers.setVerticalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_layers.setVerticalHeaderItem(2, item) 
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_layers.setVerticalHeaderItem(3, item)
+       
+
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_layers.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -4104,10 +4105,12 @@ class Ui_Widget(object):
         sizePolicy12.setVerticalStretch(0)
         sizePolicy12.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
         self.textBrowser.setSizePolicy(sizePolicy12)
-        self.textBrowser.setMaximumSize(QtCore.QSize(16777215, 60))
+        self.textBrowser.setMaximumSize(QtCore.QSize(16777215, 80))
         self.textBrowser.setStyleSheet(u"QFrame{border: 2px solid;\n"
                                         "border-color: rgb(0, 75, 150);\n"
-                                        "border-radius:10px;}\n"
+                                        "border-radius:10px;\n"
+                                        "font: 700 11pt \"Ubuntu\";\n"
+                                        "color: rgb(0, 0, 0)}\n"
                                         "")
 
         self.verticalLayout_36.addWidget(self.textBrowser)
@@ -4353,7 +4356,7 @@ class Ui_Widget(object):
         self.thickness_3.setPlaceholderText( _translate("Widget", u"Thickness (nm)", None))
 
         self.title_instructions.setText(_translate(
-            "Widget", u"<html><head/><body><p><span style=\" font-family:'inherit';\">Layers of structure</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p><span style=\" font-family:'inherit';\">Instructions</span></p></body></html>", None))
         ___qtablewidgetitem = self.tableWidget_layers.horizontalHeaderItem(3)
         ___qtablewidgetitem.setText(_translate("Widget", u"Description", None))
         ___qtablewidgetitem1 = self.tableWidget_layers.horizontalHeaderItem(0)
