@@ -5,6 +5,7 @@ from numpy import *
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT
 from matplotlib.figure import Figure
+from matplotlib.patches import Polygon, Rectangle, Circle, Arrow
 
 import icons_
 import sys
@@ -29,15 +30,19 @@ class MainWindow(QWidget, Ui_Widget):
         self.Reflectance_TE = list()     # List with reflectance values for plotting multiple curves in TE polarization
         self.Resonance_Point_TM = list()  # Resonance angle or resonance wavelength  on TM polarization
         self.Resonance_Point_TE = list()  # Resonance angle or resonance wavelength  on TE polarization
+        self.sensibility_TM = list()  # List with Sensibility values in TM polarization
+        self.sensibility_TE = list()  # List with Sensibility values in TE polarization
 
-        ## Application startup parameters
+        ## Window initialization parameters
         super(MainWindow,self).__init__()
         self.setupUi(self)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.setWindowIcon(QtGui.QIcon('icons/LOGO.png'))
+        self.setWindowTitle("Sim-LMR")
         self.showMaximized()
 
-        # Figure
+        # Startup for graphics display
         self.figure = plt.figure(dpi=250)
         self.canvas = FigureCanvas(self.figure)
         self.toolbar = NavigationToolbar2QT(self.canvas, self)
@@ -48,7 +53,7 @@ class MainWindow(QWidget, Ui_Widget):
         ########################################################################
         self.Stacked_windows.setCurrentIndex(4)
         self.stacked_layers.setCurrentIndex(0)
-        self.Stacked_config_mode.setCurrentIndex(0)
+        self.Stacked_config_mode.setCurrentIndex(1)
 
         self.btn_close.clicked.connect(self.close)    # close window
         self.btn_minimize.clicked.connect(
@@ -1373,6 +1378,9 @@ class MainWindow(QWidget, Ui_Widget):
         self.Reflectance_TE = []
         self.Resonance_Point_TM = []
         self.Resonance_Point_TE = []
+        self.sensibility_TM = []
+        self.sensibility_TE = []
+        self.critical_point = []
         
         if INTERROGATION_MODE == 1:
             self.reflectance_AIM()
@@ -1392,8 +1400,8 @@ class MainWindow(QWidget, Ui_Widget):
             layer_analyte = self.material.index('Analyte')
             self.indexRef[layer_analyte] = index_analyte
 
-                # It calculates the critical angle of attenuated total reflection
-            self.critical_point.append(abs(arcsin(index_analyte / self.indexRef[0]) * (180 / pi)))
+            # It calculates the critical angle of attenuated total reflection
+            self.critical_point.append(round(abs(arcsin(index_analyte / self.indexRef[0]) * (180 / pi)), 3))
 
             R_TM_i = []
             R_TE_i = []
@@ -1404,11 +1412,39 @@ class MainWindow(QWidget, Ui_Widget):
                 R_TE_i.append(r_te)
                 
 
-            self.Resonance_Point_TM.append(self.Point_LMR(theta_i, R_TM_i))
-            self.Resonance_Point_TE.append(self.Point_LMR(theta_i, R_TE_i))
+            self.Resonance_Point_TM.append(round(self.Point_LMR(theta_i, R_TM_i), 3))
+            self.Resonance_Point_TE.append(round(self.Point_LMR(theta_i, R_TE_i), 3))
             
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
+
+            self.sensibility_graph(index_analyte,layer_analyte)
+        
+        self.indexRef[layer_analyte]=self.index_ref_analyte[0][0]
+
+    def sensibility_graph(self, index_analyte, layer_analyte):
+        # Sensibility obtained from the graph
+
+            # Resonance point variation
+        delta_X_TM = self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0]
+        delta_X_TE = self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0]
+
+            # Refractive index variation
+        delta_index = self.indexRef[layer_analyte].real - self.index_ref_analyte[0][0].real
+
+            # It calculates the angular sensitivity (Resonance point variation)/(Refractive index variation)
+        if index_analyte == self.index_ref_analyte[0][0]:
+                # The first interaction is initialized to zero because the ratio would be 0/0
+            self.sensibility_TM.append(0)
+            self.sensibility_TE.append(0)
+
+        else:
+                # Only after the second interaction is sensitivity considered.
+            self.sensibility_TM.append(delta_X_TM / delta_index)
+            self.sensibility_TE.append(delta_X_TE / delta_index)
+
+            self.sensibility_TM[0] = self.sensibility_TM[1]
+            self.sensibility_TE[0] = self.sensibility_TE[1]
     
     def Point_LMR(self,axis_x ,reflectance):
         # The method self.Point_LMR() returns the resonance point of the curve
@@ -1467,11 +1503,13 @@ class MainWindow(QWidget, Ui_Widget):
                 R_TM_i.append(r_tm)
                 R_TE_i.append(r_te)
             
-            self.Resonance_Point_TM.append(self.Point_LMR(lambda_i, R_TM_i))
-            self.Resonance_Point_TE.append(self.Point_LMR(lambda_i, R_TE_i))
+            self.Resonance_Point_TM.append(round(self.Point_LMR(lambda_i, R_TM_i), 3))
+            self.Resonance_Point_TE.append(round(self.Point_LMR(lambda_i, R_TE_i), 3))
 
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
+
+            self.sensibility_graph(index_analyte,layer_analyte)
     
     def Reflectance(self, index, theta_i, wavelenght):
         """ The numerical model is based on the attenuated total reflection method combined with the transfer matrix
@@ -1533,6 +1571,7 @@ class MainWindow(QWidget, Ui_Widget):
             theta_i = arange(a1, a2, STEP)    
 
             ax_x =  theta_i* (180 / pi) 
+            simbols = ("Angle", chr(952), "°")
         else:
             STEP = 0.1*1E-9
             a1 = self.a1_2.value()*1E-9
@@ -1540,23 +1579,29 @@ class MainWindow(QWidget, Ui_Widget):
             lambda_i = arange(a1, a2, STEP)
 
             ax_x = lambda_i*1E9
+            simbols = ("Wavelength", chr(955), "nm")
 
-        font=dict(size=6, family="Segoe UI")
+        font=dict(size=5, family="Sans-Serif")
+        plt.rc('font', **font)
 
         plt.subplots_adjust(left=0.160,
-            bottom=0.180, 
+            bottom=0.195, 
             right=0.930, 
-            top=0.900, 
-            wspace=0.2, 
+            top=0.950, 
+            wspace=0.1, 
             hspace=0.2)
         
         match graph:
             case "Reflectance - TM":
                 self.figure.clear()
+                if INTERROGATION_MODE == 1:
+                    text = f"{simbols[1]}$_C$ = {self.critical_point[0]:.4f} {simbols[2]}"
+                    x, y = self.Reflectance(self.indexRef, self.critical_point[0]*pi/180, self.lambda_i.value()*1E-9)
+                    plt.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
+                                   
                 plt.plot(ax_x, (self.Reflectance_TM[0]))
-                plt.title("Reflectance vs Angle of incidence - TM-polarization", pad=4, fontdict=font)
-                plt.grid(True)
-                plt.xlabel('Incidence Angle (°)', fontdict=font)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel(f'Incidence {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.ylabel('Reflectance', fontdict=font)
                 plt.yticks(arange(0, 1.20, 0.20), fontsize=5)
                 plt.xticks(fontsize=5)
@@ -1564,20 +1609,22 @@ class MainWindow(QWidget, Ui_Widget):
                 self.canvas.draw()
 
             case "Reflectance - TE":
-                
                 self.figure.clear()
+                if INTERROGATION_MODE == 1:
+                    text = f"{simbols[1]}$_C$ = {self.critical_point[0]:.4f} {simbols[2]}"
+                    x, y = self.Reflectance(self.indexRef, self.critical_point[0]*pi/180, self.lambda_i.value()*1E-9)
+                    plt.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
                 
                 plt.plot(ax_x, (self.Reflectance_TE[0]))
-                plt.title("Reflectance vs Angle of incidence - TE-polarization", pad=6, fontsize=6)
-                plt.grid(True)
-                plt.xlabel('Incidence Angle (°)', fontdict=font)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel(f'Incidence {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.ylabel('Reflectance', fontdict=font)
-                plt.yticks(arange(0, 1.20, 0.20), fontsize=6 )
-                plt.xticks(fontsize=6)
+                plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
+                plt.xticks(fontsize=5)
                 
                 self.canvas.draw()
             
-            case "FWHM - TM":
+            case "FWHM vs. Analyte - TM":
                 
                 self.figure.clear()
                    
@@ -1588,7 +1635,7 @@ class MainWindow(QWidget, Ui_Widget):
 
                 self.canvas.draw()
 
-            case "FWHM - TE":
+            case "FWHM vs. Analyte - TE":
                 
                 self.figure.clear()
                
@@ -1607,13 +1654,12 @@ class MainWindow(QWidget, Ui_Widget):
                 for i in range(len(self.index_ref_analyte[0])):
                     plt.plot(ax_x, self.Reflectance_TM[i])
                     legend.append(fr"{self.index_ref_analyte[0][i].real:.3f}")
-                plt.title("Reflectance vs. Analyte - TM-polarization", pad=6, fontsize=6)
-                plt.grid(True)
+                plt.grid(True, alpha=0.3)
                 plt.legend(legend, fontsize=6)
-                plt.xlabel('Incidence Angle (°)', fontdict=font)
+                plt.xlabel(f'Incidence {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.ylabel('Reflectance', fontdict=font)
-                plt.yticks(arange(0, 1.20, 0.20), fontsize=6 )
-                plt.xticks(fontsize=6)
+                plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
+                plt.xticks(fontsize=5)
                 
                 self.canvas.draw()
             
@@ -1625,36 +1671,84 @@ class MainWindow(QWidget, Ui_Widget):
                 for i in range(len(self.index_ref_analyte[0])):
                     plt.plot(ax_x, self.Reflectance_TE[i])
                     legend.append(fr"{self.index_ref_analyte[0][i].real:.3f}")
-                plt.title("Reflectance vs. Analyte - TE-polarization", pad=6, fontsize=6)
-                plt.grid(True)
+                plt.grid(True, alpha=0.3)
                 plt.legend(legend, fontsize=6)
-                plt.xlabel('Incidence Angle (°)', fontdict=font)
+                plt.xlabel(f'Incidence {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.ylabel('Reflectance', fontdict=font)
-                plt.yticks(arange(0, 1.20, 0.20), fontsize=6 )
-                plt.xticks(fontsize=6)
+                plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
+                plt.xticks(fontsize=5)
                 
                 self.canvas.draw()
             
-            case "Sensibility - TM":
-                
+            case "Resonance point vs. Analyte - TM":
                 self.figure.clear()
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
+
+                plt.plot(real(self.index_ref_analyte[0]), self.Resonance_Point_TM, '-o', markersize=3 )
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'Resonance {simbols[0]}', fontdict=font)
+                plt.yticks(self.Resonance_Point_TM, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
+                
+                self.canvas.draw()
+            
+            case   "Resonance point vs. Analyte - TE":
+                self.figure.clear()
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
+                
+                plt.plot(real(self.index_ref_analyte[0]), self.Resonance_Point_TE, '-o', markersize=3 )
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'Resonance {simbols[0]}', fontdict=font)
+                plt.yticks(self.Resonance_Point_TE, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
+                
+                self.canvas.draw()
+                      
+            case "Sensibility vs. Analyte - TM":
+                self.figure.clear()
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
     
-                plt.title("TM-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
+                plt.plot(real(self.index_ref_analyte[0]), self.sensibility_TM, '-o', markersize=3)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'Sensibility ({simbols[2]} RI$U^-$$^1$)', fontdict=font)
+                plt.yticks(self.sensibility_TM, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
 
                 self.canvas.draw()
             
-            case "Sensibility - TE":
-                
+            case "Sensibility vs. Analyte - TE":
                 self.figure.clear()
-                plt.grid()
-               
-                plt.title("TE-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
+                
+                plt.plot(real(self.index_ref_analyte[0]), self.sensibility_TE, '-o', markersize=3)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'Sensibility ({simbols[2]} RI$U^-$$^1$)', fontdict=font)
+                plt.yticks(self.sensibility_TE, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
 
                 self.canvas.draw()
             

@@ -2169,14 +2169,13 @@ class Ui_Widget(object):
 
         self.tableWidget_layers = QtWidgets.QTableWidget(self.grafico1_7)
         sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
             self.tableWidget_layers.sizePolicy().hasHeightForWidth())
         self.tableWidget_layers.setSizePolicy(sizePolicy)
-        self.tableWidget_layers.setMinimumSize(QtCore.QSize(550, 130))
-        self.tableWidget_layers.setMaximumSize(QtCore.QSize(16777215, 130))
+        self.tableWidget_layers.setMinimumSize(QtCore.QSize(550, 200))
         self.tableWidget_layers.setStyleSheet("font: 700 10pt \"Ubuntu\";")
         self.tableWidget_layers.horizontalHeader().setDefaultSectionSize(110)
         self.tableWidget_layers.setSizeAdjustPolicy(
@@ -3828,8 +3827,6 @@ class Ui_Widget(object):
         font = QtGui.QFont()
         font.setFamily("Ubuntu")
         font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
         font.setWeight(50)
         self.label_27.setFont(font)
         self.label_27.setStyleSheet("font: 14pt \"Ubuntu\";")
@@ -3849,7 +3846,6 @@ class Ui_Widget(object):
         font.setFamily("Ubuntu")
         font.setPointSize(12)
         font.setBold(True)
-        font.setItalic(False)
         font.setWeight(88)
         self.a2_3.setFont(font)
         self.a2_3.setStyleSheet("\n"
@@ -3968,13 +3964,52 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.frame_graphs.sizePolicy().hasHeightForWidth())
         self.frame_graphs.setSizePolicy(sizePolicy)
+        self.frame_graphs.setMaximumSize(QtCore.QSize(16777215, 520))
         self.frame_graphs.setStyleSheet("QFrame{border: 2px solid;\n"
-                                        "border-color: rgb(0, 75, 150);\n"
-                                        "font: 700 12pt \"Ubuntu\";\n"
-                                        "border-radius:10px;\n}"
+                                           "border-color: rgb(0, 75, 150);\n"
+                                            "font: 500 10pt \"Ubuntu\";\n"
+                                            "border-radius:10px;\n"
+                                            "background-color: rgba(60, 60, 60,50)}"
                                         "QLabel{"
-                                            "border: none"
-                                            "}")
+                                            "border: none;\n"
+                                            "background-color: transparent;"
+                                            "}\n"
+                                        "\n"
+                                        "QCheckBox{"
+                                            "border: none;\n"
+                                            "background-color: transparent;"
+                                            "}"
+                                        "QPushButton{\n"
+                                            "	color: rgb(0, 0, 0);\n"
+                                            "   border-style: outset;"
+                                            "   border: 8px solid;\n"
+                                            "   border-color: rgba(180, 180, 180,80);\n"
+                                            "	background-color: rgba(60, 60, 60,80);\n"
+                                            "}\n"
+                                            "\n"
+                                        "QPushButton:hover{\n"
+                                            "	background-color: rgb(200, 200, 200);\n"
+                                            "}"
+                                        "QLineEdit{"
+                                            "border: 2px solid;\n"
+                                            "border-color: #FF17365D;\n"
+                                            "background-color: rgba(255, 255, 255,210);\n"
+                                            "border-radius:4px;\n"
+                                        "}"
+                                        "QComboBox\n"
+                                            "{\n"
+                                            "padding: 1px 18px 1px 3px;\n"
+                                            "border: 2px solid;\n"
+                                            "border-color: #FF17365D;\n"
+                                            "background-color: rgba(255, 255, 255,210);\n"
+                                            "border-radius:4px;\n"
+                                            "}\n"
+                                         "QComboBox::down-arrow { /* shift the arrow when popup is open */\n"
+                                         "    top: 1px;\n"
+                                         "	  image: url(:/icons/icons/arrow-down.png);\n"
+                                         "    left: 1px;\n"
+                                         "}"
+                                        )
         self.frame_graphs.setObjectName("frame_graphs")
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.frame_graphs)
         self.verticalLayout_12.setSpacing(0)
@@ -4063,6 +4098,8 @@ class Ui_Widget(object):
         self.select_graphs.addItem("")
         self.select_graphs.addItem("")
         self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
+        self.select_graphs.addItem("")
         self.select_graphs.setObjectName(u"select_graphs")
         self.select_graphs.setMinimumSize(QtCore.QSize(180, 0))
         self.select_graphs.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -4100,12 +4137,11 @@ class Ui_Widget(object):
         self.verticalLayout_36.addLayout(self.horizontalLayout_53)
         self.textBrowser = QtWidgets.QTextBrowser(self.grafico1_4)
         self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy12 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy12 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy12.setHorizontalStretch(0)
         sizePolicy12.setVerticalStretch(0)
         sizePolicy12.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
         self.textBrowser.setSizePolicy(sizePolicy12)
-        self.textBrowser.setMaximumSize(QtCore.QSize(16777215, 80))
         self.textBrowser.setStyleSheet(u"QFrame{border: 2px solid;\n"
                                         "border-color: rgb(0, 75, 150);\n"
                                         "border-radius:10px;\n"
@@ -4138,8 +4174,7 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.btn_run.sizePolicy().hasHeightForWidth())
         self.btn_run.setSizePolicy(sizePolicy)
-        self.btn_run.setMinimumSize(QtCore.QSize(200, 35))
-        self.btn_run.setMaximumSize(QtCore.QSize(250, 35))
+        self.btn_run.setMinimumSize(QtCore.QSize(180, 32))
         self.btn_run.setStyleSheet("QPushButton{\n"
                                      "    \n"
                                      "    font: 400 14pt \"Ubuntu\";\n"
@@ -4443,28 +4478,19 @@ class Ui_Widget(object):
         
         self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#b41414;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
         
-        self.btn_export_data_4.setText(
-            _translate("Widget", u"Export data", None))
-        self.select_graphs.setItemText(0, _translate(
-            "Widget", u"Reflectance - TM", None))
-        self.select_graphs.setItemText(1, _translate(
-            "Widget", u"Reflectance - TE", None))
-        self.select_graphs.setItemText(
-            2, _translate("Widget", u"FWHM - TM", None))
-        self.select_graphs.setItemText(
-            3, _translate("Widget", u"FWHM - TE", None))
-        self.select_graphs.setItemText(4, _translate(
-            "Widget", u"Reflectance vs. Analyte - TM", None))
-        self.select_graphs.setItemText(5, _translate(
-            "Widget", u"Reflectance vs. Analyte - TE", None))
-        self.select_graphs.setItemText(6, _translate(
-            "Widget", u"Sensibility - TM", None))
-        self.select_graphs.setItemText(7, _translate(
-            "Widget", u"Sensibility - TE", None))
-        self.select_graphs.setItemText(8, _translate(
-            "Widget", u"Quality Factor - TM", None))
-        self.select_graphs.setItemText(9, _translate(
-            "Widget", u"Quality Factor - TE", None))
+        self.btn_export_data_4.setText( _translate("Widget", u"Export data", None))
+        self.select_graphs.setItemText(0, _translate("Widget", u"Reflectance - TM", None))
+        self.select_graphs.setItemText(1, _translate("Widget", u"Reflectance - TE", None))
+        self.select_graphs.setItemText(2, _translate("Widget", u"Reflectance vs. Analyte - TM", None))
+        self.select_graphs.setItemText(3, _translate("Widget", u"Reflectance vs. Analyte - TE", None))
+        self.select_graphs.setItemText(4, _translate("Widget", u"Resonance point vs. Analyte - TM", None))
+        self.select_graphs.setItemText(5, _translate("Widget", u"Resonance point vs. Analyte - TE", None))
+        self.select_graphs.setItemText(6, _translate("Widget", u"Sensibility vs. Analyte - TM", None))
+        self.select_graphs.setItemText(7, _translate("Widget", u"Sensibility vs. Analyte - TE", None))
+        self.select_graphs.setItemText(8, _translate("Widget", u"FWHM vs. Analyte - TM", None))
+        self.select_graphs.setItemText(9, _translate("Widget", u"FWHM vs. Analyte - TE", None))
+        self.select_graphs.setItemText(10, _translate("Widget", u"Quality Factor vs. Analyte - TM", None))
+        self.select_graphs.setItemText(11, _translate("Widget", u"Quality Factor vs. Analyte - TE", None))
 
         self.btn_edit_layers_3.setText(_translate("Widget", u"Edit layers", None))
         self.btn_run.setText(_translate("Widget", u"Run", None))
