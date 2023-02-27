@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget, QMessageBox
 from Sim_LMR_interface import Ui_Widget
 from numpy import *
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -121,6 +121,7 @@ class MainWindow(QWidget, Ui_Widget):
 
         ## Enable insertion of new layers
         self.btn_new_layer.clicked.connect(self.set_Enable_True)
+        self.btn_new_layer.clicked.connect(self.set_Enable_True_2)
         self.btn_new_layer.clicked.connect(lambda: self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9))   
         self.btn_add_analyte.clicked.connect(self.set_Enable_False)
         self.btn_add_layer.clicked.connect(self.set_Enable_False_2)
@@ -128,7 +129,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.lambda_i_slider.valueChanged.connect(lambda: self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9))
         self.lambda_i.valueChanged.connect(lambda: self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9))
     
-        self.btn_new_layer_2.clicked.connect(self.set_Enable_True)  
+        self.btn_new_layer_2.clicked.connect(self.set_Enable_True)
+        self.btn_new_layer_2.clicked.connect(self.set_Enable_True_2)  
         self.btn_add_analyte_2.clicked.connect(self.set_Enable_False)
         self.btn_add_layer_2.clicked.connect(self.set_Enable_False_2)
         
@@ -137,7 +139,6 @@ class MainWindow(QWidget, Ui_Widget):
         self.btn_add_analyte.clicked.connect(self.add_analyte)
         self.btn_add_layer_2.clicked.connect(self.add_layers)
         self.btn_add_analyte_2.clicked.connect(self.add_analyte)
-        self.btn_remove_layers.clicked.connect(self.remove_layers)
     
         # Geometry settings page buttons 
         self.prev_btn_config_aim_4.clicked.connect(self.previous_page)
@@ -161,6 +162,19 @@ class MainWindow(QWidget, Ui_Widget):
         self.btn_run.clicked.connect(self.start_simulation)
         self.select_graphs.currentIndexChanged.connect(self.show_graphs)
     
+        ## Remove and edit table
+        #self.tableWidget_layers.clicked.connect(self.select_row)
+        self.btn_remove_layers.clicked.connect(self.remove_layers)
+        self.btn_edit_layers.clicked.connect(self.select_edit_layer)
+        self.btn_confirm_edit.clicked.connect(self.edit_layer)
+        self.btn_confirm_edit.clicked.connect(self.set_Enable_False_2)
+        self.btn_confirm_edit_3.clicked.connect(self.edit_layer)
+        self.btn_confirm_edit_3.clicked.connect(self.set_Enable_False_2)
+        self.btn_confirm_edit_2.clicked.connect(self.edit_analyte)
+        self.btn_confirm_edit_2.clicked.connect(self.set_Enable_False)
+        self.btn_confirm_edit_4.clicked.connect(self.edit_analyte)
+        self.btn_confirm_edit_4.clicked.connect(self.set_Enable_False)
+
     # APP FUNCTIONS     
 
     def prism_btn_clicked(self):
@@ -231,10 +245,6 @@ class MainWindow(QWidget, Ui_Widget):
         INTERROGATION_MODE = 2
 
     def set_Enable_True(self):
-        # This enable the gb_analyte field  
-        self.gb_analyte.setEnabled(True)
-        self.gb_analyte.setToolTip("Analyte refractive index range")
-        
         # This enable the cbox_material field 
         self.cbox_material.setEnabled(True)
         self.cbox_material.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -290,6 +300,70 @@ class MainWindow(QWidget, Ui_Widget):
                                         "background-color: rgba(255, 255, 255,210);\n"
                                         "border-radius:10px;")
         self.description_3.setEnabled(True)
+
+        # This enable the cbox_material_2 field 
+        self.cbox_material_2.setEnabled(True)
+        self.cbox_material_2.setStyleSheet(u"QComboBox::drop-down {\n"
+                                         "    width: 25;\n"
+                                         "    border-left-width: 1px;\n"
+                                         "    border-left-color: darkgray;\n"
+                                         "    border-left-style: solid; /* just a single line */\n"
+                                         "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                         "    border-bottom-right-radius: 3px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QComboBox\n"
+                                         "{\n"
+                                         " padding: 1px 18px 1px 3px;\n"
+                                         "color: rgb(10, 25, 90);\n"
+                                         "font: 700 12pt \"Ubuntu\";\n"
+                                         "border: 2px solid;\n"
+                                         "border-color: #FF17365D;\n"
+                                         "background-color: rgba(255, 255, 255,210);\n"
+                                         "border-radius:10px;\n"
+                                         "}\n"
+                                         "QComboBox::down-arrow { /* shift the arrow when popup is open */\n"
+                                         "    top: 1px;\n"
+                                         "	image: url(:/icons/icons/arrow-down.png);\n"
+                                         "    left: 1px;\n"
+                                         "}")
+        self.thickness_2.setEnabled(True)
+        self.thickness_2.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+                                        "font: 700 12pt \"Ubuntu\";\n"
+                                        "border: 2px solid;\n"
+                                        "border-color: #FF17365D;\n"
+                                        "background-color: rgba(255, 255, 255,210);\n"
+                                        "border-radius:10px;")
+       
+        self.description_2.setEnabled(True)
+        self.description_2.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+                                        "font: 700 12pt \"Ubuntu\";\n"
+                                        "border: 2px solid;\n"
+                                        "border-color: #FF17365D;\n"
+                                        "background-color: rgba(255, 255, 255,210);\n"
+                                        "border-radius:10px;")
+
+        self.description_4.setEnabled(True)
+        self.description_4.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+                                        "font: 700 12pt \"Ubuntu\";\n"
+                                        "border: 2px solid;\n"
+                                        "border-color: #FF17365D;\n"
+                                        "background-color: rgba(255, 255, 255,210);\n"
+                                        "border-radius:10px;")
+        self.thickness_3.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+                                        "font: 700 12pt \"Ubuntu\";\n"
+                                        "border: 2px solid;\n"
+                                        "border-color: #FF17365D;\n"
+                                        "background-color: rgba(255, 255, 255,210);\n"
+                                        "border-radius:10px;")
+
+        self.warning.setHidden(True)
+        
+    def set_Enable_True_2(self):
+        # This enable the gb_analyte field  
+        self.gb_analyte.setEnabled(True)
+        self.gb_analyte.setToolTip("Analyte refractive index range")
+
         self.description_3.setStyleSheet(u"color: rgb(10, 25, 90);\n"
                                         "font: 700 12pt \"Ubuntu\";\n"
                                         "border: 2px solid;\n"
@@ -302,7 +376,7 @@ class MainWindow(QWidget, Ui_Widget):
                                         "border-color: #FF17365D;\n"
                                         "background-color: rgba(255, 255, 255,210);\n"
                                         "border-radius:10px;")
-
+        
         # This enable the btn_add_layer button 
         self.btn_add_layer.setEnabled(True)
         self.btn_add_layer.setToolTip("Add layer")
@@ -437,65 +511,7 @@ class MainWindow(QWidget, Ui_Widget):
 
          # This enable the gb_analyte_2 field  
         self.gb_analyte_2.setEnabled(True)
-        self.gb_analyte_2.setToolTip("Analyte refractive index range")
-        
-        # This enable the cbox_material_2 field 
-        self.cbox_material_2.setEnabled(True)
-        self.cbox_material_2.setStyleSheet(u"QComboBox::drop-down {\n"
-                                         "    width: 25;\n"
-                                         "    border-left-width: 1px;\n"
-                                         "    border-left-color: darkgray;\n"
-                                         "    border-left-style: solid; /* just a single line */\n"
-                                         "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
-                                         "    border-bottom-right-radius: 3px;\n"
-                                         "}\n"
-                                         "\n"
-                                         "QComboBox\n"
-                                         "{\n"
-                                         " padding: 1px 18px 1px 3px;\n"
-                                         "color: rgb(10, 25, 90);\n"
-                                         "font: 700 12pt \"Ubuntu\";\n"
-                                         "border: 2px solid;\n"
-                                         "border-color: #FF17365D;\n"
-                                         "background-color: rgba(255, 255, 255,210);\n"
-                                         "border-radius:10px;\n"
-                                         "}\n"
-                                         "QComboBox::down-arrow { /* shift the arrow when popup is open */\n"
-                                         "    top: 1px;\n"
-                                         "	image: url(:/icons/icons/arrow-down.png);\n"
-                                         "    left: 1px;\n"
-                                         "}")
-        self.thickness_2.setEnabled(True)
-        self.thickness_2.setStyleSheet(u"color: rgb(10, 25, 90);\n"
-                                        "font: 700 12pt \"Ubuntu\";\n"
-                                        "border: 2px solid;\n"
-                                        "border-color: #FF17365D;\n"
-                                        "background-color: rgba(255, 255, 255,210);\n"
-                                        "border-radius:10px;")
-       
-        self.description_2.setEnabled(True)
-        self.description_2.setStyleSheet(u"color: rgb(10, 25, 90);\n"
-                                        "font: 700 12pt \"Ubuntu\";\n"
-                                        "border: 2px solid;\n"
-                                        "border-color: #FF17365D;\n"
-                                        "background-color: rgba(255, 255, 255,210);\n"
-                                        "border-radius:10px;")
-
-        self.description_4.setEnabled(True)
-        self.description_4.setStyleSheet(u"color: rgb(10, 25, 90);\n"
-                                        "font: 700 12pt \"Ubuntu\";\n"
-                                        "border: 2px solid;\n"
-                                        "border-color: #FF17365D;\n"
-                                        "background-color: rgba(255, 255, 255,210);\n"
-                                        "border-radius:10px;")
-        self.thickness_3.setStyleSheet(u"color: rgb(10, 25, 90);\n"
-                                        "font: 700 12pt \"Ubuntu\";\n"
-                                        "border: 2px solid;\n"
-                                        "border-color: #FF17365D;\n"
-                                        "background-color: rgba(255, 255, 255,210);\n"
-                                        "border-radius:10px;")
-
-        # This enable the btn_add_layer_2 button 
+        self.gb_analyte_2.setToolTip("Analyte refractive index range")# This enable the btn_add_layer_2 button 
         self.btn_add_layer_2.setEnabled(True)
         self.btn_add_layer_2.setToolTip("Add layer")
         self.btn_add_layer_2.setStyleSheet(u"QPushButton{\n"
@@ -882,6 +898,23 @@ class MainWindow(QWidget, Ui_Widget):
                                      "background-color: rgba(255, 255, 255,210);\n"
                                      "border-radius:10px;")
 
+        #self.btn_add_analyte_2.setEnabled(False)
+        self.btn_confirm_edit_2.setStyleSheet(u"QPushButton{\n"
+                                           "	font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: #606060;\n"
+                                           "	border-color: rgb(0, 100, 130);\n"
+                                           "	border-width: 2px;\n"
+                                           "	border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background-color: rgb(00, 140, 70);\n"
+                                           "	border-color: rgb(0, 120, 40);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+
     def set_Enable_False_2(self):
         # This unenable the cbox_material field 
         self.cbox_material.setEnabled(False)
@@ -957,6 +990,23 @@ class MainWindow(QWidget, Ui_Widget):
                                          "}")
         self.btn_add_layer.setToolTip("Click in 'New layer' to enable")
         
+        self.btn_confirm_edit.setEnabled(False)
+        self.btn_confirm_edit.setStyleSheet(u"QPushButton{\n"
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: #606060;\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
+
         # This unenable the cbox_material_2 field
         self.cbox_material_2.setEnabled(False)
         self.cbox_material_2.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -1016,6 +1066,20 @@ class MainWindow(QWidget, Ui_Widget):
                                          "	height: 35;\n"
                                          "}")
         self.btn_add_layer_2.setToolTip("Click in 'New layer' to enable")
+
+        self.btn_new_layer.setEnabled(True)
+        self.btn_new_layer.setStyleSheet(u"QPushButton{\n"
+                                         "		font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: rgb(0, 70, 120);\n"
+                                         "	border-radius:6px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background: rgb(0, 0, 255);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
 
     def set_RefractiveIndex(self, material, lambda_i):
         
@@ -1243,6 +1307,23 @@ class MainWindow(QWidget, Ui_Widget):
                                              "	width: 40;\n"
                                              "	height: 35;\n"
                                              "}")
+            
+            self.btn_edit_layers.setEnabled(True)
+            self.btn_edit_layers.setStyleSheet(u"QPushButton{\n"
+                                             "	font: 400 11pt \"Ubuntu\";\n"
+                                             "	color: rgb(255, 255,255);\n"
+                                             "	background-color: rgb(0, 130, 180);\n"
+                                             "	border-color: rgb(0, 100, 130);\n"
+                                             "	border-width: 2px;\n"
+                                             "	border-radius:10px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QPushButton:hover{\n"
+                                             "	background-color: rgb(200, 200, 70);\n"
+                                             "	border-color: rgb(0, 120, 40);\n"
+                                             "	width: 40;\n"
+                                             "	height: 35;\n"
+                                             "}")
 
     def add_analyte(self):
         try:
@@ -1306,42 +1387,364 @@ class MainWindow(QWidget, Ui_Widget):
                                              "	height: 35;\n"
                                              "}")
 
-    def remove_layers(self):
-        if self.nLayers>=1:
-            try:
-                index_remove = self.tableWidget_layers.currentRow()
-                self.layers.pop(index_remove)
-                if self.material[index_remove]=='Analyte':
-                    self.index_ref_analyte.pop(-1)
-                self.material.pop(index_remove)
-                self.material_id.pop(index_remove)
-                self.d.pop(index_remove)
-                self.indexRef.pop(index_remove)
-                self.show_layers()
+            self.btn_edit_layers.setEnabled(True)
+            self.btn_edit_layers.setStyleSheet(u"QPushButton{\n"
+                                             "	font: 400 11pt \"Ubuntu\";\n"
+                                             "	color: rgb(255, 255,255);\n"
+                                             "	background-color: rgb(0, 130, 180);\n"
+                                             "	border-color: rgb(0, 100, 130);\n"
+                                             "	border-width: 2px;\n"
+                                             "	border-radius:10px;\n"
+                                             "}\n"
+                                             "\n"
+                                             "QPushButton:hover{\n"
+                                             "	background-color: rgb(200, 200, 70);\n"
+                                             "	border-color: rgb(0, 120, 40);\n"
+                                             "	width: 40;\n"
+                                             "	height: 35;\n"
+                                             "}")
 
-                self.nLayers = len(self.layers)
-            except:
-                self.warning.setHidden(False)
-                self.warning.setText(f"Select the layer to be deleted\n'indice da linha = {index_remove}'")
+    def remove_layers(self):
+        index_remove = self.tableWidget_layers.currentRow()
+        if index_remove>=0:
+            self.layers.pop(index_remove)
+            
+            if self.material[index_remove]=='Analyte':
+                self.index_ref_analyte.pop(-1)
+            
+            self.material.pop(index_remove)
+            self.material_id.pop(index_remove)
+            self.d.pop(index_remove)
+            self.indexRef.pop(index_remove)
+            self.show_layers()
+            self.nLayers = len(self.layers)
+            
+            if self.nLayers<1:
+                self.btn_remove_layers.setEnabled(False)
+                self.btn_remove_layers.setStyleSheet(u"QPushButton{\n"
+                                            "	font: 400 11pt \"Ubuntu\";\n"
+                                            "	color: rgb(255, 255,255);\n"
+                                            "	background-color: #606060;\n"
+                                            "	border-color: rgb(0, 100, 130);\n"
+                                            "	border-width: 2px;\n"
+                                            "	border-radius:10px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover{\n"
+                                            "	background-color: rgb(00, 140, 70);\n"
+                                            "	border-color: rgb(0, 120, 40);\n"
+                                            "	width: 40;\n"
+                                            "	height: 35;\n"
+                                            "}")
+                
+                self.btn_edit_layers.setEnabled(False)
+                self.btn_edit_layers.setStyleSheet(u"QPushButton{\n"
+                                            "	font: 400 11pt \"Ubuntu\";\n"
+                                            "	color: rgb(255, 255,255);\n"
+                                            "	background-color: #606060;\n"
+                                            "	border-color: rgb(0, 100, 130);\n"
+                                            "	border-width: 2px;\n"
+                                            "	border-radius:10px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover{\n"
+                                            "	background-color: rgb(00, 140, 70);\n"
+                                            "	border-color: rgb(0, 120, 40);\n"
+                                            "	width: 40;\n"
+                                            "	height: 35;\n"
+                                            "}")
         else:
-             self.warning.setText(f" Error! Check the layers\n ##")
-             self.btn_remove_layers.setEnabled(False)
-             self.btn_remove_layers.setStyleSheet(u"QPushButton{\n"
-                                         "	font: 400 11pt \"Ubuntu\";\n"
-                                         "	color: rgb(255, 255,255);\n"
-                                         "	background-color: #606060;\n"
-                                         "	border-color: rgb(0, 100, 130);\n"
-                                         "	border-width: 2px;\n"
-                                         "	border-radius:10px;\n"
-                                         "}\n"
-                                         "\n"
-                                         "QPushButton:hover{\n"
-                                         "	background-color: rgb(00, 140, 70);\n"
-                                         "	border-color: rgb(0, 120, 40);\n"
-                                         "	width: 40;\n"
-                                         "	height: 35;\n"
-                                         "}")
-             
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+        
+            msg.setText("Select the layer to be deleted!")
+            
+            msg.setWindowTitle("Warning")
+            
+            msg.setStandardButtons(QMessageBox.Ok)
+            
+            retval = msg.exec_()
+
+    def select_edit_layer(self):
+        self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9)
+
+        index_select = self.tableWidget_layers.currentRow()
+
+        if index_select>=0:
+            layer_edit = self.layers[index_select]
+            if self.material[index_select]=='Analyte':
+                self.set_Enable_True_2()
+                if INTERROGATION_MODE == 1: # AIM mode
+                    self.doubleSpinBox_7.setValue(real(self.index_ref_analyte[0][0]))
+                    self.doubleSpinBox_8.setValue(real(self.index_ref_analyte[0][len(self.index_ref_analyte[0])-1]))
+                    self.doubleSpinBox_9.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
+                    self.thickness_4.setText(layer_edit["thickness"])
+                    self.description_3.setText(layer_edit["description"])
+
+                    self.btn_add_analyte.setEnabled(False)
+                    self.btn_add_analyte.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: #606060;\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                    self.btn_confirm_edit_2.setEnabled(True)
+                    self.btn_confirm_edit_2.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: rgb(0, 130, 180);\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                else:
+                    self.doubleSpinBox_6.setValue(real(self.index_ref_analyte[0][0]))
+                    self.doubleSpinBox_8.setValue(real(self.index_ref_analyte[0][len(self.index_ref_analyte[0])-1]))
+                    self.doubleSpinBox_9.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
+                    self.thickness_3.setText(layer_edit["thickness"])
+                    self.description_4.setText(layer_edit["description"])
+
+                    self.btn_add_analyte_2.setEnabled(False)
+                    self.btn_add_analyte_2.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: #606060;\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                    self.btn_confirm_edit_4.setEnabled(True)
+                    self.btn_confirm_edit_4.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: rgb(0, 130, 180);\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+
+            else:
+                self.set_Enable_True()
+
+                if INTERROGATION_MODE == 1: # AIM mode
+                    self.cbox_material.setCurrentText(layer_edit["material"])
+                    self.thickness.setText(layer_edit["thickness"])
+                    self.description.setText(layer_edit["description"])
+
+                    self.btn_new_layer.setEnabled(False)
+                    self.btn_new_layer.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: #606060;\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                    self.btn_add_layer.setEnabled(False)
+                    self.btn_add_layer.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: #606060;\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                    self.btn_confirm_edit.setEnabled(True)
+                    self.btn_confirm_edit.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: rgb(0, 130, 180);\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                else:
+                    self.cbox_material_2.setCurrentText(layer_edit["material"])
+                    self.thickness_2.setText(layer_edit["thickness"])
+                    self.description_2.setText(layer_edit["description"])
+
+                    self.btn_new_layer_2.setEnabled(False)
+                    self.btn_new_layer_2.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: #606060;\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                    self.btn_add_layer_2.setEnabled(False)
+                    self.btn_add_layer_2.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: #606060;\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+                    self.btn_confirm_edit_3.setEnabled(True)
+                    self.btn_confirm_edit_3.setStyleSheet(u"QPushButton{\n"
+                                                "	font: 400 11pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: rgb(0, 130, 180);\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-width: 2px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(00, 140, 70);\n"
+                                                "	border-color: rgb(0, 120, 40);\n"
+                                                "	width: 40;\n"
+                                                "	height: 35;\n"
+                                                "}")
+        
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+        
+            msg.setText("Select the layer to be edited!")
+            
+            msg.setWindowTitle("Warning")
+            
+            msg.setStandardButtons(QMessageBox.Ok)
+            
+            retval = msg.exec_()
+
+    def edit_layer(self):
+        index_select = self.tableWidget_layers.currentRow()
+        if INTERROGATION_MODE == 1: #AIM
+            material = self.cbox_material.currentText()
+            thickness = self.thickness.text().replace(',','.')
+            description = self.description.text()
+            real = float(self.real_part_index.text().replace(',','.'))
+            imag = float(self.imaginary_part_index.text().replace(',','.'))
+            refractiveIndex = str(complex(real, imag)).replace('(',' ').replace(')',' ')
+            
+            self.material[index_select] = material
+            self.material_id[index_select] = self.cbox_material.currentIndex()
+            self.d[index_select] = float(thickness)*1e-9
+            self.indexRef[index_select] = complex(real, imag)
+            
+            self.layers[index_select] = {"material": material, "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description }
+        
+        else: #WIM
+            material = self.cbox_material_2.currentText()
+            thickness = self.thickness_2.text().replace(',','.')
+            description = self.description_2.text()
+            
+            self.material[index_select] = material
+            self.material_id[index_select] = self.cbox_material_2.currentIndex()
+            self.d[index_select] = float(thickness)*1e-9
+            self.indexRef[index_select] = complex(0, 0)
+            
+            self.layers[index_select] = {"material": material, "thickness": thickness, "refractiveIndex": "-", "description": description }
+
+        self.show_layers()
+
+        self.thickness.setText("")
+        self.thickness_2.setText("")
+        self.real_part_index.setText("")
+        self.imaginary_part_index.setText("")
+        self.description.setText("")
+        self.description_2.setText("")
+
+    def edit_analyte(self):
+        index_select = self.tableWidget_layers.currentRow()
+        if INTERROGATION_MODE == 1: # AIM mode
+            initial_index_analyte = self.doubleSpinBox_7.value()
+            final_index_analyte = self.doubleSpinBox_8.value()
+            step_analyte = self.doubleSpinBox_9.value()
+            thickness = self.thickness_4.text().replace(',','.')
+            description = self.description_3.text()
+        else: #WIM
+            initial_index_analyte = self.doubleSpinBox_6.value()
+            final_index_analyte = self.doubleSpinBox_4.value()
+            step_analyte = self.doubleSpinBox_5.value()
+            thickness = self.thickness_3.text().replace(',','.')
+            description = self.description_4.text()
+
+        refractiveIndex = f"{round(initial_index_analyte,4)} - {round(final_index_analyte,4)}" 
+                        
+        self.d[index_select] = float(thickness)*1e-9
+        self.indexRef[index_select] = complex(initial_index_analyte, 0)
+        
+        indices = arange(initial_index_analyte,final_index_analyte,step_analyte)
+        indices = vectorize(lambda indices: complex(round(indices,4)))(indices)
+        self.index_ref_analyte[0] = list(indices)
+        self.layers[index_select] = {"material": "Analyte", "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description }
+    
+        self.show_layers()
+
+        self.description_3.setText("")
+        self.thickness_4.setText("")
+        self.description_4.setText("")
+        self.thickness_3.setText("")
+
     def change_spinbox(self, spin, slider):
         spin.setValue(float(slider.value()/10))
     
@@ -1557,7 +1960,7 @@ class MainWindow(QWidget, Ui_Widget):
 
         
         return abs(r_TM) ** 2, abs(r_TE) ** 2  # Reflectance - TM polarization, Reflectance - TE polarization
-
+    
     def show_graphs(self):
         graph = self.select_graphs.currentText()
         self.textBrowser.setText(f"\nPontos de ressonancia-TM polarization: {self.Resonance_Point_TM}"
@@ -1598,16 +2001,15 @@ class MainWindow(QWidget, Ui_Widget):
                     text = f"{simbols[1]}$_C$ = {self.critical_point[0]:.4f} {simbols[2]}"
                     x, y = self.Reflectance(self.indexRef, self.critical_point[0]*pi/180, self.lambda_i.value()*1E-9)
                     plt.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
-                                   
+
                 plt.plot(ax_x, (self.Reflectance_TM[0]))
                 plt.grid(True, alpha=0.3)
                 plt.xlabel(f'Incidence {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.ylabel('Reflectance', fontdict=font)
                 plt.yticks(arange(0, 1.20, 0.20), fontsize=5)
                 plt.xticks(fontsize=5)
-                
-                self.canvas.draw()
 
+                self.canvas.draw()  
             case "Reflectance - TE":
                 self.figure.clear()
                 if INTERROGATION_MODE == 1:
@@ -1625,7 +2027,7 @@ class MainWindow(QWidget, Ui_Widget):
                 self.canvas.draw()
             
             case "FWHM vs. Analyte - TM":
-                
+
                 self.figure.clear()
                    
                 plt.title("TM-polarization")
@@ -1698,7 +2100,8 @@ class MainWindow(QWidget, Ui_Widget):
                 
                 self.canvas.draw()
             
-            case   "Resonance point vs. Analyte - TE":
+            case "Resonance point vs. Analyte - TE":
+                
                 self.figure.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
@@ -1774,6 +2177,7 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(arange(0, 1.20, 0.20))
 
                 self.canvas.draw()
+    
 
 if __name__ == "__main__":
 

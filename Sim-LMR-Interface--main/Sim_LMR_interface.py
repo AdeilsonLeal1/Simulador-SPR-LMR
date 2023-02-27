@@ -1258,6 +1258,29 @@ class Ui_Widget(object):
 
         self.gridLayout_2.addWidget(self.btn_add_layer, 0, 1, 1, 1)
 
+        self.btn_confirm_edit = QtWidgets.QPushButton(self.gb_layers)
+        self.btn_confirm_edit.setObjectName(u"btn_confirm_edit")
+        self.btn_confirm_edit.setEnabled(False)
+        self.btn_confirm_edit.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_confirm_edit.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.btn_confirm_edit.setStyleSheet(u"QPushButton{\n"
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: #606060;\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
+
+        self.gridLayout_2.addWidget(self.btn_confirm_edit, 0, 2, 1, 1)
+
         self.thickness = QtWidgets.QLineEdit(self.gb_layers)
         self.thickness.setObjectName(u"thickness")
         self.thickness.setEnabled(False)
@@ -1272,7 +1295,7 @@ class Ui_Widget(object):
                                      "border-radius:10px;")
         self.thickness.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_2.addWidget(self.thickness, 2, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.thickness, 2, 1, 1, 2)
 
         self.label_12 = QtWidgets.QLabel(self.gb_layers)
         self.label_12.setObjectName(u"label_12")
@@ -1337,7 +1360,7 @@ class Ui_Widget(object):
         self.cbox_material.setEditable(True)
 
         
-        self.gridLayout_2.addWidget(self.cbox_material, 1, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.cbox_material, 1, 1, 1, 2)
 
         self.frame_refractive_index = QtWidgets.QFrame(self.gb_layers)
         self.frame_refractive_index.setObjectName(u"frame_refractive_index")
@@ -1373,7 +1396,7 @@ class Ui_Widget(object):
                                            "border-radius:10px;")
         self.real_part_index.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_3.addWidget(self.real_part_index, 0, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.real_part_index, 0, 1, 1, 2)
 
         self.imaginary_part_index = QtWidgets.QLineEdit(
             self.frame_refractive_index)
@@ -1390,9 +1413,9 @@ class Ui_Widget(object):
                                                 "border-radius:10px;")
         self.imaginary_part_index.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_3.addWidget(self.imaginary_part_index, 3, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.imaginary_part_index, 3, 1, 1, 2)
 
-        self.gridLayout_2.addWidget(self.frame_refractive_index, 3, 0, 1, 2)
+        self.gridLayout_2.addWidget(self.frame_refractive_index, 3, 0, 1, 3)
 
         self.label_description = QtWidgets.QLabel(self.gb_layers)
         self.label_description.setObjectName(u"label_description")
@@ -1413,7 +1436,7 @@ class Ui_Widget(object):
                                      "border-radius:10px;")
         self.description.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_2.addWidget(self.description, 4, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.description, 4, 1, 1, 2)
 
         self.verticalLayout_9.addWidget(self.gb_layers)
 
@@ -1519,6 +1542,29 @@ class Ui_Widget(object):
                                            "}")
 
         self.gridLayout_7.addWidget(self.btn_add_analyte, 0, 2, 1, 1)
+
+        self.btn_confirm_edit_2 = QtWidgets.QPushButton(self.gb_analyte)
+        self.btn_confirm_edit_2.setObjectName(u"btn_confirm_edit_2")
+        self.btn_confirm_edit_2.setEnabled(False)
+        self.btn_confirm_edit_2.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_confirm_edit_2.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.btn_confirm_edit_2.setStyleSheet(u"QPushButton{\n"
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: #606060;\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
+
+        self.gridLayout_7.addWidget(self.btn_confirm_edit_2, 1, 2, 1, 1)
 
         self.label_21 = QtWidgets.QLabel(self.gb_analyte)
         self.label_21.setObjectName(u"label_21")
@@ -1754,7 +1800,7 @@ class Ui_Widget(object):
         self.cbox_material_2.setEditable(True)
 
 
-        self.gridLayout_6.addWidget(self.cbox_material_2, 1, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.cbox_material_2, 1, 1, 1, 2)
 
         self.label_14 = QtWidgets.QLabel(self.gb_layers_2)
         self.label_14.setObjectName(u"label_14")
@@ -1781,7 +1827,7 @@ class Ui_Widget(object):
                                      "border-radius:10px;")
         self.thickness_2.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_6.addWidget(self.thickness_2, 2, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.thickness_2, 2, 1, 1, 2)
 
         self.btn_new_layer_2 = QtWidgets.QPushButton(self.gb_layers_2)
         self.btn_new_layer_2.setObjectName(u"btn_new_layer_2")
@@ -1829,6 +1875,29 @@ class Ui_Widget(object):
 
         self.gridLayout_6.addWidget(self.btn_add_layer_2, 0, 1, 1, 1)
 
+        self.btn_confirm_edit_3 = QtWidgets.QPushButton(self.gb_layers)
+        self.btn_confirm_edit_3.setObjectName(u"btn_confirm_edit")
+        self.btn_confirm_edit_3.setEnabled(False)
+        self.btn_confirm_edit_3.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_confirm_edit_3.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.btn_confirm_edit_3.setStyleSheet(u"QPushButton{\n"
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: #606060;\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
+
+        self.gridLayout_6.addWidget(self.btn_confirm_edit_3, 0, 2, 1, 1)
+
         self.label_description_2 = QtWidgets.QLabel(self.gb_layers_2)
         self.label_description_2.setObjectName(u"label_description")
         self.label_description_2.setStyleSheet(u"font: 14pt \"Ubuntu\";")
@@ -1848,7 +1917,7 @@ class Ui_Widget(object):
                                      "border-radius:10px;")
         self.description_2.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.gridLayout_6.addWidget(self.description_2, 3, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.description_2, 3, 1, 1, 2)
 
         self.verticalLayout_10.addWidget(self.gb_layers_2)
 
@@ -1952,6 +2021,29 @@ class Ui_Widget(object):
                                            "}")
 
         self.gridLayout_5.addWidget(self.btn_add_analyte_2, 0, 2, 1, 1)
+
+        self.btn_confirm_edit_4 = QtWidgets.QPushButton(self.gb_analyte)
+        self.btn_confirm_edit_4.setObjectName(u"btn_confirm_edit_4")
+        self.btn_confirm_edit_4.setEnabled(False)
+        self.btn_confirm_edit_4.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_confirm_edit_4.setMaximumSize(QtCore.QSize(120, 16777215))
+        self.btn_confirm_edit_4.setStyleSheet(u"QPushButton{\n"
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: #606060;\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
+
+        self.gridLayout_5.addWidget(self.btn_confirm_edit_4, 1, 2, 1, 1)
 
         self.label_16 = QtWidgets.QLabel(self.gb_analyte_2)
         self.label_16.setObjectName(u"label_16")
@@ -2217,20 +2309,22 @@ class Ui_Widget(object):
         self.btn_edit_layers.setSizePolicy(sizePolicy5)
         self.btn_edit_layers.setMinimumSize(QtCore.QSize(110, 30))
         self.btn_edit_layers.setMaximumSize(QtCore.QSize(130, 30))
+        self.btn_edit_layers.setEnabled(False)
         self.btn_edit_layers.setStyleSheet(u"QPushButton{\n"
-                                           "	font: 400 11pt \"Ubuntu\";\n"
-                                           "	color: rgb(255, 255,255);\n"
-                                           "	background-color: rgb(0, 130, 180);\n"
-                                           "	border-color: rgb(0, 100, 130);\n"
-                                           "	border-width: 2px;\n"
-                                           "	border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QPushButton:hover{\n"
-                                           "	background: rgb(0, 0, 255);\n"
-                                           "	width: 40;\n"
-                                           "	height: 35;\n"
-                                           "}")
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: #606060;\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
 
         self.horizontalLayout_92.addWidget(self.btn_edit_layers)
 
@@ -4321,6 +4415,7 @@ class Ui_Widget(object):
         self.lambda_i.setSuffix(_translate("Widget", u" nm", None))
         self.gb_layers.setTitle(_translate("Widget", u"Layers", None))
         self.btn_new_layer.setText(_translate("Widget", u"New layer", None))
+        self.btn_confirm_edit.setText(_translate("Widget", u"Edit Layer", None))
         self.label_11.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material*:</span></p></body></html>", None))
         self.btn_add_layer.setText(_translate("Widget", u"Add Layer", None))
@@ -4349,6 +4444,7 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial refractive index:</span></p></body></html>", None))
         self.doubleSpinBox_7.setSuffix(_translate("Widget", u" RIU", None))
         self.btn_add_analyte.setText(_translate("Widget", u"Add Layer", None))
+        self.btn_confirm_edit_2.setText(_translate("Widget", u"Edit Layer", None))
         self.label_21.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index:</span></p></body></html>", None))
         self.doubleSpinBox_8.setSuffix(_translate("Widget", u" RIU", None))
@@ -4370,6 +4466,7 @@ class Ui_Widget(object):
             _translate("Widget", u"Thickness (nm)", None))
         self.btn_new_layer_2.setText(_translate("Widget", u"New layer", None))
         self.btn_add_layer_2.setText(_translate("Widget", u"Add Layer", None))
+        self.btn_confirm_edit_3.setText(_translate("Widget", u"Edit Layer", None))
         self.label_description_2.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
         self.gb_analyte_2.setTitle(_translate(
             "Widget", u"Analyte refractive index range", None))
@@ -4378,6 +4475,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_6.setSuffix(_translate("Widget", u" RIU", None))
         self.btn_add_analyte_2.setText(
             _translate("Widget", u"Add Layer", None))
+        self.btn_confirm_edit_4.setText(_translate("Widget", u"Edit Layer", None))
         self.label_16.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index :</span></p></body></html>", None))
         self.label_description_4.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
@@ -4403,7 +4501,7 @@ class Ui_Widget(object):
             _translate("Widget", u"Refract. Index", None))
             
         self.btn_edit_layers.setText(
-            _translate("Widget", u"Edit layers", None))
+            _translate("Widget", u"Edit layer", None))
         self.btn_remove_layers.setText(
             _translate("Widget", u"Remove layer", None))
         self.btn_save_table.setText(_translate("Widget", u"Save table", None))
