@@ -33,6 +33,11 @@ class MainWindow(QWidget, Ui_Widget):
         self.sensibility_TM = list()  # List with Sensibility values in TM polarization
         self.sensibility_TE = list()  # List with Sensibility values in TE polarization
 
+        self.Fwhm_TM = list()   # List with FWHM values in TM polarization
+        self.Fwhm_TE = list()   # List with FWHM values in TM polarization
+
+        self.fom_TM, self.fom_TE = list() ,list() # Lists with the QF in TM and TE  polarizations
+
         ## Window initialization parameters
         super(MainWindow,self).__init__()
         self.setupUi(self)
@@ -1784,6 +1789,11 @@ class MainWindow(QWidget, Ui_Widget):
         self.sensibility_TM = []
         self.sensibility_TE = []
         self.critical_point = []
+
+        self.Fwhm_TM = []
+        self.Fwhm_TE = []
+
+        self.fom_TM, self.fom_TE = [],[]
         
         if INTERROGATION_MODE == 1:
             self.reflectance_AIM()
@@ -1822,8 +1832,15 @@ class MainWindow(QWidget, Ui_Widget):
             self.Reflectance_TE.append(R_TE_i)
 
             self.sensibility_graph(index_analyte,layer_analyte)
+
+            self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, theta_i))
+            self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, theta_i))
         
         self.indexRef[layer_analyte]=self.index_ref_analyte[0][0]
+
+        for s in range(len(self.index_ref_analyte[0])):
+            self.fom_TM.append((self.sensibility_TM[s] / self.Fwhm_TM[s]))
+            self.fom_TE.append((self.sensibility_TE[s] / self.Fwhm_TE[s]))
 
     def sensibility_graph(self, index_analyte, layer_analyte):
         # Sensibility obtained from the graph
@@ -1849,7 +1866,7 @@ class MainWindow(QWidget, Ui_Widget):
             self.sensibility_TM[0] = self.sensibility_TM[1]
             self.sensibility_TE[0] = self.sensibility_TE[1]
     
-    def Point_LMR(self,axis_x ,reflectance):
+    def Point_LMR(self, axis_x, reflectance):
         # The method self.Point_LMR() returns the resonance point of the curve
         try:
             id_min = reflectance.index(min(reflectance))  # Position of the minimum point of the curve
@@ -1913,6 +1930,13 @@ class MainWindow(QWidget, Ui_Widget):
             self.Reflectance_TE.append(R_TE_i)
 
             self.sensibility_graph(index_analyte,layer_analyte)
+
+            self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, lambda_i))
+            self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, lambda_i))
+
+            for s in range(len(self.index_ref_analyte[0])):
+                self.fom_TM.append((self.sensibility_TM[s] / self.Fwhm_TM[s]))
+                self.fom_TE.append((self.sensibility_TE[s] / self.Fwhm_TE[s]))
     
     def Reflectance(self, index, theta_i, wavelenght):
         """ The numerical model is based on the attenuated total reflection method combined with the transfer matrix
@@ -1963,9 +1987,6 @@ class MainWindow(QWidget, Ui_Widget):
     
     def show_graphs(self):
         graph = self.select_graphs.currentText()
-        self.textBrowser.setText(f"\nPontos de ressonancia-TM polarization: {self.Resonance_Point_TM}"
-                                 f"\nPontos de ressonancia-TE polarization: {self.Resonance_Point_TE}"
-                                 )
         
         if INTERROGATION_MODE == 1:
             STEP = 0.01*(pi/180)
@@ -1983,6 +2004,20 @@ class MainWindow(QWidget, Ui_Widget):
 
             ax_x = lambda_i*1E9
             simbols = ("Wavelength", chr(955), "nm")
+
+        self.textBrowser.setText(f"TM Polarization \n"
+                                 f"Resonance {simbols[0]}: {self.Resonance_Point_TM} {simbols[2]}\n"
+                                 f"FWHM: {self.Fwhm_TM} {simbols[2]}\n"
+                                 f"Sensibility: {self.sensibility_TM} {simbols[2]}/RIU\n"
+                                 f"Quality Factor: {self.fom_TM}\n"
+
+                                 f"\nTE Polarization \n"
+                                 f"Resonance {simbols[0]}: {self.Resonance_Point_TE} {simbols[2]}\n"
+                                 f"FWHM: {self.Fwhm_TE} {simbols[2]}\n"
+                                 f"Sensibility: {self.sensibility_TE} {simbols[2]}/RIU\n"
+                                 f"Quality Factor: {self.fom_TE}\n"
+                                 )
+        
 
         font=dict(size=5, family="Sans-Serif")
         plt.rc('font', **font)
@@ -2010,6 +2045,7 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.xticks(fontsize=5)
 
                 self.canvas.draw()  
+            
             case "Reflectance - TE":
                 self.figure.clear()
                 if INTERROGATION_MODE == 1:
@@ -2030,21 +2066,38 @@ class MainWindow(QWidget, Ui_Widget):
 
                 self.figure.clear()
                    
-                plt.title("TM-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
+                
+                plt.plot(real(self.index_ref_analyte[0]), self.Fwhm_TM, '-o', markersize=3)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'FWHM ({simbols[2]})', fontdict=font)
+                plt.yticks(self.Fwhm_TM, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
 
                 self.canvas.draw()
 
             case "FWHM vs. Analyte - TE":
                 
                 self.figure.clear()
-               
-                plt.title("TE-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
+                
+                plt.plot(real(self.index_ref_analyte[0]), self.Fwhm_TE, '-o', markersize=3)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'FWHM ({simbols[2]})', fontdict=font)
+                plt.yticks(self.Fwhm_TE, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
 
                 self.canvas.draw()
             
@@ -2094,7 +2147,7 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.plot(real(self.index_ref_analyte[0]), self.Resonance_Point_TM, '-o', markersize=3 )
                 plt.grid(True, alpha=0.3)
                 plt.xlabel('Analyte (RIU)', fontdict=font)
-                plt.ylabel(f'Resonance {simbols[0]}', fontdict=font)
+                plt.ylabel(f'Resonance {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.yticks(self.Resonance_Point_TM, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
                 
@@ -2113,7 +2166,7 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.plot(real(self.index_ref_analyte[0]), self.Resonance_Point_TE, '-o', markersize=3 )
                 plt.grid(True, alpha=0.3)
                 plt.xlabel('Analyte (RIU)', fontdict=font)
-                plt.ylabel(f'Resonance {simbols[0]}', fontdict=font)
+                plt.ylabel(f'Resonance {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.yticks(self.Resonance_Point_TE, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
                 
@@ -2155,29 +2208,96 @@ class MainWindow(QWidget, Ui_Widget):
 
                 self.canvas.draw()
             
-            case "Quality Factor - TM":
+            case "Quality Factor vs. Analyte - TM":
                 
                 self.figure.clear()
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
                 
-      
-                plt.title("TM-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
+                plt.plot(real(self.index_ref_analyte[0]), self.fom_TM, '-o', markersize=3)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'Quality Factor (RI$U^-$$^1$)', fontdict=font)
+                plt.yticks(self.fom_TM, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
 
                 self.canvas.draw()
             
-            case "Quality Factor - TE":
+            case "Quality Factor vs. Analyte - TE":
                 
                 self.figure.clear()
-               
-                plt.title("TE-polarization")
-                plt.xlabel('Incidence Angle (°)')
-                plt.ylabel('Reflectivity')
-                plt.yticks(arange(0, 1.20, 0.20))
+                plt.subplots_adjust(left=0.210,
+                                    bottom=0.285, 
+                                    right=0.900, 
+                                    top=0.960, 
+                                    wspace=0.1, 
+                                    hspace=0.2)
+                
+                plt.plot(real(self.index_ref_analyte[0]), self.fom_TE, '-o', markersize=3)
+                plt.grid(True, alpha=0.3)
+                plt.xlabel('Analyte (RIU)', fontdict=font)
+                plt.ylabel(f'Quality Factor (RI$U^-$$^1$)', fontdict=font)
+                plt.yticks(self.fom_TE, fontsize=5 )
+                plt.xticks(fontsize=5, rotation=45)
 
                 self.canvas.draw()
     
+    def calc_FWHM(self, curve, xList):
+        y = list(curve)
+
+        id_min = y.index(min(y))  # Position of the minimum point of the curve
+
+        if INTERROGATION_MODE == 1:
+            min_point = xList[id_min] * (180 / pi)
+            critical_point = self.critical_point[-1]
+            # Checks if the minimum is before the critical point
+            if min_point > critical_point:
+                id_min = id_min
+            
+            else:  # It adjusts to be the next minimum after the critical angle
+                lst = asarray(xList)
+                idx = (abs(lst - (critical_point * pi / 180))).argmin()
+
+                reflect_right_critical_point = y[idx:-1]
+                id_min = y.index(min(reflect_right_critical_point))
+
+        y_left = y[0:(id_min+1)]
+        y_right = y[id_min:len(y)]
+
+        y_mx_left = max(y_left)
+        y_mn_left = min(y_left)
+
+        y_mx_right = max(y_right)
+        y_mn_right = min(y_right)
+
+        y_med_left = (y_mx_left + y_mn_left)/2
+        y_med_right = (y_mx_right + y_mn_right)/2
+
+        y_med = (y_med_left + y_med_right)/2
+
+        try:
+            
+            signs = sign(add(y, -y_med ))
+
+            zero_crossings = (signs[0:-2] != signs[1:-1])
+            zero_crossings_i = where(zero_crossings)[0]
+
+            id1 = zero_crossings_i[-1]
+            id2 = zero_crossings_i[-2]
+
+            x1 = xList[id1] + (xList[id1+1] - xList[id1]) * ((y_med - y[id1]) / (y[id1+1] - y[id1]))
+            x2 = xList[id2] + (xList[id2+1] - xList[id2]) * ((y_med - y[id2]) / (y[id2+1] - y[id2]))
+            
+            f = abs((x1 * 180 / pi) - (x2 * 180 / pi)) if INTERROGATION_MODE == 1 else abs(x2 - x1) * 1E9
+            
+            return f
+
+        except:
+            return 1
 
 if __name__ == "__main__":
 
