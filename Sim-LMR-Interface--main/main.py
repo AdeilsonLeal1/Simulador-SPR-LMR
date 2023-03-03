@@ -1934,9 +1934,9 @@ class MainWindow(QWidget, Ui_Widget):
             self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, lambda_i))
             self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, lambda_i))
 
-            for s in range(len(self.index_ref_analyte[0])):
-                self.fom_TM.append((self.sensibility_TM[s] / self.Fwhm_TM[s]))
-                self.fom_TE.append((self.sensibility_TE[s] / self.Fwhm_TE[s]))
+        for s in range(len(self.index_ref_analyte[0])):
+            self.fom_TM.append((self.sensibility_TM[s] / self.Fwhm_TM[s]))
+            self.fom_TE.append((self.sensibility_TE[s] / self.Fwhm_TE[s]))
     
     def Reflectance(self, index, theta_i, wavelenght):
         """ The numerical model is based on the attenuated total reflection method combined with the transfer matrix
