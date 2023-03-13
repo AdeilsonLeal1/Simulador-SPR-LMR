@@ -4415,7 +4415,7 @@ class Ui_Widget(object):
         self.lambda_i.setSuffix(_translate("Widget", u" nm", None))
         self.gb_layers.setTitle(_translate("Widget", u"Layers", None))
         self.btn_new_layer.setText(_translate("Widget", u"New layer", None))
-        self.btn_confirm_edit.setText(_translate("Widget", u"Edit Layer", None))
+        self.btn_confirm_edit.setText(_translate("Widget", u"Confirm edit", None))
         self.label_11.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material*:</span></p></body></html>", None))
         self.btn_add_layer.setText(_translate("Widget", u"Add Layer", None))
@@ -4444,7 +4444,7 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial refractive index:</span></p></body></html>", None))
         self.doubleSpinBox_7.setSuffix(_translate("Widget", u" RIU", None))
         self.btn_add_analyte.setText(_translate("Widget", u"Add Layer", None))
-        self.btn_confirm_edit_2.setText(_translate("Widget", u"Edit Layer", None))
+        self.btn_confirm_edit_2.setText(_translate("Widget", u"Confirm edit", None))
         self.label_21.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index:</span></p></body></html>", None))
         self.doubleSpinBox_8.setSuffix(_translate("Widget", u" RIU", None))
@@ -4466,7 +4466,7 @@ class Ui_Widget(object):
             _translate("Widget", u"Thickness (nm)", None))
         self.btn_new_layer_2.setText(_translate("Widget", u"New layer", None))
         self.btn_add_layer_2.setText(_translate("Widget", u"Add Layer", None))
-        self.btn_confirm_edit_3.setText(_translate("Widget", u"Edit Layer", None))
+        self.btn_confirm_edit_3.setText(_translate("Widget", u"Confirm edit", None))
         self.label_description_2.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
         self.gb_analyte_2.setTitle(_translate(
             "Widget", u"Analyte refractive index range", None))
@@ -4475,7 +4475,7 @@ class Ui_Widget(object):
         self.doubleSpinBox_6.setSuffix(_translate("Widget", u" RIU", None))
         self.btn_add_analyte_2.setText(
             _translate("Widget", u"Add Layer", None))
-        self.btn_confirm_edit_4.setText(_translate("Widget", u"Edit Layer", None))
+        self.btn_confirm_edit_4.setText(_translate("Widget", u"Confirm edit", None))
         self.label_16.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final refractive index :</span></p></body></html>", None))
         self.label_description_4.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
