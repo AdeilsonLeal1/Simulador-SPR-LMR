@@ -1405,7 +1405,7 @@ class MainWindow(QWidget, Ui_Widget):
                 n_interp = interp(Lambda_i, X, n)
                 k_interp = interp(Lambda_i, X, k_index)
                 n = complex(n_interp, k_interp)
-            elif material == 17: #ZnO
+            
                 
 
             # Refractive index of the Water
