@@ -32,7 +32,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.Resonance_Point_TE = list()  # Resonance angle or resonance wavelength  on TE polarization
         self.sensibility_TM = list()  # List with Sensibility values in TM polarization
         self.sensibility_TE = list()  # List with Sensibility values in TE polarization
-
+        self.Rmin_TM = list()   # List of minimum reflectance values in TM polarization
+        self.Rmin_TE = list()   # List of minimum reflectance values in TE polarization
         self.Fwhm_TM = list()   # List with FWHM values in TM polarization
         self.Fwhm_TE = list()   # List with FWHM values in TM polarization
 
@@ -1088,7 +1089,7 @@ class MainWindow(QWidget, Ui_Widget):
 
     def set_RefractiveIndex(self, material, lambda_i):
         
-        if material == 19:
+        if material == 23:
             self.real_part_index.setEnabled(True)
             self.real_part_index.setText("")
             self.imaginary_part_index.setEnabled(True)
@@ -1114,8 +1115,8 @@ class MainWindow(QWidget, Ui_Widget):
                 elif material == 3:  # Synthetic Sapphire(Al2O3)
                     B1, B2, B3, C1, C2, C3 = 1.4313493, 0.65054713, 5.3414021, 0.00527993, 0.0142383, 325.01783
 
-                elif material == 4:  # SF2
-                    B1, B2, B3, C1, C2, C3 = 1.78922056, 3.28427448E-1, 2.01639441, 1.35163537E-2, 6.22729599E-2, 168.014713
+                elif material == 4:  # SF10
+                    B1, B2, B3, C1, C2, C3 = 1.62153902, 0.256287842, 1.64447552, 0.0122241457, 0.0595736775, 147.468793
 
                 elif material == 5:  # FK51A
                     B1, B2, B3, C1, C2, C3 = 0.971247817, 0.216901417, 0.904651666, 0.00472301995, 0.0153575612, 168.68133
@@ -1141,12 +1142,12 @@ class MainWindow(QWidget, Ui_Widget):
                 n = B1 + (B2 / Lambda_i ** 2) + (B3 / Lambda_i ** 4)
 
             # Quartz according to the RefractiveIndex.info: https://refractiveindex.info/
-            elif material == 10:
+            elif material == 10:    # Quartz
                 B1, B2, B3, C1, C2, C3 = 2.356764950, -1.139969240E-2, 1.087416560E-2, 3.320669140E-5, 1.086093460E-5, 0
                 n = sqrt(B1 + (B2 * Lambda_i ** 2) + (B3 / Lambda_i ** 2) + (C1 / Lambda_i ** 4) + (C2 / Lambda_i ** 6))
 
             # Metals
-            elif 11 <= material < 15:
+            elif 11 <= material <= 16:
                 """
                 X - Wavelength in micrometers,
                 n - Real part of the refractive index e k_index - Imaginary part of the refractive index
@@ -1276,7 +1277,7 @@ class MainWindow(QWidget, Ui_Widget):
                     
                     k_index =[0.00043, 0.00044, 0.00066, 0.00089, 0.00111, 0.00133, 0.00156, 0.00178, 0.00222, 0.00266, 0.00331, 0.00397, 0.00463, 0.00551, 0.0066, 0.00769, 0.00856, 0.00987, 0.01117, 0.01248, 0.014, 0.01552, 0.01725, 0.01921, 0.02137, 0.02311, 0.02484, 0.02766, 0.02961, 0.03112, 0.03329, 0.03567, 0.03783, 0.04043, 0.04389, 0.048, 0.05125, 0.05449, 0.05817, 0.06206, 0.06617, 0.07028, 0.07352, 0.07763, 0.08174, 0.08563, 0.09039, 0.09493, 0.10033, 0.10552, 0.10984, 0.11481, 0.11935, 0.24]
 
-                elif material == 16 : # 2D HOIP
+                elif material == 16: # 2D HOIP
                     X = [0.370914, 0.372495, 0.374077, 0.375658, 0.37724, 0.378823, 0.380405, 0.381988, 0.383571, 0.385153, 0.386736, 0.388319, 0.389902, 
                          0.391485, 0.393069, 0.394653, 0.396237, 0.39782, 0.399404, 0.400989, 0.402574, 0.404157, 0.405742, 0.407327, 0.408911, 0.410496,
                          0.412082, 0.413667, 0.415252, 0.416838, 0.418423, 0.420009, 0.421595, 0.42318, 0.424766, 0.426353, 0.427939, 0.429525, 0.431111, 
@@ -1406,24 +1407,51 @@ class MainWindow(QWidget, Ui_Widget):
                 k_interp = interp(Lambda_i, X, k_index)
                 n = complex(n_interp, k_interp)
             
+            elif material == 17:    # ITO
+                w = wi
+                h = 4.13566743*1E-15    #eV
+                c = 299792458   # m/s
+                Ak = 101 # eV² 
+                Bk = 1.2 # eV
+                Ek = 6.2 # eV
+                e_inf = 1
+                j = complex(0,1)
+
+                E_i = (h*c)/w
+
+                e_TiO2 = e_inf + (Ak/(Ek**2 - E_i**2 - j*Bk*E_i))
                 
+                n = sqrt(e_TiO2)
+
+            elif material == 18:    #ZnO
+                w = wi
+                c = 299792458   # m/s
+                w = 2*pi*c / w
+                e_inf = 3.4
+                wp = 2*1E15
+                gamma = 1.5*1E14
+                j = complex(0,1)
+
+                e_ZnO = e_inf - (wp**2)/(w**2 + gamma**2) + j*(gamma*wp**2)/((w**2 + gamma**2)*w)
+
+                n = sqrt(e_ZnO)
 
             # Refractive index of the Water
-            elif material == 15:
+            elif material == 19:
                 n = 1.33
 
             # Refractive index of the Air
-            elif material == 16:
+            elif material == 20:    #Air
                 n = 1.0000
 
             # Refractive index of the LiF (Lithium Fluoride) according to the RefractiveIndex.info:
             # https://refractiveindex.info/
-            elif material == 17:
+            elif material == 21:    #LiF
                 B1, B2, B3, C1, C2, C3 = 0.92549, 6.96747, 0, 5.4405376E-3, 1075.1841, 0
                 n = sqrt(1 + ((B1 * Lambda_i ** 2) / (Lambda_i ** 2 - C1)) + ((B2 * Lambda_i ** 2) / (Lambda_i ** 2 - C2))
                         + ((B3 * Lambda_i ** 2) / (Lambda_i ** 2 - C3)))
 
-            elif material == 18:  # Cytop
+            elif material == 22:  # Cytop
                 # According to the AGC chemicals company. Available in:
                 # https://www.agc-chemicals.com/jp/en/fluorine/products/cytop/download/index.html
                 X = [0.2, 2]
@@ -1979,6 +2007,9 @@ class MainWindow(QWidget, Ui_Widget):
         self.sensibility_TE = []
         self.critical_point = []
 
+        self.Rmin_TM = []  
+        self.Rmin_TE = [] 
+
         self.Fwhm_TM = []
         self.Fwhm_TE = []
 
@@ -2019,6 +2050,9 @@ class MainWindow(QWidget, Ui_Widget):
             
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
+
+            self.Rmin_TM.append(min(R_TM_i))
+            self.Rmin_TE.append(min(R_TE_i))
 
             self.sensibility_graph(index_analyte,layer_analyte)
 
@@ -2466,7 +2500,9 @@ class MainWindow(QWidget, Ui_Widget):
         y_med_left = (y_mx_left + y_mn_left)/2
         y_med_right = (y_mx_right + y_mn_right)/2
 
-        y_med = (y_med_left + y_med_right)/2
+        #y_med = (y_med_left + y_med_right)/2
+
+        y_med = (1+min(y))/2
 
         try:
             
