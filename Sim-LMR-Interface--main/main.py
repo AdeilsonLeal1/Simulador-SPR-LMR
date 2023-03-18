@@ -1570,7 +1570,8 @@ class MainWindow(QWidget, Ui_Widget):
             self.d.append(float(thickness)*1e-9)
             self.indexRef.append(complex(initial_index_analyte, 0))
             
-            indices = arange(initial_index_analyte,final_index_analyte,step_analyte)
+            num = int((final_index_analyte - initial_index_analyte)/step_analyte)
+            indices = linspace(initial_index_analyte,final_index_analyte, num)
             indices = vectorize(lambda indices: complex(round(indices,4)))(indices)
             self.index_ref_analyte.append(list(indices))
 
