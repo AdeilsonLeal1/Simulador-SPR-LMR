@@ -1407,7 +1407,7 @@ class MainWindow(QWidget, Ui_Widget):
                 k_interp = interp(Lambda_i, X, k_index)
                 n = complex(n_interp, k_interp)
             
-            elif material == 17:    # ITO
+            elif material == 17:    # TiO2
                 w = wi
                 h = 4.13566743*1E-15    #eV
                 c = 299792458   # m/s
