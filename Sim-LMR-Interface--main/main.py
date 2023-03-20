@@ -1570,7 +1570,7 @@ class MainWindow(QWidget, Ui_Widget):
             self.d.append(float(thickness)*1e-9)
             self.indexRef.append(complex(initial_index_analyte, 0))
             
-            num = int((final_index_analyte - initial_index_analyte)/step_analyte)
+            num = int((final_index_analyte - initial_index_analyte)/step_analyte)+1
             indices = linspace(initial_index_analyte,final_index_analyte, num)
             indices = vectorize(lambda indices: complex(round(indices,4)))(indices)
             self.index_ref_analyte.append(list(indices))
@@ -2063,16 +2063,15 @@ class MainWindow(QWidget, Ui_Widget):
         self.indexRef[layer_analyte]=self.index_ref_analyte[0][0]
 
         for s in range(len(self.index_ref_analyte[0])):
-            self.fom_TM.append((self.sensibility_TM[s] / self.Fwhm_TM[s]))
-            self.fom_TE.append((self.sensibility_TE[s] / self.Fwhm_TE[s]))
+            self.fom_TM.append(abs(self.sensibility_TM[s] / self.Fwhm_TM[s]))
+            self.fom_TE.append(abs(self.sensibility_TE[s] / self.Fwhm_TE[s]))
 
     def sensibility_graph(self, index_analyte, layer_analyte):
         # Sensibility obtained from the graph
 
             # Resonance point variation
-        delta_X_TM = self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0]
-        delta_X_TE = self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0]
-
+        delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0])
+        delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0])
             # Refractive index variation
         delta_index = self.indexRef[layer_analyte].real - self.index_ref_analyte[0][0].real
 
@@ -2153,14 +2152,17 @@ class MainWindow(QWidget, Ui_Widget):
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
 
+            self.Rmin_TM.append(min(R_TM_i))
+            self.Rmin_TE.append(min(R_TE_i))
+
             self.sensibility_graph(index_analyte,layer_analyte)
 
             self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, lambda_i))
             self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, lambda_i))
 
         for s in range(len(self.index_ref_analyte[0])):
-            self.fom_TM.append((self.sensibility_TM[s] / self.Fwhm_TM[s]))
-            self.fom_TE.append((self.sensibility_TE[s] / self.Fwhm_TE[s]))
+            self.fom_TM.append(abs(self.sensibility_TM[s] / self.Fwhm_TM[s]))
+            self.fom_TE.append(abs(self.sensibility_TE[s] / self.Fwhm_TE[s]))
     
     def Reflectance(self, index, theta_i, wavelenght):
         """ The numerical model is based on the attenuated total reflection method combined with the transfer matrix
