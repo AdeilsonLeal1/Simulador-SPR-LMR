@@ -4486,7 +4486,6 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Number of samples: </span></p></body></html>", None))
         self.label_description_4.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Description:</span></p></body></html>", None))
 
-        self.n_sample_analyte_wim.setSuffix(_translate("Widget", u" RIU", None))
         self.label_17.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Refractive index step:</span></p></body></html>", None))
         self.step_analyte_wim.setSuffix(_translate("Widget", u" RIU", None))
