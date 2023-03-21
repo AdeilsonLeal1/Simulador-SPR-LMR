@@ -403,7 +403,7 @@ class MainWindow(QWidget, Ui_Widget):
                                            "}")
         
         # This changes the button style btn_add_layer
-        self.doubleSpinBox_7.setStyleSheet(u"\n"
+        self.Analyte_refractive_index.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: rgb(10, 25, 90);\n"
@@ -434,7 +434,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_8.setStyleSheet(u"\n"
+        self.n_sample_analyte.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: rgb(10, 25, 90);\n"
@@ -465,7 +465,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_9.setStyleSheet(u"\n"
+        self.step_analyte.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: rgb(10, 25, 90);\n"
@@ -537,7 +537,7 @@ class MainWindow(QWidget, Ui_Widget):
                                            "}")
         
         # This changes the button style btn_add_layer
-        self.doubleSpinBox_4.setStyleSheet(u"\n"
+        self.n_sample_analyte_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: rgb(10, 25, 90);\n"
@@ -568,7 +568,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_5.setStyleSheet(u"\n"
+        self.step_analyte_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: rgb(10, 25, 90);\n"
@@ -599,7 +599,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_6.setStyleSheet(u"\n"
+        self.Analyte_refractive_index_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: rgb(10, 25, 90);\n"
@@ -655,7 +655,7 @@ class MainWindow(QWidget, Ui_Widget):
         # This unenable the gb_analyte field 
         self.gb_analyte.setEnabled(False)
         self.gb_analyte.setToolTip("Click in 'New layer' to enable")
-        self.doubleSpinBox_7.setStyleSheet(u"\n"
+        self.Analyte_refractive_index.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: #606060;\n"
@@ -686,7 +686,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_8.setStyleSheet(u"\n"
+        self.n_sample_analyte.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: #606060;\n"
@@ -717,7 +717,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_9.setStyleSheet(u"\n"
+        self.step_analyte.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: #606060;\n"
@@ -781,7 +781,7 @@ class MainWindow(QWidget, Ui_Widget):
         # This unenable the gb_analyt_2 field 
         self.gb_analyte_2.setEnabled(False)
         self.gb_analyte_2.setToolTip("Click in 'New layer' to enable")
-        self.doubleSpinBox_4.setStyleSheet(u"\n"
+        self.n_sample_analyte_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: #606060;\n"
@@ -812,7 +812,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_5.setStyleSheet(u"\n"
+        self.step_analyte_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: #606060;\n"
@@ -843,7 +843,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.doubleSpinBox_6.setStyleSheet(u"\n"
+        self.Analyte_refractive_index_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
                                             "color: #606060;\n"
@@ -1550,30 +1550,33 @@ class MainWindow(QWidget, Ui_Widget):
     def add_analyte(self):
         try:
             if INTERROGATION_MODE == 1: # AIM mode
-                initial_index_analyte = self.doubleSpinBox_7.value()
-                final_index_analyte = self.doubleSpinBox_8.value()
-                step_analyte = self.doubleSpinBox_9.value()
+                initial_index_analyte = self.Analyte_refractive_index.value()
+                n_sample_analyte = self.n_sample_analyte.value()
+                step_analyte = self.step_analyte.value()
                 thickness = self.thickness_4.text().replace(',','.')
                 description = self.description_3.text()
             
             else:   # WIM mode
-                initial_index_analyte = self.doubleSpinBox_6.value()
-                final_index_analyte = self.doubleSpinBox_4.value()
-                step_analyte = self.doubleSpinBox_5.value()
+                initial_index_analyte = self.Analyte_refractive_index_wim.value()
+                n_sample_analyte = self.n_sample_analyte_wim.value()
+                step_analyte = self.step_analyte_wim.value()
                 thickness = self.thickness_3.text().replace(',','.')
                 description = self.description_4.text()
-
-            refractiveIndex = f"{round(initial_index_analyte,4)} - {round(final_index_analyte,4)}" 
                         
             self.material.append("Analyte")
-            self.material_id.append(16)
+            self.material_id.append(19)
             self.d.append(float(thickness)*1e-9)
             self.indexRef.append(complex(initial_index_analyte, 0))
             
-            num = int((final_index_analyte - initial_index_analyte)/step_analyte)+1
-            indices = linspace(initial_index_analyte,final_index_analyte, num)
+            indices = []
+
+            for i in arange(n_sample_analyte):
+                indices.append(initial_index_analyte + (i * step_analyte))
+            
             indices = vectorize(lambda indices: complex(round(indices,4)))(indices)
             self.index_ref_analyte.append(list(indices))
+
+            refractiveIndex = f"{round(initial_index_analyte,4)} - {round(real(indices[-1]),4)}" 
 
             self.layers.append({"material": "Analyte", "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description })
             
@@ -1698,9 +1701,9 @@ class MainWindow(QWidget, Ui_Widget):
             if self.material[index_select]=='Analyte':
                 self.set_Enable_True_2()
                 if INTERROGATION_MODE == 1: # AIM mode
-                    self.doubleSpinBox_7.setValue(real(self.index_ref_analyte[0][0]))
-                    self.doubleSpinBox_8.setValue(real(self.index_ref_analyte[0][-1]))
-                    self.doubleSpinBox_9.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
+                    self.Analyte_refractive_index.setValue(real(self.index_ref_analyte[0][0]))
+                    self.n_sample_analyte.setValue(real(self.index_ref_analyte[0][-1]))
+                    self.step_analyte.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
                     self.thickness_4.setText(layer_edit["thickness"])
                     self.description_3.setText(layer_edit["description"])
 
@@ -1737,9 +1740,9 @@ class MainWindow(QWidget, Ui_Widget):
                                                 "	height: 35;\n"
                                                 "}")
                 else:
-                    self.doubleSpinBox_6.setValue(real(self.index_ref_analyte[0][0]))
-                    self.doubleSpinBox_8.setValue(real(self.index_ref_analyte[0][len(self.index_ref_analyte[0])-1]))
-                    self.doubleSpinBox_9.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
+                    self.Analyte_refractive_index_wim.setValue(real(self.index_ref_analyte[0][0]))
+                    self.n_sample_analyte.setValue(real(self.index_ref_analyte[0][len(self.index_ref_analyte[0])-1]))
+                    self.step_analyte.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
                     self.thickness_3.setText(layer_edit["thickness"])
                     self.description_4.setText(layer_edit["description"])
 
@@ -1939,25 +1942,32 @@ class MainWindow(QWidget, Ui_Widget):
     def edit_analyte(self):
         index_select = self.tableWidget_layers.currentRow()
         if INTERROGATION_MODE == 1: # AIM mode
-            initial_index_analyte = self.doubleSpinBox_7.value()
-            final_index_analyte = self.doubleSpinBox_8.value()
-            step_analyte = self.doubleSpinBox_9.value()
+            initial_index_analyte = self.Analyte_refractive_index.value()
+            n_sample_analyte = self.n_sample_analyte.value()
+            step_analyte = self.step_analyte.value()
             thickness = self.thickness_4.text().replace(',','.')
             description = self.description_3.text()
         else: #WIM
-            initial_index_analyte = self.doubleSpinBox_6.value()
-            final_index_analyte = self.doubleSpinBox_4.value()
-            step_analyte = self.doubleSpinBox_5.value()
+            initial_index_analyte = self.Analyte_refractive_index_wim.value()
+            n_sample_analyte = self.n_sample_analyte_wim.value()
+            step_analyte = self.step_analyte_wim.value()
             thickness = self.thickness_3.text().replace(',','.')
             description = self.description_4.text()
 
-        refractiveIndex = f"{round(initial_index_analyte,4)} - {round(final_index_analyte,4)}" 
+        refractiveIndex = f"{round(initial_index_analyte,4)} - {round(n_sample_analyte,4)}" 
                         
         self.d[index_select] = float(thickness)*1e-9
         self.indexRef[index_select] = complex(initial_index_analyte, 0)
+
+        indices = []
+
+        for i in arange(n_sample_analyte):
+            indices.append(initial_index_analyte + (i * step_analyte))
         
-        indices = arange(initial_index_analyte,final_index_analyte,step_analyte)
         indices = vectorize(lambda indices: complex(round(indices,4)))(indices)
+        
+        refractiveIndex = f"{round(initial_index_analyte,4)} - {round(real(indices[-1]),4)}" 
+        
         self.index_ref_analyte[0] = list(indices)
         self.layers[index_select] = {"material": "Analyte", "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description }
     
@@ -2068,13 +2078,6 @@ class MainWindow(QWidget, Ui_Widget):
 
     def sensibility_graph(self, index_analyte, layer_analyte):
         # Sensibility obtained from the graph
-
-            # Resonance point variation
-        delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0])
-        delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0])
-            # Refractive index variation
-        delta_index = self.indexRef[layer_analyte].real - self.index_ref_analyte[0][0].real
-
             # It calculates the angular sensitivity (Resonance point variation)/(Refractive index variation)
         if index_analyte == self.index_ref_analyte[0][0]:
                 # The first interaction is initialized to zero because the ratio would be 0/0
@@ -2082,6 +2085,11 @@ class MainWindow(QWidget, Ui_Widget):
             self.sensibility_TE.append(0)
 
         else:
+                # Resonance point variation
+            delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[-2])
+            delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[-2])
+                # Refractive index variation
+            delta_index = self.step_analyte.value() if INTERROGATION_MODE == 1 else self.step_analyte_wim.value()
                 # Only after the second interaction is sensitivity considered.
             self.sensibility_TM.append(delta_X_TM / delta_index)
             self.sensibility_TE.append(delta_X_TE / delta_index)
@@ -2505,7 +2513,7 @@ class MainWindow(QWidget, Ui_Widget):
 
         #y_med = (y_med_left + y_med_right)/2
 
-        y_med = (1+min(y))/2
+        y_med = (max(y) + min(y))/2
 
         try:
             
