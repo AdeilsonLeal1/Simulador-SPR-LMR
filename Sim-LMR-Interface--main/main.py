@@ -1692,8 +1692,6 @@ class MainWindow(QWidget, Ui_Widget):
             retval = msg.exec_()
 
     def select_edit_layer(self):
-        self.set_RefractiveIndex(self.cbox_material.currentIndex(), self.lambda_i.value()*1E-9)
-
         index_select = self.tableWidget_layers.currentRow()
 
         if index_select>=0:
@@ -1702,7 +1700,7 @@ class MainWindow(QWidget, Ui_Widget):
                 self.set_Enable_True_2()
                 if INTERROGATION_MODE == 1: # AIM mode
                     self.Analyte_refractive_index.setValue(real(self.index_ref_analyte[0][0]))
-                    self.n_sample_analyte.setValue(real(self.index_ref_analyte[0][-1]))
+                    self.n_sample_analyte.setValue(len(self.index_ref_analyte[0]))
                     self.step_analyte.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
                     self.thickness_4.setText(layer_edit["thickness"])
                     self.description_3.setText(layer_edit["description"])
@@ -1741,8 +1739,8 @@ class MainWindow(QWidget, Ui_Widget):
                                                 "}")
                 else:
                     self.Analyte_refractive_index_wim.setValue(real(self.index_ref_analyte[0][0]))
-                    self.n_sample_analyte.setValue(real(self.index_ref_analyte[0][len(self.index_ref_analyte[0])-1]))
-                    self.step_analyte.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
+                    self.n_sample_analyte_wim.setValue(len(self.index_ref_analyte[0]))
+                    self.step_analyte_wim.setValue(real((self.index_ref_analyte[0][1])-(self.index_ref_analyte[0][0])))
                     self.thickness_3.setText(layer_edit["thickness"])
                     self.description_4.setText(layer_edit["description"])
 
@@ -1786,6 +1784,13 @@ class MainWindow(QWidget, Ui_Widget):
                     self.cbox_material.setCurrentText(layer_edit["material"])
                     self.thickness.setText(layer_edit["thickness"])
                     self.description.setText(layer_edit["description"])
+
+                    if layer_edit["material"] == "Custom":
+                        self.real_part_index.setEnabled(True)
+                        self.imaginary_part_index.setEnabled(True)
+                    
+                    self.real_part_index.setText(f"{real(complex(layer_edit['refractiveIndex']))}")
+                    self.imaginary_part_index.setText(f"{imag(complex(layer_edit['refractiveIndex']))}")
 
                     self.btn_new_layer.setEnabled(False)
                     self.btn_new_layer.setStyleSheet(u"QPushButton{\n"
@@ -1835,6 +1840,7 @@ class MainWindow(QWidget, Ui_Widget):
                                                 "	width: 40;\n"
                                                 "	height: 35;\n"
                                                 "}")
+                
                 else:
                     self.cbox_material_2.setCurrentText(layer_edit["material"])
                     self.thickness_2.setText(layer_edit["thickness"])
@@ -2086,8 +2092,8 @@ class MainWindow(QWidget, Ui_Widget):
 
         else:
                 # Resonance point variation
-            delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[-2])
-            delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[-2])
+            delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0])
+            delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0])
                 # Refractive index variation
             delta_index = self.step_analyte.value() if INTERROGATION_MODE == 1 else self.step_analyte_wim.value()
                 # Only after the second interaction is sensitivity considered.

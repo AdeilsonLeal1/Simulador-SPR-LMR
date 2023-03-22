@@ -1612,9 +1612,9 @@ class Ui_Widget(object):
                                            "	width: 25;\n"
                                            "}")
         self.n_sample_analyte.setDecimals(0)
-        self.n_sample_analyte.setMinimum(1)
+        self.n_sample_analyte.setMinimum(2)
         self.n_sample_analyte.setSingleStep(1)
-        self.n_sample_analyte.setValue(1)
+        self.n_sample_analyte.setValue(2)
 
         self.gridLayout_7.addWidget(self.n_sample_analyte, 1, 1, 1, 1)
 
@@ -2137,9 +2137,9 @@ class Ui_Widget(object):
                                             "	width: 25;\n"
                                             "}")
         self.n_sample_analyte_wim.setDecimals(0)
-        self.n_sample_analyte_wim.setMinimum(1)
+        self.n_sample_analyte_wim.setMinimum(2)
         self.n_sample_analyte_wim.setSingleStep(1)
-        self.n_sample_analyte_wim.setValue(1)
+        self.n_sample_analyte_wim.setValue(2)
 
         self.gridLayout_5.addWidget(self.n_sample_analyte_wim, 1, 1, 1, 1)
 
