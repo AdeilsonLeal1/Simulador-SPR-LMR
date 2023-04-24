@@ -11,6 +11,7 @@ import icons_
 import sys
 import matplotlib.pyplot as plt
 import time
+import save_table
 
 
 COUPLING, INTERROGATION_MODE = 0, 0
@@ -180,6 +181,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.btn_confirm_edit_2.clicked.connect(self.set_Enable_False)
         self.btn_confirm_edit_4.clicked.connect(self.edit_analyte)
         self.btn_confirm_edit_4.clicked.connect(self.set_Enable_False)
+
+        self.btn_save_table.clicked.connect(self.save_table)
 
     # APP FUNCTIONS     
 
@@ -1686,7 +1689,7 @@ class MainWindow(QWidget, Ui_Widget):
             msg.setText("Select the layer to be deleted!")
             
             msg.setWindowTitle("Warning")
-            
+            msg.setWindowIcon(QtGui.QIcon('icons/LOGO.png'))
             msg.setStandardButtons(QMessageBox.Ok)
             
             retval = msg.exec_()
@@ -2540,6 +2543,15 @@ class MainWindow(QWidget, Ui_Widget):
 
         except:
             return 1
+
+    def save_table(self):
+        from save_table import Ui_Dialog 
+        self.dialog = QtWidgets.QDialog()
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self.dialog, self.layers)
+        self.dialog.show()
+        
+
 
 if __name__ == "__main__":
 
