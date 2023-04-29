@@ -2409,7 +2409,10 @@ class Ui_Widget(object):
         self.warning = QtWidgets.QLabel(self.graphics_frame_4)
         self.warning.setObjectName(u"warning")
         self.warning.setHidden(True)
-        self.warning.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+        self.warning.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
+                                    "background-color: rgb(255, 255, 255);\n"
+                                    "border-radius: 5px;\n"
+                                    )
         self.warning.setAlignment(QtCore.Qt.AlignCenter)
 
         self.verticalLayout_55.addWidget(self.warning)
@@ -4560,7 +4563,7 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final: </span></p></body></html>", None))
         self.a2_2.setSuffix(_translate("Widget", u"nm", None))
         
-        self.warning_range.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#b41414;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
+        self.warning_range.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#d41010;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
         
         self.label_warning.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" font-weight:500; color:#ffff01;\">- Check the chosen range -</span></p></body></html>", None))
@@ -4579,7 +4582,7 @@ class Ui_Widget(object):
             "Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final angle:  </span></p></body></html>", None))
         self.a2_3.setSuffix(_translate("Widget", u" \u00ba", None))
         
-        self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#b41414;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
+        self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#d41010;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
         
         self.btn_export_data_4.setText( _translate("Widget", u"Export data", None))
         self.select_graphs.setItemText(0, _translate("Widget", u"Reflectance - TM", None))

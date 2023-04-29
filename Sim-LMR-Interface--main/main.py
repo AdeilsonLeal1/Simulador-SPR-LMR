@@ -203,11 +203,12 @@ class MainWindow(QWidget, Ui_Widget):
             if self.Stacked_windows.currentIndex() == 3:
                 if self.nLayers < 3:
                     self.warning.setHidden(False)
-                    self.warning.setText(f"## Insert more than 3 layers ## \n  ## {self.nLayers} Layers ##")
+                    self.warning.setText(QtCore.QCoreApplication.translate("Widget", f"<html><head/><body><p align=\"center\"><a name=\"tw-target-text\"/><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># Insert more than 3 layers #</span><p align=\"center\"><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># {self.nLayers} layer(s) added # </span></body></html>", None))
                 else:
                     self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)
 
             else:
+                self.warning.setHidden(True)
                 self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)   
                 self.figure.clear()
                 self.canvas.draw()    
@@ -1502,7 +1503,7 @@ class MainWindow(QWidget, Ui_Widget):
             self.warning.setHidden(False)
             self.material.pop(-1)
             self.material_id.pop(-1)
-            self.warning.setText("Fill in all required fields *")
+            self.warning.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">* Fill in all required fields * </span></p></body></html>", None))
         
         self.nLayers = len(self.layers)
 
@@ -1588,7 +1589,7 @@ class MainWindow(QWidget, Ui_Widget):
             self.warning.setHidden(False)
             self.material.pop(-1)
             self.material_id.pop(-1)
-            self.warning.setText("Fill in all required fields *")
+            self.warning.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">* Fill in all required fields *</span></p></body></html>", None))
         
         self.show_layers()
 
