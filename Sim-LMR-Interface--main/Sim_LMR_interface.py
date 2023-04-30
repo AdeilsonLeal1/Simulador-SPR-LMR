@@ -316,6 +316,43 @@ class Ui_Widget(object):
         spacerItem3 = QtWidgets.QSpacerItem(
             13, 24, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_15.addItem(spacerItem3)
+
+        self.open_btn = QtWidgets.QPushButton(self.frame_6)
+        self.open_btn.setObjectName(u"open_btn")
+        sizePolicy.setHeightForWidth(self.open_btn.sizePolicy().hasHeightForWidth())
+        self.open_btn.setSizePolicy(sizePolicy)
+        self.open_btn.setMinimumSize(QtCore.QSize(250, 70))
+        self.open_btn.setMaximumSize(QtCore.QSize(350, 70))
+        self.open_btn.setFont(font)
+        self.open_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.open_btn.setStyleSheet(u"QPushButton{\n"
+                                        "	\n"
+                                        "	color: rgb(255, 255,255);\n"
+                                        "	background-color: rgb(0, 130, 180);\n"
+                                        "	border-color: rgb(0, 100, 130);\n"
+                                        "	border-style: outset;\n"
+                                        "	border-width: 5px;\n"
+                                        "	border-radius:10px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover{\n"
+                                        "	background-color: rgb(00, 130, 70);\n"
+                                        "	border-color: rgb(0, 120, 40);\n"
+                                        "\n"
+                                        "}\n"
+                                        "")
+        icon5 = QtGui.QIcon(QtGui.QIcon.fromTheme(u"document-open"))
+        icon5.addPixmap(QtGui.QPixmap(
+            "Sim-LMR-Interface--main\icons\icons8-opened-folder-30 (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.open_btn.setIcon(icon5)
+        self.open_btn.setIconSize(QtCore.QSize(30,30))
+
+        self.horizontalLayout_15.addWidget(self.open_btn)
+
+        self.horizontalSpacer_35 = QtWidgets.QSpacerItem(
+            13, 24, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_15.addItem(self.horizontalSpacer_35)
         self.exit_btn = QtWidgets.QPushButton(self.frame_6)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -4070,10 +4107,11 @@ class Ui_Widget(object):
         self.frame_graphs.setSizePolicy(sizePolicy)
         self.frame_graphs.setMaximumSize(QtCore.QSize(16777215, 520))
         self.frame_graphs.setStyleSheet("QFrame{border: 2px solid;\n"
-                                           "border-color: rgb(0, 75, 150);\n"
+                                            "background-color: transparent;"
+                                            "border-color: rgb(0, 75, 150);\n"
                                             "font: 500 10pt \"Ubuntu\";\n"
                                             "border-radius:10px;\n"
-                                            "background-color: rgba(60, 60, 60,50)}"
+                                            "}"
                                         "QLabel{"
                                             "border: none;\n"
                                             "background-color: transparent;"
@@ -4384,6 +4422,7 @@ class Ui_Widget(object):
         self.btn_close.setText("")
         self.label_logo.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/LOGO.png\"/></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:22pt; font-style:italic;\">Welcome to</span></p><p align=\"center\"><span style=\" font-size:72pt; color:#005a82;\">Sim-LMR</span></p></body></html>", None))
         self.start_btn.setText(_translate("Widget", u"Start Simulation", None))
+        self.open_btn.setText(_translate("Widget", u"External File Analyse ", None))
         self.exit_btn.setText(_translate("Widget", u"Exit", None))
         self.btn_home.setText("")
         self.label_18.setText("")

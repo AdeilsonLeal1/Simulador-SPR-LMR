@@ -1,6 +1,8 @@
 <RCC>
   <qresource prefix="icons">
+    <file>ilustração 2.png</file>
     <file>icons/1149635.png</file>
+    <file>ilustração.png</file>
     <file>icons/aim.png</file>
     <file>icons/arrow-down.png</file>
     <file>icons/arrow-up.png</file>

@@ -68,6 +68,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.exit_btn.clicked.connect(self.close)    # close window
         self.start_btn.clicked.connect(lambda: self.Stacked_windows.setCurrentWidget(
             self.coupling_window))    # show coupling window
+        
+        self.open_btn.clicked.connect(self.open_from_extern_file)
 
         # return to home window
         self.btn_home.clicked.connect(
@@ -2551,7 +2553,13 @@ class MainWindow(QWidget, Ui_Widget):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self.dialog, self.layers)
         self.dialog.show()
-        
+    
+    def open_from_extern_file(self):
+        from open_extern_file import Ui_Widget_2
+        self.new_window = QtWidgets.QWidget()
+        self.ui_2 = Ui_Widget_2()
+        self.ui_2.setupUi(self.new_window)
+        self.new_window.show()
 
 
 if __name__ == "__main__":
