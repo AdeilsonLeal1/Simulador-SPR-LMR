@@ -22,6 +22,8 @@ import pandas as pd
 class Ui_Widget_2(object):
     def setupUi(self, Widget):
 
+        self.n_file = 0
+
         Widget.setWindowIcon(QtGui.QIcon('icons/LOGO.png'))
         QtWidgets.QWidget.setWindowTitle(Widget, "Sim-LMR - External File Analyse")
         Widget.setObjectName("Widget")
@@ -341,6 +343,7 @@ class Ui_Widget_2(object):
         self.Qline_delta_res = QtWidgets.QLineEdit(self.gb_Results_3)
         self.Qline_delta_res.setMaximumSize(QtCore.QSize(120, 16777215))
         self.Qline_delta_res.setReadOnly(True)
+        self.Qline_delta_res.setText('0')
         self.Qline_delta_res.setObjectName("Qline_delta_res")
         self.gridLayout.addWidget(self.Qline_delta_res, 0, 1, 1, 1)
         self.label_26 = QtWidgets.QLabel(self.gb_Results_3)
@@ -354,11 +357,13 @@ class Ui_Widget_2(object):
         self.label_26.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_26.setObjectName("label_26")
         self.gridLayout.addWidget(self.label_26, 1, 0, 1, 1)
-        self.Qline_delta_indice = QtWidgets.QLineEdit(self.gb_Results_3)
-        self.Qline_delta_indice.setMaximumSize(QtCore.QSize(120, 16777215))
-        self.Qline_delta_indice.setReadOnly(True)
-        self.Qline_delta_indice.setObjectName("Qline_delta_indice")
-        self.gridLayout.addWidget(self.Qline_delta_indice, 1, 1, 1, 1)
+        self.spin_delta_index = QtWidgets.QDoubleSpinBox(self.gb_Results_3)
+        self.spin_delta_index.setObjectName(u"spin_delta_index")
+        self.spin_delta_index.setDecimals(4)
+        self.spin_delta_index.setMinimum(0.0005)
+        self.spin_delta_index.setSingleStep(0.0001)
+        self.spin_delta_index.setValue(0.001)
+        self.gridLayout.addWidget(self.spin_delta_index, 1, 1, 1, 1)
         self.label_6 = QtWidgets.QLabel(self.gb_Results_3)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -372,7 +377,7 @@ class Ui_Widget_2(object):
         self.gridLayout.addWidget(self.label_6, 2, 0, 1, 1)
         self.Qline_sensibility = QtWidgets.QLineEdit(self.gb_Results_3)
         self.Qline_sensibility.setMaximumSize(QtCore.QSize(120, 16777215))
-        self.Qline_sensibility.setText("")
+        self.Qline_sensibility.setText("0")
         self.Qline_sensibility.setReadOnly(True)
         self.Qline_sensibility.setObjectName("Qline_sensibility")
         self.gridLayout.addWidget(self.Qline_sensibility, 2, 1, 1, 1)
@@ -389,7 +394,7 @@ class Ui_Widget_2(object):
         self.gridLayout.addWidget(self.label_25, 3, 0, 1, 1)
         self.Qline_QF = QtWidgets.QLineEdit(self.gb_Results_3)
         self.Qline_QF.setMaximumSize(QtCore.QSize(120, 16777215))
-        self.Qline_QF.setText("")
+        self.Qline_QF.setText("0")
         self.Qline_QF.setReadOnly(True)
         self.Qline_QF.setObjectName("Qline_QF")
         self.gridLayout.addWidget(self.Qline_QF, 3, 1, 1, 1)
@@ -405,9 +410,12 @@ class Ui_Widget_2(object):
         self.verticalLayout_2.addWidget(self.canvas)
         self.verticalLayout_3.addWidget(self.toolbar)
 
-        self.btn_load_1.clicked.connect(self.open_file)
+        self.btn_load_1.clicked.connect(lambda: self.open_file(self.checkBox_file1, self.label_title1))
+        self.btn_load_2.clicked.connect(lambda: self.open_file(self.checkBox_file2, self.label_title2))
+        self.spin_delta_index.valueChanged.connect(self.sensibility)
 
-    def retranslateUi(self):
+
+    def retranslateUi(self, Widget):
         _translate = QtCore.QCoreApplication.translate
         self.groupBox.setTitle(_translate("Widget", "Files"))
         self.checkBox_file1.setText(_translate("Widget", "File 1"))
@@ -430,22 +438,29 @@ class Ui_Widget_2(object):
         self.label_6.setText(_translate("Widget", "<html><head/><body><p><span style=\" font-weight:700;\">Sensibility:</span></p></body></html>"))
         self.label_25.setText(_translate("Widget", "<html><head/><body><p><span style=\" font-weight:700;\">Quality Factor:</span></p></body></html>"))
 
-    def open_file(self):
+    def open_file(self, checkbox, label_title):
+        self.n_file = self.n_file + 1
         try:
             path_1 = QtWidgets.QFileDialog.getOpenFileName(None, "Open File", filter="Text Files (*.txt) ;; CSV Files (*.csv)")[0]
          
             if path_1:
-                self.checkBox_file1.setChecked(True)
-                self.label_title1.setHidden(False)
-                self.label_title1.setText(f'Name: {os.path.basename(path_1)}')
+                checkbox.setChecked(True)
+                label_title.setHidden(False)
+                label_title.setText(f'Name: {os.path.basename(path_1)}')
             else:
-                self.label_title1.setHidden(False)
-                self.label_title1.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file. check the format!</span></p></body></html>", None))
+                label_title.setHidden(False)
+                label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file. check the format!</span></p></body></html>", None))
               
             try: 
                 df = pd.read_csv(path_1, encoding='latin1')
-                x = df.iloc[:, 0]
-                y = df.iloc[:, 1]
+                x = list(df.iloc[:, 0])
+                y = list(df.iloc[:, 1])
+
+                if self.n_file == 1:
+                    self.print_parameters_1(x,y, self.Qline_fwhm, self.Qline_min_ref, self.Qline_resonance)
+                
+                if self.n_file == 2:
+                    self.print_parameters_2(x,y, self.Qline_fwhm_2, self.Qline_min_ref_2, self.Qline_resonance_2, self.Qline_delta_res, self.spin_delta_index, self.Qline_sensibility, self.Qline_QF)
 
                 font=dict(size=5, family="Sans-Serif")
                 plt.rc('font', **font)
@@ -457,7 +472,7 @@ class Ui_Widget_2(object):
                     wspace=0.1, 
                     hspace=0.2)
                 try:
-                    self.canvas.draw()
+                    
                     plt.plot(x, y)
                     plt.grid(True, alpha=0.3)
                     plt.ylabel('Reflectance', fontdict=font)
@@ -467,17 +482,95 @@ class Ui_Widget_2(object):
                     self.canvas.draw() 
 
                 except Exception as erro:
-                    print(erro)
-                    self.label_title1.setHidden(False)
-                    self.label_title1.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error showing graph.</span></p></body></html>", None))
+                    label_title.setHidden(False)
+                    label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error showing graph.</span></p></body></html>", None))
             
             except:
-                self.label_title1.setHidden(False)
-                self.label_title1.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error reading file. check the format!</span></p></body></html>", None))
+                label_title.setHidden(False)
+                label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error reading file. check the format!</span></p></body></html>", None))
 
         except:
-            self.label_title1.setHidden(False)
-            self.label_title1.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file. check the format!</span></p></body></html>", None))
+            label_title.setHidden(False)
+            label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file. check the format!</span></p></body></html>", None))
         
+    def print_parameters_1(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point):
 
+        id_resonance = y_axis.index(min(y_axis))
 
+        x1, x2, id1, id2, y_med = self.defFWHM(x_axis, y_axis)
+
+        plt.plot([x_axis[id1], x_axis[id2]],[y_med, y_med])
+        
+        self.res_angle_1 = x_axis[id_resonance]
+
+        fwhm.setText(f'{abs(x2-x1):.6f}')
+        min_reflectance.setText(f'{min(y_axis):.6f}')
+        resonance_point.setText(f'{self.res_angle_1:.6f}')
+    
+    def print_parameters_2(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point, delta_res, delta_index, sensibility, qf):
+
+        id_resonance = y_axis.index(min(y_axis))
+
+        x1, x2, id1, id2, y_med = self.defFWHM(x_axis, y_axis)
+        
+        self.res_angle_2 = x_axis[id_resonance]
+
+        delta_resonance = abs(self.res_angle_2 - self.res_angle_1)
+
+        plt.plot([x_axis[id1], x_axis[id2]],[y_med, y_med])
+
+        fwhm.setText(f'{abs(x2-x1):.6f}')
+        min_reflectance.setText(f'{min(y_axis):.6f}')
+        resonance_point.setText(f'{self.res_angle_2:.6f}')
+        delta_res.setText(f'{abs(self.res_angle_2 - self.res_angle_1):.6f}')
+        
+        delta_analyte = float(delta_index.text().replace(',','.'))
+        sens = (delta_resonance/delta_analyte)
+        sensibility.setText(f'{sens:.6f}')
+        
+        qf.setText(f"{(sens/abs(x2-x1)):.6f}")
+
+    def sensibility(self):
+        
+        delta_resonance = abs(self.res_angle_2 - self.res_angle_1)
+        delta_analyte = self.spin_delta_index.value()
+        sens = (delta_resonance/delta_analyte)
+        self.Qline_sensibility.setText(f'{sens:.6f}')
+        fwhm = float(self.Qline_fwhm_2.text().replace(',','.'))
+
+        self.Qline_QF.setText(f"{(sens/fwhm):.6f}")
+
+            
+    def defFWHM(self, theta_i, curve):
+        y = list(curve)
+
+        id_min = y.index(min(y))
+
+        y_left = y[0:id_min]
+        y_right = y[id_min-1:len(y)]
+
+        y_mx_left = max(y_left)
+        y_mn_left = min(y_left)
+
+        y_mx_right = max(y_right)
+        y_mn_right = min(y_right)
+
+        y_med_left = (y_mx_left + y_mn_left)/2
+        y_med_right = (y_mx_right + y_mn_right)/2
+
+        y_med = (y_med_left + y_med_right)/2
+
+        signs = sign(add(y, -y_med))
+
+        zero_crossings = (signs[0:-2] != signs[1:-1])
+        zero_crossings_i = where(zero_crossings)[0]
+
+        id1 = zero_crossings_i[-1]
+        id2 = zero_crossings_i[-2]
+
+        x1 = theta_i[id1] + (theta_i[id1+1] - theta_i[id1]) * ((y_med - y[id1]) / (y[id1+1] - y[id1]))
+        x2 = theta_i[id2] + (theta_i[id2+1] - theta_i[id2]) * ((y_med - y[id2]) / (y[id2+1] - y[id2]))
+
+        return x1, x2, id1, id2, y_med
+
+    

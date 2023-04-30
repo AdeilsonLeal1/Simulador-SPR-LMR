@@ -670,19 +670,6 @@ border-color: rgb(0, 75, 150);
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="Qline_delta_indice">
-           <property name="maximumSize">
-            <size>
-             <width>120</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label_6">
            <property name="sizePolicy">
@@ -762,6 +749,16 @@ border-color: rgb(0, 75, 150);
            </property>
            <property name="readOnly">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QDoubleSpinBox" name="spin_delta_index">
+           <property name="decimals">
+            <number>4</number>
+           </property>
+           <property name="singleStep">
+            <double>0.001000000000000</double>
            </property>
           </widget>
          </item>
