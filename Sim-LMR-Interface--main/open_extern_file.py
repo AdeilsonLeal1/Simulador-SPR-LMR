@@ -559,6 +559,11 @@ class Ui_Widget_2(object):
         y_med_right = (y_mx_right + y_mn_right)/2
 
         y_med = (y_med_left + y_med_right)/2
+        #y_med = (max(y))/2
+        #y_med = (1+min(y))/2
+        #y_med = (max(y)+min(y))/2
+        
+        
 
         signs = sign(add(y, -y_med))
 

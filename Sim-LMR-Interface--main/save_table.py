@@ -21,7 +21,8 @@ class Ui_Dialog(object):
         Dialog.setWindowIcon(QtGui.QIcon('icons/LOGO.png'))
         Dialog.setWindowTitle("Save table")
         Dialog.setWindowFlags(QtCore.Qt.WindowCloseButtonHint)
-        
+        Dialog.setStyleSheet(u"QDialog{background-color: rgba(0, 80, 180, 170);}\n")
+               
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.frame = QtWidgets.QFrame(Dialog)
@@ -197,8 +198,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
 
         _translate = QtCore.QCoreApplication.translate
-        self.label.setText(_translate("Dialog", u"Name:", None))
-        self.label_2.setText(_translate("Dialog", u"Format:", None))
+        self.label.setText(_translate("Dialog", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:500;\">Name:</span></p></body></html>", None))
+        self.label_2.setText(_translate("Dialog", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:500;\">Format:</span></p></body></html>", None))
         self.lineEdit.setText(_translate("Dialog",u"Table 1", None))
         self.comboBox.setItemText(0, _translate("Dialog", u"Latex file (*.tex)", None))
         self.comboBox.setItemText(1, _translate("Dialog", u"Excel file (*.xlsx)", None))

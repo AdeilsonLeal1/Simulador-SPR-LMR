@@ -24,8 +24,8 @@ class Ui_Dialog_2(object):
         Dialog.setSizePolicy(sizePolicy)
 
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(Dialog)
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setContentsMargins(5,5,5,10)
+        self.verticalLayout_2.setSpacing(10)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame = QtWidgets.QFrame(Dialog)
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -80,7 +80,7 @@ class Ui_Dialog_2(object):
         self.verticalLayout_2.addWidget(self.label_8)
         self.pushButton = QtWidgets.QPushButton(Dialog)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMaximumSize(QtCore.QSize(80, 30))
+        self.pushButton.setMinimumSize(QtCore.QSize(100, 35))
 
         self.verticalLayout_2.addWidget(self.pushButton, 0, QtCore.Qt.AlignHCenter)
 

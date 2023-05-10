@@ -50,16 +50,17 @@ class MainWindow(QWidget, Ui_Widget):
         self.showMaximized()
 
         # Startup for graphics display
-        self.figure = plt.figure(dpi=250)
-        self.canvas = FigureCanvas(self.figure)
-        self.toolbar = NavigationToolbar2QT(self.canvas, self)
-        self.layout_graphs.addWidget(self.canvas)
-        self.verticalLayout_12.addWidget(self.toolbar)
+        self.figure_ = plt.figure(dpi=250)
+        self.canvas_ = FigureCanvas(self.figure_)
+        self.toolbar_ = NavigationToolbar2QT(self.canvas_, self)
+        self.layout_graphs.addWidget(self.canvas_)
+        self.verticalLayout_12.addWidget(self.toolbar_)
 
         ## APP EVENTS
         ########################################################################
-        self.Stacked_windows.setCurrentIndex(4)
-        self.stacked_layers.setCurrentIndex(0)
+        # Initialization of screens
+        self.Stacked_windows.setCurrentIndex(0)
+        self.stacked_layers.setCurrentIndex(1)
         self.Stacked_config_mode.setCurrentIndex(1)
 
         self.btn_close.clicked.connect(self.close)    # close window
@@ -212,8 +213,8 @@ class MainWindow(QWidget, Ui_Widget):
             else:
                 self.warning.setHidden(True)
                 self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)   
-                self.figure.clear()
-                self.canvas.draw()    
+                self.figure_.clear()
+                self.canvas_.draw()    
                 if op == 1: # AIM mode
                     self.stacked_layers.setCurrentIndex(0)
                     self.Stacked_config_mode.setCurrentIndex(2)
@@ -1416,7 +1417,7 @@ class MainWindow(QWidget, Ui_Widget):
             elif material == 17:    # TiO2
                 w = wi
                 h = 4.13566743*1E-15    #eV
-                c = 299792458   # m/s
+                c = 300000000   # m/s
                 Ak = 101 # eV² 
                 Bk = 1.2 # eV
                 Ek = 6.2 # eV
@@ -1558,14 +1559,14 @@ class MainWindow(QWidget, Ui_Widget):
             if INTERROGATION_MODE == 1: # AIM mode
                 initial_index_analyte = self.Analyte_refractive_index.value()
                 n_sample_analyte = self.n_sample_analyte.value()
-                step_analyte = self.step_analyte.value()
+                step_analyte = round(self.step_analyte.value(), 5)
                 thickness = self.thickness_4.text().replace(',','.')
                 description = self.description_3.text()
             
             else:   # WIM mode
                 initial_index_analyte = self.Analyte_refractive_index_wim.value()
                 n_sample_analyte = self.n_sample_analyte_wim.value()
-                step_analyte = self.step_analyte_wim.value()
+                step_analyte = round(self.step_analyte_wim.value(),5)
                 thickness = self.thickness_3.text().replace(',','.')
                 description = self.description_4.text()
                         
@@ -1956,13 +1957,13 @@ class MainWindow(QWidget, Ui_Widget):
         if INTERROGATION_MODE == 1: # AIM mode
             initial_index_analyte = self.Analyte_refractive_index.value()
             n_sample_analyte = self.n_sample_analyte.value()
-            step_analyte = self.step_analyte.value()
+            step_analyte = round(self.step_analyte.value(), 5)
             thickness = self.thickness_4.text().replace(',','.')
             description = self.description_3.text()
         else: #WIM
             initial_index_analyte = self.Analyte_refractive_index_wim.value()
             n_sample_analyte = self.n_sample_analyte_wim.value()
-            step_analyte = self.step_analyte_wim.value()
+            step_analyte = round(self.step_analyte_wim.value(),5)
             thickness = self.thickness_3.text().replace(',','.')
             description = self.description_4.text()
 
@@ -2046,12 +2047,13 @@ class MainWindow(QWidget, Ui_Widget):
             self.show_graphs()
      
     def reflectance_AIM(self):
-        STEP = 0.01*(pi/180)
+        STEP = 0.001*(pi/180)
         lambda_i = self.lambda_i.value()*1E-9
         a1 = self.a1_3.value()*(pi/180)
         a2 = self.a2_3.value()*(pi/180)
         theta_i = arange(a1, a2, STEP)
-            
+        c = 0 # couter analyte
+        
         for index_analyte in self.index_ref_analyte[0]:
             layer_analyte = self.material.index('Analyte')
             self.indexRef[layer_analyte] = index_analyte
@@ -2068,8 +2070,8 @@ class MainWindow(QWidget, Ui_Widget):
                 R_TE_i.append(r_te)
                 
 
-            self.Resonance_Point_TM.append(round(self.Point_LMR(theta_i, R_TM_i), 3))
-            self.Resonance_Point_TE.append(round(self.Point_LMR(theta_i, R_TE_i), 3))
+            self.Resonance_Point_TM.append(round(self.Point_LMR(theta_i, R_TM_i), 6))
+            self.Resonance_Point_TE.append(round(self.Point_LMR(theta_i, R_TE_i), 6))
             
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
@@ -2077,18 +2079,19 @@ class MainWindow(QWidget, Ui_Widget):
             self.Rmin_TM.append(min(R_TM_i))
             self.Rmin_TE.append(min(R_TE_i))
 
-            self.sensibility_graph(index_analyte,layer_analyte)
+            self.sensibility_graph(index_analyte, c)
 
             self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, theta_i))
             self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, theta_i))
+            c+=1
         
         self.indexRef[layer_analyte]=self.index_ref_analyte[0][0]
 
         for s in range(len(self.index_ref_analyte[0])):
-            self.fom_TM.append(abs(self.sensibility_TM[s] / self.Fwhm_TM[s]))
-            self.fom_TE.append(abs(self.sensibility_TE[s] / self.Fwhm_TE[s]))
+            self.fom_TM.append(round(abs(self.sensibility_TM[s] / self.Fwhm_TM[s]), 6))
+            self.fom_TE.append(round(abs(self.sensibility_TE[s] / self.Fwhm_TE[s]), 6))
 
-    def sensibility_graph(self, index_analyte, layer_analyte):
+    def sensibility_graph(self, index_analyte, c):
         # Sensibility obtained from the graph
             # It calculates the angular sensitivity (Resonance point variation)/(Refractive index variation)
         if index_analyte == self.index_ref_analyte[0][0]:
@@ -2101,10 +2104,10 @@ class MainWindow(QWidget, Ui_Widget):
             delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0])
             delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0])
                 # Refractive index variation
-            delta_index = self.step_analyte.value() if INTERROGATION_MODE == 1 else self.step_analyte_wim.value()
+            delta_index = abs(self.index_ref_analyte[0][0] - self.index_ref_analyte[0][c])
                 # Only after the second interaction is sensitivity considered.
-            self.sensibility_TM.append(delta_X_TM / delta_index)
-            self.sensibility_TE.append(delta_X_TE / delta_index)
+            self.sensibility_TM.append(round((delta_X_TM / delta_index), 6))
+            self.sensibility_TE.append(round((delta_X_TE / delta_index), 6))
 
             self.sensibility_TM[0] = self.sensibility_TM[1]
             self.sensibility_TE[0] = self.sensibility_TE[1]
@@ -2146,6 +2149,8 @@ class MainWindow(QWidget, Ui_Widget):
         a2 = self.a2_2.value()*1E-9
         lambda_i = arange(a1, a2, STEP)
 
+        c = 0 # couter analyte
+
         for index_analyte in self.index_ref_analyte[0]:
             layer_analyte = self.material.index('Analyte')
 
@@ -2166,8 +2171,8 @@ class MainWindow(QWidget, Ui_Widget):
                 R_TM_i.append(r_tm)
                 R_TE_i.append(r_te)
             
-            self.Resonance_Point_TM.append(round(self.Point_LMR(lambda_i, R_TM_i), 3))
-            self.Resonance_Point_TE.append(round(self.Point_LMR(lambda_i, R_TE_i), 3))
+            self.Resonance_Point_TM.append(round(self.Point_LMR(lambda_i, R_TM_i), 6))
+            self.Resonance_Point_TE.append(round(self.Point_LMR(lambda_i, R_TE_i), 6))
 
             self.Reflectance_TM.append(R_TM_i)
             self.Reflectance_TE.append(R_TE_i)
@@ -2175,10 +2180,11 @@ class MainWindow(QWidget, Ui_Widget):
             self.Rmin_TM.append(min(R_TM_i))
             self.Rmin_TE.append(min(R_TE_i))
 
-            self.sensibility_graph(index_analyte,layer_analyte)
+            self.sensibility_graph(index_analyte, c)
 
             self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, lambda_i))
             self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, lambda_i))
+            c+=1
 
         for s in range(len(self.index_ref_analyte[0])):
             self.fom_TM.append(abs(self.sensibility_TM[s] / self.Fwhm_TM[s]))
@@ -2235,7 +2241,7 @@ class MainWindow(QWidget, Ui_Widget):
         graph = self.select_graphs.currentText()
         
         if INTERROGATION_MODE == 1:
-            STEP = 0.01*(pi/180)
+            STEP = 0.001*(pi/180)
             a1 = self.a1_3.value()*(pi/180) 
             a2 = self.a2_3.value()*(pi/180) 
             theta_i = arange(a1, a2, STEP)    
@@ -2277,23 +2283,23 @@ class MainWindow(QWidget, Ui_Widget):
         
         match graph:
             case "Reflectance - TM":
-                self.figure.clear()
+                self.figure_.clear()
                 if INTERROGATION_MODE == 1:
                     text = f"{simbols[1]}$_C$ = {self.critical_point[0]:.4f} {simbols[2]}"
                     x, y = self.Reflectance(self.indexRef, self.critical_point[0]*pi/180, self.lambda_i.value()*1E-9)
                     plt.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
 
-                plt.plot(ax_x, (self.Reflectance_TM[0]))
+                plt.plot(ax_x, self.Reflectance_TM[0])
                 plt.grid(True, alpha=0.3)
                 plt.xlabel(f'Incidence {simbols[0]} ({simbols[2]})', fontdict=font)
                 plt.ylabel('Reflectance', fontdict=font)
                 plt.yticks(arange(0, 1.20, 0.20), fontsize=5)
                 plt.xticks(fontsize=5)
 
-                self.canvas.draw()  
+                self.canvas_.draw()  
             
             case "Reflectance - TE":
-                self.figure.clear()
+                self.figure_.clear()
                 if INTERROGATION_MODE == 1:
                     text = f"{simbols[1]}$_C$ = {self.critical_point[0]:.4f} {simbols[2]}"
                     x, y = self.Reflectance(self.indexRef, self.critical_point[0]*pi/180, self.lambda_i.value()*1E-9)
@@ -2306,11 +2312,11 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
                 plt.xticks(fontsize=5)
                 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "FWHM vs. Analyte - TM":
 
-                self.figure.clear()
+                self.figure_.clear()
                    
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
@@ -2326,11 +2332,11 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.Fwhm_TM, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
 
-                self.canvas.draw()
+                self.canvas_.draw()
 
             case "FWHM vs. Analyte - TE":
                 
-                self.figure.clear()
+                self.figure_.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
                                     right=0.900, 
@@ -2345,11 +2351,11 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.Fwhm_TE, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "Reflectance vs. Analyte - TM":
                
-                self.figure.clear()
+                self.figure_.clear()
                 
                 legend = list()
                 for i in range(len(self.index_ref_analyte[0])):
@@ -2362,11 +2368,11 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
                 plt.xticks(fontsize=5)
                 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "Reflectance vs. Analyte - TE":
                 
-                self.figure.clear()
+                self.figure_.clear()
                 
                 legend = list()
                 for i in range(len(self.index_ref_analyte[0])):
@@ -2379,10 +2385,10 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
                 plt.xticks(fontsize=5)
                 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "Resonance point vs. Analyte - TM":
-                self.figure.clear()
+                self.figure_.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
                                     right=0.900, 
@@ -2397,11 +2403,11 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.Resonance_Point_TM, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
                 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "Resonance point vs. Analyte - TE":
                 
-                self.figure.clear()
+                self.figure_.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
                                     right=0.900, 
@@ -2416,10 +2422,10 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.Resonance_Point_TE, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
                 
-                self.canvas.draw()
+                self.canvas_.draw()
                       
             case "Sensibility vs. Analyte - TM":
-                self.figure.clear()
+                self.figure_.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
                                     right=0.900, 
@@ -2434,10 +2440,10 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.sensibility_TM, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "Sensibility vs. Analyte - TE":
-                self.figure.clear()
+                self.figure_.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
                                     right=0.900, 
@@ -2452,11 +2458,11 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.sensibility_TE, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "Quality Factor vs. Analyte - TM":
                 
-                self.figure.clear()
+                self.figure_.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
                                     right=0.900, 
@@ -2471,11 +2477,11 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.fom_TM, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
 
-                self.canvas.draw()
+                self.canvas_.draw()
             
             case "Quality Factor vs. Analyte - TE":
                 
-                self.figure.clear()
+                self.figure_.clear()
                 plt.subplots_adjust(left=0.210,
                                     bottom=0.285, 
                                     right=0.900, 
@@ -2490,7 +2496,7 @@ class MainWindow(QWidget, Ui_Widget):
                 plt.yticks(self.fom_TE, fontsize=5 )
                 plt.xticks(fontsize=5, rotation=45)
 
-                self.canvas.draw()
+                self.canvas_.draw()
     
     def calc_FWHM(self, curve, xList):
         y = list(curve)
@@ -2523,9 +2529,10 @@ class MainWindow(QWidget, Ui_Widget):
         y_med_left = (y_mx_left + y_mn_left)/2
         y_med_right = (y_mx_right + y_mn_right)/2
 
-        #y_med = (y_med_left + y_med_right)/2
-
-        y_med = (max(y) + min(y))/2
+        y_med = (y_med_left + y_med_right)/2
+        #y_med = (1+min(y))/2
+        #y_med = (max(y) + min(y))/2
+        
 
         try:
             
@@ -2541,6 +2548,8 @@ class MainWindow(QWidget, Ui_Widget):
             x2 = xList[id2] + (xList[id2+1] - xList[id2]) * ((y_med - y[id2]) / (y[id2+1] - y[id2]))
             
             f = abs((x1 * 180 / pi) - (x2 * 180 / pi)) if INTERROGATION_MODE == 1 else abs(x2 - x1) * 1E9
+            
+            f = round(f, 6)
             
             return f
 
