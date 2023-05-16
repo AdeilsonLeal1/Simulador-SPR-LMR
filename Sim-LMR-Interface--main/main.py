@@ -2103,6 +2103,9 @@ class MainWindow(QWidget, Ui_Widget):
                 # Resonance point variation
             delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0])
             delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0])
+
+            #delta_X_TM = abs(self.Resonance_Point_TM[-2] - self.Resonance_Point_TM[-1])
+            #delta_X_TE = abs(self.Resonance_Point_TE[-2] - self.Resonance_Point_TE[-1])
                 # Refractive index variation
             delta_index = abs(self.index_ref_analyte[0][0] - self.index_ref_analyte[0][c])
                 # Only after the second interaction is sensitivity considered.

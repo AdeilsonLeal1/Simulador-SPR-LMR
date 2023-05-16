@@ -4203,11 +4203,11 @@ class Ui_Widget(object):
 
         self.horizontalLayout_53.addItem(self.horizontalSpacer_99)
 
-        self.btn_export_data_4 = QtWidgets.QPushButton(self.grafico1_4)
-        self.btn_export_data_4.setObjectName(u"btn_export_data_4")
-        self.btn_export_data_4.setMinimumSize(QtCore.QSize(100, 25))
-        self.btn_export_data_4.setMaximumSize(QtCore.QSize(120, 25))
-        self.btn_export_data_4.setStyleSheet(u"QPushButton{\n"
+        self.btn_export_data = QtWidgets.QPushButton(self.grafico1_4)
+        self.btn_export_data.setObjectName(u"btn_export_data")
+        self.btn_export_data.setMinimumSize(QtCore.QSize(100, 25))
+        self.btn_export_data.setMaximumSize(QtCore.QSize(120, 25))
+        self.btn_export_data.setStyleSheet(u"QPushButton{\n"
                                              "	font: 400 11pt \"Ubuntu\";\n"
                                              "	color: rgb(255, 255,255);\n"
                                              "		background-color: rgba(0, 130, 180,160);\n"
@@ -4222,7 +4222,7 @@ class Ui_Widget(object):
                                              "	height: 35;\n"
                                              "}")
 
-        self.horizontalLayout_53.addWidget(self.btn_export_data_4)
+        self.horizontalLayout_53.addWidget(self.btn_export_data)
 
         self.horizontalSpacer_2 = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -4623,7 +4623,7 @@ class Ui_Widget(object):
         
         self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#d41010;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
         
-        self.btn_export_data_4.setText( _translate("Widget", u"Export data", None))
+        self.btn_export_data.setText( _translate("Widget", u"Export data", None))
         self.select_graphs.setItemText(0, _translate("Widget", u"Reflectance - TM", None))
         self.select_graphs.setItemText(1, _translate("Widget", u"Reflectance - TE", None))
         self.select_graphs.setItemText(2, _translate("Widget", u"Reflectance vs. Analyte - TM", None))
