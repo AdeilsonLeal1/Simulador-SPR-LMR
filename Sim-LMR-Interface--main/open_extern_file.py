@@ -440,6 +440,7 @@ class Ui_Widget_2(object):
 
     def open_file(self, checkbox, label_title):
         self.n_file = self.n_file + 1
+        self.figure.clear()
         try:
             path_1 = QtWidgets.QFileDialog.getOpenFileName(None, "Open File", filter="Text Files (*.txt) ;; CSV Files (*.csv)")[0]
          

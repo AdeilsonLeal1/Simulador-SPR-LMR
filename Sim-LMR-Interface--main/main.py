@@ -2242,6 +2242,8 @@ class MainWindow(QWidget, Ui_Widget):
     
     def show_graphs(self):
         graph = self.select_graphs.currentText()
+        self.figure_.clear()
+        self.canvas_.draw()
         
         if INTERROGATION_MODE == 1:
             STEP = 0.001*(pi/180)
