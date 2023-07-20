@@ -4043,7 +4043,7 @@ class Ui_Widget(object):
         self.angular_range = QDoubleRangeSlider(QtCore.Qt.Horizontal)
         self.angular_range.setMinimumSize(QtCore.QSize(300, 25))
         self.angular_range.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.angular_range.setRange(0, 90)
+        self.angular_range.setRange(0, 89.99)
         self.angular_range.setSingleStep(0.01)
         self.angular_range.setValue((40, 60))
         self.angular_range.setStyleSheet(QSS)
@@ -4207,10 +4207,11 @@ class Ui_Widget(object):
         self.btn_export_data.setObjectName(u"btn_export_data")
         self.btn_export_data.setMinimumSize(QtCore.QSize(100, 25))
         self.btn_export_data.setMaximumSize(QtCore.QSize(120, 25))
+        self.btn_export_data.setEnabled(False)
         self.btn_export_data.setStyleSheet(u"QPushButton{\n"
                                              "	font: 400 11pt \"Ubuntu\";\n"
                                              "	color: rgb(255, 255,255);\n"
-                                             "		background-color: rgba(0, 130, 180,160);\n"
+                                             "	background-color: #606060;\n"
                                              "	border-color: rgba(0, 100, 130,160);\n"
                                              "	border-width: 2px;\n"
                                              "	border-radius:10px;\n"
@@ -4230,12 +4231,6 @@ class Ui_Widget(object):
         self.horizontalLayout_53.addItem(self.horizontalSpacer_2)
 
         self.select_graphs = QtWidgets.QComboBox(self.grafico1_4)
-        self.select_graphs.addItem("")
-        self.select_graphs.addItem("")
-        self.select_graphs.addItem("")
-        self.select_graphs.addItem("")
-        self.select_graphs.addItem("")
-        self.select_graphs.addItem("")
         self.select_graphs.addItem("")
         self.select_graphs.addItem("")
         self.select_graphs.addItem("")
@@ -4277,6 +4272,44 @@ class Ui_Widget(object):
         self.horizontalLayout_53.addItem(self.horizontalSpacer_100)
 
         self.verticalLayout_36.addLayout(self.horizontalLayout_53)
+
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalSpacer_4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
+
+        self.TE_polarization = QtWidgets.QRadioButton(self.grafico1_4)
+        self.TE_polarization.setObjectName(u"TE_polarization")
+        self.TE_polarization.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+                                            "font: 500 12pt \"Ubuntu\";\n"
+                                            "background-color: rgba(255, 255, 255,210);\n"
+                                           )
+
+        self.horizontalLayout_4.addWidget(self.TE_polarization)
+
+        self.horizontalSpacer_5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_5)
+
+        self.TM_polarization = QtWidgets.QRadioButton(self.grafico1_4)
+        self.TM_polarization.setObjectName(u"TM_polarization")
+        self.TM_polarization.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+                                            "font: 500 12pt \"Ubuntu\";\n"
+                                            "background-color: rgba(255, 255, 255,210);\n"
+                                           )
+
+        self.horizontalLayout_4.addWidget(self.TM_polarization)
+
+        self.horizontalSpacer_6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_6)
+
+
+        self.verticalLayout_36.addLayout(self.horizontalLayout_4)
+
+
+
         self.textBrowser = QtWidgets.QTextBrowser(self.grafico1_4)
         self.textBrowser.setObjectName(u"textBrowser")
         sizePolicy12 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
@@ -4624,18 +4657,17 @@ class Ui_Widget(object):
         self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#d41010;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
         
         self.btn_export_data.setText( _translate("Widget", u"Export data", None))
-        self.select_graphs.setItemText(0, _translate("Widget", u"Reflectance - TM", None))
-        self.select_graphs.setItemText(1, _translate("Widget", u"Reflectance - TE", None))
-        self.select_graphs.setItemText(2, _translate("Widget", u"Reflectance vs. Analyte - TM", None))
-        self.select_graphs.setItemText(3, _translate("Widget", u"Reflectance vs. Analyte - TE", None))
-        self.select_graphs.setItemText(4, _translate("Widget", u"Resonance point vs. Analyte - TM", None))
-        self.select_graphs.setItemText(5, _translate("Widget", u"Resonance point vs. Analyte - TE", None))
-        self.select_graphs.setItemText(6, _translate("Widget", u"Sensibility vs. Analyte - TM", None))
-        self.select_graphs.setItemText(7, _translate("Widget", u"Sensibility vs. Analyte - TE", None))
-        self.select_graphs.setItemText(8, _translate("Widget", u"FWHM vs. Analyte - TM", None))
-        self.select_graphs.setItemText(9, _translate("Widget", u"FWHM vs. Analyte - TE", None))
-        self.select_graphs.setItemText(10, _translate("Widget", u"Quality Factor vs. Analyte - TM", None))
-        self.select_graphs.setItemText(11, _translate("Widget", u"Quality Factor vs. Analyte - TE", None))
+        
+        self.select_graphs.setItemText(0, _translate("Widget", u"Reflectance", None))
+        self.select_graphs.setItemText(1, _translate("Widget", u"Reflectance vs. Analyte", None))
+        self.select_graphs.setItemText(2, _translate("Widget", u"Resonance point vs. Analyte", None))
+        self.select_graphs.setItemText(3, _translate("Widget", u"Sensibility vs. Analyte", None))
+        self.select_graphs.setItemText(4, _translate("Widget", u"FWHM vs. Analyte", None))
+        self.select_graphs.setItemText(5, _translate("Widget", u"Quality Factor vs. Analyte", None))
+
+
+        self.TE_polarization.setText(_translate("Widget", u"S-Polarization (TE)", None))
+        self.TM_polarization.setText(_translate("Widget", u"P-Polarization (TM)", None))
 
         self.btn_edit_layers_3.setText(_translate("Widget", u"Edit layers", None))
         self.btn_run.setText(_translate("Widget", u"Run", None))

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>699</width>
+    <width>708</width>
     <height>630</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget{
-	background-color: rgb(0, 100, 170);
+	background-color: rgb(192, 191, 188);
 }
 QFrame{background-color: rgb(255, 255, 255);
 				border-radius:5px;}
@@ -100,16 +100,16 @@ border-color: rgb(0, 75, 150);
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <property name="leftMargin">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="topMargin">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="rightMargin">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="bottomMargin">
-       <number>0</number>
+       <number>3</number>
       </property>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2"/>
@@ -139,7 +139,7 @@ border-color: rgb(0, 75, 150);
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <property name="spacing">
-       <number>0</number>
+       <number>4</number>
       </property>
       <property name="leftMargin">
        <number>4</number>
@@ -151,7 +151,7 @@ border-color: rgb(0, 75, 150);
        <number>4</number>
       </property>
       <property name="bottomMargin">
-       <number>0</number>
+       <number>4</number>
       </property>
       <item>
        <widget class="QGroupBox" name="groupBox">

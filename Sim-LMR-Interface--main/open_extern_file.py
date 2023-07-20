@@ -37,7 +37,7 @@ class Ui_Widget_2(object):
         sizePolicy.setHeightForWidth(Widget.sizePolicy().hasHeightForWidth())
         Widget.setSizePolicy(sizePolicy)
         Widget.setStyleSheet("QWidget{\n"
-                                "    background-color: rgb(0, 100, 170);\n"
+                                "    background-color: rgb(192, 191, 188);\n"
                                 "}\n"
                                 "QFrame{background-color: rgb(255, 255, 255);\n"
                                 "                border-radius:5px;}\n"
@@ -67,6 +67,34 @@ class Ui_Widget_2(object):
                                 "}\n"
                                 "\n"
                                 "QCheckBox{background-color: rgb(255, 255, 255);}\n"
+                                "QDoubleSpinBox{\n"
+                                "   color: rgb(10, 25, 90);"
+                                "   font: 400 12pt 'Ubuntu';"
+                                "   border: 2px solid;"
+                                "   border-color: #FF17365D;"
+                                "   background-color: rgba(255, 255, 255,210);"
+                                "   border-radius:5px;"
+                                "}"
+                                "QDoubleSpinBox::up-button"
+                                "{"
+                                "    border-left-width: 1px;"
+                                "    border-left-color: darkgray;"
+                                "   border-left-style: solid; /* just a single line */"
+                                "    border-top-right-radius: 3px; /* same radius as the QComboBox */"
+                                "   border-bottom-right-radius: 3px;"
+                                "	image: url(:/icons/icons/arrow-up.png);"
+                                "	width: 25;"
+                                "}"
+                                "QDoubleSpinBox::down-button"
+                                "{"
+                                "    border-left-width: 1px;"
+                                "    border-left-color: darkgray;"
+                                "    border-left-style: solid; /* just a single line */"
+                                "    border-top-right-radius: 3px; /* same radius as the QComboBox */"
+                                "    border-bottom-right-radius: 3px;"
+                                "	image: url(:/icons/icons/arrow-down.png);"
+                                "	width: 25;"
+                                "}"
                                 "\n")
         self.formLayout_2 = QtWidgets.QFormLayout(Widget)
         self.formLayout_2.setContentsMargins(4, 5, 4, 5)
@@ -80,17 +108,13 @@ class Ui_Widget_2(object):
         sizePolicy.setHeightForWidth(self.frame_graphs.sizePolicy().hasHeightForWidth())
         self.frame_graphs.setSizePolicy(sizePolicy)
         self.frame_graphs.setMinimumSize(QtCore.QSize(0, 280))
-        self.frame_graphs.setStyleSheet("QFrame{border: 2px solid;\n"
-                                                "border-color: rgb(0, 75, 150);\n"
-                                                "border-width: 2px;\n"
-                                                "border-radius:10px;}\n"
-                                                "QLabel{\n"
-                                                "border:none;\n"
-                                                "border-color: rgb(0, 75, 150);\n"
-                                                "}\n")
+        self.frame_graphs.setStyleSheet(    "QLabel{\n"
+                                            "border:none;\n"
+                                            "border-color: rgb(0, 75, 150);\n"
+                                            "}\n")
         self.frame_graphs.setObjectName("frame_graphs")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_graphs)
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setContentsMargins(3, 3, 3, 3)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -107,7 +131,7 @@ class Ui_Widget_2(object):
         self.frame_file.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_file.setObjectName("frame_file")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frame_file)
-        self.verticalLayout_4.setContentsMargins(4, 5, 4, 0)
+        self.verticalLayout_4.setContentsMargins(4, 5, 4, 4)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.groupBox = QtWidgets.QGroupBox(self.frame_file)
@@ -188,7 +212,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy)
-        self.label.setMaximumSize(QtCore.QSize(110, 16777215))
+        self.label.setMaximumSize(QtCore.QSize(120, 16777215))
         self.label.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label.setObjectName("label")
@@ -210,7 +234,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_15.sizePolicy().hasHeightForWidth())
         self.label_15.setSizePolicy(sizePolicy)
-        self.label_15.setMaximumSize(QtCore.QSize(110, 16777215))
+        self.label_15.setMaximumSize(QtCore.QSize(120, 16777215))
         self.label_15.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_15.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_15.setObjectName("label_15")
@@ -232,7 +256,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_16.sizePolicy().hasHeightForWidth())
         self.label_16.setSizePolicy(sizePolicy)
-        self.label_16.setMaximumSize(QtCore.QSize(110, 16777215))
+        self.label_16.setMaximumSize(QtCore.QSize(130, 16777215))
         self.label_16.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_16.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_16.setObjectName("label_16")
@@ -267,7 +291,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
         self.label_4.setSizePolicy(sizePolicy)
-        self.label_4.setMaximumSize(QtCore.QSize(110, 16777215))
+        self.label_4.setMaximumSize(QtCore.QSize(120, 16777215))
         self.label_4.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_4.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_4.setObjectName("label_4")
@@ -285,7 +309,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_21.sizePolicy().hasHeightForWidth())
         self.label_21.setSizePolicy(sizePolicy)
-        self.label_21.setMaximumSize(QtCore.QSize(110, 16777215))
+        self.label_21.setMaximumSize(QtCore.QSize(120, 16777215))
         self.label_21.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_21.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_21.setObjectName("label_21")
@@ -303,7 +327,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_22.sizePolicy().hasHeightForWidth())
         self.label_22.setSizePolicy(sizePolicy)
-        self.label_22.setMaximumSize(QtCore.QSize(110, 16777215))
+        self.label_22.setMaximumSize(QtCore.QSize(130, 16777215))
         self.label_22.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_22.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_22.setObjectName("label_22")
@@ -414,7 +438,7 @@ class Ui_Widget_2(object):
         self.btn_load_2.clicked.connect(lambda: self.open_file(self.checkBox_file2, self.label_title2))
         self.spin_delta_index.valueChanged.connect(self.sensibility)
 
-
+    
     def retranslateUi(self, Widget):
         _translate = QtCore.QCoreApplication.translate
         self.groupBox.setTitle(_translate("Widget", "Files"))
@@ -438,6 +462,7 @@ class Ui_Widget_2(object):
         self.label_6.setText(_translate("Widget", "<html><head/><body><p><span style=\" font-weight:700;\">Sensibility:</span></p></body></html>"))
         self.label_25.setText(_translate("Widget", "<html><head/><body><p><span style=\" font-weight:700;\">Quality Factor:</span></p></body></html>"))
 
+    
     def open_file(self, checkbox, label_title):
         self.n_file = self.n_file + 1
         self.figure.clear()
@@ -494,6 +519,7 @@ class Ui_Widget_2(object):
             label_title.setHidden(False)
             label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file. check the format!</span></p></body></html>", None))
         
+    
     def print_parameters_1(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point):
 
         id_resonance = y_axis.index(min(y_axis))
@@ -507,6 +533,7 @@ class Ui_Widget_2(object):
         fwhm.setText(f'{abs(x2-x1):.6f}')
         min_reflectance.setText(f'{min(y_axis):.6f}')
         resonance_point.setText(f'{self.res_angle_1:.6f}')
+    
     
     def print_parameters_2(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point, delta_res, delta_index, sensibility, qf):
 
@@ -531,6 +558,7 @@ class Ui_Widget_2(object):
         
         qf.setText(f"{(sens/abs(x2-x1)):.6f}")
 
+    
     def sensibility(self):
         
         delta_resonance = abs(self.res_angle_2 - self.res_angle_1)
@@ -540,8 +568,8 @@ class Ui_Widget_2(object):
         fwhm = float(self.Qline_fwhm_2.text().replace(',','.'))
 
         self.Qline_QF.setText(f"{(sens/fwhm):.6f}")
-
-            
+   
+    
     def defFWHM(self, theta_i, curve):
         y = list(curve)
 

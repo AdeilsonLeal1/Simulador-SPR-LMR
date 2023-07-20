@@ -16,12 +16,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog, layers = None):
         self.layers = layers
+
         Dialog.setObjectName("Dialog")
         Dialog.resize(402, 260)
         Dialog.setWindowIcon(QtGui.QIcon('icons/LOGO.png'))
         Dialog.setWindowTitle("Save table")
         Dialog.setWindowFlags(QtCore.Qt.WindowCloseButtonHint)
-        Dialog.setStyleSheet(u"QDialog{background-color: rgba(0, 80, 180, 170);}\n")
                
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
