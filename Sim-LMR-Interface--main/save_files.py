@@ -109,14 +109,14 @@ class Ui_Dialog_Save(object):
 
     def show_text(self):
         self.show_file_parameters.setText(f"S-Polarization (TE)\n\n"
-                                    f"Resonance {self.simbols[0]}: {self.Resonance_Point_TE} {self.simbols[2]}\n\n"
-                                    f"FWHM: {self.Fwhm_TE} {self.simbols[2]}\n\n"
-                                    f"Sensibility: {self.sensibility_TE} {self.simbols[2]}/RIU\n\n"
+                                    f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TE}\n"
+                                    f"FWHM ({self.simbols[2]}): {self.Fwhm_TE}\n"
+                                    f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TE}\n"
                                     f"Quality Factor: {self.fom_TE}\n\n"
                                     f"P-Polarization (TM)\n\n"
-                                    f"Resonance {self.simbols[0]}: {self.Resonance_Point_TM} {self.simbols[2]}\n\n"
-                                    f"FWHM: {self.Fwhm_TM} {self.simbols[2]}\n\n"
-                                    f"Sensibility: {self.sensibility_TM} {self.simbols[2]}/RIU\n\n"
+                                    f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TM}\n"
+                                    f"FWHM ({self.simbols[2]}): {self.Fwhm_TM} \n"
+                                    f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TM}\n"
                                     f"Quality Factor: {self.fom_TM}\n")
 
         self.show_file_reflectance.append(f"{self.simbols[0]},Reflectance")
@@ -129,15 +129,22 @@ class Ui_Dialog_Save(object):
         for mode in mode_p:
             for i in range(len(self.index_ref_analyte)):
                 file_reflectance = open(f'{self.file_name.text()}_Reflectance_vs_analyte_{str(real(self.index_ref_analyte[i])).replace(".","_")}_{mode}.txt', 'w')
-                file_reflectance.write(f"{self.simbols[0]},Reflectance\n")
+                file_reflectance.write(f"{self.simbols[0]},Reflectance")
                 if mode == "TE":
-                    for i in range(len(self.ax_x)):
-                        file_reflectance.write(f"{self.ax_x[i]:.3f},{self.Reflectance_TE[0][i]:.6f}\n")
+                    for k in range(len(self.ax_x)):
+                        file_reflectance.write(f"\n{self.ax_x[k]:.3f},{self.Reflectance_TE[i][k]:.6f}")
                 else:
-                    for i in range(len(self.ax_x)):
-                        file_reflectance.write(f"{self.ax_x[i]:.3f},{self.Reflectance_TM[0][i]:.6f}\n")
+                    for k in range(len(self.ax_x)):
+                        file_reflectance.write(f"\n{self.ax_x[k]:.3f},{self.Reflectance_TM[i][k]:.6f}")
                 file_reflectance.close()
         
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Information)
+        msg.setWindowTitle("Save Simulation Data")
+        msg.setText("Successfully saved file")
+        msg.exec()
+        Dialog.close()
+    
 
 
     def retranslateUi(self, Dialog):

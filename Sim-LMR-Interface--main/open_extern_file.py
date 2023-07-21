@@ -22,7 +22,8 @@ import pandas as pd
 class Ui_Widget_2(object):
     def setupUi(self, Widget):
 
-        self.n_file = 0
+        self.n_file = [0,0]
+        self.graphs = [0,0]
 
         Widget.setWindowIcon(QtGui.QIcon('icons/LOGO.png'))
         QtWidgets.QWidget.setWindowTitle(Widget, "Sim-LMR - External File Analyse")
@@ -30,7 +31,7 @@ class Ui_Widget_2(object):
         
 
         Widget.setObjectName("Widget")
-        Widget.resize(699, 630)
+        Widget.setMinimumSize(QtCore.QSize(800, 740))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -141,6 +142,7 @@ class Ui_Widget_2(object):
         self.checkBox_file1 = QtWidgets.QCheckBox(self.groupBox)
         self.checkBox_file1.setObjectName("checkBox_file1")
         self.verticalLayout.addWidget(self.checkBox_file1)
+        
         self.btn_load_1 = QtWidgets.QPushButton(self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -150,6 +152,7 @@ class Ui_Widget_2(object):
         self.btn_load_1.setMinimumSize(QtCore.QSize(100, 25))
         self.btn_load_1.setObjectName("btn_load_1")
         self.verticalLayout.addWidget(self.btn_load_1)
+
         self.label_title1 = QtWidgets.QLabel(self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -158,9 +161,38 @@ class Ui_Widget_2(object):
         self.label_title1.setSizePolicy(sizePolicy)
         self.label_title1.setObjectName("label_title1")
         self.verticalLayout.addWidget(self.label_title1)
+
+        self.btn_remove_1 = QtWidgets.QPushButton(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btn_remove_1.sizePolicy().hasHeightForWidth())
+        self.btn_remove_1.setSizePolicy(sizePolicy)
+        self.btn_remove_1.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_remove_1.setMaximumSize(QtCore.QSize(120,35))        
+        self.btn_remove_1.setEnabled(False)
+        self.btn_remove_1.setStyleSheet("QPushButton{\n"
+                                    "    color: rgb(255, 255,255);\n"
+                                    "    background-color: #606060;\n"
+                                    "    border-color: #404040;\n"
+                                    "    border-style: outset;\n"
+                                    "    border-width: 3px;\n"
+                                    "    border-radius:10px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover{\n"
+                                    "    background-color: rgb(180, 20, 20);\n"
+                                    "    border-color: rgb(150, 25, 20);\n"
+                                    "\n"
+                                    "}\n"
+                                    "")
+        self.btn_remove_1.setObjectName("btn_remove_1")
+        self.verticalLayout.addWidget(self.btn_remove_1, 0, QtCore.Qt.AlignHCenter)
+        
         self.checkBox_file2 = QtWidgets.QCheckBox(self.groupBox)
         self.checkBox_file2.setObjectName("checkBox_file2")
         self.verticalLayout.addWidget(self.checkBox_file2)
+        
         self.btn_load_2 = QtWidgets.QPushButton(self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -170,6 +202,7 @@ class Ui_Widget_2(object):
         self.btn_load_2.setMinimumSize(QtCore.QSize(100, 25))
         self.btn_load_2.setObjectName("btn_load_2")
         self.verticalLayout.addWidget(self.btn_load_2)
+        
         self.label_title2 = QtWidgets.QLabel(self.groupBox)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -178,6 +211,34 @@ class Ui_Widget_2(object):
         self.label_title2.setSizePolicy(sizePolicy)
         self.label_title2.setObjectName("label_title2")
         self.verticalLayout.addWidget(self.label_title2)
+        
+        self.btn_remove_2 = QtWidgets.QPushButton(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btn_remove_2.sizePolicy().hasHeightForWidth())
+        self.btn_remove_2.setSizePolicy(sizePolicy)
+        self.btn_remove_2.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_remove_2.setMaximumSize(QtCore.QSize(120,35))        
+        self.btn_remove_2.setEnabled(False)
+        self.btn_remove_2.setStyleSheet("QPushButton{\n"
+                                    "    color: rgb(255, 255,255);\n"
+                                    "    background-color: #606060;\n"
+                                    "    border-color: #404040;\n"
+                                    "    border-style: outset;\n"
+                                    "    border-width: 3px;\n"
+                                    "    border-radius:10px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover{\n"
+                                    "    background-color: rgb(180, 20, 20);\n"
+                                    "    border-color: rgb(150, 25, 20);\n"
+                                    "\n"
+                                    "}\n"
+                                    "")
+        self.btn_remove_2.setObjectName("btn_remove_1")
+        self.verticalLayout.addWidget(self.btn_remove_2, 0, QtCore.Qt.AlignHCenter)
+        
         self.verticalLayout_4.addWidget(self.groupBox)
         self.formLayout_2.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.frame_file)
         self.frame_results = QtWidgets.QFrame(Widget)
@@ -223,7 +284,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Qline_resonance.sizePolicy().hasHeightForWidth())
         self.Qline_resonance.setSizePolicy(sizePolicy)
-        self.Qline_resonance.setMaximumSize(QtCore.QSize(70, 16777215))
+        self.Qline_resonance.setMaximumSize(QtCore.QSize(110, 16777215))
         self.Qline_resonance.setText("")
         self.Qline_resonance.setReadOnly(True)
         self.Qline_resonance.setObjectName("Qline_resonance")
@@ -245,7 +306,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Qline_fwhm.sizePolicy().hasHeightForWidth())
         self.Qline_fwhm.setSizePolicy(sizePolicy)
-        self.Qline_fwhm.setMaximumSize(QtCore.QSize(70, 16777215))
+        self.Qline_fwhm.setMaximumSize(QtCore.QSize(110, 16777215))
         self.Qline_fwhm.setText("")
         self.Qline_fwhm.setReadOnly(True)
         self.Qline_fwhm.setObjectName("Qline_fwhm")
@@ -267,7 +328,7 @@ class Ui_Widget_2(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.Qline_min_ref.sizePolicy().hasHeightForWidth())
         self.Qline_min_ref.setSizePolicy(sizePolicy)
-        self.Qline_min_ref.setMaximumSize(QtCore.QSize(70, 16777215))
+        self.Qline_min_ref.setMaximumSize(QtCore.QSize(110, 16777215))
         self.Qline_min_ref.setReadOnly(True)
         self.Qline_min_ref.setObjectName("Qline_min_ref")
         self.gridLayout_2.addWidget(self.Qline_min_ref, 2, 1, 1, 1)
@@ -297,7 +358,7 @@ class Ui_Widget_2(object):
         self.label_4.setObjectName("label_4")
         self.gridLayout_3.addWidget(self.label_4, 0, 0, 1, 1)
         self.Qline_resonance_2 = QtWidgets.QLineEdit(self.gb_Results_2)
-        self.Qline_resonance_2.setMaximumSize(QtCore.QSize(70, 16777215))
+        self.Qline_resonance_2.setMaximumSize(QtCore.QSize(110, 16777215))
         self.Qline_resonance_2.setText("")
         self.Qline_resonance_2.setSizePolicy(sizePolicy)
         self.Qline_resonance_2.setReadOnly(True)
@@ -315,7 +376,7 @@ class Ui_Widget_2(object):
         self.label_21.setObjectName("label_21")
         self.gridLayout_3.addWidget(self.label_21, 1, 0, 1, 1)
         self.Qline_fwhm_2 = QtWidgets.QLineEdit(self.gb_Results_2)
-        self.Qline_fwhm_2.setMaximumSize(QtCore.QSize(70, 16777215))
+        self.Qline_fwhm_2.setMaximumSize(QtCore.QSize(110, 16777215))
         self.Qline_fwhm_2.setSizePolicy(sizePolicy)
         self.Qline_fwhm_2.setText("")
         self.Qline_fwhm_2.setReadOnly(True)
@@ -333,7 +394,7 @@ class Ui_Widget_2(object):
         self.label_22.setObjectName("label_22")
         self.gridLayout_3.addWidget(self.label_22, 2, 0, 1, 1)
         self.Qline_min_ref_2 = QtWidgets.QLineEdit(self.gb_Results_2)
-        self.Qline_min_ref_2.setMaximumSize(QtCore.QSize(70, 16777215))
+        self.Qline_min_ref_2.setMaximumSize(QtCore.QSize(110, 16777215))
         self.Qline_min_ref_2.setSizePolicy(sizePolicy)
         self.Qline_min_ref_2.setReadOnly(True)
         self.Qline_min_ref_2.setObjectName("Qline_min_ref_2")
@@ -434,9 +495,11 @@ class Ui_Widget_2(object):
         self.verticalLayout_2.addWidget(self.canvas)
         self.verticalLayout_3.addWidget(self.toolbar)
 
-        self.btn_load_1.clicked.connect(lambda: self.open_file(self.checkBox_file1, self.label_title1))
-        self.btn_load_2.clicked.connect(lambda: self.open_file(self.checkBox_file2, self.label_title2))
+        self.btn_load_1.clicked.connect(self.open_1)
+        self.btn_load_2.clicked.connect(self.open_2)
         self.spin_delta_index.valueChanged.connect(self.sensibility)
+        self.btn_remove_1.clicked.connect(self.remove_file_1)
+        self.btn_remove_2.clicked.connect(self.remove_file_2)
 
     
     def retranslateUi(self, Widget):
@@ -444,9 +507,11 @@ class Ui_Widget_2(object):
         self.groupBox.setTitle(_translate("Widget", "Files"))
         self.checkBox_file1.setText(_translate("Widget", "File 1"))
         self.btn_load_1.setText(_translate("Widget", "Load"))
+        self.btn_remove_1.setText(_translate("Widget", "Remove file"))
         self.label_title1.setText(_translate("Widget", "Title 1"))
         self.checkBox_file2.setText(_translate("Widget", "File 2"))
         self.btn_load_2.setText(_translate("Widget", "Load"))
+        self.btn_remove_2.setText(_translate("Widget", "Remove file"))
         self.label_title2.setText(_translate("Widget", "Title 2"))
         self.gb_Results.setTitle(_translate("Widget", "Results - Curve 1"))
         self.label.setText(_translate("Widget", "<html><head/><body><p><span style=\" font-weight:700;\">Resonace point:</span></p></body></html>"))
@@ -462,10 +527,16 @@ class Ui_Widget_2(object):
         self.label_6.setText(_translate("Widget", "<html><head/><body><p><span style=\" font-weight:700;\">Sensibility:</span></p></body></html>"))
         self.label_25.setText(_translate("Widget", "<html><head/><body><p><span style=\" font-weight:700;\">Quality Factor:</span></p></body></html>"))
 
+    def open_1(self):
+        self.n_file[0]=1
+        self.open_file(self.checkBox_file1, self.label_title1)
     
+    def open_2(self):
+        self.n_file[1]=1
+        self.open_file(self.checkBox_file2, self.label_title2)
+        
     def open_file(self, checkbox, label_title):
-        self.n_file = self.n_file + 1
-        self.figure.clear()
+        
         try:
             path_1 = QtWidgets.QFileDialog.getOpenFileName(None, "Open File", filter="Text Files (*.txt) ;; CSV Files (*.csv)")[0]
          
@@ -482,35 +553,36 @@ class Ui_Widget_2(object):
                 x = list(df.iloc[:, 0])
                 y = list(df.iloc[:, 1])
 
-                if self.n_file == 1:
+                if self.n_file == [1, 0]:
                     self.print_parameters_1(x,y, self.Qline_fwhm, self.Qline_min_ref, self.Qline_resonance)
+                    self.set_desable(self.btn_load_1, self.btn_remove_1)
+
+                    self.show_graph(x, y, 'blue', 'Curve 1')
+                    self.graphs[0] = [x,y]
                 
-                if self.n_file == 2:
-                    self.print_parameters_2(x,y, self.Qline_fwhm_2, self.Qline_min_ref_2, self.Qline_resonance_2, self.Qline_delta_res, self.spin_delta_index, self.Qline_sensibility, self.Qline_QF)
+                if self.n_file == [0, 1]:
+                    self.print_parameters_1(x,y, self.Qline_fwhm_2, self.Qline_min_ref_2, self.Qline_resonance_2)
+                    self.set_desable(self.btn_load_2, self.btn_remove_2)
 
-                font=dict(size=5, family="Sans-Serif")
-                plt.rc('font', **font)
+                    self.show_graph(x, y, 'red', 'Curve 2')
+                    self.graphs[1] = [x,y]
+                
+                if self.n_file == [1, 1]:
 
-                plt.subplots_adjust(left=0.160,
-                    bottom=0.195, 
-                    right=0.930, 
-                    top=0.950, 
-                    wspace=0.1, 
-                    hspace=0.2)
-                try:
+                    if self.Qline_resonance.text() == "":
+                        self.print_parameters_2(x,y, self.Qline_fwhm, self.Qline_min_ref, self.Qline_resonance, self.Qline_delta_res, self.spin_delta_index, self.Qline_sensibility, self.Qline_QF)
+                        self.set_desable(self.btn_load_1, self.btn_remove_1)
+                        self.graphs[0] = [x,y]
+                        self.show_graph(x, y, 'blue', 'Curve 1')
                     
-                    plt.plot(x, y)
-                    plt.grid(True, alpha=0.3)
-                    plt.ylabel('Reflectance', fontdict=font)
-                    plt.yticks(fontsize=5)
-                    plt.xticks(fontsize=5)
+                    if self.Qline_resonance_2.text() == "":
+                        self.print_parameters_2(x,y, self.Qline_fwhm_2, self.Qline_min_ref_2, self.Qline_resonance_2, self.Qline_delta_res, self.spin_delta_index, self.Qline_sensibility, self.Qline_QF)
+                        self.set_desable(self.btn_load_2, self.btn_remove_2)
+                        self.graphs[1] = [x,y]
+                        self.show_graph(x, y, 'red', 'Curve 2')
 
-                    self.canvas.draw() 
+                
 
-                except Exception as erro:
-                    label_title.setHidden(False)
-                    label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error showing graph.</span></p></body></html>", None))
-            
             except:
                 label_title.setHidden(False)
                 label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error reading file. check the format!</span></p></body></html>", None))
@@ -518,6 +590,58 @@ class Ui_Widget_2(object):
         except:
             label_title.setHidden(False)
             label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file. check the format!</span></p></body></html>", None))
+
+    def show_graph(self, x, y, colors, labels):
+        font=dict(size=5, family="Sans-Serif")
+        plt.rc('font', **font)
+
+        plt.subplots_adjust(left=0.160,
+                    bottom=0.195, 
+                    right=0.930, 
+                    top=0.950, 
+                    wspace=0.1, 
+                    hspace=0.2)
+
+        plt.plot(x, y, color=colors, label=labels)
+        plt.grid(True, alpha=0.3)
+        plt.ylabel('Reflectance',  fontdict=font)
+        plt.yticks(arange(0, 1.2, step=0.2), fontsize=5)
+        plt.xticks(fontsize=5)
+        plt.legend()
+
+        self.canvas.draw()
+
+    
+    def set_desable(self, btn_load, btn_remove):
+        btn_load.setEnabled(False)
+        btn_load.setStyleSheet("QPushButton{\n"
+                                    "    color: rgb(255, 255,255);\n"
+                                    "    background-color: #606060;\n"
+                                    "    border-color: #404040;\n"
+                                    "    border-style: outset;\n"
+                                    "    border-width: 2px;\n"
+                                    "    border-radius:5px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover{\n"
+                                    "    background-color: rgb(180, 20, 20);\n"
+                                    "    border-color: rgb(150, 25, 20);\n"
+                                    "\n"
+                                    "}\n"
+                                    "")
+        btn_remove.setEnabled(True)
+        btn_remove.setStyleSheet("QPushButton{\n"
+                                                    "    color: rgb(255, 255,255);\n"
+                                                    "    background-color: rgb(0, 130, 180);\n"
+                                                    "    border-color: rgb(0, 100, 130);\n"
+                                                    "    border-style: outset;\n"
+                                                    "    border-width: 3px;\n"
+                                                    "    border-radius:10px;\n"
+                                                    "}\n"
+                                                    "QPushButton:hover{\n"
+                                                    "    background-color: rgb(180, 20, 20);\n"
+                                                    "    border-color: rgb(150, 25, 20);\n"
+                                                    "}\n")
         
     
     def print_parameters_1(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point):
@@ -526,7 +650,7 @@ class Ui_Widget_2(object):
 
         x1, x2, id1, id2, y_med = self.defFWHM(x_axis, y_axis)
 
-        plt.plot([x_axis[id1], x_axis[id2]],[y_med, y_med])
+        #plt.plot([x_axis[id1], x_axis[id2]],[y_med, y_med])
         
         self.res_angle_1 = x_axis[id_resonance]
 
@@ -545,7 +669,7 @@ class Ui_Widget_2(object):
 
         delta_resonance = abs(self.res_angle_2 - self.res_angle_1)
 
-        plt.plot([x_axis[id1], x_axis[id2]],[y_med, y_med])
+        #plt.plot([x_axis[id1], x_axis[id2]],[y_med, y_med])
 
         fwhm.setText(f'{abs(x2-x1):.6f}')
         min_reflectance.setText(f'{min(y_axis):.6f}')
@@ -606,5 +730,101 @@ class Ui_Widget_2(object):
         x2 = theta_i[id2] + (theta_i[id2+1] - theta_i[id2]) * ((y_med - y[id2]) / (y[id2+1] - y[id2]))
 
         return x1, x2, id1, id2, y_med
+
+
+    def remove_file_1(self):
+        self.n_file[0] = 0
+        self.remove_file()
+
+    def remove_file_2(self):
+        self.n_file[1] = 0
+        self.remove_file()
+
+    def remove_file(self):
+
+        if self.n_file == [0, 1]:
+            self.set_enable(self.btn_load_1, self.btn_remove_1)
+            self.checkBox_file1.setChecked(False)
+            self.label_title1.setText("Empty")
+            
+            self.Qline_resonance.clear()
+            self.Qline_fwhm.clear()
+            self.Qline_min_ref.clear()
+            
+            self.Qline_delta_res.clear()
+            self.Qline_sensibility.clear()
+            self.Qline_QF.clear()
+
+            self.figure.clear()
+            self.show_graph(self.graphs[1][0], self.graphs[1][1], 'red', 'Curve 2')
+            
+
+        if self.n_file == [1, 0]:
+            self.set_enable(self.btn_load_2, self.btn_remove_2)
+            self.checkBox_file2.setChecked(False)
+            self.label_title2.setText("Empty")
+
+            self.Qline_resonance_2.clear()
+            self.Qline_fwhm_2.clear()
+            self.Qline_min_ref_2.clear()
+            
+            self.Qline_delta_res.clear()
+            self.Qline_sensibility.clear()
+            self.Qline_QF.clear()
+
+            self.figure.clear()
+            self.show_graph(self.graphs[0][0], self.graphs[0][1], 'blue', 'Curve 1')
+        
+        if self.n_file == [0, 0]:
+            if self.Qline_resonance.text() == "":
+                self.set_enable(self.btn_load_2, self.btn_remove_2)
+                self.checkBox_file2.setChecked(False)
+                self.label_title2.setText("Empty")
+
+                self.Qline_resonance_2.clear()
+                self.Qline_fwhm_2.clear()
+                self.Qline_min_ref_2.clear()
+            
+            if self.Qline_resonance_2.text() == "":
+                self.set_enable(self.btn_load_1, self.btn_remove_1)
+                self.checkBox_file1.setChecked(False)
+                self.label_title1.setText("Empty")
+                
+                self.Qline_resonance.clear()
+                self.Qline_fwhm.clear()
+                self.Qline_min_ref.clear()
+            
+            self.figure.clear()
+            self.canvas.draw()
+
+    
+    
+    def set_enable(self, btn_load, btn_remove):
+        btn_load.setEnabled(True)
+        btn_load.setStyleSheet("QPushButton{\n"
+                                "    font: 400 11pt \"Ubuntu\";\n"
+                                "    color: rgb(255, 255,255);\n"
+                                "    background-color: rgb(0, 130, 180);\n"
+                                "    border-color: rgb(0, 100, 130);\n"
+                                "    border-style: outset;\n"
+                                "    border-width: 2px;\n"
+                                "    border-radius:5px;\n"
+                                "}\n"
+                                "\n"
+                                "QPushButton:hover{\n"
+                                "    background-color: rgb(00, 140, 70);\n"
+                                "    border-color: rgb(0, 120, 40);\n"
+                                "}\n")
+        btn_remove.setEnabled(False)
+        btn_remove.setStyleSheet("QPushButton{\n"
+                                    "    color: rgb(255, 255,255);\n"
+                                    "    background-color: #606060;\n"
+                                    "    border-color: #404040;\n"
+                                    "    border-style: outset;\n"
+                                    "    border-width: 3px;\n"
+                                    "    border-radius:10px;\n"
+                                    "}\n")
+
+
 
     

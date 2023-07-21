@@ -61,7 +61,7 @@ class MainWindow(QWidget, Ui_Widget):
         ## APP EVENTS
         ########################################################################
         # Initialization of screens
-        self.Stacked_windows.setCurrentIndex(4)
+        self.Stacked_windows.setCurrentIndex(0)
         self.stacked_layers.setCurrentIndex(1)
         self.Stacked_config_mode.setCurrentIndex(1)
 
@@ -2027,8 +2027,6 @@ class MainWindow(QWidget, Ui_Widget):
 
     def start_simulation(self):
 
-
-
         self.Reflectance_TM = []
         self.Reflectance_TE = []
         self.Resonance_Point_TM = []
@@ -2278,8 +2276,6 @@ class MainWindow(QWidget, Ui_Widget):
     
     def show_graphs(self):
         graph = self.select_graphs.currentText()
-        self.figure_.clear()
-        self.canvas_.draw()
         
         if INTERROGATION_MODE == 1:
             STEP = 0.001*(pi/180)
@@ -2312,53 +2308,59 @@ class MainWindow(QWidget, Ui_Widget):
             match graph:
                 case "Reflectance":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
                     if INTERROGATION_MODE == 1:
                         text = f"{self.simbols[1]}$_C$ = {self.critical_point[0]:.4f} {self.simbols[2]}"
                         x, y = self.Reflectance(self.indexRef, self.critical_point[0]*pi/180, self.lambda_i.value()*1E-9)
-                        plt.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
+                        ax.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
 
-                    plt.plot(self.ax_x, self.Reflectance_TM[0])
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
-                    plt.ylabel('Reflectance', fontdict=font)
-                    plt.yticks(arange(0, 1.20, 0.20), fontsize=5)
-                    plt.xticks(fontsize=5)
-
-                    self.canvas_.draw()  
+                    ax.plot(self.ax_x, self.Reflectance_TM[0])
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
+                    ax.set_ylabel('Reflectance', fontdict=font)
+                    ax.set_yticks(arange(0, 1.20, 0.20))
+                    
+                    self.canvas_.draw() 
             
                 case "FWHM vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
                                         top=0.960, 
                                         wspace=0.1, 
                                         hspace=0.2)
+                    ax.tick_params(labelsize=5, labelrotation=45)
                     
-                    plt.plot(real(self.index_ref_analyte), self.Fwhm_TM, '-o', markersize=3)
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'FWHM ({self.simbols[2]})', fontdict=font)
-                    plt.yticks(self.Fwhm_TM, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
+                    ax.plot(real(self.index_ref_analyte), self.Fwhm_TM, '-o', markersize=3)
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'FWHM ({self.simbols[2]})', fontdict=font)
+                    ax.set_yticks(self.Fwhm_TM)
+                    ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
             
                 case "Reflectance vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
                     legend = list()
                     for i in range(len(self.index_ref_analyte)):
-                        plt.plot(self.ax_x, self.Reflectance_TM[i])
+                        ax.plot(self.ax_x, self.Reflectance_TM[i])
                         legend.append(fr"{self.index_ref_analyte[i].real:.3f}")
-                    plt.grid(True, alpha=0.3)
-                    plt.legend(legend, fontsize=6)
-                    plt.xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
-                    plt.ylabel('Reflectance', fontdict=font)
-                    plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
-                    plt.xticks(fontsize=5)
+                    ax.grid(True, alpha=0.3)
+                    ax.legend(legend, fontsize=6)
+                    ax.set_xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
+                    ax.set_ylabel('Reflectance', fontdict=font)
+                    ax.set_yticks(arange(0, 1.20, 0.20))
                     self.canvas_.draw()
             
                 case "Resonance point vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+                    ax.tick_params(labelsize=5, labelrotation=45)
+                    
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
@@ -2366,16 +2368,19 @@ class MainWindow(QWidget, Ui_Widget):
                                         wspace=0.1, 
                                         hspace=0.2)
 
-                    plt.plot(real(self.index_ref_analyte), self.Resonance_Point_TM, '-o', markersize=3 )
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'Resonance {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
-                    plt.yticks(self.Resonance_Point_TM, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
+                    ax.plot(real(self.index_ref_analyte), self.Resonance_Point_TM, '-o', markersize=3 )
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'Resonance {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
+                    ax.set_yticks(self.Resonance_Point_TM)
+                    ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
                                   
                 case "Sensibility vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+                    ax.tick_params(labelsize=5, labelrotation=45)
+                    
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
@@ -2383,16 +2388,19 @@ class MainWindow(QWidget, Ui_Widget):
                                         wspace=0.1, 
                                         hspace=0.2)
         
-                    plt.plot(real(self.index_ref_analyte), self.sensibility_TM, '-o', markersize=3)
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'Sensibility ({self.simbols[2]} RI$U^-$$^1$)', fontdict=font)
-                    plt.yticks(self.sensibility_TM, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
+                    ax.plot(real(self.index_ref_analyte), self.sensibility_TM, '-o', markersize=3)
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'Sensibility ({self.simbols[2]} RI$U^-$$^1$)', fontdict=font)
+                    ax.set_yticks(self.sensibility_TM)
+                    ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
             
                 case "Quality Factor vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+                    ax.tick_params(labelsize=5, labelrotation=45)
+
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
@@ -2400,104 +2408,117 @@ class MainWindow(QWidget, Ui_Widget):
                                         wspace=0.1, 
                                         hspace=0.2)
                     
-                    plt.plot(real(self.index_ref_analyte), self.fom_TM, '-o', markersize=3)
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'Quality Factor (RI$U^-$$^1$)', fontdict=font)
-                    plt.yticks(self.fom_TM, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
+                    ax.plot(real(self.index_ref_analyte), self.fom_TM, '-o', markersize=3)
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'Quality Factor (RI$U^-$$^1$)', fontdict=font)
+                    ax.set_yticks(self.fom_TM)
+                    ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
         
             self.textBrowser.setText(f"P-Polarization (TM)\n\n"
-                                    f"Resonance {self.simbols[0]}: {self.Resonance_Point_TM} {self.simbols[2]}\n\n"
-                                    f"FWHM: {self.Fwhm_TM} {self.simbols[2]}\n\n"
-                                    f"Sensibility: {self.sensibility_TM} {self.simbols[2]}/RIU\n\n"
+                                    f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TM}\n"
+                                    f"FWHM ({self.simbols[2]}): {self.Fwhm_TM} \n"
+                                    f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TM}\n"
                                     f"Quality Factor: {self.fom_TM}\n")
 
         if self.TE_polarization.isChecked():
             match graph:
                 case "Reflectance":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
                     if INTERROGATION_MODE == 1:
                         text = f"{self.simbols[1]}$_C$ = {self.critical_point[0]:.4f} {self.simbols[2]}"
                         x, y = self.Reflectance(self.indexRef, self.critical_point[0]*pi/180, self.lambda_i.value()*1E-9)
-                        plt.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
+                        ax.annotate(text=text, xy=(self.critical_point[0], x), xytext=(self.a1_3.value(), 0.6),bbox=dict(boxstyle="round4", fc="w"), arrowprops=dict(arrowstyle="->", connectionstyle="arc3, rad=-0.2",))
+
+                    ax.plot(self.ax_x, self.Reflectance_TE[0])
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
+                    ax.set_ylabel('Reflectance', fontdict=font)
+                    ax.set_yticks(arange(0, 1.20, 0.20))
                     
-                    plt.plot(self.ax_x, (self.Reflectance_TE[0]))
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
-                    plt.ylabel('Reflectance', fontdict=font)
-                    plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
-                    plt.xticks(fontsize=5)
-                    self.canvas_.draw()
-                
+                    self.canvas_.draw() 
+            
                 case "FWHM vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
                                         top=0.960, 
                                         wspace=0.1, 
                                         hspace=0.2)
+                    ax.tick_params(labelsize=5, labelrotation=45)
                     
-                    plt.plot(real(self.index_ref_analyte), self.Fwhm_TE, '-o', markersize=3)
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'FWHM ({self.simbols[2]})', fontdict=font)
-                    plt.yticks(self.Fwhm_TE, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
+                    ax.plot(real(self.index_ref_analyte), self.Fwhm_TE, '-o', markersize=3)
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'FWHM ({self.simbols[2]})', fontdict=font)
+                    ax.set_yticks(self.Fwhm_TE)
+                    ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
-                
+            
                 case "Reflectance vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
                     legend = list()
                     for i in range(len(self.index_ref_analyte)):
-                        plt.plot(self.ax_x, self.Reflectance_TE[i])
+                        ax.plot(self.ax_x, self.Reflectance_TE[i])
                         legend.append(fr"{self.index_ref_analyte[i].real:.3f}")
-                    plt.grid(True, alpha=0.3)
-                    plt.legend(legend, fontsize=6)
-                    plt.xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
-                    plt.ylabel('Reflectance', fontdict=font)
-                    plt.yticks(arange(0, 1.20, 0.20), fontsize=5 )
-                    plt.xticks(fontsize=5)
+                    ax.grid(True, alpha=0.3)
+                    ax.legend(legend, fontsize=6)
+                    ax.set_xlabel(f'Incidence {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
+                    ax.set_ylabel('Reflectance', fontdict=font)
+                    ax.set_yticks(arange(0, 1.20, 0.20))
                     self.canvas_.draw()
-                
+            
                 case "Resonance point vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+                    ax.tick_params(labelsize=5, labelrotation=45)
+                    
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
                                         top=0.960, 
                                         wspace=0.1, 
                                         hspace=0.2)
-                    
-                    plt.plot(real(self.index_ref_analyte), self.Resonance_Point_TE, '-o', markersize=3 )
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'Resonance {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
-                    plt.yticks(self.Resonance_Point_TE, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
-                    self.canvas_.draw()
 
+                    ax.plot(real(self.index_ref_analyte), self.Resonance_Point_TE, '-o', markersize=3 )
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'Resonance {self.simbols[0]} ({self.simbols[2]})', fontdict=font)
+                    ax.set_yticks(self.Resonance_Point_TE)
+                    ax.set_xticks(real(self.index_ref_analyte))
+                    self.canvas_.draw()
+                                  
                 case "Sensibility vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+                    ax.tick_params(labelsize=5, labelrotation=45)
+                    
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
                                         top=0.960, 
                                         wspace=0.1, 
                                         hspace=0.2)
-                    
-                    plt.plot(real(self.index_ref_analyte), self.sensibility_TE, '-o', markersize=3)
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'Sensibility ({self.simbols[2]} RI$U^-$$^1$)', fontdict=font)
-                    plt.yticks(self.sensibility_TE, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
+        
+                    ax.plot(real(self.index_ref_analyte), self.sensibility_TE, '-o', markersize=3)
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'Sensibility ({self.simbols[2]} RI$U^-$$^1$)', fontdict=font)
+                    ax.set_yticks(self.sensibility_TE)
+                    ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
-
+            
                 case "Quality Factor vs. Analyte":
                     self.figure_.clear()
+                    ax = self.figure_.add_subplot()
+                    ax.tick_params(labelsize=5, labelrotation=45)
+
                     plt.subplots_adjust(left=0.210,
                                         bottom=0.285, 
                                         right=0.900, 
@@ -2505,18 +2526,18 @@ class MainWindow(QWidget, Ui_Widget):
                                         wspace=0.1, 
                                         hspace=0.2)
                     
-                    plt.plot(real(self.index_ref_analyte), self.fom_TE, '-o', markersize=3)
-                    plt.grid(True, alpha=0.3)
-                    plt.xlabel('Analyte (RIU)', fontdict=font)
-                    plt.ylabel(f'Quality Factor (RI$U^-$$^1$)', fontdict=font)
-                    plt.yticks(self.fom_TE, fontsize=5 )
-                    plt.xticks(fontsize=5, rotation=45)
+                    ax.plot(real(self.index_ref_analyte), self.fom_TE, '-o', markersize=3)
+                    ax.grid(True, alpha=0.3)
+                    ax.set_xlabel('Analyte (RIU)', fontdict=font)
+                    ax.set_ylabel(f'Quality Factor (RI$U^-$$^1$)', fontdict=font)
+                    ax.set_yticks(self.fom_TE)
+                    ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
 
             self.textBrowser.setText(f"S-Polarization (TE)\n\n"
-                                    f"Resonance {self.simbols[0]}: {self.Resonance_Point_TE} {self.simbols[2]}\n\n"
-                                    f"FWHM: {self.Fwhm_TE} {self.simbols[2]}\n\n"
-                                    f"Sensibility: {self.sensibility_TE} {self.simbols[2]}/RIU\n\n"
+                                    f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TE}\n"
+                                    f"FWHM ({self.simbols[2]}): {self.Fwhm_TE}\n"
+                                    f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TE}\n"
                                     f"Quality Factor: {self.fom_TE}\n"
                                     )
                     
