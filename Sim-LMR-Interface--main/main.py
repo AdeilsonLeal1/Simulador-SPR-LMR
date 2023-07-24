@@ -2045,48 +2045,32 @@ class MainWindow(QWidget, Ui_Widget):
         
         if INTERROGATION_MODE == 1:
             self.reflectance_AIM()
-            self.show_graphs()
-            self.btn_export_data.setEnabled(True)
-            self.btn_export_data.setStyleSheet(u"QPushButton{\n"
-                                             "	font: 400 11pt \"Ubuntu\";\n"
-                                             "	color: rgb(255, 255,255);\n"
-                                             "	background-color: rgba(0, 130, 180,160);\n"
-                                             "	border-color: rgba(0, 100, 130,160);\n"
-                                             "	border-width: 2px;\n"
-                                             "	border-radius:10px;\n"
-                                             "}\n"
-                                             "\n"
-                                             "QPushButton:hover{\n"
-                                             "	background-color: rgb(0, 130, 180);\n"
-                                             "	width: 40;\n"
-                                             "	height: 35;\n"
-                                             "}")
         else:
             self.reflectance_WIM()
-            self.show_graphs()
-            self.btn_export_data.setEnabled(True)
-            self.btn_export_data.setStyleSheet(u"QPushButton{\n"
-                                             "	font: 400 11pt \"Ubuntu\";\n"
-                                             "	color: rgb(255, 255,255);\n"
-                                             "	background-color: rgba(0, 130, 180,160);\n"
-                                             "	border-color: rgba(0, 100, 130,160);\n"
-                                             "	border-width: 2px;\n"
-                                             "	border-radius:10px;\n"
-                                             "}\n"
-                                             "\n"
-                                             "QPushButton:hover{\n"
-                                             "	background-color: rgb(0, 130, 180);\n"
-                                             "	width: 40;\n"
-                                             "	height: 35;\n"
-                                             "}")
-     
+        
+        self.show_graphs()
+        self.btn_export_data.setEnabled(True)
+        self.btn_export_data.setStyleSheet(u"QPushButton{\n"
+                                            "	font: 400 11pt \"Ubuntu\";\n"
+                                            "	color: rgb(255, 255,255);\n"
+                                            "	background-color: rgba(0, 130, 180,160);\n"
+                                            "	border-color: rgba(0, 100, 130,160);\n"
+                                            "	border-width: 2px;\n"
+                                            "	border-radius:10px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover{\n"
+                                            "	background-color: rgb(0, 130, 180);\n"
+                                            "	width: 40;\n"
+                                            "	height: 35;\n"
+                                            "}")
+  
     def reflectance_AIM(self):
         STEP = 0.001*(pi/180)
         lambda_i = self.lambda_i.value()*1E-9
         a1 = self.a1_3.value()*(pi/180)
         a2 = self.a2_3.value()*(pi/180)
         theta_i = arange(a1, a2, STEP)
-        c = 0 # couter analyte
         
         for index_analyte in self.index_ref_analyte:
             layer_analyte = self.material.index('Analyte')
@@ -2113,11 +2097,10 @@ class MainWindow(QWidget, Ui_Widget):
             self.Rmin_TM.append(min(R_TM_i))
             self.Rmin_TE.append(min(R_TE_i))
 
-            self.sensibility_graph(index_analyte, c)
+            self.sensibility_graph(index_analyte)
 
             self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, theta_i))
             self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, theta_i))
-            c+=1
         
         self.indexRef[layer_analyte]=self.index_ref_analyte[0]
 
@@ -2125,7 +2108,7 @@ class MainWindow(QWidget, Ui_Widget):
             self.fom_TM.append(round(abs(self.sensibility_TM[s] / self.Fwhm_TM[s]), 6))
             self.fom_TE.append(round(abs(self.sensibility_TE[s] / self.Fwhm_TE[s]), 6))
 
-    def sensibility_graph(self, index_analyte, c):
+    def sensibility_graph(self, index_analyte):
         # Sensibility obtained from the graph
             # It calculates the angular sensitivity (Resonance point variation)/(Refractive index variation)
         if index_analyte == self.index_ref_analyte[0]:
@@ -2135,13 +2118,13 @@ class MainWindow(QWidget, Ui_Widget):
 
         else:
                 # Resonance point variation
-            delta_X_TM = abs(self.Resonance_Point_TM[-1] - self.Resonance_Point_TM[0])
-            delta_X_TE = abs(self.Resonance_Point_TE[-1] - self.Resonance_Point_TE[0])
+            delta_X_TM = abs(self.Resonance_Point_TM[-2] - self.Resonance_Point_TM[-1])
+            delta_X_TE = abs(self.Resonance_Point_TE[-2] - self.Resonance_Point_TE[-1])
 
             #delta_X_TM = abs(self.Resonance_Point_TM[-2] - self.Resonance_Point_TM[-1])
             #delta_X_TE = abs(self.Resonance_Point_TE[-2] - self.Resonance_Point_TE[-1])
                 # Refractive index variation
-            delta_index = abs(self.index_ref_analyte[0] - self.index_ref_analyte[c])
+            delta_index = abs(self.index_ref_analyte[-2] - self.index_ref_analyte[-1])
                 # Only after the second interaction is sensitivity considered.
             self.sensibility_TM.append(round((delta_X_TM / delta_index), 6))
             self.sensibility_TE.append(round((delta_X_TE / delta_index), 6))
@@ -2186,8 +2169,6 @@ class MainWindow(QWidget, Ui_Widget):
         a2 = self.a2_2.value()*1E-9
         lambda_i = arange(a1, a2, STEP)
 
-        c = 0 # couter analyte
-
         for index_analyte in self.index_ref_analyte:
             layer_analyte = self.material.index('Analyte')
 
@@ -2217,11 +2198,10 @@ class MainWindow(QWidget, Ui_Widget):
             self.Rmin_TM.append(min(R_TM_i))
             self.Rmin_TE.append(min(R_TE_i))
 
-            self.sensibility_graph(index_analyte, c)
+            self.sensibility_graph(index_analyte)
 
             self.Fwhm_TM.append(self.calc_FWHM(R_TM_i, lambda_i))
             self.Fwhm_TE.append(self.calc_FWHM(R_TE_i, lambda_i))
-            c+=1
 
         for s in range(len(self.index_ref_analyte)):
             self.fom_TM.append(abs(self.sensibility_TM[s] / self.Fwhm_TM[s]))
