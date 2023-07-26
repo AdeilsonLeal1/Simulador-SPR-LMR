@@ -2042,6 +2042,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.Fwhm_TE = []
 
         self.fom_TM, self.fom_TE = [],[]
+        self.textBrowser.setText("")
+        self.textBrowser_2.setText("")
         
         if INTERROGATION_MODE == 1:
             self.reflectance_AIM()
@@ -2138,18 +2140,15 @@ class MainWindow(QWidget, Ui_Widget):
             id_min = reflectance.index(min(reflectance))  # Position of the minimum point of the curve
 
             if INTERROGATION_MODE == 1:
-                min_point = axis_x[id_min] * (180 / pi)
+               
                 critical_point = self.critical_point[-1]
-                # Checks if the minimum is before the critical point
-                if min_point > critical_point:
-                    resonance_point = min_point
-                else:  # It adjusts to be the next minimum after the critical angle
-                    lst = asarray(axis_x)
-                    idx = (abs(lst - (critical_point * pi / 180))).argmin()
 
-                    reflect_right_critical_point = reflectance[idx:-1]
-                    id_min = reflectance.index(min(reflect_right_critical_point))
-                    resonance_point = axis_x[id_min] * (180 / pi)
+                list_x = asarray(axis_x)
+                idx = (abs(list_x - (critical_point * pi / 180))).argmin()
+
+                reflect_right_critical_point = reflectance[idx:-1]
+                id_min = reflectance.index(min(reflect_right_critical_point))
+                resonance_point = axis_x[id_min] * (180 / pi)
 
                 return resonance_point  # Returns the angle in degrees
             else: 
@@ -2525,23 +2524,19 @@ class MainWindow(QWidget, Ui_Widget):
         y = list(curve)
 
         id_min = y.index(min(y))  # Position of the minimum point of the curve
-
+        reflect_right_critical_point = y
+        
         if INTERROGATION_MODE == 1:
-            min_point = xList[id_min] * (180 / pi)
             critical_point = self.critical_point[-1]
-            # Checks if the minimum is before the critical point
-            if min_point > critical_point:
-                id_min = id_min
-            
-            else:  # It adjusts to be the next minimum after the critical angle
-                lst = asarray(xList)
-                idx = (abs(lst - (critical_point * pi / 180))).argmin()
 
-                reflect_right_critical_point = y[idx:-1]
-                id_min = y.index(min(reflect_right_critical_point))
+            list_x = asarray(xList)
+            idx = (abs(list_x - (critical_point * pi / 180))).argmin()
+            reflect_right_critical_point = y[idx:-1]
 
-        y_left = y[0:(id_min+1)]
-        y_right = y[id_min:len(y)]
+            id_min = reflect_right_critical_point.index(min(reflect_right_critical_point))
+
+        y_left = reflect_right_critical_point[0:(id_min+1)]
+        y_right = reflect_right_critical_point[id_min:len(reflect_right_critical_point)]
 
         y_mx_left = max(y_left)
         y_mn_left = min(y_left)
@@ -2552,9 +2547,10 @@ class MainWindow(QWidget, Ui_Widget):
         y_med_left = (y_mx_left + y_mn_left)/2
         y_med_right = (y_mx_right + y_mn_right)/2
 
-        y_med = (y_med_left + y_med_right)/2
-        #y_med = (1+min(y))/2
-        #y_med = (max(y) + min(y))/2
+        #y_med = (y_med_left + y_med_right)/2
+        y_med = (1+min(reflect_right_critical_point))/2    
+        #y_med = (max(reflect_right_critical_point) + min(reflect_right_critical_point))/2 
+        #y_med = max(reflect_right_critical_point)/2
         
 
         try:
