@@ -15,6 +15,7 @@ import save_table
 
 
 COUPLING, INTERROGATION_MODE = 0, 0
+STEP = 0    # Also make the adjustment in the 'self.reflectance_AIM()' or 'self.reflectance_WIM()' when necessary
 
 class MainWindow(QWidget, Ui_Widget):
     def __init__(self):
@@ -2068,6 +2069,7 @@ class MainWindow(QWidget, Ui_Widget):
                                             "}")
   
     def reflectance_AIM(self):
+        global STEP
         STEP = 0.001*(pi/180)
         lambda_i = self.lambda_i.value()*1E-9
         a1 = self.a1_3.value()*(pi/180)
@@ -2162,6 +2164,7 @@ class MainWindow(QWidget, Ui_Widget):
             return -1 # Returns the angle in degrees
 
     def reflectance_WIM(self):
+        global STEP
         STEP = 0.1*1E-9
         theta_i = self.angle_incidence.value()*(pi/180)
         a1 = self.a1_2.value()*1E-9
@@ -2257,7 +2260,6 @@ class MainWindow(QWidget, Ui_Widget):
         graph = self.select_graphs.currentText()
         
         if INTERROGATION_MODE == 1:
-            STEP = 0.001*(pi/180)
             a1 = self.a1_3.value()*(pi/180) 
             a2 = self.a2_3.value()*(pi/180) 
             theta_i = arange(a1, a2, STEP)    
@@ -2265,7 +2267,6 @@ class MainWindow(QWidget, Ui_Widget):
             self.ax_x =  theta_i* (180 / pi) 
             self.simbols = ("Angle", chr(952), "°")
         else:
-            STEP = 0.1*1E-9
             a1 = self.a1_2.value()*1E-9
             a2 = self.a2_2.value()*1E-9
             lambda_i = arange(a1, a2, STEP)

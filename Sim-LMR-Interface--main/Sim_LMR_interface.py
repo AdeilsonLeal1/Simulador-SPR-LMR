@@ -1724,9 +1724,9 @@ class Ui_Widget(object):
                                            "	image: url(:/icons/icons/arrow-down.png);\n"
                                            "	width: 25;\n"
                                            "}")
-        self.step_analyte.setDecimals(3)
+        self.step_analyte.setDecimals(4)
         self.step_analyte.setMaximum(3.000000000000000)
-        self.step_analyte.setSingleStep(0.001000000000000)
+        self.step_analyte.setSingleStep(0.000100000000)
         self.step_analyte.setValue(0.01000000000000)
 
         self.gridLayout_7.addWidget(self.step_analyte, 2, 1, 1, 1)
@@ -2221,9 +2221,9 @@ class Ui_Widget(object):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.step_analyte_wim.setDecimals(3)
+        self.step_analyte_wim.setDecimals(4)
         self.step_analyte_wim.setMaximum(3.000000000000000)
-        self.step_analyte_wim.setSingleStep(0.001000000000000)
+        self.step_analyte_wim.setSingleStep(0.0001000000000000)
         self.step_analyte_wim.setValue(0.01000000000000)
 
         self.gridLayout_5.addWidget(self.step_analyte_wim, 2, 1, 1, 1)
