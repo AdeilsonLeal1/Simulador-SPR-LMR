@@ -646,7 +646,11 @@ class Ui_Widget_2(object):
     
     def print_parameters_1(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point):
 
-        id_resonance = y_axis.index(min(y_axis))
+        max_, min_ = self.find_max_min(y_axis)
+        y = list(y_axis[max_[0][0]:max_[1][0]])
+        x_axis = list(x_axis[max_[0][0]:max_[1][0]])
+
+        id_resonance = y.index(min(y))
 
         x1, x2, id1, id2, y_med = self.defFWHM(x_axis, y_axis)
 
@@ -655,13 +659,17 @@ class Ui_Widget_2(object):
         self.res_angle_1 = x_axis[id_resonance]
 
         fwhm.setText(f'{abs(x2-x1):.6f}')
-        min_reflectance.setText(f'{min(y_axis):.6f}')
+        min_reflectance.setText(f'{min(y):.6f}')
         resonance_point.setText(f'{self.res_angle_1:.6f}')
     
     
     def print_parameters_2(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point, delta_res, delta_index, sensibility, qf):
 
-        id_resonance = y_axis.index(min(y_axis))
+        max_, min_ = self.find_max_min(y_axis)
+        y = list(y_axis[max_[0][0]:max_[1][0]])
+        x_axis = list(x_axis[max_[0][0]:max_[1][0]])
+
+        id_resonance = y.index(min(y))
 
         x1, x2, id1, id2, y_med = self.defFWHM(x_axis, y_axis)
         
@@ -672,7 +680,7 @@ class Ui_Widget_2(object):
         #plt.plot([x_axis[id1], x_axis[id2]],[y_med, y_med])
 
         fwhm.setText(f'{abs(x2-x1):.6f}')
-        min_reflectance.setText(f'{min(y_axis):.6f}')
+        min_reflectance.setText(f'{min(y):.6f}')
         resonance_point.setText(f'{self.res_angle_2:.6f}')
         delta_res.setText(f'{abs(self.res_angle_2 - self.res_angle_1):.6f}')
         
@@ -695,7 +703,10 @@ class Ui_Widget_2(object):
    
     
     def defFWHM(self, theta_i, curve):
-        y = list(curve)
+        
+        max_, min_ = self.find_max_min(curve)
+        
+        y = list(curve[max_[0][0]:max_[1][0]])
 
         id_min = y.index(min(y))
 
@@ -711,13 +722,11 @@ class Ui_Widget_2(object):
         y_med_left = (y_mx_left + y_mn_left)/2
         y_med_right = (y_mx_right + y_mn_right)/2
 
-        y_med = (y_med_left + y_med_right)/2
+        #y_med = (y_med_left + y_med_right)/2
         #y_med = (max(y))/2
-        #y_med = (1+min(y))/2
+        y_med = (1+min(y))/2
         #y_med = (max(y)+min(y))/2
         
-        
-
         signs = sign(add(y, -y_med))
 
         zero_crossings = (signs[0:-2] != signs[1:-1])
@@ -731,6 +740,21 @@ class Ui_Widget_2(object):
 
         return x1, x2, id1, id2, y_med
 
+    def find_max_min(self, seq):
+        max_list = []
+        min_list = []
+
+        for i in range(1, len(seq) - 1):
+            if i == 1 and seq[i] > seq[i+1]: 
+                max_list.append((i, seq[i]))
+            elif i == (len(seq) - 2) and seq[i] >= seq[i-1]:
+                max_list.append((i, seq[i]))
+            elif seq[i] > seq[i-1] and seq[i] > seq[i+1]:
+                max_list.append((i, seq[i]))
+            elif seq[i] < seq[i-1] and seq[i] < seq[i+1]:
+                min_list.append((i, seq[i]))
+        
+        return max_list, min_list
 
     def remove_file_1(self):
         self.n_file[0] = 0
@@ -796,9 +820,7 @@ class Ui_Widget_2(object):
             
             self.figure.clear()
             self.canvas.draw()
-
-    
-    
+   
     def set_enable(self, btn_load, btn_remove):
         btn_load.setEnabled(True)
         btn_load.setStyleSheet("QPushButton{\n"
