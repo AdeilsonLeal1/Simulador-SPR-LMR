@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/icons8-reload-96.png</file>
     <file>icons/arrow-up.png</file>
     <file>icons/arrow-down.png</file>
     <file>icons/fiber_CRMF.png</file>

@@ -62,7 +62,7 @@ class MainWindow(QWidget, Ui_Widget):
         ## APP EVENTS
         ########################################################################
         # Initialization of screens
-        self.Stacked_windows.setCurrentIndex(0)
+        self.Stacked_windows.setCurrentIndex(4)
         self.stacked_layers.setCurrentIndex(1)
         self.Stacked_config_mode.setCurrentIndex(1)
 
@@ -181,19 +181,29 @@ class MainWindow(QWidget, Ui_Widget):
         ## Remove and edit table
         self.btn_remove_layers.clicked.connect(self.remove_layers)
         self.btn_edit_layers.clicked.connect(self.select_edit_layer)
+        
         self.btn_confirm_edit.clicked.connect(self.edit_layer)
         self.btn_confirm_edit.clicked.connect(self.set_Enable_False_2)
+        
         self.btn_confirm_edit_3.clicked.connect(self.edit_layer)
         self.btn_confirm_edit_3.clicked.connect(self.set_Enable_False_2)
+        
         self.btn_confirm_edit_2.clicked.connect(self.edit_analyte)
         self.btn_confirm_edit_2.clicked.connect(self.set_Enable_False)
+        
         self.btn_confirm_edit_4.clicked.connect(self.edit_analyte)
         self.btn_confirm_edit_4.clicked.connect(self.set_Enable_False)
 
         self.btn_save_table.clicked.connect(self.save_table)
         self.btn_export_data.clicked.connect(self.export_data)
 
+        self.btn_new_simulation.clicked.connect(self.new_simulation)
+
     # APP FUNCTIONS     
+    def new_simulation(self):
+        self.close()
+        self.__init__()
+        self.Stacked_windows.setCurrentIndex(1)
 
     def prism_btn_clicked(self):
         self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">-</span><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\"> Coupling through prism selected - </span></pre><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">Next to continue...</span></pre></body></html>"))
@@ -263,8 +273,27 @@ class MainWindow(QWidget, Ui_Widget):
         self.warning_inter.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#37eb00;\">- Wavelength interrogation mode selected - </span></pre><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">Next to continue...</span></pre></body></html>"))
         INTERROGATION_MODE = 2
 
-    def set_Enable_True(self):
-        # This enable the cbox_material field 
+    def set_Enable_True(self):        
+        # This enable the btn_add_layer button (AIM mode)
+        self.btn_add_layer.setEnabled(True)
+        self.btn_add_layer.setToolTip("Add layer")
+        self.btn_add_layer.setStyleSheet(u"QPushButton{\n"
+                                           "	font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: rgb(0, 130, 180);\n"
+                                           "	border-color: rgb(0, 100, 130);\n"
+                                           "	border-width: 2px;\n"
+                                           "	border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background-color: rgb(00, 140, 70);\n"
+                                           "	border-color: rgb(0, 120, 40);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+        
+        # This enable the cbox_material field (AIM mode)
         self.cbox_material.setEnabled(True)
         self.cbox_material.setStyleSheet(u"QComboBox::drop-down {\n"
                                          "    width: 25;\n"
@@ -320,7 +349,26 @@ class MainWindow(QWidget, Ui_Widget):
                                         "border-radius:10px;")
         self.description_3.setEnabled(True)
 
-        # This enable the cbox_material_2 field 
+        # This enable the btn_add_layer_2 button (WIM mode)
+        self.btn_add_layer_2.setEnabled(True)
+        self.btn_add_layer_2.setToolTip("Add layer")
+        self.btn_add_layer_2.setStyleSheet(u"QPushButton{\n"
+                                           "	font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: rgb(0, 130, 180);\n"
+                                           "	border-color: rgb(0, 100, 130);\n"
+                                           "	border-width: 2px;\n"
+                                           "	border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background-color: rgb(00, 140, 70);\n"
+                                           "	border-color: rgb(0, 120, 40);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+        
+        # This enable the cbox_material_2 field (WIM mode)
         self.cbox_material_2.setEnabled(True)
         self.cbox_material_2.setStyleSheet(u"QComboBox::drop-down {\n"
                                          "    width: 25;\n"
@@ -361,9 +409,23 @@ class MainWindow(QWidget, Ui_Widget):
                                         "border-color: #FF17365D;\n"
                                         "background-color: rgba(255, 255, 255,210);\n"
                                         "border-radius:10px;")
+        
+        self.warning.setHidden(True)
+        
+    def set_Enable_True_2(self):
+        # This enable the gb_analyte field (AIM mode)
+        self.gb_analyte.setEnabled(True)
+        self.gb_analyte.setToolTip("Analyte refractive index range")
 
-        self.description_4.setEnabled(True)
-        self.description_4.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+        self.description_3.setEnabled(True)
+        self.description_3.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+                                        "font: 700 12pt \"Ubuntu\";\n"
+                                        "border: 2px solid;\n"
+                                        "border-color: #FF17365D;\n"
+                                        "background-color: rgba(255, 255, 255,210);\n"
+                                        "border-radius:10px;")
+        
+        self.thickness_4.setStyleSheet(u"color: rgb(10, 25, 90);\n"
                                         "font: 700 12pt \"Ubuntu\";\n"
                                         "border: 2px solid;\n"
                                         "border-color: #FF17365D;\n"
@@ -375,46 +437,15 @@ class MainWindow(QWidget, Ui_Widget):
                                         "border-color: #FF17365D;\n"
                                         "background-color: rgba(255, 255, 255,210);\n"
                                         "border-radius:10px;")
-
-        self.warning.setHidden(True)
         
-    def set_Enable_True_2(self):
-        # This enable the gb_analyte field  
-        self.gb_analyte.setEnabled(True)
-        self.gb_analyte.setToolTip("Analyte refractive index range")
-
-        self.description_3.setStyleSheet(u"color: rgb(10, 25, 90);\n"
+        self.description_4.setEnabled(True)
+        self.description_4.setStyleSheet(u"color: rgb(10, 25, 90);\n"
                                         "font: 700 12pt \"Ubuntu\";\n"
                                         "border: 2px solid;\n"
                                         "border-color: #FF17365D;\n"
                                         "background-color: rgba(255, 255, 255,210);\n"
                                         "border-radius:10px;")
-        self.thickness_4.setStyleSheet(u"color: rgb(10, 25, 90);\n"
-                                        "font: 700 12pt \"Ubuntu\";\n"
-                                        "border: 2px solid;\n"
-                                        "border-color: #FF17365D;\n"
-                                        "background-color: rgba(255, 255, 255,210);\n"
-                                        "border-radius:10px;")
-        
-        # This enable the btn_add_layer button 
-        self.btn_add_layer.setEnabled(True)
-        self.btn_add_layer.setToolTip("Add layer")
-        self.btn_add_layer.setStyleSheet(u"QPushButton{\n"
-                                           "	font: 400 11pt \"Ubuntu\";\n"
-                                           "	color: rgb(255, 255,255);\n"
-                                           "	background-color: rgb(0, 130, 180);\n"
-                                           "	border-color: rgb(0, 100, 130);\n"
-                                           "	border-width: 2px;\n"
-                                           "	border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QPushButton:hover{\n"
-                                           "	background-color: rgb(00, 140, 70);\n"
-                                           "	border-color: rgb(0, 120, 40);\n"
-                                           "	width: 40;\n"
-                                           "	height: 35;\n"
-                                           "}")
-        
+              
         # This changes the button style btn_add_layer
         self.Analyte_refractive_index.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
@@ -531,24 +562,7 @@ class MainWindow(QWidget, Ui_Widget):
          # This enable the gb_analyte_2 field  
         self.gb_analyte_2.setEnabled(True)
         self.gb_analyte_2.setToolTip("Analyte refractive index range")# This enable the btn_add_layer_2 button 
-        self.btn_add_layer_2.setEnabled(True)
-        self.btn_add_layer_2.setToolTip("Add layer")
-        self.btn_add_layer_2.setStyleSheet(u"QPushButton{\n"
-                                           "	font: 400 11pt \"Ubuntu\";\n"
-                                           "	color: rgb(255, 255,255);\n"
-                                           "	background-color: rgb(0, 130, 180);\n"
-                                           "	border-color: rgb(0, 100, 130);\n"
-                                           "	border-width: 2px;\n"
-                                           "	border-radius:10px;\n"
-                                           "}\n"
-                                           "\n"
-                                           "QPushButton:hover{\n"
-                                           "	background-color: rgb(00, 140, 70);\n"
-                                           "	border-color: rgb(0, 120, 40);\n"
-                                           "	width: 40;\n"
-                                           "	height: 35;\n"
-                                           "}")
-        
+
         # This changes the button style btn_add_layer
         self.n_sample_analyte_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
@@ -665,7 +679,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.warning.setHidden(True)
 
     def set_Enable_False(self):
-        # This unenable the gb_analyte field 
+        # This turns off the analyte related areas
+        # This turns off the gb_analyte field (AIM mode)
         self.gb_analyte.setEnabled(False)
         self.gb_analyte.setToolTip("Click in 'New layer' to enable")
         self.Analyte_refractive_index.setStyleSheet(u"\n"
@@ -791,7 +806,7 @@ class MainWindow(QWidget, Ui_Widget):
                                      "background-color: rgba(255, 255, 255,210);\n"
                                      "border-radius:10px;")
 
-        # This unenable the gb_analyt_2 field 
+        # This turns off the gb_analyt_2 field (WIM mode)
         self.gb_analyte_2.setEnabled(False)
         self.gb_analyte_2.setToolTip("Click in 'New layer' to enable")
         self.n_sample_analyte_wim.setStyleSheet(u"\n"
@@ -917,8 +932,23 @@ class MainWindow(QWidget, Ui_Widget):
                                      "background-color: rgba(255, 255, 255,210);\n"
                                      "border-radius:10px;")
 
-        #self.btn_add_analyte_2.setEnabled(False)
         self.btn_confirm_edit_2.setStyleSheet(u"QPushButton{\n"
+                                           "	font: 400 11pt \"Ubuntu\";\n"
+                                           "	color: rgb(255, 255,255);\n"
+                                           "	background-color: #606060;\n"
+                                           "	border-color: rgb(0, 100, 130);\n"
+                                           "	border-width: 2px;\n"
+                                           "	border-radius:10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover{\n"
+                                           "	background-color: rgb(00, 140, 70);\n"
+                                           "	border-color: rgb(0, 120, 40);\n"
+                                           "	width: 40;\n"
+                                           "	height: 35;\n"
+                                           "}")
+
+        self.btn_confirm_edit_4.setStyleSheet(u"QPushButton{\n"
                                            "	font: 400 11pt \"Ubuntu\";\n"
                                            "	color: rgb(255, 255,255);\n"
                                            "	background-color: #606060;\n"
@@ -1011,6 +1041,23 @@ class MainWindow(QWidget, Ui_Widget):
         
         self.btn_confirm_edit.setEnabled(False)
         self.btn_confirm_edit.setStyleSheet(u"QPushButton{\n"
+                                         "	font: 400 11pt \"Ubuntu\";\n"
+                                         "	color: rgb(255, 255,255);\n"
+                                         "	background-color: #606060;\n"
+                                         "	border-color: rgb(0, 100, 130);\n"
+                                         "	border-width: 2px;\n"
+                                         "	border-radius:10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover{\n"
+                                         "	background-color: rgb(00, 140, 70);\n"
+                                         "	border-color: rgb(0, 120, 40);\n"
+                                         "	width: 40;\n"
+                                         "	height: 35;\n"
+                                         "}")
+
+        self.btn_confirm_edit_3.setEnabled(False)
+        self.btn_confirm_edit_3.setStyleSheet(u"QPushButton{\n"
                                          "	font: 400 11pt \"Ubuntu\";\n"
                                          "	color: rgb(255, 255,255);\n"
                                          "	background-color: #606060;\n"
@@ -1476,8 +1523,8 @@ class MainWindow(QWidget, Ui_Widget):
                 n = complex(interp(Lambda_i, X, n_cy))
 
 
-            self.real_part_index.setText(str(round(real(n), 5) ).replace('.',',')) 
-            self.imaginary_part_index.setText(str(round(imag(n), 5)).replace('.',',')) 
+            self.real_part_index.setText(str(round(real(n), 5))) 
+            self.imaginary_part_index.setText(str(round(imag(n), 5))) 
 
     def add_layers(self):
         try:
@@ -1510,9 +1557,43 @@ class MainWindow(QWidget, Ui_Widget):
             
         except:
             self.warning.setHidden(False)
-            self.material.pop(-1)
-            self.material_id.pop(-1)
+            if self.material != []:
+                self.material.pop(-1)
+                self.material_id.pop(-1)
             self.warning.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">* Fill in all required fields * </span></p></body></html>", None))
+
+            if not self.thickness.text().isnumeric():
+                self.thickness.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.thickness_2.text().isnumeric():
+                self.thickness_2.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.imaginary_part_index.text().isnumeric():
+                self.imaginary_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.real_part_index.text().isnumeric():
+                self.real_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
         
         self.nLayers = len(self.layers)
 
@@ -1581,8 +1662,6 @@ class MainWindow(QWidget, Ui_Widget):
             self.d.append(float(thickness)*1e-9)
             self.indexRef.append(complex(initial_index_analyte, 0))
             
-            indices = []
-
             for i in arange(n_sample_analyte):
                 indice = initial_index_analyte + (i * step_analyte)
                 self.index_ref_analyte.append(complex(round(indice, 4)))
@@ -1594,9 +1673,26 @@ class MainWindow(QWidget, Ui_Widget):
             self.nLayers = len(self.layers)
         except:
             self.warning.setHidden(False)
-            self.material.pop(-1)
-            self.material_id.pop(-1)
+            if self.material != []:
+                self.material.pop(-1)
+                self.material_id.pop(-1)
             self.warning.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">* Fill in all required fields *</span></p></body></html>", None))
+            if not self.thickness_3.text().isnumeric():
+                self.thickness_3.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.thickness_4.text().isnumeric():
+                self.thickness_4.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
         
         self.show_layers()
 
@@ -1852,7 +1948,7 @@ class MainWindow(QWidget, Ui_Widget):
                                                 "	height: 35;\n"
                                                 "}")
                 
-                else:
+                else:   #WIM mode
                     self.cbox_material_2.setCurrentText(layer_edit["material"])
                     self.thickness_2.setText(layer_edit["thickness"])
                     self.description_2.setText(layer_edit["description"])
@@ -1909,43 +2005,75 @@ class MainWindow(QWidget, Ui_Widget):
         else:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-        
             msg.setText("Select the layer to be edited!")
-            
             msg.setWindowTitle("Warning")
-            
             msg.setStandardButtons(QMessageBox.Ok)
-            
             retval = msg.exec_()
 
     def edit_layer(self):
-        index_select = self.tableWidget_layers.currentRow()
-        if INTERROGATION_MODE == 1: #AIM
-            material = self.cbox_material.currentText()
-            thickness = self.thickness.text().replace(',','.')
-            description = self.description.text()
-            real = float(self.real_part_index.text().replace(',','.'))
-            imag = float(self.imaginary_part_index.text().replace(',','.'))
-            refractiveIndex = str(complex(real, imag)).replace('(',' ').replace(')',' ')
+        try:
+            index_select = self.tableWidget_layers.currentRow()
+            if INTERROGATION_MODE == 1: #AIM
+                material = self.cbox_material.currentText()
+                thickness = self.thickness.text().replace(',','.')
+                description = self.description.text()
+                real = float(self.real_part_index.text().replace(',','.'))
+                imag = float(self.imaginary_part_index.text().replace(',','.'))
+                refractiveIndex = str(complex(real, imag)).replace('(',' ').replace(')',' ')
+                
+                self.material[index_select] = material
+                self.material_id[index_select] = self.cbox_material.currentIndex()
+                self.d[index_select] = float(thickness)*1e-9
+                self.indexRef[index_select] = complex(real, imag)
+                
+                self.layers[index_select] = {"material": material, "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description }
             
-            self.material[index_select] = material
-            self.material_id[index_select] = self.cbox_material.currentIndex()
-            self.d[index_select] = float(thickness)*1e-9
-            self.indexRef[index_select] = complex(real, imag)
-            
-            self.layers[index_select] = {"material": material, "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description }
-        
-        else: #WIM
-            material = self.cbox_material_2.currentText()
-            thickness = self.thickness_2.text().replace(',','.')
-            description = self.description_2.text()
-            
-            self.material[index_select] = material
-            self.material_id[index_select] = self.cbox_material_2.currentIndex()
-            self.d[index_select] = float(thickness)*1e-9
-            self.indexRef[index_select] = complex(0, 0)
-            
-            self.layers[index_select] = {"material": material, "thickness": thickness, "refractiveIndex": "-", "description": description }
+            else: #WIM
+                material = self.cbox_material_2.currentText()
+                thickness = self.thickness_2.text().replace(',','.')
+                description = self.description_2.text()
+                
+                self.material[index_select] = material
+                self.material_id[index_select] = self.cbox_material_2.currentIndex()
+                self.d[index_select] = float(thickness)*1e-9
+                self.indexRef[index_select] = complex(0, 0)
+                
+                self.layers[index_select] = {"material": material, "thickness": thickness, "refractiveIndex": "-", "description": description }
+        except:
+            self.warning.setHidden(False)
+            self.warning.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">* Fill in all required fields *</span></p></body></html>", None))
+            if not self.thickness.text().isnumeric():
+                self.thickness.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.thickness_2.text().isnumeric():
+                self.thickness_2.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.imaginary_part_index.text().isnumeric():
+                self.imaginary_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.real_part_index.text().isnumeric():
+                self.real_part_index.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
 
         self.show_layers()
 
@@ -1957,37 +2085,58 @@ class MainWindow(QWidget, Ui_Widget):
         self.description_2.setText("")
 
     def edit_analyte(self):
-        index_select = self.tableWidget_layers.currentRow()
-        if INTERROGATION_MODE == 1: # AIM mode
-            initial_index_analyte = self.Analyte_refractive_index.value()
-            n_sample_analyte = self.n_sample_analyte.value()
-            step_analyte = round(self.step_analyte.value(), 5)
-            thickness = self.thickness_4.text().replace(',','.')
-            description = self.description_3.text()
-        else: #WIM
-            initial_index_analyte = self.Analyte_refractive_index_wim.value()
-            n_sample_analyte = self.n_sample_analyte_wim.value()
-            step_analyte = round(self.step_analyte_wim.value(),5)
-            thickness = self.thickness_3.text().replace(',','.')
-            description = self.description_4.text()
+        try: 
+            index_select = self.tableWidget_layers.currentRow()
+            if INTERROGATION_MODE == 1: # AIM mode
+                initial_index_analyte = self.Analyte_refractive_index.value()
+                n_sample_analyte = self.n_sample_analyte.value()
+                step_analyte = round(self.step_analyte.value(), 5)
+                thickness = self.thickness_4.text().replace(',','.')
+                description = self.description_3.text()
+            else: #WIM
+                initial_index_analyte = self.Analyte_refractive_index_wim.value()
+                n_sample_analyte = self.n_sample_analyte_wim.value()
+                step_analyte = round(self.step_analyte_wim.value(),5)
+                thickness = self.thickness_3.text().replace(',','.')
+                description = self.description_4.text()
 
-        refractiveIndex = f"{round(initial_index_analyte,4)} - {round(n_sample_analyte,4)}" 
-                        
-        self.d[index_select] = float(thickness)*1e-9
-        self.indexRef[index_select] = complex(initial_index_analyte, 0)
+            refractiveIndex = f"{round(initial_index_analyte,4)} - {round(n_sample_analyte,4)}" 
+                            
+            self.d[index_select] = float(thickness)*1e-9
+            self.indexRef[index_select] = complex(initial_index_analyte, 0)
 
-        indices = []
+            indices = []
 
-        for i in arange(n_sample_analyte):
-            indices.append(initial_index_analyte + (i * step_analyte))
+            for i in arange(n_sample_analyte):
+                indices.append(initial_index_analyte + (i * step_analyte))
+            
+            indices = vectorize(lambda indices: complex(round(indices,4)))(indices)
+            
+            refractiveIndex = f"{round(initial_index_analyte,4)} - {round(real(indices[-1]),4)}" 
+            
+            self.index_ref_analyte = list(indices)
+            self.layers[index_select] = {"material": "Analyte", "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description }
+
+        except:
+            self.warning.setHidden(False)
+            self.warning.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">* Fill in all required fields *</span></p></body></html>", None))
+            if not self.thickness_3.text().isnumeric():
+                self.thickness_3.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
+            if not self.thickness_4.text().isnumeric():
+                self.thickness_4.setStyleSheet(u" padding: 1px 18px 1px 3px;\n"
+                                     "color: #aa0000;\n"
+                                     "font: 700 12pt \"Ubuntu\";\n"
+                                     " border: 2px solid;\n"
+                                     "border-color: #aa0000;\n"
+                                     "background-color: rgba(255, 255, 255,210);\n"
+                                     "border-radius:10px;")
         
-        indices = vectorize(lambda indices: complex(round(indices,4)))(indices)
-        
-        refractiveIndex = f"{round(initial_index_analyte,4)} - {round(real(indices[-1]),4)}" 
-        
-        self.index_ref_analyte = list(indices)
-        self.layers[index_select] = {"material": "Analyte", "thickness": thickness, "refractiveIndex": refractiveIndex, "description": description }
-    
         self.show_layers()
 
         self.description_3.setText("")
@@ -2027,7 +2176,15 @@ class MainWindow(QWidget, Ui_Widget):
                 self.tableWidget_layers.setItem(row, column, QtWidgets.QTableWidgetItem(str(text[f'{data}'])))
 
     def start_simulation(self):
+        self.progressBar.setHidden(False)
+        self.timer = QtCore.QTimer(self)
+        self.timer.timeout.connect(self.update_progress)
+        self.timer_interval = 100  # Interval in miliseconds
 
+        self.progress_value = 0
+        self.progressBar.setValue(0)
+        self.timer.start(self.timer_interval)
+        
         self.Reflectance_TM = []
         self.Reflectance_TE = []
         self.Resonance_Point_TM = []
@@ -2043,8 +2200,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.Fwhm_TE = []
 
         self.fom_TM, self.fom_TE = [],[]
-        self.textBrowser.setText("")
-        self.textBrowser_2.setText("")
+        self.textBrowser.setText("Calculating...")
         
         if INTERROGATION_MODE == 1:
             self.reflectance_AIM()
@@ -2067,7 +2223,15 @@ class MainWindow(QWidget, Ui_Widget):
                                             "	width: 40;\n"
                                             "	height: 35;\n"
                                             "}")
-  
+        
+        self.progress_value = 100
+        self.progressBar.setValue(self.progress_value)
+        QtWidgets.QApplication.processEvents()
+        self.timer.stop()
+
+    def update_progress(self):
+        self.progressBar.setValue(self.progress_value)
+
     def reflectance_AIM(self):
         global STEP
         STEP = 0.001*(pi/180)
@@ -2090,7 +2254,8 @@ class MainWindow(QWidget, Ui_Widget):
                 r_tm, r_te = self.Reflectance(self.indexRef, theta_i[t], lambda_i)
                 R_TM_i.append(r_tm)
                 R_TE_i.append(r_te)
-                
+                self.progress_value = int((t + 1) * 100 / len(theta_i))     
+                QtWidgets.QApplication.processEvents()  # Atualiza a interface gráfica           
 
             self.Resonance_Point_TM.append(round(self.Point_LMR(theta_i, R_TM_i), 6))
             self.Resonance_Point_TE.append(round(self.Point_LMR(theta_i, R_TE_i), 6))
@@ -2190,6 +2355,8 @@ class MainWindow(QWidget, Ui_Widget):
                 r_tm, r_te = self.Reflectance(self.indexRef, theta_i, lambda_i[t])
                 R_TM_i.append(r_tm)
                 R_TE_i.append(r_te)
+                self.progress_value = int((t + 1) * 100 / len(lambda_i)) 
+                QtWidgets.QApplication.processEvents()  # Atualiza a interface gráfica
             
             self.Resonance_Point_TM.append(round(self.Point_LMR(lambda_i, R_TM_i), 6))
             self.Resonance_Point_TE.append(round(self.Point_LMR(lambda_i, R_TE_i), 6))
@@ -2213,7 +2380,7 @@ class MainWindow(QWidget, Ui_Widget):
         """ The numerical model is based on the attenuated total reflection method combined with the transfer matrix
             method for a multilayer system according to:
             * PALIWAL, N.; JOHN, J. Lossy mode resonance based fiber optic sensors. In: Fiber Optic Sensors.
-            [S_TM.l.]: Springer, 2017. p. 31–50. DOI : 10.1007/978-3-319-42625-9_2."""
+            [S_TM.l.]: Springer, 2017. p. 31-50. DOI : 10.1007/978-3-319-42625-9_2."""
 
         j = complex(0, 1)  # Simplification for the complex number "j"
         k0 = (2 * pi) / wavelenght  # Wave number
@@ -2598,7 +2765,6 @@ class MainWindow(QWidget, Ui_Widget):
         self.save_window.show()
 
 if __name__ == "__main__":
-
     app = QtWidgets.QApplication(sys.argv)
     Widget = MainWindow()
     Widget.show()

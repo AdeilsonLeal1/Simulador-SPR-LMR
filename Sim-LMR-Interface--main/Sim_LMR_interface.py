@@ -3611,7 +3611,7 @@ class Ui_Widget(object):
         self.wavelength_range.setMaximumSize(QtCore.QSize(16777215, 25))
         self.wavelength_range.setRange(0, 2000)
         self.wavelength_range.setSingleStep(1)
-        self.wavelength_range.setValue((405, 1100))
+        self.wavelength_range.setValue((400, 1000))
         self.wavelength_range.setStyleSheet(QSS)
         self.horizontalLayout_33.addWidget(self.wavelength_range)
 
@@ -3693,6 +3693,7 @@ class Ui_Widget(object):
         self.angle_Slider.setMaximumSize(QtCore.QSize(16777215, 25))
         self.angle_Slider.setStyleSheet(QSS)
         self.angle_Slider.setMaximum(900)
+        self.angle_Slider.setValue(685)
         self.angle_Slider.setOrientation(QtCore.Qt.Horizontal)
         self.angle_Slider.setTickPosition(QtWidgets.QSlider.TicksBelow)
         self.angle_Slider.setTickInterval(10)
@@ -3755,7 +3756,7 @@ class Ui_Widget(object):
         self.angle_incidence.setDecimals(2)
         self.angle_incidence.setRange(0, 90)
         self.angle_incidence.setSingleStep(0.01)
-        self.angle_incidence.setProperty("value", 0.0)
+        self.angle_incidence.setProperty("value", 68.5)
         self.angle_incidence.setObjectName("angle_incidence")
         self.horizontalLayout_34.addWidget(self.angle_incidence)
         spacerItem60 = QtWidgets.QSpacerItem(
@@ -4045,7 +4046,7 @@ class Ui_Widget(object):
         self.angular_range.setMaximumSize(QtCore.QSize(16777215, 25))
         self.angular_range.setRange(0, 89.99)
         self.angular_range.setSingleStep(0.01)
-        self.angular_range.setValue((40, 60))
+        self.angular_range.setValue((60, 89))
         self.angular_range.setStyleSheet(QSS)
 
         self.angular_range.setObjectName("angular_range")
@@ -4335,12 +4336,32 @@ class Ui_Widget(object):
         self.label_warning.setHidden(True)
         self.verticalLayout_35.addWidget(self.label_warning)
 
+        self.progressBar = QtWidgets.QProgressBar(self.graphics_frame)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.progressBar.setStyleSheet(u"QProgressBar {\n"
+                                        "color: rgb(255,255,255);\n"
+                                        "	font: 600 12pt \"Segoe UI\";\n"
+                                        "    border: 2px solid #2196F3;\n"
+                                        "    border-radius: 5px;\n"
+                                        "    background-color: #E0E0E0;\n"
+                                        "margin-right: 55px;\n"
+                                        "}\n"
+                                        "QProgressBar::chunk {\n"
+                                        "	background-color: rgb(0, 170, 0);\n"
+                                        "    width: 8px; \n"
+                                        "    margin: 0.5px;\n"
+                                        "margin-right: 2px;\n"
+                                        "}")
+        self.progressBar.setHidden(True)
+        self.progressBar.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)   
+
+        self.verticalLayout_35.addWidget(self.progressBar)
+
         self.horizontalLayout_55 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_55.setSpacing(0)
         self.horizontalLayout_55.setObjectName("horizontalLayout_55")
-        spacerItem74 = QtWidgets.QSpacerItem(
-            14, 23, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_55.addItem(spacerItem74)
+        
         self.btn_run = QtWidgets.QPushButton(self.graphics_frame)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
@@ -4349,13 +4370,13 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.btn_run.sizePolicy().hasHeightForWidth())
         self.btn_run.setSizePolicy(sizePolicy)
-        self.btn_run.setMinimumSize(QtCore.QSize(180, 32))
+        self.btn_run.setMinimumSize(QtCore.QSize(180, 35))
         self.btn_run.setStyleSheet("QPushButton{\n"
                                      "    \n"
                                      "    font: 400 14pt \"Ubuntu\";\n"
                                      "    color: rgb(255, 255,255);\n"
-                                     "    background:rgba(0, 150, 0, 1);\n"
-                                     "    border-color: rgb(0, 120, 40);\n"
+                                     "    background:rgb(0, 130, 180);\n"
+                                     "    border-color: rgb(0, 100, 130);\n"
                                      "    border-style: outset;\n"
                                      "    border-width: 3px;\n"
                                      "    border-radius:10px;\n"
@@ -4368,12 +4389,69 @@ class Ui_Widget(object):
                                      "}")
         self.btn_run.setIcon(icon3)
         self.btn_run.setIconSize(QtCore.QSize(20, 20))
-        self.btn_run.setObjectName("btn_run_4")
+        self.btn_run.setObjectName("btn_run")
         self.horizontalLayout_55.addWidget(self.btn_run)
         spacerItem75 = QtWidgets.QSpacerItem(
             14, 23, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_55.addItem(spacerItem75)
+
+        self.btn_new_simulation = QtWidgets.QPushButton(self.graphics_frame)
+        self.btn_new_simulation.setObjectName(u"btn_new_simulation")
+        self.btn_new_simulation.setMinimumSize(QtCore.QSize(180, 35))
+        self.btn_new_simulation.setStyleSheet(u"QPushButton{\n"
+                                                "	\n"
+                                                "	font: 400 14pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: rgb(0, 130, 180);\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-style: outset;\n"
+                                                "	border-width: 3px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(0, 130, 255);\n"
+                                                "	border-color: rgb(0, 100, 200);\n"
+                                                "}")
+        icon14 = QtGui.QIcon()
+        icon14.addFile(u"icons\icons8-reload-96.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_new_simulation.setIcon(icon14)
+        self.btn_new_simulation.setIconSize(QtCore.QSize(25, 25))
+
+        self.horizontalLayout_55.addWidget(self.btn_new_simulation)
+
+        self.horizontalSpacer_105 = QtWidgets.QSpacerItem(14, 23, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_55.addItem(self.horizontalSpacer_105)
+
+
         self.verticalLayout_35.addLayout(self.horizontalLayout_55)
+
+        self.btn_multip_analiyse = QtWidgets.QPushButton(self.graphics_frame)
+        self.btn_multip_analiyse.setObjectName(u"btn_multip_analiyse")
+        self.btn_multip_analiyse.setMinimumSize(QtCore.QSize(320, 35))
+        self.btn_multip_analiyse.setStyleSheet(u"QPushButton{\n"
+                                                "	\n"
+                                                "	font: 400 14pt \"Ubuntu\";\n"
+                                                "	color: rgb(255, 255,255);\n"
+                                                "	background-color: rgb(0, 130, 180);\n"
+                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	border-style: outset;\n"
+                                                "	border-width: 3px;\n"
+                                                "	border-radius:10px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QPushButton:hover{\n"
+                                                "	background-color: rgb(0, 130, 255);\n"
+                                                "	border-color: rgb(0, 100, 200);\n"
+                                                "}")
+        icon15 = QtGui.QIcon()
+        icon15.addFile(u"Sim-LMR-Interface--main\icons\sine-waves-analysis.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_multip_analiyse.setIcon(icon15)
+        self.btn_multip_analiyse.setIconSize(QtCore.QSize(35, 35))
+
+        self.horizontalLayout_55.addWidget(self.btn_multip_analiyse)
+
         self.verticalLayout_3.addWidget(self.splitter_4)
         self.frame_next_previous_8 = QtWidgets.QFrame(self.geometry_setting)
         sizePolicy = QtWidgets.QSizePolicy(
@@ -4656,7 +4734,7 @@ class Ui_Widget(object):
         
         self.warning_angular.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:500; color:#d41010;\">Starting value greater than the ending value in the range. Check!</span></p></body></html>", None))
         
-        self.btn_export_data.setText( _translate("Widget", u"Export data", None))
+        self.btn_export_data.setText( _translate("Widget", u"Export plot", None))
         
         self.select_graphs.setItemText(0, _translate("Widget", u"Reflectance", None))
         self.select_graphs.setItemText(1, _translate("Widget", u"Reflectance vs. Analyte", None))
@@ -4671,6 +4749,8 @@ class Ui_Widget(object):
 
         self.btn_edit_layers_3.setText(_translate("Widget", u"Edit layers", None))
         self.btn_run.setText(_translate("Widget", u"Run", None))
+        self.btn_new_simulation.setText(_translate("Widget", u"New Simulation", None))
+        self.btn_multip_analiyse.setText(_translate("Widget", u"Analyze Multiple Resonances", None))
         self.prev_btn_config_aim_4.setText(
             _translate("Widget", u" Previous", None))
         self.label_footer.setText(_translate(

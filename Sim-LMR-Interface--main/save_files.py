@@ -120,8 +120,8 @@ class Ui_Dialog_Save(object):
                                     f"Quality Factor: {self.fom_TM}\n")
 
         self.show_file_reflectance.append(f"{self.simbols[0]},Reflectance")
-        for i in range(len(self.ax_x)):
-            self.show_file_reflectance.append(f"{self.ax_x[i]:.3f},{self.Reflectance_TE[0][i]:.6f}")
+        #for i in range(len(self.ax_x)):
+        #    self.show_file_reflectance.append(f"{self.ax_x[i]:.3f},{self.Reflectance_TE[0][i]:.6f}")
 
     def save_file(self, Dialog):
         mode_p = ["TM", "TE"]

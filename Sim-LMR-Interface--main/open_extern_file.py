@@ -585,11 +585,11 @@ class Ui_Widget_2(object):
 
             except:
                 label_title.setHidden(False)
-                label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error reading file. check the format!</span></p></body></html>", None))
+                label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error reading file. Check the format!</span></p></body></html>", None))
 
         except:
             label_title.setHidden(False)
-            label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file. check the format!</span></p></body></html>", None))
+            label_title.setText(QtCore.QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400; color:#d41010;\">Error opening file!</span></p></body></html>", None))
 
     def show_graph(self, x, y, colors, labels):
         font=dict(size=5, family="Sans-Serif")
@@ -647,8 +647,8 @@ class Ui_Widget_2(object):
     def print_parameters_1(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point):
 
         max_, min_ = self.find_max_min(y_axis)
-        y = list(y_axis[max_[0][0]:max_[1][0]])
-        x_axis = list(x_axis[max_[0][0]:max_[1][0]])
+        y = list(y_axis[max_[-2][0]:max_[-1][0]])
+        x_axis = list(x_axis[max_[-2][0]:max_[-1][0]])
 
         id_resonance = y.index(min(y))
 
@@ -666,8 +666,8 @@ class Ui_Widget_2(object):
     def print_parameters_2(self, x_axis, y_axis, fwhm, min_reflectance, resonance_point, delta_res, delta_index, sensibility, qf):
 
         max_, min_ = self.find_max_min(y_axis)
-        y = list(y_axis[max_[0][0]:max_[1][0]])
-        x_axis = list(x_axis[max_[0][0]:max_[1][0]])
+        y = list(y_axis[max_[-2][0]:max_[-1][0]])
+        x_axis = list(x_axis[max_[-2][0]:max_[-1][0]])
 
         id_resonance = y.index(min(y))
 
@@ -706,7 +706,7 @@ class Ui_Widget_2(object):
         
         max_, min_ = self.find_max_min(curve)
         
-        y = list(curve[max_[0][0]:max_[1][0]])
+        y = list(curve[max_[-2][0]:max_[-1][0]])
 
         id_min = y.index(min(y))
 
