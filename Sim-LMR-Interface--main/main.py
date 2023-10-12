@@ -40,6 +40,8 @@ class MainWindow(QWidget, Ui_Widget):
         self.Fwhm_TE = list()   # List with FWHM values in TM polarization
         self.ax_x = list()
         self.simbols = tuple()
+        self.init = 0
+        self.final = 0
 
         self.fom_TM, self.fom_TE = list() ,list() # Lists with the QF in TM and TE  polarizations
 
@@ -2202,11 +2204,14 @@ class MainWindow(QWidget, Ui_Widget):
         self.fom_TM, self.fom_TE = [],[]
         self.textBrowser.setText("Calculating...")
         
+        self.init = time.perf_counter()
+
         if INTERROGATION_MODE == 1:
             self.reflectance_AIM()
         else:
             self.reflectance_WIM()
         
+        self.final = time.perf_counter()
         self.show_graphs()
         self.btn_export_data.setEnabled(True)
         self.btn_export_data.setStyleSheet(u"QPushButton{\n"
@@ -2290,8 +2295,6 @@ class MainWindow(QWidget, Ui_Widget):
             delta_X_TM = abs(self.Resonance_Point_TM[-2] - self.Resonance_Point_TM[-1])
             delta_X_TE = abs(self.Resonance_Point_TE[-2] - self.Resonance_Point_TE[-1])
 
-            #delta_X_TM = abs(self.Resonance_Point_TM[-2] - self.Resonance_Point_TM[-1])
-            #delta_X_TE = abs(self.Resonance_Point_TE[-2] - self.Resonance_Point_TE[-1])
                 # Refractive index variation
             delta_index = abs(self.index_ref_analyte[-2] - self.index_ref_analyte[-1])
                 # Only after the second interaction is sensitivity considered.
@@ -2563,7 +2566,9 @@ class MainWindow(QWidget, Ui_Widget):
                     ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
         
-            self.textBrowser.setText(f"P-Polarization (TM)\n\n"
+
+            self.textBrowser.setText(f"Runtime: {round(self.final - self.init, 6)} s\n"
+                                    f"P-Polarization (TM)\n\n"
                                     f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TM}\n"
                                     f"FWHM ({self.simbols[2]}): {self.Fwhm_TM} \n"
                                     f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TM}\n"
@@ -2680,8 +2685,9 @@ class MainWindow(QWidget, Ui_Widget):
                     ax.set_yticks(self.fom_TE)
                     ax.set_xticks(real(self.index_ref_analyte))
                     self.canvas_.draw()
-
-            self.textBrowser.setText(f"S-Polarization (TE)\n\n"
+           
+            self.textBrowser.setText(f"Runtime: {round(self.final - self.init, 6)} s\n"
+                                    f"S-Polarization (TE)\n\n"
                                     f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TE}\n"
                                     f"FWHM ({self.simbols[2]}): {self.Fwhm_TE}\n"
                                     f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TE}\n"
@@ -2720,9 +2726,7 @@ class MainWindow(QWidget, Ui_Widget):
         #y_med = (max(reflect_right_critical_point) + min(reflect_right_critical_point))/2 
         #y_med = max(reflect_right_critical_point)/2
         
-
         try:
-            
             signs = sign(add(y, -y_med ))
 
             zero_crossings = (signs[0:-2] != signs[1:-1])

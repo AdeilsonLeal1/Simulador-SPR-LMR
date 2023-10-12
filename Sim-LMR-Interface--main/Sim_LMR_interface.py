@@ -1153,8 +1153,8 @@ class Ui_Widget(object):
         self.lambda_i.setObjectName(u"lambda_i")
         # QtWidgets.QSizePolicy.setHeightForWidth(self.lambda_i.sizePolicy().hasHeightForWidth())
         # self.lambda_i.setSizePolicy(QtWidgets.QSizePolicy)
-        self.lambda_i.setMinimumSize(QtCore.QSize(130, 30))
-        self.lambda_i.setMaximumSize(QtCore.QSize(130, 35))
+        self.lambda_i.setMinimumSize(QtCore.QSize(150, 30))
+        self.lambda_i.setMaximumSize(QtCore.QSize(150, 35))
         font13 = QtGui.QFont()
         font13.setFamily(u"Ubuntu")
         font13.setPointSize(12)
@@ -1200,10 +1200,10 @@ class Ui_Widget(object):
             QtWidgets.QAbstractSpinBox.UpDownArrows)
         self.lambda_i.setAccelerated(True)
         self.lambda_i.setDecimals(2)
-        self.lambda_i.setMinimum(400.000000000000000)
-        self.lambda_i.setMaximum(2000.000000000000000)
-        self.lambda_i.setSingleStep(0.010000000000000)
-        self.lambda_i.setValue(400.000000000000000)
+        self.lambda_i.setMinimum(400.00)
+        self.lambda_i.setMaximum(2000.00)
+        self.lambda_i.setSingleStep(0.0100)
+        self.lambda_i.setValue(400.000)
 
         self.horizontalLayout_35.addWidget(self.lambda_i)
 
@@ -1519,8 +1519,8 @@ class Ui_Widget(object):
 
         self.Analyte_refractive_index = QtWidgets.QDoubleSpinBox(self.gb_analyte)
         self.Analyte_refractive_index.setObjectName(u"Analyte_refractive_index")
-        self.Analyte_refractive_index.setMinimumSize(QtCore.QSize(0, 30))
-        self.Analyte_refractive_index.setMaximumSize(QtCore.QSize(120, 1000))
+        self.Analyte_refractive_index.setMinimumSize(QtCore.QSize(150, 30))
+        self.Analyte_refractive_index.setMaximumSize(QtCore.QSize(150, 35))
         self.Analyte_refractive_index.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
@@ -1552,11 +1552,11 @@ class Ui_Widget(object):
                                            "	image: url(:/icons/icons/arrow-down.png);\n"
                                            "	width: 25;\n"
                                            "}")
-        self.Analyte_refractive_index.setDecimals(3)
-        self.Analyte_refractive_index.setMinimum(1.000000000000000)
-        self.Analyte_refractive_index.setMaximum(5.000000000000000)
-        self.Analyte_refractive_index.setSingleStep(0.001000000000000)
-        self.Analyte_refractive_index.setValue(1.330000000000000)
+        self.Analyte_refractive_index.setDecimals(5)
+        self.Analyte_refractive_index.setMinimum(1.000)
+        self.Analyte_refractive_index.setMaximum(5.000)
+        self.Analyte_refractive_index.setSingleStep(0.00001)
+        self.Analyte_refractive_index.setValue(1.33000)
 
         self.gridLayout_7.addWidget(self.Analyte_refractive_index, 0, 1, 1, 1)
 
@@ -1615,8 +1615,8 @@ class Ui_Widget(object):
 
         self.n_sample_analyte = QtWidgets.QDoubleSpinBox(self.gb_analyte)
         self.n_sample_analyte.setObjectName(u"n_sample_analyte")
-        self.n_sample_analyte.setMinimumSize(QtCore.QSize(0, 30))
-        self.n_sample_analyte.setMaximumSize(QtCore.QSize(120, 1000))
+        self.n_sample_analyte.setMinimumSize(QtCore.QSize(150, 30))
+        self.n_sample_analyte.setMaximumSize(QtCore.QSize(150, 35))
         self.n_sample_analyte.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
@@ -1691,8 +1691,8 @@ class Ui_Widget(object):
 
         self.step_analyte = QtWidgets.QDoubleSpinBox(self.gb_analyte)
         self.step_analyte.setObjectName(u"step_analyte")
-        self.step_analyte.setMinimumSize(QtCore.QSize(0, 30))
-        self.step_analyte.setMaximumSize(QtCore.QSize(120, 1000))
+        self.step_analyte.setMinimumSize(QtCore.QSize(150, 30))
+        self.step_analyte.setMaximumSize(QtCore.QSize(150, 35))
         self.step_analyte.setStyleSheet(u"\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
@@ -1724,10 +1724,10 @@ class Ui_Widget(object):
                                            "	image: url(:/icons/icons/arrow-down.png);\n"
                                            "	width: 25;\n"
                                            "}")
-        self.step_analyte.setDecimals(4)
-        self.step_analyte.setMaximum(3.000000000000000)
-        self.step_analyte.setSingleStep(0.000100000000)
-        self.step_analyte.setValue(0.01000000000000)
+        self.step_analyte.setDecimals(5)
+        self.step_analyte.setMaximum(3.00000)
+        self.step_analyte.setSingleStep(0.000010)
+        self.step_analyte.setValue(0.0100)
 
         self.gridLayout_7.addWidget(self.step_analyte, 2, 1, 1, 1)
         
@@ -2003,8 +2003,8 @@ class Ui_Widget(object):
 
         self.Analyte_refractive_index_wim = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
         self.Analyte_refractive_index_wim.setObjectName(u"Analyte_refractive_index_wim")
-        self.Analyte_refractive_index_wim.setMinimumSize(QtCore.QSize(0, 30))
-        self.Analyte_refractive_index_wim.setMaximumSize(QtCore.QSize(120, 1000))
+        self.Analyte_refractive_index_wim.setMinimumSize(QtCore.QSize(150, 30))
+        self.Analyte_refractive_index_wim.setMaximumSize(QtCore.QSize(150, 35))
         self.Analyte_refractive_index_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
@@ -2036,11 +2036,11 @@ class Ui_Widget(object):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.Analyte_refractive_index_wim.setDecimals(3)
-        self.Analyte_refractive_index_wim.setMinimum(1.000000000000000)
-        self.Analyte_refractive_index_wim.setMaximum(5.000000000000000)
-        self.Analyte_refractive_index_wim.setSingleStep(0.001000000000000)
-        self.Analyte_refractive_index_wim.setValue(1.330000000000000)
+        self.Analyte_refractive_index_wim.setDecimals(5)
+        self.Analyte_refractive_index_wim.setMinimum(1.000)
+        self.Analyte_refractive_index_wim.setMaximum(5.000)
+        self.Analyte_refractive_index_wim.setSingleStep(0.000010)
+        self.Analyte_refractive_index_wim.setValue(1.33)
 
         self.gridLayout_5.addWidget(self.Analyte_refractive_index_wim, 0, 1, 1, 1)
 
@@ -2140,8 +2140,8 @@ class Ui_Widget(object):
 
         self.n_sample_analyte_wim = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
         self.n_sample_analyte_wim.setObjectName(u"n_sample_analyte_wim")
-        self.n_sample_analyte_wim.setMinimumSize(QtCore.QSize(0, 30))
-        self.n_sample_analyte_wim.setMaximumSize(QtCore.QSize(120, 1000))
+        self.n_sample_analyte_wim.setMinimumSize(QtCore.QSize(150, 30))
+        self.n_sample_analyte_wim.setMaximumSize(QtCore.QSize(150, 35))
         self.n_sample_analyte_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
@@ -2188,8 +2188,8 @@ class Ui_Widget(object):
 
         self.step_analyte_wim = QtWidgets.QDoubleSpinBox(self.gb_analyte_2)
         self.step_analyte_wim.setObjectName(u"step_analyte_wim")
-        self.step_analyte_wim.setMinimumSize(QtCore.QSize(0, 30))
-        self.step_analyte_wim.setMaximumSize(QtCore.QSize(120, 1000))
+        self.step_analyte_wim.setMinimumSize(QtCore.QSize(150, 30))
+        self.step_analyte_wim.setMaximumSize(QtCore.QSize(150, 35))
         self.step_analyte_wim.setStyleSheet(u"\n"
                                             "QDoubleSpinBox\n"
                                             "{\n"
@@ -2221,10 +2221,10 @@ class Ui_Widget(object):
                                             "	image: url(:/icons/icons/arrow-down.png);\n"
                                             "	width: 25;\n"
                                             "}")
-        self.step_analyte_wim.setDecimals(4)
-        self.step_analyte_wim.setMaximum(3.000000000000000)
-        self.step_analyte_wim.setSingleStep(0.0001000000000000)
-        self.step_analyte_wim.setValue(0.01000000000000)
+        self.step_analyte_wim.setDecimals(5)
+        self.step_analyte_wim.setMaximum(3.00)
+        self.step_analyte_wim.setSingleStep(0.00001)
+        self.step_analyte_wim.setValue(0.010)
 
         self.gridLayout_5.addWidget(self.step_analyte_wim, 2, 1, 1, 1)
 
@@ -4427,15 +4427,15 @@ class Ui_Widget(object):
 
         self.verticalLayout_35.addLayout(self.horizontalLayout_55)
 
-        self.btn_multip_analiyse = QtWidgets.QPushButton(self.graphics_frame)
-        self.btn_multip_analiyse.setObjectName(u"btn_multip_analiyse")
-        self.btn_multip_analiyse.setMinimumSize(QtCore.QSize(320, 35))
-        self.btn_multip_analiyse.setStyleSheet(u"QPushButton{\n"
+        self.btn_multip_analyse = QtWidgets.QPushButton(self.graphics_frame)
+        self.btn_multip_analyse.setObjectName(u"btn_multip_analyse")
+        self.btn_multip_analyse.setMinimumSize(QtCore.QSize(320, 35))
+        self.btn_multip_analyse.setStyleSheet(u"QPushButton{\n"
                                                 "	\n"
                                                 "	font: 400 14pt \"Ubuntu\";\n"
                                                 "	color: rgb(255, 255,255);\n"
-                                                "	background-color: rgb(0, 130, 180);\n"
-                                                "	border-color: rgb(0, 100, 130);\n"
+                                                "	background-color: #606060;\n"
+                                                "	border-color: #606060;\n"
                                                 "	border-style: outset;\n"
                                                 "	border-width: 3px;\n"
                                                 "	border-radius:10px;\n"
@@ -4447,10 +4447,11 @@ class Ui_Widget(object):
                                                 "}")
         icon15 = QtGui.QIcon()
         icon15.addFile(u"Sim-LMR-Interface--main\icons\sine-waves-analysis.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_multip_analiyse.setIcon(icon15)
-        self.btn_multip_analiyse.setIconSize(QtCore.QSize(35, 35))
+        self.btn_multip_analyse.setIcon(icon15)
+        self.btn_multip_analyse.setIconSize(QtCore.QSize(35, 35))
+        self.btn_multip_analyse.setEnabled(False)
 
-        self.horizontalLayout_55.addWidget(self.btn_multip_analiyse)
+        self.horizontalLayout_55.addWidget(self.btn_multip_analyse)
 
         self.verticalLayout_3.addWidget(self.splitter_4)
         self.frame_next_previous_8 = QtWidgets.QFrame(self.geometry_setting)
@@ -4750,7 +4751,7 @@ class Ui_Widget(object):
         self.btn_edit_layers_3.setText(_translate("Widget", u"Edit layers", None))
         self.btn_run.setText(_translate("Widget", u"Run", None))
         self.btn_new_simulation.setText(_translate("Widget", u"New Simulation", None))
-        self.btn_multip_analiyse.setText(_translate("Widget", u"Analyze Multiple Resonances", None))
+        self.btn_multip_analyse.setText(_translate("Widget", u"Analyze Multiple Resonances", None))
         self.prev_btn_config_aim_4.setText(
             _translate("Widget", u" Previous", None))
         self.label_footer.setText(_translate(

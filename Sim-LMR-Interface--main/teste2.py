@@ -1,65 +1,35 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QProgressBar, QPushButton, QVBoxLayout, QWidget
+import pandas as pd
+import matplotlib.pyplot as plt
 
-class ProgressBarWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+files = ['Stelling', 'Chen', 'Song-DJ4']
 
-        self.init_ui()
+df = [pd.read_csv(fr'C:\Users\Adeilson\Downloads\{i}.csv') for i in files]
 
-    def init_ui(self):
-        self.setWindowTitle('Barra de Progresso com Texto Maior à Direita')
-        self.setGeometry(100, 100, 300, 150)
+font = dict(size=14, family='Times New Roman')  # Font and size
+plt.rc('font', **font)
 
-        layout = QVBoxLayout()
+#Stelling
+fig, a = plt.subplots(dpi = 200)
+a.plot(df[0]['wl']*1000,df[0]['n'],'-b',df[0]['wl']*1000,df[0]['k'], '-r', linewidth=3)
+a.grid()
+a.legend(["Real part","Imaginary part"])
+a.set_xlabel("Wavelength (nm)")
+a.set_ylabel("Refractive index (RIU)")
 
-        self.progress_bar = QProgressBar()
-        self.progress_bar.setTextVisible(True)  # Mostra o texto na barra de progresso
-        layout.addWidget(self.progress_bar)
+#Chen
+fig, b = plt.subplots(dpi = 200)
+b.plot(df[1]['wl']*1000,df[1]['n'],'-b',df[1]['wl2']*1000,df[1]['k'],  '-r', linewidth=3)
+b.grid()
+b.legend(["Real part","Imaginary part"])
+b.set_xlabel("Wavelength (nm)")
+b.set_ylabel("Refractive index (RIU)")
 
-        self.start_button = QPushButton('Iniciar')
-        self.start_button.clicked.connect(self.start_progress)
-        layout.addWidget(self.start_button)
+#Song-DJ4
+fig, b = plt.subplots(dpi = 200)
+b.plot(df[2]['wl']*1000,df[2]['n'],'-b',df[2]['wl']*1000,df[2]['k'], '-r', linewidth=3)
+b.grid()
+b.legend(["Real part","Imaginary part"])
+b.set_xlabel("Wavelength (nm)")
+b.set_ylabel("Refractive index (RIU)")
 
-        central_widget = QWidget()
-        central_widget.setLayout(layout)
-        self.setCentralWidget(central_widget)
-
-        # Aplica o estilo CSS para posicionar o texto à direita da barra e aumentar o tamanho
-        self.progress_bar.setStyleSheet("""
-            QProgressBar::chunk {
-                background-color: qlineargradient(spread:pad, x1:0, y1:0.5, x2:1, y2:0.5, stop:0 rgba(50, 100, 255, 255), stop:1 rgba(0, 0, 255, 255));
-                margin-right: 2px;
-            }
-
-            QProgressBar {
-                text-align: right;
-            }
-
-            QProgressBar::chunk:after {
-                font-size: 14px;
-                content: '%' ;
-                position: absolute;
-                top: 0;
-                right: -10px;
-            }
-        """)
-
-    def start_progress(self):
-        self.progress_bar.setValue(0)
-        self.progress_value = 0
-        self.timer_interval = 100  # Intervalo em milissegundos
-        self.timer = self.startTimer(self.timer_interval)
-
-    def timerEvent(self, event):
-        if self.progress_value < 100:
-            self.progress_value += 1
-            self.progress_bar.setValue(self.progress_value)
-        else:
-            self.killTimer(self.timer.timerId())
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = ProgressBarWindow()
-    window.show()
-    sys.exit(app.exec_())
+plt.show()
