@@ -14,21 +14,17 @@ from numpy import real
 
 
 class Ui_Dialog_Save(object):
-    def setupUi(self, Dialog, index_ref_analyte = None, ax_x = None, Reflectance_TE = None, Reflectance_TM = None, Fwhm_TE = None, Fwhm_TM = None, Resonance_Point_TE = None, Resonance_Point_TM = None, sensibility_TE = None, sensibility_TM = None, fom_TE = None, fom_TM = None, simbols = None):
+    def setupUi(self, Dialog, index_ref_analyte = None, ax_x = None, Reflectance_TM = None, Fwhm_TM = None, Resonance_Point_TM = None, sensibility_TM = None, fom_TM = None, simbols = None, pol = None):
         
         self.index_ref_analyte = index_ref_analyte      # List with analyte refraction indices for graph plotting
-        self.Reflectance_TM = Reflectance_TM     # List with reflectance values for plotting multiple curves in TM polarization
-        self.Reflectance_TE = Reflectance_TE     # List with reflectance values for plotting multiple curves in TE polarization
-        self.Resonance_Point_TM = Resonance_Point_TM  # Resonance angle or resonance wavelength  on TM polarization
-        self.Resonance_Point_TE = Resonance_Point_TE  # Resonance angle or resonance wavelength  on TE polarization
-        self.sensibility_TM = sensibility_TM  # List with Sensibility values in TM polarization
-        self.sensibility_TE = sensibility_TE  # List with Sensibility values in TE polarization
-        self.Fwhm_TM = Fwhm_TM   # List with FWHM values in TM polarization
-        self.Fwhm_TE = Fwhm_TE   # List with FWHM values in TM polarization
+        self.Reflectance = Reflectance_TM     # List with reflectance values for plotting multiple curves in TM polarization
+        self.Resonance_Point = Resonance_Point_TM  # Resonance angle or resonance wavelength  on TM polarization
+        self.sensibility = sensibility_TM  # List with Sensibility values in TM polarization
+        self.Fwhm = Fwhm_TM   # List with FWHM values in TM polarization
         self.ax_x = ax_x
         self.simbols = simbols
-
-        self.fom_TM, self.fom_TE = fom_TM ,fom_TE   # Lists with the QF in TM and TE  polarizations
+        self.polarization = pol
+        self.fom = fom_TM   # Lists with the QF in TM and TE  polarizations
 
         Dialog.setObjectName("Dialog")
         Dialog.resize(680, 480)
@@ -108,35 +104,24 @@ class Ui_Dialog_Save(object):
     
 
     def show_text(self):
-        self.show_file_parameters.setText(f"S-Polarization (TE)\n\n"
-                                    f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TE}\n"
-                                    f"FWHM ({self.simbols[2]}): {self.Fwhm_TE}\n"
-                                    f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TE}\n"
-                                    f"Quality Factor: {self.fom_TE}\n\n"
-                                    f"P-Polarization (TM)\n\n"
-                                    f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point_TM}\n"
-                                    f"FWHM ({self.simbols[2]}): {self.Fwhm_TM} \n"
-                                    f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility_TM}\n"
-                                    f"Quality Factor: {self.fom_TM}\n")
+        self.show_file_parameters.setText(f"P-Polarization ({self.polarization})\n\n"
+                                    f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point}\n"
+                                    f"FWHM ({self.simbols[2]}): {self.Fwhm} \n"
+                                    f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility}\n"
+                                    f"Quality Factor: {self.fom}\n")
 
         self.show_file_reflectance.append(f"{self.simbols[0]},Reflectance")
-        #for i in range(len(self.ax_x)):
-        #    self.show_file_reflectance.append(f"{self.ax_x[i]:.3f},{self.Reflectance_TE[0][i]:.6f}")
+
 
     def save_file(self, Dialog):
-        mode_p = ["TM", "TE"]
-        
-        for mode in mode_p:
-            for i in range(len(self.index_ref_analyte)):
-                file_reflectance = open(f'{self.file_name.text()}_Reflectance_vs_analyte_{str(real(self.index_ref_analyte[i])).replace(".","_")}_{mode}.txt', 'w')
-                file_reflectance.write(f"{self.simbols[0]},Reflectance")
-                if mode == "TE":
-                    for k in range(len(self.ax_x)):
-                        file_reflectance.write(f"\n{self.ax_x[k]:.3f},{self.Reflectance_TE[i][k]:.6f}")
-                else:
-                    for k in range(len(self.ax_x)):
-                        file_reflectance.write(f"\n{self.ax_x[k]:.3f},{self.Reflectance_TM[i][k]:.6f}")
-                file_reflectance.close()
+        for i in range(len(self.index_ref_analyte)):
+            file_reflectance = open(f'{self.file_name.text()}_Reflectance_vs_analyte_{str(real(self.index_ref_analyte[i])).replace(".","_")}_{self.polarization}.txt', 'w')
+            file_reflectance.write(f"{self.simbols[0]},Reflectance")
+
+            for k in range(len(self.ax_x)):
+                file_reflectance.write(f"\n{self.ax_x[k]:.3f},{self.Reflectance[i][k]:.6f}")
+
+            file_reflectance.close()
         
         msg = QtWidgets.QMessageBox()
         msg.setIcon(QtWidgets.QMessageBox.Information)
