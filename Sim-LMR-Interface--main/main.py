@@ -46,7 +46,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.setWindowIcon(QtGui.QIcon('icons/LOGO.png'))
-        self.setWindowTitle("Sim-LMR")
+        self.setWindowTitle("Simulation")
         self.showMaximized()
 
         # Startup for graphics display
@@ -68,9 +68,9 @@ class MainWindow(QWidget, Ui_Widget):
             self.showMinimized)    # minimize window
         self.exit_btn.clicked.connect(self.close)    # close window
         self.start_btn.clicked.connect(lambda: self.Stacked_windows.setCurrentWidget(
-            self.coupling_window))    # show coupling window
+            self.Select_simulator))    # show Select Simulator window
         
-        self.open_btn.clicked.connect(self.open_from_extern_file)
+        self.open_btn_ext.clicked.connect(self.open_from_extern_file)
 
         # return to home window
         self.btn_home.clicked.connect(
@@ -81,6 +81,9 @@ class MainWindow(QWidget, Ui_Widget):
             lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
         self.btn_home_4.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
+        self.btn_home_5.clicked.connect(
+            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
+        self.prev_btn_sel.clicked.connect(self.previous_page)
 
         # return to coupling page
         self.btn_coupling.clicked.connect(
@@ -109,7 +112,7 @@ class MainWindow(QWidget, Ui_Widget):
         # Coupling page buttons
         self.prism_btn.clicked.connect(self.prism_btn_clicked)
         self.fiber_btn.clicked.connect(self.fiber_btn_clicked)
-        self.prev_btn_coup.clicked.connect(lambda: self.previous_page())
+        self.prev_btn_coup.clicked.connect(self.previous_page)
         self.next_btn_coup.clicked.connect(
             lambda: self.next_page(op=COUPLING, warning=self.warning_2))
 
@@ -212,7 +215,7 @@ class MainWindow(QWidget, Ui_Widget):
         if op == 0:
             warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#B21222;\">- *! Select a valid option !* - </span></pre></body></html>"))
         else:
-            if self.Stacked_windows.currentIndex() == 3:
+            if self.Stacked_windows.currentIndex() == 4:
                 if self.nLayers < 3:
                     self.warning.setHidden(False)
                     self.warning.setText(QtCore.QCoreApplication.translate("Widget", f"<html><head/><body><p align=\"center\"><a name=\"tw-target-text\"/><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># Insert more than 3 layers #</span><p align=\"center\"><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># {self.nLayers} layer(s) added # </span></body></html>", None))

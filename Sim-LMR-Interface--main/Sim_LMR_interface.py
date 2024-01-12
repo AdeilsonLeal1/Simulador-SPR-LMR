@@ -265,7 +265,7 @@ class Ui_Widget(object):
         self.label_logo.setObjectName("label_logo")
         self.verticalLayout_18.addWidget(self.label_logo)
         spacerItem1 = QtWidgets.QSpacerItem(
-            20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+            20, 50, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout_18.addItem(spacerItem1)
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_15.setSpacing(0)
@@ -281,8 +281,8 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.start_btn.sizePolicy().hasHeightForWidth())
         self.start_btn.setSizePolicy(sizePolicy)
-        self.start_btn.setMinimumSize(QtCore.QSize(200, 70))
-        self.start_btn.setMaximumSize(QtCore.QSize(300, 70))
+        self.start_btn.setMinimumSize(QtCore.QSize(250, 70))
+        self.start_btn.setMaximumSize(QtCore.QSize(350, 70))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(15)
@@ -290,22 +290,22 @@ class Ui_Widget(object):
         font.setWeight(75)
         self.start_btn.setFont(font)
         self.start_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.start_btn.setStyleSheet("QPushButton{\n"
-                                     "    \n"
-                                     "    color: rgb(255, 255,255);\n"
-                                     "    background-color: rgb(0, 130, 180);\n"
-                                     "    border-color: rgb(0, 100, 130);\n"
-                                     "    border-style: outset;\n"
-                                     "    border-width: 3px;\n"
-                                     "    border-radius:10px;\n"
-                                     "}\n"
-                                     "\n"
-                                     "QPushButton:hover{\n"
-                                     "    background-color: rgb(0, 150, 50);\n"
-                                     "    border-color: rgb(0, 120, 40);\n"
-                                     "\n"
-                                     "}\n"
-                                     "")
+        self.start_btn.setStyleSheet(u"QPushButton{\n"
+                                        "	\n"
+                                        "	color: rgb(255, 255,255);\n"
+                                        "	background-color: rgb(0, 130, 180);\n"
+                                        "	border-color: rgb(0, 100, 130);\n"
+                                        "	border-style: outset;\n"
+                                        "	border-width: 5px;\n"
+                                        "	border-radius:10px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover{\n"
+                                        "	background-color: rgb(00, 130, 70);\n"
+                                        "	border-color: rgb(0, 120, 40);\n"
+                                        "\n"
+                                        "}\n"
+                                        "")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(
             ":/icons/icons/configuracoes.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -317,15 +317,15 @@ class Ui_Widget(object):
             13, 24, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_15.addItem(spacerItem3)
 
-        self.open_btn = QtWidgets.QPushButton(self.frame_6)
-        self.open_btn.setObjectName(u"open_btn")
-        sizePolicy.setHeightForWidth(self.open_btn.sizePolicy().hasHeightForWidth())
-        self.open_btn.setSizePolicy(sizePolicy)
-        self.open_btn.setMinimumSize(QtCore.QSize(250, 70))
-        self.open_btn.setMaximumSize(QtCore.QSize(350, 70))
-        self.open_btn.setFont(font)
-        self.open_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.open_btn.setStyleSheet(u"QPushButton{\n"
+        self.open_btn_ext = QtWidgets.QPushButton(self.frame_6)
+        self.open_btn_ext.setObjectName(u"open_btn_ext")
+        sizePolicy.setHeightForWidth(self.open_btn_ext.sizePolicy().hasHeightForWidth())
+        self.open_btn_ext.setSizePolicy(sizePolicy)
+        self.open_btn_ext.setMinimumSize(QtCore.QSize(250, 70))
+        self.open_btn_ext.setMaximumSize(QtCore.QSize(350, 70))
+        self.open_btn_ext.setFont(font)
+        self.open_btn_ext.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.open_btn_ext.setStyleSheet(u"QPushButton{\n"
                                         "	\n"
                                         "	color: rgb(255, 255,255);\n"
                                         "	background-color: rgb(0, 130, 180);\n"
@@ -344,10 +344,10 @@ class Ui_Widget(object):
         icon5 = QtGui.QIcon(QtGui.QIcon.fromTheme(u"document-open"))
         icon5.addPixmap(QtGui.QPixmap(
             "Sim-LMR-Interface--main\icons\icons8-opened-folder-30 (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.open_btn.setIcon(icon5)
-        self.open_btn.setIconSize(QtCore.QSize(30,30))
+        self.open_btn_ext.setIcon(icon5)
+        self.open_btn_ext.setIconSize(QtCore.QSize(30,30))
 
-        self.horizontalLayout_15.addWidget(self.open_btn)
+        self.horizontalLayout_15.addWidget(self.open_btn_ext)
 
         self.horizontalSpacer_35 = QtWidgets.QSpacerItem(
             13, 24, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -361,8 +361,8 @@ class Ui_Widget(object):
         sizePolicy.setHeightForWidth(
             self.exit_btn.sizePolicy().hasHeightForWidth())
         self.exit_btn.setSizePolicy(sizePolicy)
-        self.exit_btn.setMinimumSize(QtCore.QSize(200, 70))
-        self.exit_btn.setMaximumSize(QtCore.QSize(300, 70))
+        self.exit_btn.setMinimumSize(QtCore.QSize(250, 70))
+        self.exit_btn.setMaximumSize(QtCore.QSize(350, 70))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(15)
@@ -375,7 +375,7 @@ class Ui_Widget(object):
                                     "    background-color: rgb(0, 130, 180);\n"
                                     "    border-color: rgb(0, 100, 130);\n"
                                     "    border-style: outset;\n"
-                                    "    border-width: 3px;\n"
+                                    "    border-width: 5px;\n"
                                     "    border-radius:10px;\n"
                                     "}\n"
                                     "\n"
@@ -403,6 +403,258 @@ class Ui_Widget(object):
         self.verticalLayout_18.addItem(spacerItem5)
         self.verticalLayout_17.addWidget(self.frame_6)
         self.Stacked_windows.addWidget(self.home_window)
+
+        # Select Simulator window
+        self.Select_simulator = QtWidgets.QWidget()
+        self.Select_simulator.setObjectName(u"Select_simulator")
+        self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.Select_simulator)
+        self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_21.setSpacing(0)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.frame_hierarq_6 = QtWidgets.QFrame(self.Select_simulator)
+        self.frame_hierarq_6.setObjectName(u"frame_hierarq_6")
+        self.frame_hierarq_6.setStyleSheet(u"    color: rgb(255, 255, 255);\n"
+                                            "    background: transparent;")
+        self.frame_hierarq_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_hierarq_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_44 = QtWidgets.QHBoxLayout(self.frame_hierarq_6)
+        self.horizontalLayout_44.setSpacing(8)
+        self.horizontalLayout_44.setObjectName(u"horizontalLayout_44")
+        self.horizontalLayout_44.setContentsMargins(20, 8, 8, 8)
+        self.btn_home_5 = QtWidgets.QPushButton(self.frame_hierarq_6)
+        self.btn_home_5.setObjectName(u"btn_home_5")
+        self.btn_home_5.setMinimumSize(QtCore.QSize(20, 20))
+        self.btn_home_5.setMaximumSize(QtCore.QSize(20, 20))
+        font6 = QtGui.QFont()
+        font6.setUnderline(False)
+        self.btn_home_5.setFont(font6)
+        self.btn_home_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_home_5.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+                                        "background: transparent;")
+        icon6 = QtGui.QIcon()
+        icon6.addFile(u":/icons/icons/casa.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_home_5.setIcon(icon6)
+        self.btn_home_5.setIconSize(QtCore.QSize(20, 20))
+
+        self.horizontalLayout_44.addWidget(self.btn_home_5)
+
+        self.horizontalSpacer_76 = QtWidgets.QSpacerItem(681, 15, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_44.addItem(self.horizontalSpacer_76)
+
+
+        self.verticalLayout_21.addWidget(self.frame_hierarq_6)
+
+        self.verticalSpacer_22 = QtWidgets.QSpacerItem(20, 48, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_21.addItem(self.verticalSpacer_22)
+
+        self.warning_3 = QtWidgets.QLabel(self.Select_simulator)
+        self.warning_3.setObjectName(u"warning_3")
+        sizePolicy5 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.warning_3.sizePolicy().hasHeightForWidth())
+        self.warning_3.setSizePolicy(sizePolicy5)
+        self.warning_3.setMinimumSize(QtCore.QSize(50, 50))
+        font7 = QtGui.QFont()
+        font7.setPointSize(16)
+        self.warning_3.setFont(font7)
+
+        self.verticalLayout_21.addWidget(self.warning_3)
+
+        self.frame_simulator = QtWidgets.QFrame(self.Select_simulator)
+        self.frame_simulator.setObjectName(u"frame_simulator")
+        self.frame_simulator.setMinimumSize(QtCore.QSize(680, 350))
+        self.frame_simulator.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_simulator.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_simulator)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.horizontalSpacer_66 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_66)
+
+        self.spr_btn = QtWidgets.QPushButton(self.frame_simulator)
+        self.spr_btn.setObjectName(u"spr_btn")
+        sizePolicy3 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.spr_btn.sizePolicy().hasHeightForWidth())
+        self.spr_btn.setSizePolicy(sizePolicy3)
+        self.spr_btn.setMinimumSize(QtCore.QSize(300, 300))
+        self.spr_btn.setMaximumSize(QtCore.QSize(350, 350))
+        self.spr_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.spr_btn.setStyleSheet(u"QPushButton{\n"
+                                    "\n"
+                                    "	background-color: rgb(255, 255, 255);\n"
+                                    "border-color: rgb(31, 78, 121);\n"
+                                    "border-radius: 30px;\n"
+                                    "border-style: outset;\n"
+                                    "border-width: 5px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover{\n"
+                                    "	\n"
+                                    "	border-color: rgb(255, 170, 0);\n"
+                                    "\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
+                                    "")
+        icon14 = QtGui.QIcon("Sim-LMR-Interface--main\logo_spr.png")
+        self.spr_btn.setIcon(icon14)
+        self.spr_btn.setIconSize(QtCore.QSize(300, 300))
+
+        self.horizontalLayout_4.addWidget(self.spr_btn)
+
+        self.horizontalSpacer_67 = QtWidgets.QSpacerItem(50, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_67)
+
+        self.lmr_btn = QtWidgets.QPushButton(self.frame_simulator)
+        self.lmr_btn.setObjectName(u"lmr_btn")
+        sizePolicy3.setHeightForWidth(self.lmr_btn.sizePolicy().hasHeightForWidth())
+        self.lmr_btn.setSizePolicy(sizePolicy3)
+        self.lmr_btn.setMinimumSize(QtCore.QSize(300, 300))
+        self.lmr_btn.setMaximumSize(QtCore.QSize(350, 350))
+        self.lmr_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.lmr_btn.setStyleSheet(u"QPushButton{\n"
+                                    "\n"
+                                    "	background-color: rgb(255, 255, 255);\n"
+                                    "border-color: rgb(31, 78, 121);\n"
+                                    "border-radius: 30px;\n"
+                                    "border-style: outset;\n"
+                                    "border-width: 5px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover{\n"
+                                    "	\n"
+                                    "	border-color: rgb(255, 170, 0);\n"
+                                    "\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
+                                    "")
+        icon13 = QtGui.QIcon("Sim-LMR-Interface--main\logo_lmr.png")
+        
+        
+        self.lmr_btn.setIcon(icon13)
+        self.lmr_btn.setIconSize(QtCore.QSize(300, 300))
+
+        self.horizontalLayout_4.addWidget(self.lmr_btn)
+
+        self.horizontalSpacer_77 = QtWidgets.QSpacerItem(50, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_77)
+
+        self.lmr_spr_btn = QtWidgets.QPushButton(self.frame_simulator)
+        self.lmr_spr_btn.setObjectName(u"lmr_spr_btn")
+        sizePolicy4 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.lmr_spr_btn.sizePolicy().hasHeightForWidth())
+        self.lmr_spr_btn.setSizePolicy(sizePolicy4)
+        self.lmr_spr_btn.setMinimumSize(QtCore.QSize(300, 300))
+        self.lmr_spr_btn.setMaximumSize(QtCore.QSize(350, 350))
+        self.lmr_spr_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.lmr_spr_btn.setStyleSheet(u"QPushButton{\n"
+                                        "\n"
+                                        "	background-color: rgb(255, 255, 255);\n"
+                                        "border-color: rgb(31, 78, 121);\n"
+                                        "border-radius: 30px;\n"
+                                        "border-style: outset;\n"
+                                        "border-width: 5px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover{\n"
+                                        "	\n"
+                                        "	border-color: rgb(255, 170, 0);\n"
+                                        "\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
+        self.lmr_spr_btn.setIcon(icon)
+        self.lmr_spr_btn.setIconSize(QtCore.QSize(300, 300))
+
+        self.horizontalLayout_4.addWidget(self.lmr_spr_btn)
+
+        self.horizontalSpacer_75 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_4.addItem(self.horizontalSpacer_75)
+
+
+        self.verticalLayout_21.addWidget(self.frame_simulator)
+
+        self.verticalSpacer_25 = QtWidgets.QSpacerItem(20, 53, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_21.addItem(self.verticalSpacer_25)
+
+        self.frame_17 = QtWidgets.QFrame(self.Select_simulator)
+        self.frame_17.setObjectName(u"frame_17")
+        sizePolicy.setHeightForWidth(self.frame_17.sizePolicy().hasHeightForWidth())
+        self.frame_17.setSizePolicy(sizePolicy)
+        self.horizontalLayout_30 = QtWidgets.QHBoxLayout(self.frame_17)
+        self.horizontalLayout_30.setSpacing(0)
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.horizontalLayout_30.setContentsMargins(0, 0, 0, 0)
+
+        self.verticalLayout_21.addWidget(self.frame_17)
+
+        self.verticalSpacer_24 = QtWidgets.QSpacerItem(20, 52, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_21.addItem(self.verticalSpacer_24)
+
+        self.frame_next_previous_6 = QtWidgets.QFrame(self.Select_simulator)
+        self.frame_next_previous_6.setObjectName(u"frame_next_previous_6")
+        sizePolicy6 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.frame_next_previous_6.sizePolicy().hasHeightForWidth())
+        self.frame_next_previous_6.setSizePolicy(sizePolicy6)
+        self.frame_next_previous_6.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_next_previous_6.setStyleSheet(u"background: transparent;")
+        self.horizontalLayout_38 = QtWidgets.QHBoxLayout(self.frame_next_previous_6)
+        self.horizontalLayout_38.setSpacing(5)
+        self.horizontalLayout_38.setObjectName(u"horizontalLayout_38")
+        self.horizontalLayout_38.setContentsMargins(20, 6, 20, 6)
+        self.prev_btn_sel = QtWidgets.QPushButton(self.frame_next_previous_6)
+        self.prev_btn_sel.setObjectName(u"prev_btn_sel")
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.prev_btn_sel.setFont(font)
+        self.prev_btn_sel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.prev_btn_sel.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.prev_btn_sel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+                                        "background: transparent;")
+        
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(
+            ":/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        self.prev_btn_sel.setIcon(icon8)
+        self.prev_btn_sel.setIconSize(QtCore.QSize(20, 20))
+
+        self.horizontalLayout_38.addWidget(self.prev_btn_sel)
+
+        self.horizontalSpacer_47 = QtWidgets.QSpacerItem(100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_38.addItem(self.horizontalSpacer_47)
+
+        self.verticalLayout_21.addWidget(self.frame_next_previous_6)
+
+        self.frame_18 = QtWidgets.QFrame(self.Select_simulator)
+        self.frame_18.setObjectName(u"frame_18")
+        sizePolicy.setHeightForWidth(self.frame_18.sizePolicy().hasHeightForWidth())
+        self.frame_18.setSizePolicy(sizePolicy)
+        self.horizontalLayout_43 = QtWidgets.QHBoxLayout(self.frame_18)
+        self.horizontalLayout_43.setSpacing(0)
+        self.horizontalLayout_43.setObjectName(u"horizontalLayout_43")
+        self.horizontalLayout_43.setContentsMargins(0, 0, 0, 0)
+
+        self.verticalLayout_21.addWidget(self.frame_18)
+
+        self.Stacked_windows.addWidget(self.Select_simulator)
+
 
         # Coupling window
         self.coupling_window = QtWidgets.QWidget()
@@ -629,9 +881,6 @@ class Ui_Widget(object):
         self.prev_btn_coup.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.prev_btn_coup.setStyleSheet("color: rgb(255, 255, 255);\n"
                                          "background: transparent;")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(
-            ":/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.prev_btn_coup.setIcon(icon8)
         self.prev_btn_coup.setIconSize(QtCore.QSize(20, 20))
         self.prev_btn_coup.setObjectName("prev_btn_coup")
@@ -4528,14 +4777,18 @@ class Ui_Widget(object):
         Widget.setWindowTitle(_translate("Widget", u"Widget", None))
         self.icon.setText("")
         self.label_title.setText(_translate(
-            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">Sim - LMR</span></p></body></html>", None))
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">Simulator</span></p></body></html>", None))
         self.btn_help.setText(_translate("Widget", u"Help  ", None))
         self.btn_minimize.setText(_translate("Widget", u"_", None))
         self.btn_close.setText("")
-        self.label_logo.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/LOGO.png\"/></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:22pt; font-style:italic;\">Welcome to</span></p><p align=\"center\"><span style=\" font-size:72pt; color:#005a82;\">Sim-LMR</span></p></body></html>", None))
+        self.label_logo.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/LOGO.png\"/></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:32pt; font-style:italic; color:#005a82;\">Welcome to our Simulator </span></p></body></html>", None))
         self.start_btn.setText(_translate("Widget", u"Start Simulation", None))
-        self.open_btn.setText(_translate("Widget", u"External File Analyse ", None))
+        self.open_btn_ext.setText(_translate("Widget", u"External File Analyse ", None))
         self.exit_btn.setText(_translate("Widget", u"Exit", None))
+        self.btn_home_5.setText("")
+        self.lmr_spr_btn.setText("")
+        self.warning_3.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; font-size: 14pt; color:#ffffff;\"> - Select a Simulator - </span></pre></body></html>", None))
+        self.prev_btn_sel.setText(_translate("Widget", u" Previous", None))
         self.btn_home.setText("")
         self.label_18.setText("")
         self.btn_coupling.setText(_translate(
