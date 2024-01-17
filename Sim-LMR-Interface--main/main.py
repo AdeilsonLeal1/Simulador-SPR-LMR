@@ -14,7 +14,7 @@ import time
 import save_table
 
 
-COUPLING, INTERROGATION_MODE = 0, 0
+COUPLING, INTERROGATION_MODE, SIMULATOR, TYPE_FIBER= 0, 0, '', 0
 STEP = 0    # Also make the adjustment in the 'self.reflectance_AIM()' or 'self.reflectance_WIM()' when necessary
 
 class MainWindow(QWidget, Ui_Widget):
@@ -59,7 +59,7 @@ class MainWindow(QWidget, Ui_Widget):
         ## APP EVENTS
         ########################################################################
         # Initialization of screens
-        self.Stacked_windows.setCurrentIndex(4)
+        self.Stacked_windows.setCurrentIndex(0)
         self.stacked_layers.setCurrentIndex(1)
         self.Stacked_config_mode.setCurrentIndex(1)
 
@@ -68,24 +68,21 @@ class MainWindow(QWidget, Ui_Widget):
             self.showMinimized)    # minimize window
         self.exit_btn.clicked.connect(self.close)    # close window
         self.start_btn.clicked.connect(lambda: self.Stacked_windows.setCurrentWidget(
-            self.Select_simulator))    # show Select Simulator window
+            self.Select_simulator))    # show 'Select Simulator' window
         
         self.open_btn_ext.clicked.connect(self.open_from_extern_file)
 
-        # return to home window
-        self.btn_home.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-        self.btn_home_2.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-        self.btn_home_3.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-        self.btn_home_4.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
-        self.btn_home_5.clicked.connect(
-            lambda: self.Stacked_windows.setCurrentWidget(self.home_window))
+        # return to 'home' window
+        self.btn_home.clicked.connect(self.go_to_home)
+        self.btn_home_2.clicked.connect(self.go_to_home)
+        self.btn_home_3.clicked.connect(self.go_to_home)
+        self.btn_home_4.clicked.connect(self.go_to_home)
+        self.btn_home_5.clicked.connect(self.go_to_home)
+        self.btn_home_6.clicked.connect(self.go_to_home)
+        self.btn_home_7.clicked.connect(self.go_to_home)
         self.prev_btn_sel.clicked.connect(self.previous_page)
 
-        # return to coupling page
+        # return to 'coupling' page
         self.btn_coupling.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
         self.btn_coupling_2.clicked.connect(
@@ -94,8 +91,12 @@ class MainWindow(QWidget, Ui_Widget):
             lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
         self.btn_coupling_4.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
+        self.btn_coupling_5.clicked.connect(
+            lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
+        self.btn_coupling_6.clicked.connect(
+            lambda: self.Stacked_windows.setCurrentWidget(self.coupling_window))
 
-        # return to interrogation mode page
+        # return to 'interrogation mode' page
         self.btn_interrogation.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
         self.btn_interrogation_2.clicked.connect(
@@ -103,27 +104,46 @@ class MainWindow(QWidget, Ui_Widget):
         self.btn_interrogation_3.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.interrogation_window))
 
-        # return to setting layers page
+        # return to 'setting layers' page
         self.btn_setting_layers.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
         self.btn_setting_layers_2.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
+        
+        # return to 'Type of Fiber' page
+        self.fiber_type_2.clicked.connect(
+            lambda: self.Stacked_windows.setCurrentWidget(self.select_fiber_window))
 
-        # Coupling page buttons
+        # 'Select simulator' page buttons
+        self.spr_btn.clicked.connect(self.spr_selected)
+        self.lmr_btn.clicked.connect(self.lmr_selected)
+        self.lmr_spr_btn.clicked.connect(self.lmr_spr_selected)
+
+        # 'Coupling' page buttons
         self.prism_btn.clicked.connect(self.prism_btn_clicked)
         self.fiber_btn.clicked.connect(self.fiber_btn_clicked)
         self.prev_btn_coup.clicked.connect(self.previous_page)
         self.next_btn_coup.clicked.connect(
             lambda: self.next_page(op=COUPLING, warning=self.warning_2))
+        
+        # 'Select fiber' page buttons
+        self.cladding_remove_btn.clicked.connect(self.fiber_cr_clicked)
+        self.prev_btn_fiber_typ.clicked.connect(self.previous_page)
+        self.next_btn_fiber_typ.clicked.connect(
+            lambda: self.next_page(op=TYPE_FIBER, warning=self.warning_fiber_typ))
+        
+        # 'Characteristics Fiber' page buttons
+        self.prev_btn_char_fib.clicked.connect(self.previous_page)
+        self.next_btn_char_fib.clicked.connect(lambda: self.next_page(op=1, warning=self.label_4))
 
-        # Interrogation mode page buttons
+        # 'Interrogation mode' page buttons
         self.aim_btn.clicked.connect(self.aim_btn_clicked)
         self.wim_btn.clicked.connect(self.wim_btn_clicked)
         self.prev_btn_inter.clicked.connect(self.previous_page)
         self.next_btn_inter.clicked.connect(lambda: self.next_page(
             op=INTERROGATION_MODE, warning=self.warning_inter))
         
-        # Setting layers page buttons 
+        # 'Setting layers' page buttons 
         self.prev_btn_config_layers.clicked.connect(self.previous_page)
         self.next_btn_config_layers.clicked.connect(lambda: self.next_page(
             op=INTERROGATION_MODE, warning=self.label_warning))
@@ -154,7 +174,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.btn_add_analyte_2.clicked.connect(self.add_analyte)
     
         # Geometry settings page buttons 
-        self.prev_btn_config_aim_4.clicked.connect(self.previous_page)
+        self.prev_btn_config_mode.clicked.connect(self.previous_page)
         self.btn_edit_layers_3.clicked.connect(lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
         
         ## Method that updates the angle of incidence value in WIM mode
@@ -195,39 +215,100 @@ class MainWindow(QWidget, Ui_Widget):
         self.btn_save_table.clicked.connect(self.save_table)
         self.btn_export_data.clicked.connect(self.export_data)
 
-        self.btn_new_simulation.clicked.connect(self.new_simulation)
+        self.btn_new_simulation.clicked.connect(self.go_to_home)
 
-    # APP FUNCTIONS     
-    def new_simulation(self):
-        self.Stacked_windows.setCurrentIndex(1)
+    # APP FUNCTIONS 
+
+    def go_to_home(self):
+        self.Stacked_windows.setCurrentWidget(self.home_window)
+        global SIMULATOR
+        SIMULATOR = ''
+        self.label_title.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">Simulator</span></p></body></html>", None))
+        self.label_footer.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\"> </p></body></html>", None))
+
+    def spr_selected(self):
+        self.Stacked_windows.setCurrentWidget(self.coupling_window)
+        self.fiber_btn.setEnabled(True)
+        self.fiber_btn.setStyleSheet("QPushButton{ background-color: rgb(255, 255, 255);\n"
+                                     "border-color: rgb(31, 78, 121);\n"
+                                     "border-radius: 30px;\n"
+                                     "border-style: outset;\n"
+                                     "border-width: 7px;\n"
+                                     "}\n"
+                                     "QPushButton:hover{ border-color: rgb(255, 170, 0);}\n"
+                                     "\n"
+                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
+        global SIMULATOR
+        SIMULATOR = 'SPR'
+        self.label_title.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">Sim-SPR</span></p></body></html>", None))
+        self.label_footer.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\">Sim-SPR v01.0_a</p></body></html>", None))
+    
+    def lmr_selected(self):
+        self.Stacked_windows.setCurrentWidget(self.coupling_window)
+        self.fiber_btn.setEnabled(False)
+        self.fiber_btn.setStyleSheet("QPushButton{ background-color: rgb(255, 255, 255);\n"
+                                     "border-color: #606060;\n"
+                                     "border-radius: 30px;\n"
+                                     "border-style: outset;\n"
+                                     "border-width: 7px;\n"
+                                     "}\n"
+                                     "QPushButton:hover{ border-color: rgb(255, 170, 0);}\n"
+                                     "\n"
+                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
+        global SIMULATOR
+        SIMULATOR = 'LMR'
+        self.label_title.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">Sim-LMR</span></p></body></html>", None))
+        self.label_footer.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\">Sim-LMR v01.0_a</p></body></html>", None))
+
+    def lmr_spr_selected(self):
+        
+        global SIMULATOR
+        SIMULATOR = 'LMR+SPR'
+        self.label_title.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:11pt;\">Sim-LMR+SPR</span></p></body></html>", None))
+        self.label_footer.setText(QtCore.QCoreApplication.translate(
+            "Widget", u"<html><head/><body><p align=\"center\">Sim-LMR+SPR v01.0_a</p></body></html>", None))
 
     def prism_btn_clicked(self):
-        self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">-</span><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\"> Coupling through prism selected - </span></pre><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">Next to continue...</span></pre></body></html>"))
+        self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">- Coupling through Prism selected - </span></pre><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">Next to continue...</span></pre></body></html>"))
         global COUPLING
         COUPLING = 1
         
     def fiber_btn_clicked(self):
-        self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#37eb00;\">- Coupling through optical fiber under development - </span></pre></body></html>"))
+        self.warning_2.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#37eb00;\">- Coupling through Optical Fiber selected - </span></pre><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">Next to continue...</span></pre></body></html>"))
         global COUPLING
-        COUPLING = 0
+        COUPLING = 2
+
+    def fiber_cr_clicked(self):
+        self.warning_fiber_typ.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#37eb00;\">- Fiber with removed cladding was selected - </span></pre><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">Next to continue...</span></pre></body></html>"))
+        global TYPE_FIBER
+        TYPE_FIBER = 1
+
 
     def next_page(self, op, warning):
-        if op == 0:
-            warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#B21222;\">- *! Select a valid option !* - </span></pre></body></html>"))
-        else:
-            if self.Stacked_windows.currentIndex() == 4:
-                if self.nLayers < 3:
-                    self.warning.setHidden(False)
-                    self.warning.setText(QtCore.QCoreApplication.translate("Widget", f"<html><head/><body><p align=\"center\"><a name=\"tw-target-text\"/><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># Insert more than 3 layers #</span><p align=\"center\"><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># {self.nLayers} layer(s) added # </span></body></html>", None))
-                else:
-                    self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)
-
-            else:
-                self.warning.setHidden(True)
-                self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()+1)   
+        match self.Stacked_windows.currentWidget():
+            case self.coupling_window:
+                if op == 0:
+                    warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#B21222;\">- *! Select a valid option !* - </span></pre></body></html>"))
+                elif op == 1:   # Coupling througth prism
+                    self.Stacked_windows.setCurrentWidget(self.interrogation_window)
+                else:           # Coupling througth optical fiber
+                    self.Stacked_windows.setCurrentWidget(self.select_fiber_window)
+            
+            case self.interrogation_window:
+                self.warning.setHidden(True)  
                 self.figure_.clear()
-                self.canvas_.draw()    
-                if op == 1: # AIM mode
+                self.canvas_.draw()  
+                if op == 0:
+                    warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#B21222;\">- *! Select a valid option !* - </span></pre></body></html>"))
+                elif op == 1:   # AIM mode
+                    self.Stacked_windows.setCurrentWidget(self.layers_window) 
                     self.stacked_layers.setCurrentIndex(0)
                     self.Stacked_config_mode.setCurrentIndex(2)
                     self.btn_config_WIM_fiber.setText("Configure AIM mode")
@@ -241,7 +322,8 @@ class MainWindow(QWidget, Ui_Widget):
                     self.textBrowser.setText("Select the analysis angular range in the 'Angular range' field;"
                                             "\nClick the 'Run' button to start the calculations;"
                                             "\nYou can choose which chart to view in the combobox below the chart area;")
-                else:   #WIM mode
+                else:           # WIM mode
+                    self.Stacked_windows.setCurrentWidget(self.layers_window) 
                     self.stacked_layers.setCurrentIndex(1)
                     self.Stacked_config_mode.setCurrentIndex(1)
                     self.btn_config_WIM_fiber.setText("Configure WIM mode")
@@ -255,8 +337,45 @@ class MainWindow(QWidget, Ui_Widget):
                                             "\nClick the 'Run' button to start the calculations;"
                                             "\nYou can choose which chart to view in the combobox below the chart area.")
             
+            case self.layers_window:
+                if self.nLayers < 3:
+                    self.warning.setHidden(False)
+                    self.warning.setText(QtCore.QCoreApplication.translate("Widget", f"<html><head/><body><p align=\"center\"><a name=\"tw-target-text\"/><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># Insert more than 3 layers #</span><p align=\"center\"><span style=\" font-size:14pt; font-weight:400; color:#d41010;\"># {self.nLayers} layer(s) added # </span></body></html>", None))
+                else:
+                    self.Stacked_windows.setCurrentWidget(self.interval_setting)
+            
+            case self.select_fiber_window:
+                if op == 0:
+                    warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#B21222;\">- *! Select a valid option !* - </span></pre></body></html>"))
+                else:           
+                    self.Stacked_windows.setCurrentWidget(self.characteristics_fiber)
+            case self.characteristics_fiber:
+                ## Falta colocar os casos de exceção que causam erro
+                self.Stacked_windows.setCurrentWidget(self.layers_window)
+                
+
     def previous_page(self):
-        self.Stacked_windows.setCurrentIndex(self.Stacked_windows.currentIndex()-1)
+        match self.Stacked_windows.currentWidget():
+            case self.Select_simulator:
+                self.Stacked_windows.setCurrentWidget(self.home_window)
+
+            case self.coupling_window:
+                self.Stacked_windows.setCurrentWidget(self.Select_simulator)
+
+            case self.interrogation_window:
+                self.Stacked_windows.setCurrentWidget(self.coupling_window)   
+                
+            case self.layers_window:
+                self.Stacked_windows.setCurrentWidget(self.interrogation_window)
+            
+            case self.select_fiber_window:
+                self.Stacked_windows.setCurrentWidget(self.coupling_window)
+            
+            case self.interval_setting:
+                self.Stacked_windows.setCurrentWidget(self.layers_window)
+            
+            case self.characteristics_fiber:
+                self.Stacked_windows.setCurrentWidget(self.select_fiber_window)
 
     def aim_btn_clicked(self):
         global INTERROGATION_MODE
@@ -269,7 +388,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.warning_inter.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#37eb00;\">- Wavelength interrogation mode selected - </span></pre><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:500; font-family:'monospace'; color:#37eb00;\">Next to continue...</span></pre></body></html>"))
         INTERROGATION_MODE = 2
 
-    def set_Enable_True(self):        
+    def set_Enable_True(self):
         # This enable the btn_add_layer button (AIM mode)
         self.btn_add_layer.setEnabled(True)
         self.btn_add_layer.setToolTip("Add layer")
@@ -2264,7 +2383,6 @@ class MainWindow(QWidget, Ui_Widget):
 
         for s in range(len(self.index_ref_analyte)):
             self.fom.append(round(abs(self.sensibility[s] / self.Fwhm[s]), 6))
-
 
     def sensibility_graph(self, index_analyte):
         # Sensibility obtained from the graph

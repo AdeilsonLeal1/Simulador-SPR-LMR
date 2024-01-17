@@ -42,13 +42,141 @@ QRangeSlider {
 class Ui_Widget(object):
 
     def setupUi(self, Widget):
+        ## Font
+        font = QtGui.QFont()
+        font.setFamily("Ubuntu Condensed")
+        font.setPointSize(14)
+
+        font1 = QtGui.QFont()
+        font1.setFamily("Ubuntu")
+        font1.setPointSize(10)
+        font1.setBold(True)
+        font1.setWeight(63)
+
+        font2 = QtGui.QFont()
+        font2.setFamily("Ubuntu")
+        font2.setPointSize(11)
+        font2.setWeight(50)
+
+        font3 = QtGui.QFont()
+        font3.setPointSize(18)
+
+        font5 = QtGui.QFont()
+        font5.setFamily("Segoe UI Semibold")
+        font5.setPointSize(15)
+        font5.setBold(True)
+        font5.setWeight(75)
+
+        font6 = QtGui.QFont()
+        font6.setUnderline(False)
+
+        font7 = QtGui.QFont()
+        font7.setPointSize(16)
+        
+        font8 = QtGui.QFont()
+        font8.setPointSize(14)
+
+        font9 = QtGui.QFont()
+        font9.setFamily("Segoe UI Semibold")
+        font9.setPointSize(11)
+        font9.setBold(True)
+        font9.setWeight(75)
+
+        font10 = QtGui.QFont()
+        font10.setPointSize(20)
+
+        font11 = QtGui.QFont()
+        font11.setFamily("Segoe UI Semibold")
+        font11.setPointSize(11)
+        font11.setBold(True)
+        font11.setUnderline(True)
+        font11.setWeight(75)
+
+        font12 = QtGui.QFont()
+        font12.setFamily(u"Ubuntu")
+        font12.setPointSize(14)
+        font12.setWeight(50)
+
+        font13 = QtGui.QFont()
+        font13.setFamily(u"Ubuntu")
+        font13.setPointSize(12)
+        font13.setBold(True)
+        font13.setWeight(88)
+
+        font14 = QtGui.QFont()
+        font14.setFamily("Ubuntu")
+        font14.setPointSize(18)
+        font14.setBold(True)
+        font14.setWeight(63)
+
+        ## Icons
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icons/icons/LOGO.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/help.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/icons/icons/close.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/configuracoes.png"),
+                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/logout.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon5 = QtGui.QIcon(QtGui.QIcon.fromTheme(u"document-open"))
+        icon5.addPixmap(QtGui.QPixmap("Sim-LMR-Interface--main\icons\icons8-opened-folder-30 (1).png"),
+                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap(":/icons/icons/casa.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/icons/icons/fiber.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap(":/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png"),
+                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap(":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"), 
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap(":/icons/icons/aim.png"),
+                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon11 = QtGui.QIcon()
+        icon11.addPixmap(QtGui.QPixmap(":/icons/icons/wim.png"),
+                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon12 = QtGui.QIcon()
+        icon12.addPixmap(QtGui.QPixmap(":/icons/icons/fiber_CRMF.png"), 
+                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon13 = QtGui.QIcon()
+        icon13.addPixmap(QtGui.QPixmap(":/icons/icons/prism.png"),
+                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon14 = QtGui.QIcon()
+        icon14.addFile(u"icons\icons8-reload-96.png", QtCore.QSize(), 
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        icon15 = QtGui.QIcon()
+        icon15.addFile(u"Sim-LMR-Interface--main\icons\sine-waves-analysis.png", QtCore.QSize(), 
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
         Widget.setObjectName("Widget")
         Widget.resize(1035, 755)
         Widget.setMinimumSize(QtCore.QSize(750, 0))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu Condensed")
-        font.setPointSize(14)
         Widget.setFont(font)
         Widget.setStyleSheet("border:none;")
         self.verticalLayout = QtWidgets.QVBoxLayout(Widget)
@@ -88,10 +216,6 @@ class Ui_Widget(object):
                                 "    background:transparent;\n"
                                 "}\n"
                                 "")
-        self.icon.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/icons/LOGO.png"),
-                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.icon.setIcon(icon)
         self.icon.setIconSize(QtCore.QSize(40, 40))
         self.icon.setObjectName("icon")
@@ -103,10 +227,7 @@ class Ui_Widget(object):
 
         self.label_title = QtWidgets.QLabel(self.header_frame)
         self.label_title.setMaximumSize(QtCore.QSize(16777215, 40))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setWeight(63)
-        self.label_title.setFont(font)
+        self.label_title.setFont(font1)
         self.label_title.setStyleSheet("background:transparent;\n")
         self.label_title.setObjectName("label_title")
         self.horizontalLayout.addWidget(self.label_title)
@@ -114,12 +235,6 @@ class Ui_Widget(object):
         self.btn_help.setMinimumSize(QtCore.QSize(65, 22))
         self.btn_help.setMaximumSize(QtCore.QSize(65, 22))
         self.btn_help.setToolTip("Help")
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
         self.btn_help.setFont(font)
         self.btn_help.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_help.setLayoutDirection(QtCore.Qt.RightToLeft)
@@ -135,9 +250,6 @@ class Ui_Widget(object):
                                     "    width: 40;\n"
                                     "    height: 35;\n"
                                     "}")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/icons/help.png"),
-                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_help.setIcon(icon1)
         self.btn_help.setIconSize(QtCore.QSize(15, 15))
         self.btn_help.setObjectName("btn_help")
@@ -146,13 +258,7 @@ class Ui_Widget(object):
         self.btn_minimize.setMinimumSize(QtCore.QSize(20, 20))
         self.btn_minimize.setMaximumSize(QtCore.QSize(22, 22))
         self.btn_minimize.setToolTip("Minimize")
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(99)
-        self.btn_minimize.setFont(font)
+        self.btn_minimize.setFont(font1)
         self.btn_minimize.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_minimize.setStyleSheet("QPushButton{\n"
@@ -173,13 +279,7 @@ class Ui_Widget(object):
         self.btn_close.setMinimumSize(QtCore.QSize(20, 20))
         self.btn_close.setMaximumSize(QtCore.QSize(22, 22))
         self.btn_close.setToolTip("Close")
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(63)
-        self.btn_close.setFont(font)
+        self.btn_close.setFont(font1)
         self.btn_close.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_close.setStyleSheet("QPushButton{\n"
                                      "    font: 500 11pt \"Ubuntu\";\n"
@@ -194,9 +294,6 @@ class Ui_Widget(object):
                                      "    height: 35;\n"
                                      "}")
         self.btn_close.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icons/icons/close.png"),
-                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_close.setIcon(icon2)
         self.btn_close.setIconSize(QtCore.QSize(12, 12))
         self.btn_close.setObjectName("btn_close")
@@ -221,9 +318,7 @@ class Ui_Widget(object):
         self.verticalLayout_16.setSpacing(0)
         self.verticalLayout_16.setObjectName("verticalLayout_16")
         self.Stacked_windows = QtWidgets.QStackedWidget(self.main_frame)
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        self.Stacked_windows.setFont(font)
+        self.Stacked_windows.setFont(font3)
         self.Stacked_windows.setStyleSheet("background:transparent;")
         self.Stacked_windows.setObjectName("Stacked_windows")
 
@@ -283,12 +378,7 @@ class Ui_Widget(object):
         self.start_btn.setSizePolicy(sizePolicy)
         self.start_btn.setMinimumSize(QtCore.QSize(250, 70))
         self.start_btn.setMaximumSize(QtCore.QSize(350, 70))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
-        self.start_btn.setFont(font)
+        self.start_btn.setFont(font5)
         self.start_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.start_btn.setStyleSheet(u"QPushButton{\n"
                                         "	\n"
@@ -304,11 +394,7 @@ class Ui_Widget(object):
                                         "	background-color: rgb(00, 130, 70);\n"
                                         "	border-color: rgb(0, 120, 40);\n"
                                         "\n"
-                                        "}\n"
-                                        "")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(
-            ":/icons/icons/configuracoes.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                                        "}\n")
         self.start_btn.setIcon(icon3)
         self.start_btn.setIconSize(QtCore.QSize(30, 30))
         self.start_btn.setObjectName("start_btn")
@@ -338,12 +424,8 @@ class Ui_Widget(object):
                                         "QPushButton:hover{\n"
                                         "	background-color: rgb(00, 130, 70);\n"
                                         "	border-color: rgb(0, 120, 40);\n"
-                                        "\n"
-                                        "}\n"
-                                        "")
-        icon5 = QtGui.QIcon(QtGui.QIcon.fromTheme(u"document-open"))
-        icon5.addPixmap(QtGui.QPixmap(
-            "Sim-LMR-Interface--main\icons\icons8-opened-folder-30 (1).png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                                        "}\n")
+
         self.open_btn_ext.setIcon(icon5)
         self.open_btn_ext.setIconSize(QtCore.QSize(30,30))
 
@@ -363,12 +445,7 @@ class Ui_Widget(object):
         self.exit_btn.setSizePolicy(sizePolicy)
         self.exit_btn.setMinimumSize(QtCore.QSize(250, 70))
         self.exit_btn.setMaximumSize(QtCore.QSize(350, 70))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
-        self.exit_btn.setFont(font)
+        self.exit_btn.setFont(font5)
         self.exit_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.exit_btn.setStyleSheet("QPushButton{\n"
                                     "    color: rgb(255, 255,255);\n"
@@ -383,11 +460,7 @@ class Ui_Widget(object):
                                     "    background-color: rgb(180, 20, 20);\n"
                                     "    border-color: rgb(150, 25, 20);\n"
                                     "\n"
-                                    "}\n"
-                                    "")
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icons/icons/logout.png"),
-                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                                    "}\n")
         self.exit_btn.setIcon(icon4)
         self.exit_btn.setIconSize(QtCore.QSize(30, 30))
         self.exit_btn.setAutoRepeatDelay(1000)
@@ -404,7 +477,7 @@ class Ui_Widget(object):
         self.verticalLayout_17.addWidget(self.frame_6)
         self.Stacked_windows.addWidget(self.home_window)
 
-        # Select Simulator window
+        # 'Select Simulator' window
         self.Select_simulator = QtWidgets.QWidget()
         self.Select_simulator.setObjectName(u"Select_simulator")
         self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.Select_simulator)
@@ -425,14 +498,9 @@ class Ui_Widget(object):
         self.btn_home_5.setObjectName(u"btn_home_5")
         self.btn_home_5.setMinimumSize(QtCore.QSize(20, 20))
         self.btn_home_5.setMaximumSize(QtCore.QSize(20, 20))
-        font6 = QtGui.QFont()
-        font6.setUnderline(False)
-        self.btn_home_5.setFont(font6)
         self.btn_home_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_home_5.setStyleSheet(u"color: rgb(255, 255, 255);\n"
                                         "background: transparent;")
-        icon6 = QtGui.QIcon()
-        icon6.addFile(u":/icons/icons/casa.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_home_5.setIcon(icon6)
         self.btn_home_5.setIconSize(QtCore.QSize(20, 20))
 
@@ -457,8 +525,6 @@ class Ui_Widget(object):
         sizePolicy5.setHeightForWidth(self.warning_3.sizePolicy().hasHeightForWidth())
         self.warning_3.setSizePolicy(sizePolicy5)
         self.warning_3.setMinimumSize(QtCore.QSize(50, 50))
-        font7 = QtGui.QFont()
-        font7.setPointSize(16)
         self.warning_3.setFont(font7)
 
         self.verticalLayout_21.addWidget(self.warning_3)
@@ -501,8 +567,8 @@ class Ui_Widget(object):
                                     "\n"
                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
                                     "")
-        icon14 = QtGui.QIcon("Sim-LMR-Interface--main\logo_spr.png")
-        self.spr_btn.setIcon(icon14)
+
+        self.spr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\logo_spr.png"))
         self.spr_btn.setIconSize(QtCore.QSize(300, 300))
 
         self.horizontalLayout_4.addWidget(self.spr_btn)
@@ -535,10 +601,7 @@ class Ui_Widget(object):
                                     "\n"
                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
                                     "")
-        icon13 = QtGui.QIcon("Sim-LMR-Interface--main\logo_lmr.png")
-        
-        
-        self.lmr_btn.setIcon(icon13)
+        self.lmr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\logo_lmr.png"))
         self.lmr_btn.setIconSize(QtCore.QSize(300, 300))
 
         self.horizontalLayout_4.addWidget(self.lmr_btn)
@@ -557,10 +620,11 @@ class Ui_Widget(object):
         self.lmr_spr_btn.setMinimumSize(QtCore.QSize(300, 300))
         self.lmr_spr_btn.setMaximumSize(QtCore.QSize(350, 350))
         self.lmr_spr_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.lmr_spr_btn.setEnabled(False)
         self.lmr_spr_btn.setStyleSheet(u"QPushButton{\n"
                                         "\n"
                                         "	background-color: rgb(255, 255, 255);\n"
-                                        "border-color: rgb(31, 78, 121);\n"
+                                        "border-color: #606060;\n"
                                         "border-radius: 30px;\n"
                                         "border-style: outset;\n"
                                         "border-width: 5px;\n"
@@ -573,7 +637,8 @@ class Ui_Widget(object):
                                         "}\n"
                                         "\n"
                                         "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
-        self.lmr_spr_btn.setIcon(icon)
+    
+        self.lmr_spr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\logo_lmr_spr.png"))
         self.lmr_spr_btn.setIconSize(QtCore.QSize(300, 300))
 
         self.horizontalLayout_4.addWidget(self.lmr_spr_btn)
@@ -619,18 +684,11 @@ class Ui_Widget(object):
         self.horizontalLayout_38.setContentsMargins(20, 6, 20, 6)
         self.prev_btn_sel = QtWidgets.QPushButton(self.frame_next_previous_6)
         self.prev_btn_sel.setObjectName(u"prev_btn_sel")
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.prev_btn_sel.setFont(font)
+        self.prev_btn_sel.setFont(font8)
         self.prev_btn_sel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_sel.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.prev_btn_sel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                        "background: transparent;")
-        
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(
-            ":/icons/icons/simbolo-de-setas-duplas-para-a-esquerda.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        
+                                        "background: transparent;")     
         self.prev_btn_sel.setIcon(icon8)
         self.prev_btn_sel.setIconSize(QtCore.QSize(20, 20))
 
@@ -656,7 +714,7 @@ class Ui_Widget(object):
         self.Stacked_windows.addWidget(self.Select_simulator)
 
 
-        # Coupling window
+        # 'Coupling' window
         self.coupling_window = QtWidgets.QWidget()
         self.coupling_window.setStyleSheet("background:transparent;")
         self.coupling_window.setObjectName("coupling_window")
@@ -677,17 +735,11 @@ class Ui_Widget(object):
         self.btn_home = QtWidgets.QPushButton(self.frame_hierarq_4)
         self.btn_home.setMinimumSize(QtCore.QSize(20, 20))
         self.btn_home.setMaximumSize(QtCore.QSize(20, 20))
-        font = QtGui.QFont()
-        font.setUnderline(False)
-        self.btn_home.setFont(font)
         self.btn_home.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_home.setStyleSheet("color: rgb(255, 255, 255);\n"
                                     "background: transparent;")
         self.btn_home.setText("")
-        icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(":/icons/icons/casa.png"),
-                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btn_home.setIcon(icon5)
+        self.btn_home.setIcon(icon6)
         self.btn_home.setIconSize(QtCore.QSize(20, 20))
         self.btn_home.setObjectName("btn_home")
         self.horizontalLayout_22.addWidget(self.btn_home)
@@ -704,20 +756,12 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_coupling.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.btn_coupling.sizePolicy().hasHeightForWidth())
         self.btn_coupling.setSizePolicy(sizePolicy)
         self.btn_coupling.setMinimumSize(QtCore.QSize(130, 20))
         self.btn_coupling.setMaximumSize(QtCore.QSize(130, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(False)
-        font.setWeight(75)
-        self.btn_coupling.setFont(font)
-        self.btn_coupling.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_coupling.setFont(font9)
+        self.btn_coupling.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_coupling.setStyleSheet("color: rgb(255, 255, 255);\n"
                                         "background: transparent;")
         self.btn_coupling.setObjectName("btn_coupling")
@@ -728,9 +772,7 @@ class Ui_Widget(object):
         self.verticalLayout_19.addWidget(self.frame_hierarq_4)
         self.label_coupling = QtWidgets.QLabel(self.coupling_window)
         self.label_coupling.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setPointSize(20)
-        self.label_coupling.setFont(font)
+        self.label_coupling.setFont(font10)
         self.label_coupling.setObjectName("label_coupling")
         self.verticalLayout_19.addWidget(self.label_coupling)
         spacerItem7 = QtWidgets.QSpacerItem(
@@ -772,10 +814,7 @@ class Ui_Widget(object):
         self.prism_btn.setText("")
         self.prism_btn.setCheckable(True)
         self.prism_btn.setAutoExclusive(True)
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(":/icons/icons/prism.png"),
-                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.prism_btn.setIcon(icon6)
+        self.prism_btn.setIcon(icon13)
         self.prism_btn.setIconSize(QtCore.QSize(330, 330))
         self.prism_btn.setObjectName("prism_btn")
         self.horizontalLayout_23.addWidget(self.prism_btn)
@@ -805,9 +844,6 @@ class Ui_Widget(object):
         self.fiber_btn.setText("")
         self.fiber_btn.setCheckable(True)
         self.fiber_btn.setAutoExclusive(True)
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(":/icons/icons/fiber.png"),
-                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.fiber_btn.setIcon(icon7)
         self.fiber_btn.setIconSize(QtCore.QSize(330, 330))
         self.fiber_btn.setObjectName("fiber_btn")
@@ -845,9 +881,7 @@ class Ui_Widget(object):
             self.warning_2.sizePolicy().hasHeightForWidth())
         self.warning_2.setSizePolicy(sizePolicy)
         self.warning_2.setMinimumSize(QtCore.QSize(50, 50))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        self.warning_2.setFont(font)
+        self.warning_2.setFont(font7)
         self.warning_2.setObjectName("warning_2")
         self.verticalLayout_19.addWidget(self.warning_2)
         spacerItem12 = QtWidgets.QSpacerItem(
@@ -873,9 +907,7 @@ class Ui_Widget(object):
         self.horizontalLayout_25.setObjectName("horizontalLayout_25")
         self.prev_btn_coup = QtWidgets.QPushButton(
             self.frame_next_previous_4)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.prev_btn_coup.setFont(font)
+        self.prev_btn_coup.setFont(font8)
         self.prev_btn_coup.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_coup.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -888,19 +920,12 @@ class Ui_Widget(object):
         spacerItem13 = QtWidgets.QSpacerItem(
             100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_25.addItem(spacerItem13)
-        self.next_btn_coup = QtWidgets.QPushButton(
-            self.frame_next_previous_4)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.next_btn_coup.setFont(font)
-        self.next_btn_coup.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.next_btn_coup = QtWidgets.QPushButton(self.frame_next_previous_4)
+        self.next_btn_coup.setFont(font8)
+        self.next_btn_coup.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next_btn_coup.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.next_btn_coup.setStyleSheet("color: rgb(255, 255, 255);\n"
                                          "background: transparent;")
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(
-            ":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.next_btn_coup.setIcon(icon9)
         self.next_btn_coup.setIconSize(QtCore.QSize(20, 20))
         self.next_btn_coup.setObjectName("next_btn_coup")
@@ -925,7 +950,7 @@ class Ui_Widget(object):
         self.verticalLayout_19.addWidget(self.frame_10)
         self.Stacked_windows.addWidget(self.coupling_window)
 
-        # Interrogaton mode Window
+        # 'Interrogaton mode' Window
         self.interrogation_window = QtWidgets.QWidget()
         self.interrogation_window.setObjectName("interrogation_window")
         self.verticalLayout_20 = QtWidgets.QVBoxLayout(
@@ -947,7 +972,7 @@ class Ui_Widget(object):
         self.btn_home_2.setMaximumSize(QtCore.QSize(20, 20))
         self.btn_home_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_home_2.setText("")
-        self.btn_home_2.setIcon(icon5)
+        self.btn_home_2.setIcon(icon6)
         self.btn_home_2.setIconSize(QtCore.QSize(20, 20))
         self.btn_home_2.setObjectName("btn_home_2")
         self.horizontalLayout_27.addWidget(self.btn_home_2)
@@ -964,20 +989,12 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_coupling_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.btn_coupling_2.sizePolicy().hasHeightForWidth())
         self.btn_coupling_2.setSizePolicy(sizePolicy)
         self.btn_coupling_2.setMinimumSize(QtCore.QSize(130, 20))
         self.btn_coupling_2.setMaximumSize(QtCore.QSize(130, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.btn_coupling_2.setFont(font)
-        self.btn_coupling_2.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_coupling_2.setFont(font11)
+        self.btn_coupling_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_coupling_2.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_coupling_2.setObjectName("btn_coupling_2")
         self.horizontalLayout_27.addWidget(self.btn_coupling_2)
@@ -990,20 +1007,12 @@ class Ui_Widget(object):
         self.label_19.setObjectName("label_19")
         self.horizontalLayout_27.addWidget(self.label_19)
         self.btn_interrogation = QtWidgets.QPushButton(self.frame_hierarq_5)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         self.btn_interrogation.setSizePolicy(sizePolicy)
         self.btn_interrogation.setMinimumSize(QtCore.QSize(170, 20))
         self.btn_interrogation.setMaximumSize(QtCore.QSize(170, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(False)
-        font.setWeight(75)
-        self.btn_interrogation.setFont(font)
-        self.btn_interrogation.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_interrogation.setFont(font9)
+        self.btn_interrogation.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_interrogation.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_interrogation.setObjectName("btn_interrogation")
         self.horizontalLayout_27.addWidget(self.btn_interrogation)
@@ -1013,9 +1022,7 @@ class Ui_Widget(object):
         self.verticalLayout_20.addWidget(self.frame_hierarq_5)
         self.label_interrogation = QtWidgets.QLabel(self.interrogation_window)
         self.label_interrogation.setMinimumSize(QtCore.QSize(0, 60))
-        font = QtGui.QFont()
-        font.setPointSize(20)
-        self.label_interrogation.setFont(font)
+        self.label_interrogation.setFont(font10)
         self.label_interrogation.setObjectName("label_interrogation")
         self.verticalLayout_20.addWidget(self.label_interrogation)
         spacerItem15 = QtWidgets.QSpacerItem(
@@ -1056,9 +1063,6 @@ class Ui_Widget(object):
         self.aim_btn.setText("")
         self.aim_btn.setCheckable(True)
         self.aim_btn.setAutoExclusive(True)
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(":/icons/icons/aim.png"),
-                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.aim_btn.setIcon(icon10)
         self.aim_btn.setIconSize(QtCore.QSize(330, 330))
         self.aim_btn.setObjectName("aim_btn")
@@ -1089,9 +1093,6 @@ class Ui_Widget(object):
         self.wim_btn.setText("")
         self.wim_btn.setCheckable(True)
         self.wim_btn.setAutoExclusive(True)
-        icon11 = QtGui.QIcon()
-        icon11.addPixmap(QtGui.QPixmap(":/icons/icons/wim.png"),
-                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.wim_btn.setIcon(icon11)
         self.wim_btn.setIconSize(QtCore.QSize(330, 330))
         self.wim_btn.setObjectName("wim_btn")
@@ -1112,9 +1113,7 @@ class Ui_Widget(object):
             self.warning_inter.sizePolicy().hasHeightForWidth())
         self.warning_inter.setSizePolicy(sizePolicy)
         self.warning_inter.setMinimumSize(QtCore.QSize(50, 50))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        self.warning_inter.setFont(font)
+        self.warning_inter.setFont(font7)
         self.warning_inter.setObjectName("warning_inter")
         self.verticalLayout_20.addWidget(self.warning_inter)
         spacerItem20 = QtWidgets.QSpacerItem(
@@ -1141,9 +1140,7 @@ class Ui_Widget(object):
         self.horizontalLayout_29.setObjectName("horizontalLayout_29")
         self.prev_btn_inter = QtWidgets.QPushButton(
             self.frame_next_previous_5)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.prev_btn_inter.setFont(font)
+        self.prev_btn_inter.setFont(font8)
         self.prev_btn_inter.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_inter.setStyleSheet("color: rgb(255, 255, 255);")
@@ -1157,9 +1154,7 @@ class Ui_Widget(object):
         self.next_btn_inter = QtWidgets.QPushButton(
             self.frame_next_previous_5)
         self.next_btn_inter.setEnabled(True)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.next_btn_inter.setFont(font)
+        self.next_btn_inter.setFont(font8)
         self.next_btn_inter.setCursor(
             QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next_btn_inter.setLayoutDirection(QtCore.Qt.RightToLeft)
@@ -1170,6 +1165,887 @@ class Ui_Widget(object):
         self.horizontalLayout_29.addWidget(self.next_btn_inter)
         self.verticalLayout_20.addWidget(self.frame_next_previous_5)
         self.Stacked_windows.addWidget(self.interrogation_window)
+
+        # 'Type of fiber' window
+        self.select_fiber_window = QtWidgets.QWidget()
+        self.select_fiber_window.setObjectName(u"select_fiber_window")
+        self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.select_fiber_window)
+        self.verticalLayout_22.setSpacing(0)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.frame_hierarq_7 = QtWidgets.QFrame(self.select_fiber_window)
+        self.frame_hierarq_7.setObjectName(u"frame_hierarq_7")
+        self.frame_hierarq_7.setStyleSheet(u"background:transparent;")
+        self.frame_hierarq_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_hierarq_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_46 = QtWidgets.QHBoxLayout(self.frame_hierarq_7)
+        self.horizontalLayout_46.setSpacing(8)
+        self.horizontalLayout_46.setObjectName(u"horizontalLayout_46")
+        self.horizontalLayout_46.setContentsMargins(20, 8, 8, 8)
+        self.btn_home_6 = QtWidgets.QPushButton(self.frame_hierarq_7)
+        self.btn_home_6.setObjectName(u"btn_home_6")
+        self.btn_home_6.setMinimumSize(QtCore.QSize(20, 20))
+        self.btn_home_6.setMaximumSize(QtCore.QSize(20, 20))
+        self.btn_home_6.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_home_6.setIcon(icon6)
+        self.btn_home_6.setIconSize(QtCore.QSize(20, 20))
+
+        self.horizontalLayout_46.addWidget(self.btn_home_6)
+
+        self.label_10 = QtWidgets.QLabel(self.frame_hierarq_7)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMaximumSize(QtCore.QSize(10, 10))
+        self.label_10.setPixmap(QtGui.QPixmap(u":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"))
+        self.label_10.setScaledContents(True)
+
+        self.horizontalLayout_46.addWidget(self.label_10)
+
+        self.btn_coupling_5 = QtWidgets.QPushButton(self.frame_hierarq_7)
+        self.btn_coupling_5.setObjectName(u"btn_coupling_5")
+        sizePolicy.setHeightForWidth(self.btn_coupling_5.sizePolicy().hasHeightForWidth())
+        self.btn_coupling_5.setSizePolicy(sizePolicy)
+        self.btn_coupling_5.setMinimumSize(QtCore.QSize(130, 20))
+        self.btn_coupling_5.setMaximumSize(QtCore.QSize(130, 20))
+        self.btn_coupling_5.setFont(font11)
+        self.btn_coupling_5.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_coupling_5.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.btn_coupling_5.setChecked(False)
+
+        self.horizontalLayout_46.addWidget(self.btn_coupling_5)
+
+        self.label_31 = QtWidgets.QLabel(self.frame_hierarq_7)
+        self.label_31.setObjectName(u"label_31")
+        self.label_31.setMaximumSize(QtCore.QSize(10, 10))
+        self.label_31.setPixmap(QtGui.QPixmap(u":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"))
+        self.label_31.setScaledContents(True)
+
+        self.horizontalLayout_46.addWidget(self.label_31)
+
+        self.fiber_type = QtWidgets.QPushButton(self.frame_hierarq_7)
+        self.fiber_type.setObjectName(u"fiber_type")
+        sizePolicy.setHeightForWidth(self.fiber_type.sizePolicy().hasHeightForWidth())
+        self.fiber_type.setSizePolicy(sizePolicy)
+        self.fiber_type.setMinimumSize(QtCore.QSize(100, 20))
+        self.fiber_type.setMaximumSize(QtCore.QSize(170, 20))
+        self.fiber_type.setFont(font9)
+        self.fiber_type.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.fiber_type.setAutoFillBackground(False)
+        self.fiber_type.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.fiber_type.setCheckable(False)
+        self.fiber_type.setChecked(False)
+        self.fiber_type.setAutoDefault(False)
+
+        self.horizontalLayout_46.addWidget(self.fiber_type)
+
+        self.horizontalSpacer_82 = QtWidgets.QSpacerItem(675, 15, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_46.addItem(self.horizontalSpacer_82)
+
+        self.verticalLayout_22.addWidget(self.frame_hierarq_7)
+
+        self.label_fiber_type = QtWidgets.QLabel(self.select_fiber_window)
+        self.label_fiber_type.setObjectName(u"label_fiber_type")
+        self.label_fiber_type.setMinimumSize(QtCore.QSize(0, 60))
+        self.label_fiber_type.setFont(font10)
+
+        self.verticalLayout_22.addWidget(self.label_fiber_type)
+
+        self.verticalSpacer_26 = QtWidgets.QSpacerItem(20, 54, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_22.addItem(self.verticalSpacer_26)
+
+        self.frame_fiber = QtWidgets.QFrame(self.select_fiber_window)
+        self.frame_fiber.setObjectName(u"frame_fiber")
+        self.frame_fiber.setMinimumSize(QtCore.QSize(680, 350))
+        self.frame_fiber.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_fiber.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_45 = QtWidgets.QHBoxLayout(self.frame_fiber)
+        self.horizontalLayout_45.setSpacing(0)
+        self.horizontalLayout_45.setObjectName(u"horizontalLayout_45")
+        self.horizontalLayout_45.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_79 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_45.addItem(self.horizontalSpacer_79)
+
+        self.cladding_remove_btn = QtWidgets.QPushButton(self.frame_fiber)
+        self.cladding_remove_btn.setObjectName(u"cladding_remove_btn")
+        sizePolicy5.setHeightForWidth(self.cladding_remove_btn.sizePolicy().hasHeightForWidth())
+        self.cladding_remove_btn.setSizePolicy(sizePolicy5)
+        self.cladding_remove_btn.setMinimumSize(QtCore.QSize(350, 350))
+        self.cladding_remove_btn.setMaximumSize(QtCore.QSize(350, 350))
+        self.cladding_remove_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.cladding_remove_btn.setStyleSheet(u"QPushButton{\n"
+                                                "background-color: rgb(255, 255, 255);\n"
+                                                "border-color: rgb(31, 78, 121);\n"
+                                                "border-radius: 30px;\n"
+                                                "border-style: outset;\n"
+                                                "border-width: 5px;}\n"
+                                                "\n"
+                                                "QPushButton:hover{ border-color: rgb(255, 170, 0);}\n"
+                                                "\n"
+                                                "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
+                                                "")
+        self.cladding_remove_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\cladding_removed.png"))
+        self.cladding_remove_btn.setIconSize(QtCore.QSize(330, 330))
+        self.cladding_remove_btn.setCheckable(True)
+        self.cladding_remove_btn.setAutoExclusive(True)
+
+        self.horizontalLayout_45.addWidget(self.cladding_remove_btn)
+
+        self.horizontalSpacer_81 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_45.addItem(self.horizontalSpacer_81)
+
+        self.verticalLayout_22.addWidget(self.frame_fiber)
+
+        self.verticalSpacer_28 = QtWidgets.QSpacerItem(20, 55, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_22.addItem(self.verticalSpacer_28)
+
+        self.warning_fiber_typ = QtWidgets.QLabel(self.select_fiber_window)
+        self.warning_fiber_typ.setObjectName(u"warning_fiber_typ")
+        sizePolicy3.setHeightForWidth(self.warning_fiber_typ.sizePolicy().hasHeightForWidth())
+        self.warning_fiber_typ.setSizePolicy(sizePolicy3)
+        self.warning_fiber_typ.setMinimumSize(QtCore.QSize(50, 50))
+        self.warning_fiber_typ.setFont(font7)
+
+        self.verticalLayout_22.addWidget(self.warning_fiber_typ)
+
+        self.verticalSpacer_27 = QtWidgets.QSpacerItem(20, 54, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_22.addItem(self.verticalSpacer_27)
+
+        self.frame_next_previous_7 = QtWidgets.QFrame(self.select_fiber_window)
+        self.frame_next_previous_7.setObjectName(u"frame_next_previous_7")
+        sizePolicy6.setHeightForWidth(self.frame_next_previous_7.sizePolicy().hasHeightForWidth())
+        self.frame_next_previous_7.setSizePolicy(sizePolicy6)
+        self.frame_next_previous_7.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_next_previous_7.setStyleSheet(u"background: transparent;")
+        self.frame_next_previous_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_next_previous_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_39 = QtWidgets.QHBoxLayout(self.frame_next_previous_7)
+        self.horizontalLayout_39.setSpacing(5)
+        self.horizontalLayout_39.setObjectName(u"horizontalLayout_39")
+        self.horizontalLayout_39.setContentsMargins(20, 6, 20, 6)
+        self.prev_btn_fiber_typ = QtWidgets.QPushButton(self.frame_next_previous_7)
+        self.prev_btn_fiber_typ.setObjectName(u"prev_btn_fiber_typ")
+        self.prev_btn_fiber_typ.setFont(font8)
+        self.prev_btn_fiber_typ.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.prev_btn_fiber_typ.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.prev_btn_fiber_typ.setIcon(icon8)
+        self.prev_btn_fiber_typ.setIconSize(QtCore.QSize(25, 25))
+
+        self.horizontalLayout_39.addWidget(self.prev_btn_fiber_typ)
+
+        self.horizontalSpacer_78 = QtWidgets.QSpacerItem(100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_39.addItem(self.horizontalSpacer_78)
+
+        self.next_btn_fiber_typ = QtWidgets.QPushButton(self.frame_next_previous_7)
+        self.next_btn_fiber_typ.setObjectName(u"next_btn_fiber_typ")
+        self.next_btn_fiber_typ.setEnabled(True)
+        self.next_btn_fiber_typ.setFont(font8)
+        self.next_btn_fiber_typ.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.next_btn_fiber_typ.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.next_btn_fiber_typ.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.next_btn_fiber_typ.setIcon(icon9)
+        self.next_btn_fiber_typ.setIconSize(QtCore.QSize(25, 25))
+        self.next_btn_fiber_typ.setCheckable(False)
+        self.next_btn_fiber_typ.setChecked(False)
+
+        self.horizontalLayout_39.addWidget(self.next_btn_fiber_typ)
+
+        self.verticalLayout_22.addWidget(self.frame_next_previous_7)
+
+        self.Stacked_windows.addWidget(self.select_fiber_window)
+
+        # 'characteristics of optical fiber' window
+        self.characteristics_fiber = QtWidgets.QWidget()
+        self.characteristics_fiber.setObjectName(u"characteristics_fiber")
+        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.characteristics_fiber)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.frame_hierarq_9 = QtWidgets.QFrame(self.characteristics_fiber)
+        self.frame_hierarq_9.setObjectName(u"frame_hierarq_9")
+        self.frame_hierarq_9.setStyleSheet(u"background:transparent;")
+        self.frame_hierarq_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_hierarq_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_hierarq_9)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.btn_home_7 = QtWidgets.QPushButton(self.frame_hierarq_9)
+        self.btn_home_7.setObjectName(u"btn_home_7")
+        self.btn_home_7.setMinimumSize(QtCore.QSize(20, 20))
+        self.btn_home_7.setMaximumSize(QtCore.QSize(20, 20))
+        self.btn_home_7.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_home_7.setIcon(icon6)
+        self.btn_home_7.setIconSize(QtCore.QSize(20, 20))
+
+        self.horizontalLayout_5.addWidget(self.btn_home_7)
+
+        self.label_32 = QtWidgets.QLabel(self.frame_hierarq_9)
+        self.label_32.setObjectName(u"label_32")
+        self.label_32.setMaximumSize(QtCore.QSize(10, 10))
+        self.label_32.setPixmap(QtGui.QPixmap(u":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"))
+        self.label_32.setScaledContents(True)
+
+        self.horizontalLayout_5.addWidget(self.label_32)
+
+        self.btn_coupling_6 = QtWidgets.QPushButton(self.frame_hierarq_9)
+        self.btn_coupling_6.setObjectName(u"btn_coupling_6")
+        sizePolicy7 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.btn_coupling_6.sizePolicy().hasHeightForWidth())
+        self.btn_coupling_6.setSizePolicy(sizePolicy7)
+        self.btn_coupling_6.setMinimumSize(QtCore.QSize(130, 20))
+        self.btn_coupling_6.setMaximumSize(QtCore.QSize(130, 20))
+        self.btn_coupling_6.setFont(font11)
+        self.btn_coupling_6.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_coupling_6.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.btn_coupling_6.setChecked(False)
+
+        self.horizontalLayout_5.addWidget(self.btn_coupling_6)
+
+        self.label_33 = QtWidgets.QLabel(self.frame_hierarq_9)
+        self.label_33.setObjectName(u"label_33")
+        self.label_33.setMaximumSize(QtCore.QSize(10, 10))
+        self.label_33.setPixmap(QtGui.QPixmap(u":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"))
+        self.label_33.setScaledContents(True)
+
+        self.horizontalLayout_5.addWidget(self.label_33)
+
+        self.fiber_type_2 = QtWidgets.QPushButton(self.frame_hierarq_9)
+        self.fiber_type_2.setObjectName(u"fiber_type_2")
+        sizePolicy7.setHeightForWidth(self.fiber_type_2.sizePolicy().hasHeightForWidth())
+        self.fiber_type_2.setSizePolicy(sizePolicy7)
+        self.fiber_type_2.setMinimumSize(QtCore.QSize(100, 20))
+        self.fiber_type_2.setMaximumSize(QtCore.QSize(170, 20))
+        self.fiber_type_2.setFont(font11)
+        self.fiber_type_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.fiber_type_2.setAutoFillBackground(False)
+        self.fiber_type_2.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.fiber_type_2.setCheckable(False)
+        self.fiber_type_2.setChecked(False)
+        self.fiber_type_2.setAutoDefault(False)
+
+        self.horizontalLayout_5.addWidget(self.fiber_type_2)
+
+        self.label_40 = QtWidgets.QLabel(self.frame_hierarq_9)
+        self.label_40.setObjectName(u"label_40")
+        self.label_40.setMaximumSize(QtCore.QSize(10, 10))
+        self.label_40.setPixmap(QtGui.QPixmap(u":/icons/icons/simbolo-de-setas-duplas-para-a-direita-para-avancar.png"))
+        self.label_40.setScaledContents(True)
+
+        self.horizontalLayout_5.addWidget(self.label_40)
+
+        self.fiber_type_3 = QtWidgets.QPushButton(self.frame_hierarq_9)
+        self.fiber_type_3.setObjectName(u"fiber_type_3")
+        sizePolicy7.setHeightForWidth(self.fiber_type_3.sizePolicy().hasHeightForWidth())
+        self.fiber_type_3.setSizePolicy(sizePolicy7)
+        self.fiber_type_3.setMinimumSize(QtCore.QSize(170, 20))
+        self.fiber_type_3.setMaximumSize(QtCore.QSize(200, 20))
+        self.fiber_type_3.setFont(font9)
+        self.fiber_type_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.fiber_type_3.setAutoFillBackground(False)
+        self.fiber_type_3.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.fiber_type_3.setCheckable(False)
+        self.fiber_type_3.setChecked(False)
+        self.fiber_type_3.setAutoDefault(False)
+
+        self.horizontalLayout_5.addWidget(self.fiber_type_3)
+
+        self.horizontalSpacer_83 = QtWidgets.QSpacerItem(675, 15, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_83)
+
+
+        self.verticalLayout_30.addWidget(self.frame_hierarq_9)
+
+        self.frame_fiber_2 = QtWidgets.QFrame(self.characteristics_fiber)
+        self.frame_fiber_2.setObjectName(u"frame_fiber_2")
+        self.frame_fiber_2.setMinimumSize(QtCore.QSize(680, 350))
+        self.frame_fiber_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_fiber_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.frame_fiber_2)
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.configWIM_label_3 = QtWidgets.QLabel(self.frame_fiber_2)
+        self.configWIM_label_3.setObjectName(u"configWIM_label_3")
+        sizePolicy2 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.configWIM_label_3.sizePolicy().hasHeightForWidth())
+        self.configWIM_label_3.setSizePolicy(sizePolicy2)
+        self.configWIM_label_3.setMinimumSize(QtCore.QSize(0, 30))
+        self.configWIM_label_3.setFont(font14)
+        self.configWIM_label_3.setStyleSheet(u"font: 500 18pt \"Ubuntu\";")
+
+        self.verticalLayout_27.addWidget(self.configWIM_label_3)
+
+        self.frame_15 = QtWidgets.QFrame(self.frame_fiber_2)
+        self.frame_15.setObjectName(u"frame_15")
+        sizePolicy3.setHeightForWidth(self.frame_15.sizePolicy().hasHeightForWidth())
+        self.frame_15.setSizePolicy(sizePolicy3)
+        self.frame_15.setMinimumSize(QtCore.QSize(530, 200))
+        self.frame_15.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_50 = QtWidgets.QHBoxLayout(self.frame_15)
+        self.horizontalLayout_50.setSpacing(0)
+        self.horizontalLayout_50.setObjectName(u"horizontalLayout_50")
+        self.horizontalLayout_50.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_90 = QtWidgets.QSpacerItem(70, 17, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_50.addItem(self.horizontalSpacer_90)
+
+        self.pushButton_12 = QtWidgets.QPushButton(self.frame_15)
+        self.pushButton_12.setObjectName(u"pushButton_12")
+        sizePolicy5.setHeightForWidth(self.pushButton_12.sizePolicy().hasHeightForWidth())
+        self.pushButton_12.setSizePolicy(sizePolicy5)
+        self.pushButton_12.setMinimumSize(QtCore.QSize(355, 300))
+        self.pushButton_12.setStyleSheet(u"border-radius:12px;\n"
+                                        "background-color: rgb(255, 255, 255);")        
+        self.pushButton_12.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\charact_fiber.png"))
+        self.pushButton_12.setIconSize(QtCore.QSize(330, 330))
+
+        self.horizontalLayout_50.addWidget(self.pushButton_12)
+
+        self.horizontalSpacer_91 = QtWidgets.QSpacerItem(70, 17, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_50.addItem(self.horizontalSpacer_91)
+
+
+        self.verticalLayout_27.addWidget(self.frame_15)
+
+        self.verticalSpacer = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_27.addItem(self.verticalSpacer)
+
+        self.frame_16 = QtWidgets.QFrame(self.frame_fiber_2)
+        self.frame_16.setObjectName(u"frame_16")
+        sizePolicy6.setHeightForWidth(self.frame_16.sizePolicy().hasHeightForWidth())
+        self.frame_16.setSizePolicy(sizePolicy6)
+        self.frame_16.setMinimumSize(QtCore.QSize(520, 240))
+        self.frame_16.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_16.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.frame_16)
+        self.verticalLayout_34.setSpacing(0)
+        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
+        self.verticalLayout_34.setContentsMargins(0, 0, 0, 0)
+        self.Spectral_range_4 = QtWidgets.QGroupBox(self.frame_16)
+        self.Spectral_range_4.setObjectName(u"Spectral_range_4")
+        sizePolicy8 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.Spectral_range_4.sizePolicy().hasHeightForWidth())
+        self.Spectral_range_4.setSizePolicy(sizePolicy8)
+        self.Spectral_range_4.setMinimumSize(QtCore.QSize(450, 130))
+        self.Spectral_range_4.setFont(font12)
+        self.Spectral_range_4.setStyleSheet(u"\n"
+                                            "QGroupBox  {\n"
+                                            "	font: 14pt \"Ubuntu\";\n"
+                                            "	background-color: rgba(255, 255, 255,70);\n"
+                                            "    border: 2px solid;\n"
+                                            "    border-color: #FF17365D;\n"
+                                            "    margin-top: 25px;\n"
+                                            "	margin-bottom: 0px;\n"
+                                            "    border-bottom-left-radius: 20px;\n"
+                                            "	border-bottom-right-radius: 20px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QGroupBox::title  {\n"
+                                            "    subcontrol-origin: margin;\n"
+                                            "    subcontrol-position: top center;\n"
+                                            "    padding: 5px 8000px 5px 8000px;\n"
+                                            "    background-color: #FF17365D;\n"
+                                            "    color: rgb(255, 255, 255);\n"
+                                            "}\n"
+                                            "")
+        self.Spectral_range_4.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.Spectral_range_4.setChecked(False)
+        self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.Spectral_range_4)
+        self.verticalLayout_26.setSpacing(0)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.verticalLayout_26.setContentsMargins(0, 8, 0, 0)
+        self.horizontalLayout_52 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_52.setSpacing(5)
+        self.horizontalLayout_52.setObjectName(u"horizontalLayout_52")
+        self.horizontalSpacer_80 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_52.addItem(self.horizontalSpacer_80)
+
+        self.label_34 = QtWidgets.QLabel(self.Spectral_range_4)
+        self.label_34.setObjectName(u"label_34")
+        self.label_34.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_34.setMaximumSize(QtCore.QSize(60, 25))
+        self.label_34.setFont(font14)
+        self.label_34.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.label_34.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
+"")
+        self.label_34.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+
+        self.horizontalLayout_52.addWidget(self.label_34)
+
+        self.a1_5 = QtWidgets.QDoubleSpinBox(self.Spectral_range_4)
+        self.a1_5.setObjectName(u"a1_5")
+        sizePolicy9 = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.a1_5.sizePolicy().hasHeightForWidth())
+        self.a1_5.setSizePolicy(sizePolicy9)
+        self.a1_5.setMinimumSize(QtCore.QSize(120, 30))
+        self.a1_5.setMaximumSize(QtCore.QSize(130, 35))
+        self.a1_5.setFont(font13)
+        self.a1_5.setStyleSheet(u"\n"
+                                "QDoubleSpinBox\n"
+                                "{\n"
+                                "color: rgb(10, 25, 90);\n"
+                                "font: 700 12pt \"Ubuntu\";\n"
+                                "border: 2px solid;\n"
+                                "border-color: #FF17365D;\n"
+                                "background-color: rgba(255, 255, 255,210);\n"
+                                "border-radius:10px;\n"
+                                "}\n"
+                                "\n"
+                                "QDoubleSpinBox::up-button\n"
+                                "{\n"
+                                "    border-left-width: 1px;\n"
+                                "    border-left-color: darkgray;\n"
+                                "    border-left-style: solid; /* just a single line */\n"
+                                "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                "    border-bottom-right-radius: 3px;\n"
+                                "	image: url(:/icons/icons/arrow-up.png);\n"
+                                "	width: 25;\n"
+                                "}\n"
+                                "QDoubleSpinBox::down-button\n"
+                                "{\n"
+                                "    border-left-width: 1px;\n"
+                                "    border-left-color: darkgray;\n"
+                                "    border-left-style: solid; /* just a single line */\n"
+                                "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                "    border-bottom-right-radius: 3px;\n"
+                                "	image: url(:/icons/icons/arrow-down.png);\n"
+                                "	width: 25;\n"
+                                "}")
+        self.a1_5.setWrapping(True)
+        self.a1_5.setFrame(False)
+        self.a1_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.a1_5.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.a1_5.setAccelerated(True)
+        self.a1_5.setDecimals(1)
+        self.a1_5.setMinimum(400.000000000000000)
+        self.a1_5.setMaximum(1800.000000000000000)
+        self.a1_5.setSingleStep(0.100000000000000)
+
+        self.horizontalLayout_52.addWidget(self.a1_5)
+
+        self.horizontalSpacer_84 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_52.addItem(self.horizontalSpacer_84)
+
+        self.label_35 = QtWidgets.QLabel(self.Spectral_range_4)
+        self.label_35.setObjectName(u"label_35")
+        self.label_35.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_35.setMaximumSize(QtCore.QSize(60, 25))
+        self.label_35.setFont(font14)
+        self.label_35.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.label_35.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+        self.label_35.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+
+        self.horizontalLayout_52.addWidget(self.label_35)
+
+        self.a2_5 = QtWidgets.QDoubleSpinBox(self.Spectral_range_4)
+        self.a2_5.setObjectName(u"a2_5")
+        sizePolicy9.setHeightForWidth(self.a2_5.sizePolicy().hasHeightForWidth())
+        self.a2_5.setSizePolicy(sizePolicy9)
+        self.a2_5.setMinimumSize(QtCore.QSize(120, 30))
+        self.a2_5.setMaximumSize(QtCore.QSize(130, 35))
+        self.a2_5.setFont(font13)
+        self.a2_5.setStyleSheet(u"\n"
+                                "QDoubleSpinBox\n"
+                                "{\n"
+                                "color: rgb(10, 25, 90);\n"
+                                "font: 700 12pt \"Ubuntu\";\n"
+                                "border: 2px solid;\n"
+                                "border-color: #FF17365D;\n"
+                                "background-color: rgba(255, 255, 255,210);\n"
+                                "border-radius:10px;\n"
+                                "}\n"
+                                "\n"
+                                "QDoubleSpinBox::up-button\n"
+                                "{\n"
+                                "    border-left-width: 1px;\n"
+                                "    border-left-color: darkgray;\n"
+                                "    border-left-style: solid; /* just a single line */\n"
+                                "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                "    border-bottom-right-radius: 3px;\n"
+                                "	image: url(:/icons/icons/arrow-up.png);\n"
+                                "	width: 25;\n"
+                                "}\n"
+                                "QDoubleSpinBox::down-button\n"
+                                "{\n"
+                                "    border-left-width: 1px;\n"
+                                "    border-left-color: darkgray;\n"
+                                "    border-left-style: solid; /* just a single line */\n"
+                                "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                "    border-bottom-right-radius: 3px;\n"
+                                "	image: url(:/icons/icons/arrow-down.png);\n"
+                                "	width: 25;\n"
+                                "}")
+        self.a2_5.setWrapping(True)
+        self.a2_5.setFrame(False)
+        self.a2_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.a2_5.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.a2_5.setAccelerated(True)
+        self.a2_5.setDecimals(1)
+        self.a2_5.setMinimum(401.000000000000000)
+        self.a2_5.setMaximum(1800.000000000000000)
+        self.a2_5.setSingleStep(0.100000000000000)
+        self.a2_5.setValue(1500.000000000000000)
+
+        self.horizontalLayout_52.addWidget(self.a2_5)
+
+        self.horizontalSpacer_86 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_52.addItem(self.horizontalSpacer_86)
+
+
+        self.verticalLayout_26.addLayout(self.horizontalLayout_52)
+
+        self.horizontalLayout_54 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_54.setObjectName(u"horizontalLayout_54")
+        self.horizontalSpacer_92 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_54.addItem(self.horizontalSpacer_92)
+
+        self.wavw_slider_3 = QtWidgets.QSlider(self.Spectral_range_4)
+        self.wavw_slider_3.setObjectName(u"wavw_slider_3")
+        self.wavw_slider_3.setMinimumSize(QtCore.QSize(300, 25))
+        self.wavw_slider_3.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.wavw_slider_3.setStyleSheet(u"\n"
+                                        "QSlider::handle:horizontal {\n"
+                                        "	background-color: rgb(0,90,180);\n"
+                                        "    width:64px;\n"
+                                        "    height:64px;\n"
+                                        "}\n")
+        self.wavw_slider_3.setMinimum(40)
+        self.wavw_slider_3.setMaximum(150)
+        self.wavw_slider_3.setOrientation(QtCore.Qt.Horizontal)
+
+        self.horizontalLayout_54.addWidget(self.wavw_slider_3)
+
+        self.horizontalSpacer_93 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_54.addItem(self.horizontalSpacer_93)
+
+
+        self.verticalLayout_26.addLayout(self.horizontalLayout_54)
+
+        self.label_4 = QtWidgets.QLabel(self.Spectral_range_4)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
+"")
+
+        self.verticalLayout_26.addWidget(self.label_4)
+
+
+        self.verticalLayout_34.addWidget(self.Spectral_range_4)
+
+        self.verticalSpacer_3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_34.addItem(self.verticalSpacer_3)
+
+        self.wavelength_incident_5 = QtWidgets.QGroupBox(self.frame_16)
+        self.wavelength_incident_5.setObjectName(u"wavelength_incident_5")
+        self.wavelength_incident_5.setMinimumSize(QtCore.QSize(450, 100))
+        self.wavelength_incident_5.setFont(font14)
+        self.wavelength_incident_5.setStyleSheet(u"/*{font: 14pt \"Ubuntu\";\n"
+"color: rgb(255, 255, 255);\n"
+"	background-color: rgba(255, 255, 255,20);\n"
+"}*/\n"
+"\n"
+"QGroupBox  {\n"
+"	background-color: rgba(255, 255, 255,70);\n"
+"	font: 14pt \"Ubuntu\";\n"
+"    border: 2px solid;\n"
+"    border-color: #FF17365D;\n"
+"    margin-top: 25px;\n"
+"    border-bottom-left-radius: 20px;\n"
+"	border-bottom-right-radius: 20px;\n"
+"}\n"
+"\n"
+"QGroupBox::title  {\n"
+"    subcontrol-origin: margin;\n"
+"    subcontrol-position: top center;\n"
+"    padding: 5px 8000px 5px 8000px;\n"
+"    background-color: #FF17365D;\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
+        self.wavelength_incident_5.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.wavelength_incident_5.setChecked(False)
+        self.gridLayout = QtWidgets.QGridLayout(self.wavelength_incident_5)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setHorizontalSpacing(15)
+        self.gridLayout.setVerticalSpacing(20)
+        self.L_fiber_2 = QtWidgets.QDoubleSpinBox(self.wavelength_incident_5)
+        self.L_fiber_2.setObjectName(u"L_fiber_2")
+        sizePolicy9.setHeightForWidth(self.L_fiber_2.sizePolicy().hasHeightForWidth())
+        self.L_fiber_2.setSizePolicy(sizePolicy9)
+        self.L_fiber_2.setMinimumSize(QtCore.QSize(120, 30))
+        self.L_fiber_2.setMaximumSize(QtCore.QSize(130, 35))
+        self.L_fiber_2.setFont(font13)
+        self.L_fiber_2.setStyleSheet(u"\n"
+"QDoubleSpinBox\n"
+"{\n"
+"color: rgb(10, 25, 90);\n"
+"font: 700 12pt \"Ubuntu\";\n"
+"border: 2px solid;\n"
+"border-color: #FF17365D;\n"
+"background-color: rgba(255, 255, 255,210);\n"
+"border-radius:10px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::up-button\n"
+"{\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: darkgray;\n"
+"    border-left-style: solid; /* just a single line */\n"
+"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"    border-bottom-right-radius: 3px;\n"
+"	image: url(:/icons/icons/arrow-up.png);\n"
+"	width: 25;\n"
+"}\n"
+"QDoubleSpinBox::down-button\n"
+"{\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: darkgray;\n"
+"    border-left-style: solid; /* just a single line */\n"
+"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"    border-bottom-right-radius: 3px;\n"
+"	image: url(:/icons/icons/arrow-down.png);\n"
+"	width: 25;\n"
+"}")
+        self.L_fiber_2.setWrapping(True)
+        self.L_fiber_2.setFrame(False)
+        self.L_fiber_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.L_fiber_2.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.L_fiber_2.setAccelerated(True)
+        self.L_fiber_2.setDecimals(2)
+        self.L_fiber_2.setMinimum(0.000000000000000)
+        self.L_fiber_2.setMaximum(100.000000000000000)
+        self.L_fiber_2.setSingleStep(0.010000000000000)
+
+        self.gridLayout.addWidget(self.L_fiber_2, 1, 4, 1, 1)
+
+        self.horizontalSpacer_9 = QtWidgets.QSpacerItem(115, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_9, 1, 5, 1, 1)
+
+        self.label_5 = QtWidgets.QLabel(self.wavelength_incident_5)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+        self.label_5.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.label_5, 0, 2, 1, 2)
+
+        self.label_42 = QtWidgets.QLabel(self.wavelength_incident_5)
+        self.label_42.setObjectName(u"label_42")
+        self.label_42.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_42.setFont(font14)
+        self.label_42.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.label_42.setStyleSheet(u"font: 14pt \"Ubuntu\";\n"
+"")
+        self.label_42.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.label_42, 1, 1, 1, 3)
+
+        self.horizontalSpacer_6 = QtWidgets.QSpacerItem(115, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_6, 1, 0, 1, 1)
+
+        self.D_fiber_2 = QtWidgets.QDoubleSpinBox(self.wavelength_incident_5)
+        self.D_fiber_2.setObjectName(u"D_fiber_2")
+        sizePolicy9.setHeightForWidth(self.D_fiber_2.sizePolicy().hasHeightForWidth())
+        self.D_fiber_2.setSizePolicy(sizePolicy9)
+        self.D_fiber_2.setMinimumSize(QtCore.QSize(120, 30))
+        self.D_fiber_2.setMaximumSize(QtCore.QSize(130, 35))
+        self.D_fiber_2.setFont(font13)
+        self.D_fiber_2.setStyleSheet(u"\n"
+"QDoubleSpinBox\n"
+"{\n"
+"color: rgb(10, 25, 90);\n"
+"font: 700 12pt \"Ubuntu\";\n"
+"border: 2px solid;\n"
+"border-color: #FF17365D;\n"
+"background-color: rgba(255, 255, 255,210);\n"
+"border-radius:10px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::up-button\n"
+"{\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: darkgray;\n"
+"    border-left-style: solid; /* just a single line */\n"
+"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"    border-bottom-right-radius: 3px;\n"
+"	image: url(:/icons/icons/arrow-up.png);\n"
+"	width: 25;\n"
+"}\n"
+"QDoubleSpinBox::down-button\n"
+"{\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: darkgray;\n"
+"    border-left-style: solid; /* just a single line */\n"
+"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"    border-bottom-right-radius: 3px;\n"
+"	image: url(:/icons/icons/arrow-down.png);\n"
+"	width: 25;\n"
+"}")
+        self.D_fiber_2.setWrapping(True)
+        self.D_fiber_2.setFrame(False)
+        self.D_fiber_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.D_fiber_2.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.D_fiber_2.setAccelerated(True)
+        self.D_fiber_2.setDecimals(2)
+        self.D_fiber_2.setMinimum(1.000000000000000)
+        self.D_fiber_2.setMaximum(1000.000000000000000)
+        self.D_fiber_2.setSingleStep(1.000000000000000)
+        self.D_fiber_2.setValue(10.000000000000000)
+
+        self.gridLayout.addWidget(self.D_fiber_2, 2, 4, 1, 1)
+
+        self.angle_incidence_3 = QtWidgets.QDoubleSpinBox(self.wavelength_incident_5)
+        self.angle_incidence_3.setObjectName(u"angle_incidence_3")
+        sizePolicy5.setHeightForWidth(self.angle_incidence_3.sizePolicy().hasHeightForWidth())
+        self.angle_incidence_3.setSizePolicy(sizePolicy5)
+        self.angle_incidence_3.setMinimumSize(QtCore.QSize(130, 30))
+        self.angle_incidence_3.setMaximumSize(QtCore.QSize(130, 35))
+        self.angle_incidence_3.setFont(font13)
+        self.angle_incidence_3.setStyleSheet(u"\n"
+                                            "QDoubleSpinBox\n"
+                                            "{\n"
+                                            "color: rgb(10, 25, 90);\n"
+                                            "font: 700 12pt \"Ubuntu\";\n"
+                                            "border: 2px solid;\n"
+                                            "border-color: #FF17365D;\n"
+                                            "background-color: rgba(255, 255, 255,210);\n"
+                                            "border-radius:10px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QDoubleSpinBox::up-button\n"
+                                            "{\n"
+                                            "    border-left-width: 1px;\n"
+                                            "    border-left-color: darkgray;\n"
+                                            "    border-left-style: solid; /* just a single line */\n"
+                                            "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                            "    border-bottom-right-radius: 3px;\n"
+                                            "	image: url(:/icons/icons/arrow-up.png);\n"
+                                            "	width: 25;\n"
+                                            "}\n"
+                                            "QDoubleSpinBox::down-button\n"
+                                            "{\n"
+                                            "    border-left-width: 1px;\n"
+                                            "    border-left-color: darkgray;\n"
+                                            "    border-left-style: solid; /* just a single line */\n"
+                                            "    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+                                            "    border-bottom-right-radius: 3px;\n"
+                                            "	image: url(:/icons/icons/arrow-down.png);\n"
+                                            "	width: 25;\n"
+                                            "}")
+        self.angle_incidence_3.setWrapping(True)
+        self.angle_incidence_3.setFrame(False)
+        self.angle_incidence_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.angle_incidence_3.setButtonSymbols(QtWidgets.QAbstractSpinBox.UpDownArrows)
+        self.angle_incidence_3.setAccelerated(True)
+        self.angle_incidence_3.setDecimals(2)
+        self.angle_incidence_3.setMinimum(0.000000000000000)
+        self.angle_incidence_3.setMaximum(1.000000000000000)
+        self.angle_incidence_3.setSingleStep(0.010000000000000)
+        self.angle_incidence_3.setValue(0.000000000000000)
+
+        self.gridLayout.addWidget(self.angle_incidence_3, 0, 4, 1, 1)
+
+        self.horizontalSpacer_10 = QtWidgets.QSpacerItem(115, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_10, 2, 5, 1, 1)
+
+        self.horizontalSpacer_7 = QtWidgets.QSpacerItem(187, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_7, 2, 0, 1, 3)
+
+        self.horizontalSpacer_8 = QtWidgets.QSpacerItem(115, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_8, 0, 5, 1, 1)
+
+        self.horizontalSpacer_5 = QtWidgets.QSpacerItem(130, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_5, 0, 0, 1, 2)
+
+        self.label_43 = QtWidgets.QLabel(self.wavelength_incident_5)
+        self.label_43.setObjectName(u"label_43")
+        self.label_43.setMinimumSize(QtCore.QSize(50, 0))
+        self.label_43.setFont(font14)
+        self.label_43.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.label_43.setStyleSheet(u"font: 14pt \"Ubuntu\";")
+        self.label_43.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.label_43, 2, 3, 1, 1)
+
+
+        self.verticalLayout_34.addWidget(self.wavelength_incident_5)
+
+
+        self.verticalLayout_27.addWidget(self.frame_16)
+
+
+        self.verticalLayout_30.addWidget(self.frame_fiber_2, 0, QtCore.Qt.AlignHCenter)
+
+        self.frame_next_previous_10 = QtWidgets.QFrame(self.characteristics_fiber)
+        self.frame_next_previous_10.setObjectName(u"frame_next_previous_10")
+        sizePolicy6.setHeightForWidth(self.frame_next_previous_10.sizePolicy().hasHeightForWidth())
+        self.frame_next_previous_10.setSizePolicy(sizePolicy6)
+        self.frame_next_previous_10.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_next_previous_10.setStyleSheet(u"background: transparent;")
+        self.frame_next_previous_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_next_previous_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.horizontalLayout_51 = QtWidgets.QHBoxLayout(self.frame_next_previous_10)
+        self.horizontalLayout_51.setSpacing(5)
+        self.horizontalLayout_51.setObjectName(u"horizontalLayout_51")
+        self.horizontalLayout_51.setContentsMargins(20, 6, 20, 6)
+        self.prev_btn_char_fib = QtWidgets.QPushButton(self.frame_next_previous_10)
+        self.prev_btn_char_fib.setObjectName(u"prev_btn_char_fib")
+        self.prev_btn_char_fib.setFont(font8)
+        self.prev_btn_char_fib.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.prev_btn_char_fib.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.prev_btn_char_fib.setIcon(icon8)
+        self.prev_btn_char_fib.setIconSize(QtCore.QSize(25, 25))
+
+        self.horizontalLayout_51.addWidget(self.prev_btn_char_fib)
+
+        self.horizontalSpacer_85 = QtWidgets.QSpacerItem(100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+
+        self.horizontalLayout_51.addItem(self.horizontalSpacer_85)
+
+        self.next_btn_char_fib = QtWidgets.QPushButton(self.frame_next_previous_10)
+        self.next_btn_char_fib.setObjectName(u"next_btn_char_fib")
+        self.next_btn_char_fib.setEnabled(True)
+        self.next_btn_char_fib.setFont(font8)
+        self.next_btn_char_fib.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.next_btn_char_fib.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.next_btn_char_fib.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.next_btn_char_fib.setIcon(icon9)
+        self.next_btn_char_fib.setIconSize(QtCore.QSize(25, 25))
+        self.next_btn_char_fib.setCheckable(False)
+        self.next_btn_char_fib.setChecked(False)
+
+        self.horizontalLayout_51.addWidget(self.next_btn_char_fib)
+
+
+        self.verticalLayout_30.addWidget(self.frame_next_previous_10)
+
+        self.Stacked_windows.addWidget(self.characteristics_fiber)
+
+
+        # 'Insert layers' window
         self.layers_window = QtWidgets.QWidget()
         self.layers_window.setObjectName("layers_window")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.layers_window)
@@ -1198,7 +2074,7 @@ class Ui_Widget(object):
         self.btn_home_3.setMaximumSize(QtCore.QSize(20, 20))
         self.btn_home_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_home_3.setText("")
-        self.btn_home_3.setIcon(icon5)
+        self.btn_home_3.setIcon(icon6)
         self.btn_home_3.setIconSize(QtCore.QSize(20, 20))
         self.btn_home_3.setObjectName("btn_home_3")
         self.horizontalLayout_79.addWidget(self.btn_home_3)
@@ -1215,20 +2091,12 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_coupling_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.btn_coupling_3.sizePolicy().hasHeightForWidth())
         self.btn_coupling_3.setSizePolicy(sizePolicy)
         self.btn_coupling_3.setMinimumSize(QtCore.QSize(130, 20))
         self.btn_coupling_3.setMaximumSize(QtCore.QSize(130, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.btn_coupling_3.setFont(font)
-        self.btn_coupling_3.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_coupling_3.setFont(font11)
+        self.btn_coupling_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_coupling_3.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_coupling_3.setObjectName("btn_coupling_3")
         self.horizontalLayout_79.addWidget(self.btn_coupling_3)
@@ -1241,24 +2109,15 @@ class Ui_Widget(object):
         self.label_69.setObjectName("label_69")
         self.horizontalLayout_79.addWidget(self.label_69)
         self.btn_interrogation_2 = QtWidgets.QPushButton(self.hierarchy_frame)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_interrogation_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.btn_interrogation_2.sizePolicy().hasHeightForWidth())
         self.btn_interrogation_2.setSizePolicy(sizePolicy)
         self.btn_interrogation_2.setMinimumSize(QtCore.QSize(170, 20))
         self.btn_interrogation_2.setMaximumSize(QtCore.QSize(170, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.btn_interrogation_2.setFont(font)
-        self.btn_interrogation_2.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_interrogation_2.setFont(font11)
+        self.btn_interrogation_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_interrogation_2.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_interrogation_2.setObjectName("btn_interrogation_2")
         self.horizontalLayout_79.addWidget(self.btn_interrogation_2)
@@ -1275,20 +2134,12 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_setting_layers.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.btn_setting_layers.sizePolicy().hasHeightForWidth())
         self.btn_setting_layers.setSizePolicy(sizePolicy)
         self.btn_setting_layers.setMinimumSize(QtCore.QSize(130, 20))
         self.btn_setting_layers.setMaximumSize(QtCore.QSize(170, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(False)
-        font.setWeight(75)
-        self.btn_setting_layers.setFont(font)
-        self.btn_setting_layers.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_setting_layers.setFont(font9)
+        self.btn_setting_layers.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_setting_layers.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_setting_layers.setObjectName("btn_setting_layers")
         self.horizontalLayout_79.addWidget(self.btn_setting_layers)
@@ -1328,14 +2179,7 @@ class Ui_Widget(object):
         self.gb_incident_wav = QtWidgets.QGroupBox(self.page_layers_aim)
         self.gb_incident_wav.setObjectName(u"gb_incident_wav")
         self.gb_incident_wav.setMinimumSize(QtCore.QSize(400, 80))
-        self.gb_incident_wav.setSizePolicy(QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed))
-        font12 = QtGui.QFont()
-        font12.setFamily(u"Ubuntu")
-        font12.setPointSize(14)
-        font12.setBold(False)
-        font12.setItalic(False)
-        font12.setWeight(50)
+        self.gb_incident_wav.setSizePolicy(QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed))
         self.gb_incident_wav.setFont(font12)
         self.gb_incident_wav.setStyleSheet(u"/*{font: 14pt \"Ubuntu\";\n"
                                            "color: rgb(255, 255, 255);\n"
@@ -1400,16 +2244,8 @@ class Ui_Widget(object):
 
         self.lambda_i = QtWidgets.QDoubleSpinBox(self.gb_incident_wav)
         self.lambda_i.setObjectName(u"lambda_i")
-        # QtWidgets.QSizePolicy.setHeightForWidth(self.lambda_i.sizePolicy().hasHeightForWidth())
-        # self.lambda_i.setSizePolicy(QtWidgets.QSizePolicy)
         self.lambda_i.setMinimumSize(QtCore.QSize(150, 30))
         self.lambda_i.setMaximumSize(QtCore.QSize(150, 35))
-        font13 = QtGui.QFont()
-        font13.setFamily(u"Ubuntu")
-        font13.setPointSize(12)
-        font13.setBold(True)
-        font13.setItalic(False)
-        font13.setWeight(88)
         self.lambda_i.setFont(font13)
         self.lambda_i.setStyleSheet(u"\n"
                                              "QDoubleSpinBox\n"
@@ -2514,12 +3350,8 @@ class Ui_Widget(object):
         self.verticalLayout_56.setSpacing(9)
         self.verticalLayout_56.setObjectName("verticalLayout_56")
         self.title_instructions = QtWidgets.QLabel(self.grafico1_7)
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(63)
-        self.title_instructions.setFont(font)
+
+        self.title_instructions.setFont(font12)
         self.title_instructions.setStyleSheet("background: transparent;\n"
                                                 "font: 500 14pt \"Ubuntu\";")
         self.title_instructions.setAlignment(QtCore.Qt.AlignCenter)
@@ -2722,13 +3554,9 @@ class Ui_Widget(object):
         self.horizontalLayout_94.setContentsMargins(20, 5, 20, 5)
         self.horizontalLayout_94.setSpacing(5)
         self.horizontalLayout_94.setObjectName("horizontalLayout_94")
-        self.prev_btn_config_layers = QtWidgets.QPushButton(
-            self.frame_next_previous_9)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.prev_btn_config_layers.setFont(font)
-        self.prev_btn_config_layers.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.prev_btn_config_layers = QtWidgets.QPushButton(self.frame_next_previous_9)
+        self.prev_btn_config_layers.setFont(font8)
+        self.prev_btn_config_layers.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.prev_btn_config_layers.setStyleSheet("color: rgb(255, 255, 255);")
         self.prev_btn_config_layers.setIcon(icon8)
         self.prev_btn_config_layers.setIconSize(QtCore.QSize(20, 20))
@@ -2737,14 +3565,10 @@ class Ui_Widget(object):
         spacerItem33 = QtWidgets.QSpacerItem(
             100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_94.addItem(spacerItem33)
-        self.next_btn_config_layers = QtWidgets.QPushButton(
-            self.frame_next_previous_9)
+        self.next_btn_config_layers = QtWidgets.QPushButton(self.frame_next_previous_9)
         self.next_btn_config_layers.setEnabled(True)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.next_btn_config_layers.setFont(font)
-        self.next_btn_config_layers.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.next_btn_config_layers.setFont(font8)
+        self.next_btn_config_layers.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next_btn_config_layers.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.next_btn_config_layers.setStyleSheet("color: rgb(255, 255, 255);")
         self.next_btn_config_layers.setIcon(icon9)
@@ -2755,13 +3579,13 @@ class Ui_Widget(object):
         self.horizontalLayout_94.addWidget(self.next_btn_config_layers)
         self.verticalLayout_2.addWidget(self.frame_next_previous_9)
         self.Stacked_windows.addWidget(self.layers_window)
-        self.geometry_setting = QtWidgets.QWidget()
-        self.geometry_setting.setObjectName("geometry_setting")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.geometry_setting)
+        self.interval_setting = QtWidgets.QWidget()
+        self.interval_setting.setObjectName("interval_setting")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.interval_setting)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.frame_hierarq_8 = QtWidgets.QFrame(self.geometry_setting)
+        self.frame_hierarq_8 = QtWidgets.QFrame(self.interval_setting)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -2783,7 +3607,7 @@ class Ui_Widget(object):
         self.btn_home_4.setMaximumSize(QtCore.QSize(20, 20))
         self.btn_home_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_home_4.setText("")
-        self.btn_home_4.setIcon(icon5)
+        self.btn_home_4.setIcon(icon6)
         self.btn_home_4.setIconSize(QtCore.QSize(20, 20))
         self.btn_home_4.setObjectName("btn_home_4")
         self.horizontalLayout_56.addWidget(self.btn_home_4)
@@ -2796,20 +3620,12 @@ class Ui_Widget(object):
         self.label_36.setObjectName("label_36")
         self.horizontalLayout_56.addWidget(self.label_36)
         self.btn_coupling_4 = QtWidgets.QPushButton(self.frame_hierarq_8)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         self.btn_coupling_4.setSizePolicy(sizePolicy)
         self.btn_coupling_4.setMinimumSize(QtCore.QSize(130, 20))
         self.btn_coupling_4.setMaximumSize(QtCore.QSize(130, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.btn_coupling_4.setFont(font)
-        self.btn_coupling_4.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_coupling_4.setFont(font11)
+        self.btn_coupling_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_coupling_4.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_coupling_4.setObjectName("btn_coupling_4")
         self.horizontalLayout_56.addWidget(self.btn_coupling_4)
@@ -2826,20 +3642,12 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_interrogation_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.btn_interrogation_3.sizePolicy().hasHeightForWidth())
         self.btn_interrogation_3.setSizePolicy(sizePolicy)
         self.btn_interrogation_3.setMinimumSize(QtCore.QSize(170, 20))
         self.btn_interrogation_3.setMaximumSize(QtCore.QSize(170, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.btn_interrogation_3.setFont(font)
-        self.btn_interrogation_3.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_interrogation_3.setFont(font11)
+        self.btn_interrogation_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_interrogation_3.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_interrogation_3.setObjectName("btn_interrogation_3")
         self.horizontalLayout_56.addWidget(self.btn_interrogation_3)
@@ -2852,20 +3660,12 @@ class Ui_Widget(object):
         self.label_38.setObjectName("label_38")
         self.horizontalLayout_56.addWidget(self.label_38)
         self.btn_setting_layers_2 = QtWidgets.QPushButton(self.frame_hierarq_8)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         self.btn_setting_layers_2.setSizePolicy(sizePolicy)
         self.btn_setting_layers_2.setMinimumSize(QtCore.QSize(130, 20))
         self.btn_setting_layers_2.setMaximumSize(QtCore.QSize(170, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(True)
-        font.setWeight(75)
-        self.btn_setting_layers_2.setFont(font)
-        self.btn_setting_layers_2.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_setting_layers_2.setFont(font11)
+        self.btn_setting_layers_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_setting_layers_2.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_setting_layers_2.setObjectName("btn_setting_layers_2")
         self.horizontalLayout_56.addWidget(self.btn_setting_layers_2)
@@ -2882,20 +3682,12 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.btn_config_WIM_fiber.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.btn_config_WIM_fiber.sizePolicy().hasHeightForWidth())
         self.btn_config_WIM_fiber.setSizePolicy(sizePolicy)
         self.btn_config_WIM_fiber.setMinimumSize(QtCore.QSize(220, 20))
         self.btn_config_WIM_fiber.setMaximumSize(QtCore.QSize(270, 20))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semibold")
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setUnderline(False)
-        font.setWeight(75)
-        self.btn_config_WIM_fiber.setFont(font)
-        self.btn_config_WIM_fiber.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_config_WIM_fiber.setFont(font9)
+        self.btn_config_WIM_fiber.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_config_WIM_fiber.setAutoFillBackground(False)
         self.btn_config_WIM_fiber.setStyleSheet("color: rgb(255, 255, 255);")
         self.btn_config_WIM_fiber.setCheckable(False)
@@ -2908,7 +3700,7 @@ class Ui_Widget(object):
             100, 15, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_56.addItem(spacerItem34)
         self.verticalLayout_3.addWidget(self.frame_hierarq_8)
-        self.splitter_4 = QtWidgets.QSplitter(self.geometry_setting)
+        self.splitter_4 = QtWidgets.QSplitter(self.interval_setting)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -2947,13 +3739,7 @@ class Ui_Widget(object):
         self.configWIM_label_3.setSizePolicy(sizePolicy)
         self.configWIM_label_3.setMinimumSize(QtCore.QSize(0, 30))
         self.configWIM_label_3.setMaximumSize(QtCore.QSize(520, 40))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(63)
-        self.configWIM_label_3.setFont(font)
+        self.configWIM_label_3.setFont(font14)
         self.configWIM_label_3.setStyleSheet("font: 500 18pt \"Ubuntu\";")
         self.configWIM_label_3.setObjectName("configWIM_label_3")
         self.verticalLayout_5.addWidget(self.configWIM_label_3)
@@ -2989,9 +3775,6 @@ class Ui_Widget(object):
         self.pushButton_11.setStyleSheet("border-radius:12px;\n"
                                          "background-color: rgb(255, 255, 255);")
         self.pushButton_11.setText("")
-        icon12 = QtGui.QIcon()
-        icon12.addPixmap(QtGui.QPixmap(
-            ":/icons/icons/fiber_CRMF.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_11.setIcon(icon12)
         self.pushButton_11.setIconSize(QtCore.QSize(300, 300))
         self.pushButton_11.setObjectName("pushButton_11")
@@ -3022,17 +3805,10 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.Spectral_range_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.Spectral_range_3.sizePolicy().hasHeightForWidth())
         self.Spectral_range_3.setSizePolicy(sizePolicy)
         self.Spectral_range_3.setMaximumSize(QtCore.QSize(520, 150))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.Spectral_range_3.setFont(font)
+        self.Spectral_range_3.setFont(font12)
         self.Spectral_range_3.setStyleSheet("\n"
                                             "QGroupBox  {\n"
                                             "    font: 14pt \"Ubuntu\";\n"
@@ -3070,13 +3846,7 @@ class Ui_Widget(object):
         self.label_33 = QtWidgets.QLabel(self.Spectral_range_3)
         self.label_33.setMinimumSize(QtCore.QSize(50, 0))
         self.label_33.setMaximumSize(QtCore.QSize(60, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_33.setFont(font)
+        self.label_33.setFont(font12)
         self.label_33.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label_33.setStyleSheet("font: 14pt \"Ubuntu\";\n"
                                     "")
@@ -3094,13 +3864,7 @@ class Ui_Widget(object):
         self.a1_4.setSizePolicy(sizePolicy)
         self.a1_4.setMinimumSize(QtCore.QSize(120, 30))
         self.a1_4.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.a1_4.setFont(font)
+        self.a1_4.setFont(font13)
         self.a1_4.setStyleSheet("\n"
                                 "QDoubleSpinBox\n"
                                 "{\n"
@@ -3149,13 +3913,7 @@ class Ui_Widget(object):
         self.label_34 = QtWidgets.QLabel(self.Spectral_range_3)
         self.label_34.setMinimumSize(QtCore.QSize(50, 0))
         self.label_34.setMaximumSize(QtCore.QSize(60, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_34.setFont(font)
+        self.label_34.setFont(font12)
         self.label_34.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label_34.setStyleSheet("font: 14pt \"Ubuntu\";")
         self.label_34.setAlignment(
@@ -3172,13 +3930,7 @@ class Ui_Widget(object):
         self.a2_4.setSizePolicy(sizePolicy)
         self.a2_4.setMinimumSize(QtCore.QSize(120, 30))
         self.a2_4.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.a2_4.setFont(font)
+        self.a2_4.setFont(font13)
         self.a2_4.setStyleSheet("\n"
                                 "QDoubleSpinBox\n"
                                 "{\n"
@@ -3259,13 +4011,7 @@ class Ui_Widget(object):
         self.wavelength_incident_4 = QtWidgets.QGroupBox(self.frame_16)
         self.wavelength_incident_4.setMinimumSize(QtCore.QSize(510, 80))
         self.wavelength_incident_4.setMaximumSize(QtCore.QSize(520, 110))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.wavelength_incident_4.setFont(font)
+        self.wavelength_incident_4.setFont(font12)
         self.wavelength_incident_4.setStyleSheet("/*{font: 14pt \"Ubuntu\";\n"
                                                  "color: rgb(255, 255, 255);\n"
                                                  "    background-color: rgba(255, 255, 255,20);\n"
@@ -3300,22 +4046,14 @@ class Ui_Widget(object):
         self.gridLayout.setVerticalSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
         self.L_fiber = QtWidgets.QDoubleSpinBox(self.wavelength_incident_4)
-        sizePolicy = QtWidgets.QSizePolicy(
-            QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.L_fiber.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.L_fiber.sizePolicy().hasHeightForWidth())
         self.L_fiber.setSizePolicy(sizePolicy)
         self.L_fiber.setMinimumSize(QtCore.QSize(120, 30))
         self.L_fiber.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.L_fiber.setFont(font)
+        self.L_fiber.setFont(font13)
         self.L_fiber.setStyleSheet("\n"
                                    "QDoubleSpinBox\n"
                                    "{\n"
@@ -3368,13 +4106,7 @@ class Ui_Widget(object):
         self.D_fiber.setSizePolicy(sizePolicy)
         self.D_fiber.setMinimumSize(QtCore.QSize(120, 30))
         self.D_fiber.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.D_fiber.setFont(font)
+        self.D_fiber.setFont(font13)
         self.D_fiber.setStyleSheet("\n"
                                    "QDoubleSpinBox\n"
                                    "{\n"
@@ -3462,16 +4194,9 @@ class Ui_Widget(object):
         self.label_40 = QtWidgets.QLabel(self.wavelength_incident_4)
         self.label_40.setMinimumSize(QtCore.QSize(50, 0))
         self.label_40.setMaximumSize(QtCore.QSize(60, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_40.setFont(font)
+        self.label_40.setFont(font12)
         self.label_40.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.label_40.setStyleSheet("font: 14pt \"Ubuntu\";\n"
-                                    "")
+        self.label_40.setStyleSheet("font: 14pt \"Ubuntu\";\n")
         self.label_40.setAlignment(
             QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_40.setObjectName("label_40")
@@ -3490,13 +4215,7 @@ class Ui_Widget(object):
         self.angle_incidence_2.setSizePolicy(sizePolicy)
         self.angle_incidence_2.setMinimumSize(QtCore.QSize(130, 30))
         self.angle_incidence_2.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.angle_incidence_2.setFont(font)
+        self.angle_incidence_2.setFont(font13)
         self.angle_incidence_2.setStyleSheet("\n"
                                              "QDoubleSpinBox\n"
                                              "{\n"
@@ -3544,17 +4263,10 @@ class Ui_Widget(object):
         self.label_41 = QtWidgets.QLabel(self.wavelength_incident_4)
         self.label_41.setMinimumSize(QtCore.QSize(50, 0))
         self.label_41.setMaximumSize(QtCore.QSize(60, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_41.setFont(font)
+        self.label_41.setFont(font12)
         self.label_41.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label_41.setStyleSheet("font: 14pt \"Ubuntu\";")
-        self.label_41.setAlignment(
-            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.label_41.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_41.setObjectName("label_41")
         self.gridLayout.addWidget(self.label_41, 1, 5, 1, 1)
         spacerItem48 = QtWidgets.QSpacerItem(
@@ -3577,18 +4289,11 @@ class Ui_Widget(object):
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(
-            self.configWIM_label_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.configWIM_label_2.sizePolicy().hasHeightForWidth())
         self.configWIM_label_2.setSizePolicy(sizePolicy)
         self.configWIM_label_2.setMinimumSize(QtCore.QSize(0, 30))
         self.configWIM_label_2.setMaximumSize(QtCore.QSize(520, 40))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(63)
-        self.configWIM_label_2.setFont(font)
+        self.configWIM_label_2.setFont(font14)
         self.configWIM_label_2.setStyleSheet("font: 500 18pt \"Ubuntu\";")
         self.configWIM_label_2.setObjectName("configWIM_label_2")
         self.verticalLayout_6.addWidget(self.configWIM_label_2)
@@ -3658,13 +4363,7 @@ class Ui_Widget(object):
             self.Spectral_range_2.sizePolicy().hasHeightForWidth())
         self.Spectral_range_2.setSizePolicy(sizePolicy)
         self.Spectral_range_2.setMaximumSize(QtCore.QSize(520, 150))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.Spectral_range_2.setFont(font)
+        self.Spectral_range_2.setFont(font12)
         self.Spectral_range_2.setStyleSheet("\n"
                                             "QGroupBox  {\n"
                                             "    font: 14pt \"Ubuntu\";\n"
@@ -3702,13 +4401,7 @@ class Ui_Widget(object):
         self.label_23 = QtWidgets.QLabel(self.Spectral_range_2)
         self.label_23.setMinimumSize(QtCore.QSize(50, 0))
         self.label_23.setMaximumSize(QtCore.QSize(60, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_23.setFont(font)
+        self.label_23.setFont(font12)
         self.label_23.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label_23.setStyleSheet("font: 14pt \"Ubuntu\";\n"
                                     "")
@@ -3726,13 +4419,7 @@ class Ui_Widget(object):
         self.a1_2.setSizePolicy(sizePolicy)
         self.a1_2.setMinimumSize(QtCore.QSize(120, 30))
         self.a1_2.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.a1_2.setFont(font)
+        self.a1_2.setFont(font13)
         self.a1_2.setStyleSheet("\n"
                                 "QDoubleSpinBox\n"
                                 "{\n"
@@ -3777,13 +4464,7 @@ class Ui_Widget(object):
         self.label_24 = QtWidgets.QLabel(self.Spectral_range_2)
         self.label_24.setMinimumSize(QtCore.QSize(50, 0))
         self.label_24.setMaximumSize(QtCore.QSize(60, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_24.setFont(font)
+        self.label_24.setFont(font12)
         self.label_24.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.label_24.setStyleSheet("font: 14pt \"Ubuntu\";")
         self.label_24.setAlignment(
@@ -3800,12 +4481,7 @@ class Ui_Widget(object):
         self.a2_2.setSizePolicy(sizePolicy)
         self.a2_2.setMinimumSize(QtCore.QSize(120, 30))
         self.a2_2.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(88)
-        self.a2_2.setFont(font)
+        self.a2_2.setFont(font13)
         self.a2_2.setStyleSheet("\n"
                                 "QDoubleSpinBox\n"
                                 "{\n"
@@ -3887,13 +4563,7 @@ class Ui_Widget(object):
         self.wavelength_incident_2 = QtWidgets.QGroupBox(self.frame_12)
         self.wavelength_incident_2.setMinimumSize(QtCore.QSize(510, 80))
         self.wavelength_incident_2.setMaximumSize(QtCore.QSize(520, 80))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.wavelength_incident_2.setFont(font)
+        self.wavelength_incident_2.setFont(font12)
         self.wavelength_incident_2.setStyleSheet("/*{font: 14pt \"Ubuntu\";\n"
                                                  "color: rgb(255, 255, 255);\n"
                                                  "    background-color: rgba(255, 255, 255,20);\n"
@@ -3962,13 +4632,7 @@ class Ui_Widget(object):
         self.angle_incidence.setSizePolicy(sizePolicy)
         self.angle_incidence.setMinimumSize(QtCore.QSize(130, 30))
         self.angle_incidence.setMaximumSize(QtCore.QSize(130, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(88)
-        self.angle_incidence.setFont(font)
+        self.angle_incidence.setFont(font13)
         self.angle_incidence.setStyleSheet("\n"
                                            "QDoubleSpinBox\n"
                                            "{\n"
@@ -4030,13 +4694,7 @@ class Ui_Widget(object):
         self.configAIM_label_3.setSizePolicy(sizePolicy)
         self.configAIM_label_3.setMinimumSize(QtCore.QSize(0, 30))
         self.configAIM_label_3.setMaximumSize(QtCore.QSize(520, 40))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(63)
-        self.configAIM_label_3.setFont(font)
+        self.configAIM_label_3.setFont(font14)
         self.configAIM_label_3.setStyleSheet("font: 500 18pt \"Ubuntu\";")
         self.configAIM_label_3.setObjectName("configAIM_label_3")
         self.verticalLayout_7.addWidget(self.configAIM_label_3)
@@ -4099,13 +4757,7 @@ class Ui_Widget(object):
             self.Angular_range_3.sizePolicy().hasHeightForWidth())
         self.Angular_range_3.setSizePolicy(sizePolicy)
         self.Angular_range_3.setMinimumSize(QtCore.QSize(510, 160))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.Angular_range_3.setFont(font)
+        self.Angular_range_3.setFont(font12)
         self.Angular_range_3.setStyleSheet("QGroupBox  {\n"
                                            "    font: 14pt \"Ubuntu\";\n"
                                            "    background-color: rgba(255, 255, 255,70);\n"
@@ -4142,13 +4794,7 @@ class Ui_Widget(object):
         self.label_26 = QtWidgets.QLabel(self.Angular_range_3)
         self.label_26.setMinimumSize(QtCore.QSize(110, 0))
         self.label_26.setMaximumSize(QtCore.QSize(110, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.label_26.setFont(font)
+        self.label_26.setFont(font12)
         self.label_26.setStyleSheet("font: 14pt \"Ubuntu\";\n"
                                     "")
         self.label_26.setObjectName("label_26")
@@ -4163,12 +4809,7 @@ class Ui_Widget(object):
         self.a1_3.setSizePolicy(sizePolicy)
         self.a1_3.setMinimumSize(QtCore.QSize(100, 30))
         self.a1_3.setMaximumSize(QtCore.QSize(120, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(88)
-        self.a1_3.setFont(font)
+        self.a1_3.setFont(font13)
         self.a1_3.setStyleSheet("\n"
                                 "QDoubleSpinBox\n"
                                 "{\n"
@@ -4215,11 +4856,7 @@ class Ui_Widget(object):
         self.label_27 = QtWidgets.QLabel(self.Angular_range_3)
         self.label_27.setMinimumSize(QtCore.QSize(110, 0))
         self.label_27.setMaximumSize(QtCore.QSize(110, 25))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(14)
-        font.setWeight(50)
-        self.label_27.setFont(font)
+        self.label_27.setFont(font12)
         self.label_27.setStyleSheet("font: 14pt \"Ubuntu\";")
         self.label_27.setObjectName("label_27")
         self.horizontalLayout_41.addWidget(self.label_27)
@@ -4233,12 +4870,7 @@ class Ui_Widget(object):
         self.a2_3.setSizePolicy(sizePolicy)
         self.a2_3.setMinimumSize(QtCore.QSize(100, 30))
         self.a2_3.setMaximumSize(QtCore.QSize(120, 35))
-        font = QtGui.QFont()
-        font.setFamily("Ubuntu")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(88)
-        self.a2_3.setFont(font)
+        self.a2_3.setFont(font13)
         self.a2_3.setStyleSheet("\n"
                                 "QDoubleSpinBox\n"
                                 "{\n"
@@ -4662,8 +5294,7 @@ class Ui_Widget(object):
                                                 "	background-color: rgb(0, 130, 255);\n"
                                                 "	border-color: rgb(0, 100, 200);\n"
                                                 "}")
-        icon14 = QtGui.QIcon()
-        icon14.addFile(u"icons\icons8-reload-96.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+
         self.btn_new_simulation.setIcon(icon14)
         self.btn_new_simulation.setIconSize(QtCore.QSize(25, 25))
 
@@ -4694,8 +5325,6 @@ class Ui_Widget(object):
                                                 "	background-color: rgb(0, 130, 255);\n"
                                                 "	border-color: rgb(0, 100, 200);\n"
                                                 "}")
-        icon15 = QtGui.QIcon()
-        icon15.addFile(u"Sim-LMR-Interface--main\icons\sine-waves-analysis.png", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_multip_analyse.setIcon(icon15)
         self.btn_multip_analyse.setIconSize(QtCore.QSize(35, 35))
         self.btn_multip_analyse.setEnabled(False)
@@ -4703,7 +5332,7 @@ class Ui_Widget(object):
         self.horizontalLayout_55.addWidget(self.btn_multip_analyse)
 
         self.verticalLayout_3.addWidget(self.splitter_4)
-        self.frame_next_previous_8 = QtWidgets.QFrame(self.geometry_setting)
+        self.frame_next_previous_8 = QtWidgets.QFrame(self.interval_setting)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -4721,23 +5350,19 @@ class Ui_Widget(object):
         self.horizontalLayout_48.setContentsMargins(20, 5, 20, 5)
         self.horizontalLayout_48.setSpacing(5)
         self.horizontalLayout_48.setObjectName("horizontalLayout_48")
-        self.prev_btn_config_aim_4 = QtWidgets.QPushButton(
-            self.frame_next_previous_8)
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.prev_btn_config_aim_4.setFont(font)
-        self.prev_btn_config_aim_4.setCursor(
-            QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.prev_btn_config_aim_4.setStyleSheet("color: rgb(255, 255, 255);")
-        self.prev_btn_config_aim_4.setIcon(icon8)
-        self.prev_btn_config_aim_4.setIconSize(QtCore.QSize(20, 20))
-        self.prev_btn_config_aim_4.setObjectName("prev_btn_config_aim_4")
-        self.horizontalLayout_48.addWidget(self.prev_btn_config_aim_4)
+        self.prev_btn_config_mode = QtWidgets.QPushButton(self.frame_next_previous_8)
+        self.prev_btn_config_mode.setFont(font8)
+        self.prev_btn_config_mode.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.prev_btn_config_mode.setStyleSheet("color: rgb(255, 255, 255);")
+        self.prev_btn_config_mode.setIcon(icon8)
+        self.prev_btn_config_mode.setIconSize(QtCore.QSize(20, 20))
+        self.prev_btn_config_mode.setObjectName("prev_btn_config_mode")
+        self.horizontalLayout_48.addWidget(self.prev_btn_config_mode)
         spacerItem76 = QtWidgets.QSpacerItem(
             100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_48.addItem(spacerItem76)
         self.verticalLayout_3.addWidget(self.frame_next_previous_8)
-        self.Stacked_windows.addWidget(self.geometry_setting)
+        self.Stacked_windows.addWidget(self.interval_setting)
         self.verticalLayout_16.addWidget(self.Stacked_windows)
         self.verticalLayout.addWidget(self.main_frame)
         self.footer_frame = QtWidgets.QFrame(Widget)
@@ -4760,9 +5385,7 @@ class Ui_Widget(object):
             self.label_footer.sizePolicy().hasHeightForWidth())
         self.label_footer.setSizePolicy(sizePolicy)
         self.label_footer.setMinimumSize(QtCore.QSize(0, 23))
-        font = QtGui.QFont()
-        font.setWeight(63)
-        self.label_footer.setFont(font)
+        self.label_footer.setFont(font1)
         self.label_footer.setObjectName("label_footer")
         self.horizontalLayout_3.addWidget(self.label_footer)
         self.verticalLayout.addWidget(self.footer_frame)
@@ -4789,6 +5412,9 @@ class Ui_Widget(object):
         self.lmr_spr_btn.setText("")
         self.warning_3.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; font-size: 14pt; color:#ffffff;\"> - Select a Simulator - </span></pre></body></html>", None))
         self.prev_btn_sel.setText(_translate("Widget", u" Previous", None))
+        self.lmr_btn.setToolTip(_translate("Widget", u"Simulation considering the effect of Lossy Mode Resonance (LMR)", None))
+        self.spr_btn.setToolTip(_translate("Widget", u"Simulation considering the effect of Surface Plasmons Resonance (SPR)", None))
+        self.lmr_spr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p>{!} Feature under development {!} </p><p>Simulation considering the combined effects of LMR and SPR</p></body></html>", None))
         self.btn_home.setText("")
         self.label_18.setText("")
         self.btn_coupling.setText(_translate(
@@ -4814,6 +5440,41 @@ class Ui_Widget(object):
         self.warning_inter.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:'monospace'; color:#ffffff;\">-</span><span style=\" font-weight:500; font-family:'monospace'; color:#ffffff;\"> Select an interrogation mode - </span></pre></body></html>", None))
         self.prev_btn_inter.setText(_translate("Widget", u" Previous", None))
         self.next_btn_inter.setText(_translate("Widget", u"Next ", None))
+        self.btn_home_6.setText("")
+        self.label_10.setText("")
+        self.btn_coupling_5.setText(_translate("Widget", u"Optical Cupling", None))
+        self.label_31.setText("")
+        self.fiber_type.setText(_translate("Widget", u"Type of fiber", None))
+        self.label_fiber_type.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Type of fiber</span></p></body></html>", None))
+        self.cladding_remove_btn.setText("")
+        self.warning_fiber_typ.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; color:#ffffff;\">-</span><span style=\" font-family:'monospace'; color:#ffffff;\"> Select a type of optical fiber - </span></pre></body></html>", None))
+        self.prev_btn_fiber_typ.setText(_translate("Widget", u" Previous", None))
+        self.next_btn_fiber_typ.setText(_translate("Widget", u"Next ", None))
+        
+        self.btn_home_7.setText("")
+        self.label_32.setText("")
+        self.btn_coupling_6.setText(_translate("Widget", u"Optical Cupling", None))
+        self.label_33.setText("")
+        self.fiber_type_2.setText(_translate("Widget", u"Type of fiber", None))
+        self.label_40.setText("")
+        self.fiber_type_3.setText(_translate("Widget", u"Characteristics of Fiber", None))
+        self.configWIM_label_3.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Characteristics of optical fiber</span></p></body></html>", None))
+        self.pushButton_12.setText("")
+        self.Spectral_range_4.setTitle(_translate("Widget", u"Spectral range", None))
+        self.label_34.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Initial:</span></p></body></html>", None))
+        self.a1_5.setSuffix(_translate("Widget", u" nm", None))
+        self.label_35.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Final: </span></p></body></html>", None))
+        self.a2_5.setSuffix(_translate("Widget", u"nm", None))
+        self.label_4.setText(_translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" color:#ffff01;\">- Invalid -</span></p></body></html>", None))
+        self.wavelength_incident_5.setTitle(_translate("Widget", u"Characteristics", None))
+        self.L_fiber_2.setSuffix(_translate("Widget", u" mm", None))
+        self.label_5.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Numerical Aperture (NA): </span></p></body></html>", None))
+        self.label_42.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\"> Detection region length (L):</span></p></body></html>", None))
+        self.D_fiber_2.setSuffix(_translate("Widget", u" um", None))
+        self.label_43.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Core diameter (D):</span></p></body></html>", None))
+        self.prev_btn_char_fib.setText(_translate("Widget", u" Previous", None))
+        self.next_btn_char_fib.setText(_translate("Widget", u"Next ", None))
+
         self.btn_home_3.setText("")
         self.label_68.setText("")
         self.btn_coupling_3.setText(_translate(
@@ -5005,8 +5666,8 @@ class Ui_Widget(object):
         self.btn_run.setText(_translate("Widget", u"Run", None))
         self.btn_new_simulation.setText(_translate("Widget", u"New Simulation", None))
         self.btn_multip_analyse.setText(_translate("Widget", u"Analyze Multiple Resonances", None))
-        self.prev_btn_config_aim_4.setText(
+        self.prev_btn_config_mode.setText(
             _translate("Widget", u" Previous", None))
         self.label_footer.setText(_translate(
-            "Widget", u"<html><head/><body><p align=\"center\">Sim-LMR v01.0_a</p></body></html>", None))
+            "Widget", u"<html><head/><body><p align=\"center\"> </p></body></html>", None))
     # retranslateUi
