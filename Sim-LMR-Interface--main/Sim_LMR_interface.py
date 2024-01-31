@@ -409,7 +409,7 @@ class Ui_Widget(object):
         self.open_btn_ext.setSizePolicy(sizePolicy)
         self.open_btn_ext.setMinimumSize(QtCore.QSize(250, 70))
         self.open_btn_ext.setMaximumSize(QtCore.QSize(350, 70))
-        self.open_btn_ext.setFont(font)
+        self.open_btn_ext.setFont(font5)
         self.open_btn_ext.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.open_btn_ext.setStyleSheet(u"QPushButton{\n"
                                         "	\n"
@@ -568,7 +568,7 @@ class Ui_Widget(object):
                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
                                     "")
 
-        self.spr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\logo_spr.png"))
+        self.spr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main/logo_spr.png"))
         self.spr_btn.setIconSize(QtCore.QSize(300, 300))
 
         self.horizontalLayout_4.addWidget(self.spr_btn)
@@ -601,7 +601,7 @@ class Ui_Widget(object):
                                     "\n"
                                     "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
                                     "")
-        self.lmr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\logo_lmr.png"))
+        self.lmr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main/logo_lmr.png"))
         self.lmr_btn.setIconSize(QtCore.QSize(300, 300))
 
         self.horizontalLayout_4.addWidget(self.lmr_btn)
@@ -638,7 +638,7 @@ class Ui_Widget(object):
                                         "\n"
                                         "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
     
-        self.lmr_spr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\logo_lmr_spr.png"))
+        self.lmr_spr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main/logo_lmr_spr.png"))
         self.lmr_spr_btn.setIconSize(QtCore.QSize(300, 300))
 
         self.horizontalLayout_4.addWidget(self.lmr_spr_btn)
@@ -1282,7 +1282,7 @@ class Ui_Widget(object):
                                                 "\n"
                                                 "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
                                                 "")
-        self.cladding_remove_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\cladding_removed.png"))
+        self.cladding_remove_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main/cladding_removed.png"))
         self.cladding_remove_btn.setIconSize(QtCore.QSize(330, 330))
         self.cladding_remove_btn.setCheckable(True)
         self.cladding_remove_btn.setAutoExclusive(True)
@@ -1494,7 +1494,7 @@ class Ui_Widget(object):
         self.ilustration.setMaximumSize(QtCore.QSize(450, 270))
         self.ilustration.setStyleSheet(u"border-radius:12px;\n"
 "background-color: rgb(255, 255, 255);")
-        self.ilustration.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\charact_fiber.png"))
+        self.ilustration.setIcon(QtGui.QIcon("Sim-LMR-Interface--main/charact_fiber.png"))
         self.ilustration.setIconSize(QtCore.QSize(380, 350))
 
         self.verticalLayout_5.addWidget(self.ilustration, 0, QtCore.Qt.AlignHCenter)
@@ -1922,7 +1922,12 @@ class Ui_Widget(object):
                                             "	background-color: rgb(00, 140, 70);\n"
                                             "	border-color: rgb(0, 120, 40);\n"
                                             "	width: 40;\n"
-                                            "	height: 35;\n}")
+                                            "	height: 35;\n}"
+                                            "QToolTip { "
+                                            "background-color: black; "
+                                            "color: white; "
+                                            "border: black solid 1px"
+                                            "}")
         
         self.coef_sellmeier_gb.setEnabled(False)
         self.gridLayout_4 = QtWidgets.QGridLayout(self.coef_sellmeier_gb)
@@ -2012,7 +2017,7 @@ class Ui_Widget(object):
         self.ilustration_eq.setMaximumSize(QtCore.QSize(360, 80))
         self.ilustration_eq.setStyleSheet(u"border-radius:12px;\n"
 "background-color: rgb(255, 255, 255);")
-        self.ilustration_eq.setIcon(QtGui.QIcon("Sim-LMR-Interface--main\eq_sellmeier.png"))
+        self.ilustration_eq.setIcon(QtGui.QIcon("Sim-LMR-Interface--main/eq_sellmeier.png"))
         self.ilustration_eq.setIconSize(QtCore.QSize(330, 120))
 
         self.gridLayout_4.addWidget(self.ilustration_eq, 0, 0, 1, 4, QtCore.Qt.AlignHCenter)
@@ -2035,6 +2040,10 @@ class Ui_Widget(object):
 
 
         self.verticalLayout_26.addWidget(self.frame_fiber_2)
+        self.verticalSpacer_9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+
+        self.verticalLayout_26.addItem(self.verticalSpacer_9)
+
 
         self.frame_next_previous_10 = QtWidgets.QFrame(self.characteristics_fiber)
         self.frame_next_previous_10.setObjectName(u"frame_next_previous_10")
@@ -2627,7 +2636,11 @@ class Ui_Widget(object):
                                       "    background-color: #FF17365D;\n"
                                       "    color: rgb(255, 255, 255);\n"
                                       "}\n"
-                                      "")
+                                      "QToolTip { "
+                                            "background-color: black; "
+                                            "color: white; "
+                                            "border: black solid 1px"
+                                            "}")
         self.gridLayout_7 = QtWidgets.QGridLayout(self.gb_analyte)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.gridLayout_7.setContentsMargins(25, 15, 25, 9)
@@ -3415,7 +3428,7 @@ class Ui_Widget(object):
         self.label_34.setObjectName(u"label_34")
         self.label_34.setMaximumSize(QtCore.QSize(430, 150))
         self.label_34.setStyleSheet(u"border:none;")
-        self.label_34.setPixmap(QtGui.QPixmap("Sim-LMR-Interface--main\layers.png"))
+        self.label_34.setPixmap(QtGui.QPixmap("Sim-LMR-Interface--main/layers.png"))
         self.label_34.setScaledContents(True)
 
         self.verticalLayout_13.addWidget(self.label_34, 0, QtCore.Qt.AlignHCenter)
@@ -4905,9 +4918,9 @@ class Ui_Widget(object):
         self.lmr_spr_btn.setText("")
         self.warning_3.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; font-size: 14pt; color:#ffffff;\"> - Select a Simulator - </span></pre></body></html>", None))
         self.prev_btn_sel.setText(_translate("Widget", u" Previous", None))
-        self.lmr_btn.setToolTip(_translate("Widget", u"Simulation considering the effect of Lossy Mode Resonance (LMR)", None))
-        self.spr_btn.setToolTip(_translate("Widget", u"Simulation considering the effect of Surface Plasmons Resonance (SPR)", None))
-        self.lmr_spr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p>{!} Feature under development {!} </p><p>Simulation considering the combined effects of LMR and SPR</p></body></html>", None))
+        self.lmr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p><span style=color:#ffffff;>Simulation considering the effect of Lossy Mode Resonance (LMR)</p></body></html>", None))
+        self.spr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p><span style=color:#ffffff;>Simulation considering the effect of Surface Plasmons Resonance (SPR)</p></body></html>", None))
+        self.lmr_spr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p><span style=color:#ffffff;>{!}_Feature under development_{!} </p><p><span style=color:#ffffff;>Simulation considering the combined effects of LMR and SPR</p></body></html>", None))
         self.btn_home.setText("")
         self.label_18.setText("")
         self.btn_coupling.setText(_translate(
