@@ -111,7 +111,7 @@ class MainWindow(QWidget, Ui_Widget):
             lambda: self.Stacked_windows.setCurrentWidget(self.layers_window))
         
         # return to 'Type of Fiber' page
-        self.fiber_type_2.clicked.connect(
+        self.btn_fiber_type_2.clicked.connect(
             lambda: self.Stacked_windows.setCurrentWidget(self.select_fiber_window))
 
         # 'Select simulator' page buttons
@@ -309,9 +309,9 @@ class MainWindow(QWidget, Ui_Widget):
                     warning.setText(QtCore.QCoreApplication.translate("Widget", "<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-weight:500; font-family:\'monospace\'; color:#B21222;\">- *! Select a valid option !* - </span></pre></body></html>"))
                 elif op == 1:   # AIM mode
                     self.Stacked_windows.setCurrentWidget(self.layers_window) 
-                    self.stacked_layers.setCurrentIndex(0)
-                    self.Stacked_config_mode.setCurrentIndex(2)
-                    self.btn_config_WIM_fiber.setText("Configure AIM mode")
+                    self.stacked_layers.setCurrentWidget(self.page_layers_aim)
+                    self.Stacked_config_mode.setCurrentWidget(self.page_AIM_config)
+                    self.btn_config_range.setText("Configure AIM mode")
                     self.textBrowser_2.setText("You have already selected PRISM coupling and ANGULAR INTERROGATION MODE."
                                     "\n\nTo continue your simulation:\n"
                                     "\n\t* Enter the operating wavelength in your simulation, in the 'Incident wavelength' field;"
@@ -324,9 +324,9 @@ class MainWindow(QWidget, Ui_Widget):
                                             "\nYou can choose which chart to view in the combobox below the chart area;")
                 else:           # WIM mode
                     self.Stacked_windows.setCurrentWidget(self.layers_window) 
-                    self.stacked_layers.setCurrentIndex(1)
-                    self.Stacked_config_mode.setCurrentIndex(1)
-                    self.btn_config_WIM_fiber.setText("Configure WIM mode")
+                    self.stacked_layers.setCurrentWidget(self.page_layers_wim)
+                    self.Stacked_config_mode.setCurrentWidget(self.page_WIM_config)
+                    self.btn_config_range.setText("Configure WIM mode")
                     self.textBrowser_2.setText("You have already selected PRISM coupling and WAVELENGTH INTERROGATION MODE."
                                     "\n\nTo continue your simulation:\n"
                                     "\n\t* Add at least 3 layers to build your sensor structure;"
@@ -366,7 +366,10 @@ class MainWindow(QWidget, Ui_Widget):
                 self.Stacked_windows.setCurrentWidget(self.coupling_window)   
                 
             case self.layers_window:
-                self.Stacked_windows.setCurrentWidget(self.interrogation_window)
+                if COUPLING == 1:
+                    self.Stacked_windows.setCurrentWidget(self.interrogation_window)
+                else:
+                    self.Stacked_windows.setCurrentWidget(self.characteristics_fiber)
             
             case self.select_fiber_window:
                 self.Stacked_windows.setCurrentWidget(self.coupling_window)
