@@ -152,6 +152,9 @@ class MainWindow(QWidget, Ui_Widget):
         self.lambda_i_slider.valueChanged.connect(lambda: self.change_spinbox(self.lambda_i, self.lambda_i_slider))   
         self.lambda_i.valueChanged.connect(lambda: self.change_slider(self.lambda_i, self.lambda_i_slider))
 
+        ## 'Characteristics of Fiber' page buttons
+        self.custom_btn.toggled.connect(self.enable_gb_coef_sellmeier)
+
         ## Enable insertion of new layers
         self.btn_new_layer.clicked.connect(self.set_Enable_True)
         self.btn_new_layer.clicked.connect(self.set_Enable_True_2)
@@ -290,6 +293,120 @@ class MainWindow(QWidget, Ui_Widget):
         global TYPE_FIBER
         TYPE_FIBER = 1
 
+    def enable_gb_coef_sellmeier(self):
+        if self.custom_btn.isChecked():
+            self.coef_sellmeier_gb.setToolTip("Fill in the coefficients")
+            self.coef_sellmeier_gb.setStyleSheet(u"/*{font: 14pt \"Ubuntu\";\n"
+                                                "color: rgb(255, 255, 255);\n"
+                                                "	background-color: rgba(255, 255, 255,20);\n"
+                                                "}*/\n"
+                                                "\n"
+                                                "QGroupBox  {\n"
+                                                "	background-color: rgba(255, 255, 255,70);\n"
+                                                "	font: 14pt \"Ubuntu\";\n"
+                                                "    border: 2px solid;\n"
+                                                "    border-color: #FF17365D;\n"
+                                                "    margin-top: 25px;\n"
+                                                "    border-bottom-left-radius: 20px;\n"
+                                                "	border-bottom-right-radius: 20px;\n"
+                                                "}\n"
+                                                "\n"
+                                                "QGroupBox::title  {\n"
+                                                "    subcontrol-origin: margin;\n"
+                                                "    subcontrol-position: top center;\n"
+                                                "    padding: 5px 8000px 5px 8000px;\n"
+                                                "    background-color: #FF17365D;\n"
+                                                "    color: rgb(255, 255, 255);\n"
+                                                "}\n"
+                                            "QLineEdit{\n"
+                                                "padding: 1px 18px 1px 3px;\n"
+                                                "color: rgb(10, 25, 90);\n"
+                                                "font: 700 12pt \"Ubuntu\";\n"
+                                                " border: 2px solid;\n"
+                                                "border-color: #FF17365D;\n"
+                                                "background-color: rgba(255, 255, 255,210);\n"
+                                                "border-radius:8px;\n"
+                                            "}"
+                                                "QToolTip { "
+                                                "background-color: black; "
+                                                "color: white; "
+                                                "border: black solid 1px"
+                                                "}")
+            
+            self.coef_sellmeier_gb.setEnabled(True)
+
+            self.btn_add_coef.setStyleSheet(u"QPushButton{\n"
+                                            "	font: 400 11pt \"Ubuntu\";\n"
+                                            "	color: rgb(255, 255,255);\n"
+                                            "	background-color: rgb(0, 130, 180);\n"
+                                            "	border-color: rgb(0, 100, 130);\n"
+                                            "	border-width: 2px;\n"
+                                            "	border-radius:8px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover{\n"
+                                            "	background-color: rgb(00, 140, 70);\n"
+                                            "	border-color: rgb(0, 120, 40);\n"
+                                            "	width: 40;\n"
+                                            "	height: 35;\n"
+                                            "}")
+        else:
+            self.coef_sellmeier_gb.setToolTip("Click in 'Custom' radio button to enable")
+            self.coef_sellmeier_gb.setStyleSheet(u"/*{font: 14pt \"Ubuntu\";\n"
+                                            "color: rgb(255, 255, 255);\n"
+                                            "	background-color: rgba(255, 255, 255,20);\n"
+                                            "}*/\n"
+                                            "\n"
+                                            "QGroupBox  {\n"
+                                            "	background-color: rgba(255, 255, 255,70);\n"
+                                            "	font: 14pt \"Ubuntu\";\n"
+                                            "    border: 2px solid;\n"
+                                            "    border-color: #606060;\n"
+                                            "    margin-top: 25px;\n"
+                                            "    border-bottom-left-radius: 20px;\n"
+                                            "	border-bottom-right-radius: 20px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QGroupBox::title  {\n"
+                                            "    subcontrol-origin: margin;\n"
+                                            "    subcontrol-position: top center;\n"
+                                            "    padding: 5px 8000px 5px 8000px;\n"
+                                            "    background-color: #606060;\n"
+                                            "    color: rgb(255, 255, 255);\n"
+                                            "}\n"
+                                            "\n"
+                                            "QLineEdit{\n"
+                                            "padding: 1px 18px 1px 3px;\n"
+                                            "color: rgb(10, 25, 90);\n"
+                                            "font: 700 12pt \"Ubuntu\";\n"
+                                            " border: 2px solid;\n"
+                                            "border-color: #606060;\n"
+                                            "background-color: rgba(255, 255, 255,210);\n"
+                                            "border-radius:8px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton{\n"
+                                            "	font: 400 11pt \"Ubuntu\";\n"
+                                            "	color: rgb(255, 255,255);\n"
+                                            "	background-color: #606060;\n"
+                                            "	border-color: rgb(0, 100, 130);\n"
+                                            "	border-width: 2px;\n"
+                                            "	borde"
+                                                                    "r-radius:8px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover{\n"
+                                            "	background-color: rgb(00, 140, 70);\n"
+                                            "	border-color: rgb(0, 120, 40);\n"
+                                            "	width: 40;\n"
+                                            "	height: 35;\n}"
+                                            "QToolTip { "
+                                            "background-color: black; "
+                                            "color: white; "
+                                            "border: black solid 1px"
+                                            "}")
+        
+            self.coef_sellmeier_gb.setEnabled(False)
 
     def next_page(self, op, warning):
         match self.Stacked_windows.currentWidget():

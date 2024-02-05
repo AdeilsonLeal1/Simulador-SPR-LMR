@@ -131,7 +131,7 @@ class Ui_Widget(object):
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
         icon5 = QtGui.QIcon(QtGui.QIcon.fromTheme(u"document-open"))
-        icon5.addPixmap(QtGui.QPixmap("Sim-LMR-Interface--main\icons\icons8-opened-folder-30 (1).png"),
+        icon5.addPixmap(QtGui.QPixmap("Sim-LMR-Interface--main/icons/icons8-opened-folder-30 (1).png"),
                          QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
         icon6 = QtGui.QIcon()
@@ -167,11 +167,11 @@ class Ui_Widget(object):
                         QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
         icon14 = QtGui.QIcon()
-        icon14.addFile(u"icons\icons8-reload-96.png", QtCore.QSize(), 
+        icon14.addFile(u"icons/icons8-reload-96.png", QtCore.QSize(), 
                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
         icon15 = QtGui.QIcon()
-        icon15.addFile(u"Sim-LMR-Interface--main\icons\sine-waves-analysis.png", QtCore.QSize(), 
+        icon15.addFile(u"Sim-LMR-Interface--main/icons/sine-waves-analysis.png", QtCore.QSize(), 
                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
 
         Widget.setObjectName("Widget")
@@ -1808,11 +1808,10 @@ class Ui_Widget(object):
         self.gridLayout_8.addWidget(self.custom_btn, 2, 0, 1, 1)
 
         self.cbox_core_material = QtWidgets.QComboBox(self.gb_core_material)
-        self.cbox_core_material.addItem("")
-        self.cbox_core_material.addItem("")
-        self.cbox_core_material.addItem("")
-        self.cbox_core_material.addItem("")
-        self.cbox_core_material.addItem("")
+        self.cbox_core_material.addItem("Silic")
+        self.cbox_core_material.addItem("PMMA")
+        self.cbox_core_material.addItem("CaF2")
+        self.cbox_core_material.addItem("Fiber", ["Silic", "PMAA","CaF2" ])
         self.cbox_core_material.setObjectName(u"cbox_core_material")
         self.cbox_core_material.setMinimumSize(QtCore.QSize(170, 0))
         self.cbox_core_material.setStyleSheet(u"QComboBox::drop-down {\n"
@@ -1837,7 +1836,9 @@ class Ui_Widget(object):
 "QComboBox::down-arrow { /* shift the arrow when popup is open */\n"
 "    top: 1px;\n"
 "	image: url(:/icons/icons/arrow-down.png);\n"
-"    left: 1px;\n"
+"    left: 1px;}\n"
+"QRadioButton::indicator {font: 700 12pt \"Ubuntu\";\n"
+"color: rgb(255, 255, 255);\n"
 "}")
 
         self.gridLayout_8.addWidget(self.cbox_core_material, 0, 1, 1, 1)
@@ -2472,7 +2473,7 @@ class Ui_Widget(object):
 
         self.cbox_material = QtWidgets.QComboBox(self.gb_layers)
         self.cbox_material.addItem("BK7")
-        self.cbox_material.addItem("Silica")
+        self.cbox_material.addItem("Silic")
         self.cbox_material.addItem("N-F2")
         self.cbox_material.addItem("Synthetic sapphire(Al2O3)")
         self.cbox_material.addItem("SF10")
@@ -3461,7 +3462,7 @@ class Ui_Widget(object):
             QtWidgets.QAbstractItemView.ScrollPerPixel)
         self.tableWidget_layers.setWordWrap(True)
         self.tableWidget_layers.setObjectName("tableWidget_layers")
-        self.tableWidget_layers.setColumnCount(4)
+        self.tableWidget_layers.setColumnCount(3)
        
 
         item = QtWidgets.QTableWidgetItem()
@@ -3470,9 +3471,8 @@ class Ui_Widget(object):
         self.tableWidget_layers.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_layers.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_layers.setHorizontalHeaderItem(3, item)
         self.tableWidget_layers.horizontalHeader().setStretchLastSection(False)
+        self.tableWidget_layers.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
        
         self.verticalLayout_56.addWidget(
             self.tableWidget_layers, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
@@ -4975,11 +4975,6 @@ class Ui_Widget(object):
         self.gb_core_material.setTitle(_translate("Widget", u"Core Material", None))
         self.label_28.setText(_translate("Widget", u"<html><head/><body><p><span style=\" color:#ffffff;\">Material:</span></p></body></html>", None))
         self.custom_btn.setText(_translate("Widget", u"Custom", None))
-        self.cbox_core_material.setItemText(0, _translate("Widget", u"a", None))
-        self.cbox_core_material.setItemText(1, _translate("Widget", u"b", None))
-        self.cbox_core_material.setItemText(2, _translate("Widget", u"c", None))
-        self.cbox_core_material.setItemText(3, _translate("Widget", u"d", None))
-        self.cbox_core_material.setItemText(4, _translate("Widget", u"e", None))
 
         self.btn_add_mat_core.setText(_translate("Widget", u"Add", None))
         self.coef_sellmeier_gb.setTitle(_translate("Widget", u"Coefficients for the Sellmeier's Equation", None))
@@ -5083,15 +5078,13 @@ class Ui_Widget(object):
         self.title_instructions.setText(_translate(
             "Widget", u"<html><head/><body><p><span style=\" font-family:'inherit';\">Instructions</span></p></body></html>", None))
         self.label_34.setText("")
-        ___qtablewidgetitem = self.tableWidget_layers.horizontalHeaderItem(3)
+        ___qtablewidgetitem = self.tableWidget_layers.horizontalHeaderItem(2)
         ___qtablewidgetitem.setText(_translate("Widget", u"Description", None))
         ___qtablewidgetitem1 = self.tableWidget_layers.horizontalHeaderItem(0)
         ___qtablewidgetitem1.setText(_translate("Widget", u"Material", None))
         ___qtablewidgetitem2 = self.tableWidget_layers.horizontalHeaderItem(1)
         ___qtablewidgetitem2.setText(_translate("Widget", u"Thickness (nm)", None))
-        ___qtablewidgetitem3 = self.tableWidget_layers.horizontalHeaderItem(2)
-        ___qtablewidgetitem3.setText(
-            _translate("Widget", u"Refract. Index", None))
+
             
         self.btn_edit_layers.setText(
             _translate("Widget", u"Edit layer", None))
