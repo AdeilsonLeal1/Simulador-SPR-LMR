@@ -39,6 +39,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.final = 0
 
         self.fom = list()   # Lists with the QF 
+        self.da = list()   # Lists with the DA 
 
         ## Window initialization parameters
         super(MainWindow,self).__init__()
@@ -2427,6 +2428,7 @@ class MainWindow(QWidget, Ui_Widget):
         self.Rmin = []  
         self.Fwhm = []
         self.fom = []
+        self.da = []
         self.textBrowser.setText("Calculating...")
 
         polarization = "TM" if self.TM_polarization.isChecked() else "TE"
@@ -2503,6 +2505,7 @@ class MainWindow(QWidget, Ui_Widget):
 
         for s in range(len(self.index_ref_analyte)):
             self.fom.append(round(abs(self.sensibility[s] / self.Fwhm[s]), 6))
+            self.da.append(1/self.Fwhm[s])
 
     def sensibility_graph(self, index_analyte):
         # Sensibility obtained from the graph
@@ -2590,6 +2593,7 @@ class MainWindow(QWidget, Ui_Widget):
 
         for s in range(len(self.index_ref_analyte)):
             self.fom.append(abs(self.sensibility[s] / self.Fwhm[s]))
+            self.da.append(1/self.Fwhm[s])
     
     def Reflectance(self, index, theta_i, wavelenght, pol):
         """ The numerical model is based on the attenuated total reflection method combined with the transfer matrix
@@ -2774,6 +2778,7 @@ class MainWindow(QWidget, Ui_Widget):
                                 f"P-Polarization ({pol})\n\n"
                                 f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point}\n"
                                 f"FWHM ({self.simbols[2]}): {self.Fwhm} \n"
+                                f"DA: {self.da} \n"
                                 f"Sensibility ({self.simbols[2]}/RIU): {self.sensibility}\n"
                                 f"Quality Factor: {self.fom}\n")
                    
