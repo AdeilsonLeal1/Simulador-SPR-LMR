@@ -2775,7 +2775,7 @@ class MainWindow(QWidget, Ui_Widget):
                 self.canvas_.draw()
         
         self.textBrowser.setText(f"Runtime: {round(self.final - self.init, 6)} s\n"
-                                f"P-Polarization ({pol})\n\n"
+                                f"{pol} Polarization\n\n"
                                 f"Resonance {self.simbols[0]} ({self.simbols[2]}): {self.Resonance_Point}\n"
                                 f"FWHM ({self.simbols[2]}): {self.Fwhm} \n"
                                 f"DA: {self.da} \n"
@@ -2810,10 +2810,15 @@ class MainWindow(QWidget, Ui_Widget):
         y_med_right = (y_mx_right + y_mn_right)/2
 
         #y_med = (y_med_left + y_med_right)/2
-        y_med = (1+min(reflect_right_critical_point))/2    
+        #y_med = (1+min(reflect_right_critical_point))/2    
         #y_med = (max(reflect_right_critical_point) + min(reflect_right_critical_point))/2 
         #y_med = max(reflect_right_critical_point)/2
         
+        if (y_mx_left>y_mx_right):
+            y_med = y_med_left
+        else:
+            y_med = y_med_right
+
         try:
             signs = sign(add(y, -y_med ))
 

@@ -550,23 +550,23 @@ class Ui_Widget(object):
         self.spr_btn.setMinimumSize(QtCore.QSize(300, 300))
         self.spr_btn.setMaximumSize(QtCore.QSize(350, 350))
         self.spr_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.spr_btn.setEnabled(False)
         self.spr_btn.setStyleSheet(u"QPushButton{\n"
-                                    "\n"
-                                    "	background-color: rgb(255, 255, 255);\n"
-                                    "border-color: rgb(31, 78, 121);\n"
-                                    "border-radius: 30px;\n"
-                                    "border-style: outset;\n"
-                                    "border-width: 5px;\n"
-                                    "}\n"
-                                    "\n"
-                                    "QPushButton:hover{\n"
-                                    "	\n"
-                                    "	border-color: rgb(255, 170, 0);\n"
-                                    "\n"
-                                    "}\n"
-                                    "\n"
-                                    "QPushButton:checked{ border-color: rgb(0, 170, 0);}\n"
-                                    "")
+                                        "\n"
+                                        "	background-color: rgb(255, 255, 255);\n"
+                                        "border-color: #606060;\n"
+                                        "border-radius: 30px;\n"
+                                        "border-style: outset;\n"
+                                        "border-width: 5px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover{\n"
+                                        "	\n"
+                                        "	border-color: rgb(255, 170, 0);\n"
+                                        "\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:checked{ border-color: rgb(0, 170, 0);}")
 
         self.spr_btn.setIcon(QtGui.QIcon("Sim-LMR-Interface--main/logo_spr.png"))
         self.spr_btn.setIconSize(QtCore.QSize(300, 300))
@@ -4919,7 +4919,7 @@ class Ui_Widget(object):
         self.warning_3.setText(_translate("Widget", u"<html><head/><body><pre align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"tw-target-text-container\"/><span style=\" font-family:'monospace'; font-size: 14pt; color:#ffffff;\"> - Select a Simulator - </span></pre></body></html>", None))
         self.prev_btn_sel.setText(_translate("Widget", u" Previous", None))
         self.lmr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p><span style=color:#ffffff;>Simulation considering the effect of Lossy Mode Resonance (LMR)</p></body></html>", None))
-        self.spr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p><span style=color:#ffffff;>Simulation considering the effect of Surface Plasmons Resonance (SPR)</p></body></html>", None))
+        self.spr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p><span style=color:#ffffff;>{!}_Feature under development_{!} </p><p><span style=color:#ffffff;>Simulation considering the effect of Surface Plasmons Resonance (SPR)</p></body></html>", None))
         self.lmr_spr_btn.setToolTip(_translate("Widget", u"<html><head/><body><p><span style=color:#ffffff;>{!}_Feature under development_{!} </p><p><span style=color:#ffffff;>Simulation considering the combined effects of LMR and SPR</p></body></html>", None))
         self.btn_home.setText("")
         self.label_18.setText("")
